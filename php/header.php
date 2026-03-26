@@ -14,6 +14,24 @@
     <!-- CSS -->
     <link href="../css/header.css" rel="stylesheet">
 
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css?family=Source+Serif+Pro:400,600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="fonts/icomoon/style.css">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    
+    <!-- Style CSS -->
+    <link rel="stylesheet" href="../css/footer.css">
+
+    <!-- bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" ...>
+
+
 </head>
 <body class="font-['Space_Grotesk'] overflow-x-hidden bg-black text-white">
 
@@ -86,7 +104,3 @@
 
         </div>
     </nav>
-
-</body>
-<script src="../js/header.js"></script>
-</html>
