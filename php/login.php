@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Log in</title>
     <link rel="icon" type="image/x-icon" href="../images/logo2-pabg.png">
-    <link rel="stylesheet" href="../css/login.css">
+    <link rel="stylesheet" href="../css/loginp.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
          body {
@@ -56,7 +56,7 @@
                 </div>
 
                 <button class="login-btn">
-                    <span class="bg-gradient-to-r from-cyan-300 to-indigo-300 bg-clip-text ">Login</span>
+                    <span>Login</span>
                 </button>
             </form>
         </div>
