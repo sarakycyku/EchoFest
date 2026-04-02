@@ -1,11 +1,9 @@
-/* RESET */
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
-/* BODY */
 body {
     font-family: Arial, sans-serif;
     background: #111 url('../images/bg.png') center/cover no-repeat;
@@ -19,7 +17,6 @@ body {
     overflow: hidden;
 }
 
-/* MOBILE BG FIX */
 @media (max-width: 768px) {
     body {
         background-size: cover;
@@ -27,33 +24,29 @@ body {
     }
 }
 
-/* CONTAINER */
 .login-container {
     width: 100%;
-    max-width: 450px; /* MA WIDE */
+    max-width: 450px;
     position: relative;
     z-index: 1;
 }
 
-/* CARD */
 .future-card {
     background: rgba(255,255,255,0.05);
     backdrop-filter: blur(20px);
     border: 2px solid white;
     border-radius: 24px;
-    padding: 30px 40px 40px; /* ma pak space nalt */
+    padding: 30px 40px 40px; 
     box-shadow: 0 25px 50px rgba(0,0,0,0.3);
     position: relative;
     overflow: hidden;
 }
 
-/* HEADER */
 .chrome-header {
     text-align: center;
     margin-bottom: 30px;
 }
 
-/* LOGO */
 .retro-logo {
     display: flex;
     justify-content: center;
@@ -74,7 +67,6 @@ body {
     height: auto;
 }
 
-/* TITLE */
 .y2k-title {
     font-size: 2rem;
     font-weight: 900;
@@ -93,12 +85,10 @@ body {
     text-shadow: 0 0 5px #0ff, 0 0 10px #f0f, 0 0 20px #ff0;
 }
 
-/* FORM */
 .future-form {
     width: 100%;
 }
 
-/* INPUT ROW (2 per row nëse don me përdor ma vonë) */
 .input-row {
     display: flex;
     gap: 15px;
@@ -108,7 +98,6 @@ body {
     flex: 1;
 }
 
-/* FIELDS */
 .retro-field {
     position: relative;
     margin-bottom: 20px;
@@ -122,7 +111,6 @@ body {
     transition: 0.3s;
 }
 
-/* INPUT */
 .retro-field input {
     width: 100%;
     background: transparent;
@@ -133,7 +121,6 @@ body {
     outline: none;
 }
 
-/* LABEL (floating fix) */
 .retro-field label {
     position: absolute;
     left: 16px;
@@ -145,7 +132,6 @@ body {
     transition: 0.25s ease;
 }
 
-/* FLOAT EFFECT */
 .retro-field input:focus + label,
 .retro-field input:not(:placeholder-shown) + label {
     top: 8px;
@@ -153,7 +139,6 @@ body {
     color: #fff;
 }
 
-/* LINE EFFECT */
 .field-hologram {
     position: absolute;
     bottom: 0;
@@ -169,7 +154,6 @@ body {
 }
 
 
-/* BUTTON */
 .login-btn {
     width: 100%;
     height: 55px;
@@ -190,18 +174,15 @@ body {
     transition: 0.3s;
 }
 
-/* HOVER */
 .login-btn:hover {
     transform: scale(1.03);
     opacity: 0.95;
 }
 
-/* ACTIVE */
 .login-btn:active {
     transform: scale(0.98);
 }
 
-/* RESPONSIVE BUTTON */
 @media (max-width: 480px) {
     .login-btn {
         height: 50px;
@@ -209,13 +190,74 @@ body {
     }
 }
 
-/* SUCCESS */
 .retro-success {
     display: none;
     text-align: center;
 }
 
-/* EXTRA SMALL */
+.signup-option {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 14px;
+    color: rgba(255,255,255,0.7);
+}
+
+.signup-option a {
+    color: #fff;
+    font-weight: bold;
+    text-decoration: none;
+    position: relative;
+    transition: 0.3s;
+}
+
+.signup-option a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    width: 0%;
+    height: 2px;
+    /* background: white; */
+    transition: 0.3s;
+}
+.signup-option a:hover::after {
+    width: 100%;
+}
+.signup-option a:hover {
+    text-shadow: 
+        0 0 5px #0ff,
+        0 0 10px #f0f,
+        0 0 15px #ff0;
+}
+.legal-links a {
+    color: rgba(255,255,255,0.7);
+    text-decoration: none;
+    position: relative;
+    transition: color 0.3s ease;
+
+    text-shadow: none !important; 
+}
+.legal-links a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 100%;
+    height: 1px;
+    background: rgba(255,255,255,0.6);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+}
+
+.legal-links a:hover {
+    color: #fff;
+}
+
+.legal-links a:hover::after {
+    transform: scaleX(1);
+}
+
 @media (max-width: 400px) {
     .future-card {
         padding: 20px;

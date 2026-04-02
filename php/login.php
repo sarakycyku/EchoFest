@@ -29,8 +29,8 @@
                     </div>
                 </div>
                 <h1 class="y2k-title">
-                    <span class="title-chrome">ECHO</span>
-                    <span class="title-neon">FEST</span>
+                    <span class="title-chrome">LOG</span>
+                    <span class="title-neon">IN</span>
                 </h1>
             </div>
             
@@ -52,12 +52,21 @@
                         <label for="password">Password</label>
                         <div class="field-hologram"></div>
                     </div>
-                    <span class="retro-error" id="passwordError"></span>
                 </div>
 
                 <button class="login-btn">
                     <span>Login</span>
                 </button>
+                <div class="signup-option">
+    <p>
+        Don't have an account?
+        <a href="signup.php">Sign up</a>
+    </p>
+    <div class="legal-links">
+    <a href="#">Terms</a> • 
+    <a href="#">Privacy</a>
+</div>
+</div>
             </form>
         </div>
     </div>

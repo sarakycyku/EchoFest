@@ -12,7 +12,7 @@
 <style>
 body {
     background: #111 url('../images/bg.png') center/cover no-repeat;
-    /* overflow:scroll; */
+    overflow-y:scroll; 
 }
 </style>
 </head>
@@ -114,14 +114,22 @@ body {
                     </div>
                 </div>
             </div>
-
+              <p class="legal-links">
+                By signing up you agree to our 
+                <a href="#">Terms & Conditions</a> and 
+                <a href="#">Privacy Policy</a>
+            </p>
             <!-- BUTTON -->
             <button class="login-btn mt-4">
                 <span class="bg-gradient-to-r from-indigo-200 to-cyan-200 bg-clip-text ">
                     Create Account
                 </span>
             </button>
-
+            
+  <!-- Link to Login -->
+            <p class="switch-form">
+                Already have an account? <a href="login.php" class="future-link">Login</a>
+            </p>
         </form>
 
     </div>
