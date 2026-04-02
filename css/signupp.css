@@ -1,0 +1,288 @@
+/* RESET */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* BODY */
+body {
+    font-family: Arial, sans-serif;
+    background: #111 url('../images/bg.png') center/cover no-repeat;
+    background-attachment: fixed;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    color: #fff;
+    overflow: hidden;
+}
+
+/* MOBILE BG FIX */
+@media (max-width: 768px) {
+    body {
+        background-size: cover;
+        background-position: center top;
+    }
+}
+
+/* CONTAINER */
+.login-container {
+    width: 100%;
+    max-width: 600px; /* MA WIDE */
+    position: relative;
+    z-index: 1;
+}
+
+/* CARD */
+.future-card {
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(20px);
+    border: 2px solid white;
+    border-radius: 24px;
+    padding: 30px 40px 40px; /* ma pak space nalt */
+    box-shadow: 0 25px 50px rgba(0,0,0,0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+/* HEADER */
+.chrome-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* LOGO */
+.retro-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.logo-chrome {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo-chrome img {
+    display: block;
+    margin: 0;
+    max-width: 120px;
+    height: auto;
+}
+
+/* TITLE */
+.y2k-title {
+    font-size: 2rem;
+    font-weight: 900;
+    margin-top: 0;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+}
+/* GRID for 2 inputs per row */
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+.title-chrome,
+.title-neon {
+    color: #fff;
+   text-shadow: 0 0 5px #0ff, 0 0 10px #f0f, 0 0 20px #ff0;
+}
+
+/* FORM */
+.future-form {
+    width: 100%;
+}
+
+/* INPUT ROW (2 per row nëse don me përdor ma vonë) */
+.input-row {
+    display: flex;
+    gap: 15px;
+}
+
+.input-row .retro-field {
+    flex: 1;
+}
+
+/* FIELDS */
+.retro-field {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.field-chrome {
+    position: relative;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 12px;
+    transition: 0.3s;
+}
+
+/* INPUT */
+.retro-field input {
+    width: 100%;
+    background: transparent;
+    border: none;
+    padding: 16px;
+    color: #fff;
+    font-size: 14px;
+    outline: none;
+}
+
+/* LABEL (floating fix) */
+.retro-field label {
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: rgba(255,255,255,0.5);
+    font-size: 13px;
+    pointer-events: none;
+    transition: 0.25s ease;
+}
+
+/* FLOAT EFFECT */
+.retro-field input:focus + label,
+.retro-field input:not(:placeholder-shown) + label {
+    top: 8px;
+    font-size: 10px;
+    color: #fff;
+}
+
+/* LINE EFFECT */
+.field-hologram {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: white;
+    transition: 0.3s;
+}
+
+.field-chrome:focus-within .field-hologram {
+    width: 100%;
+}
+
+/* ERROR */
+.retro-error {
+    color: #ff4444;
+    font-size: 11px;
+    margin-top: 4px;
+}
+
+/* BUTTON */
+.login-btn {
+    width: 100%;
+    height: 55px;
+    margin-top: 10px;
+    border-radius: 12px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+
+    background: linear-gradient(to right, #4f46e5, #9333ea);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition: 0.3s;
+}
+
+/* HOVER */
+.login-btn:hover {
+    transform: scale(1.03);
+    opacity: 0.95;
+}
+
+/* ACTIVE */
+.login-btn:active {
+    transform: scale(0.98);
+}
+
+/* RESPONSIVE BUTTON */
+@media (max-width: 480px) {
+    .login-btn {
+        height: 50px;
+        font-size: 14px;
+    }
+}
+
+/* SUCCESS */
+.retro-success {
+    display: none;
+    text-align: center;
+}
+
+/* EXTRA SMALL */
+@media (max-width: 400px) {
+    .future-card {
+        padding: 20px;
+    }
+
+    .y2k-title {
+        font-size: 1.5rem;
+    }
+}
+.switch-form {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 14px;
+    color: rgba(255,255,255,0.7);
+}
+
+.switch-form a {
+   color: #fff;
+    font-weight: bold;
+    text-decoration: none;
+    position: relative;
+    transition: 0.3s;
+}
+
+.switch-form a:hover {
+    text-shadow: 
+        0 0 5px #0ff,
+        0 0 10px #f0f,
+        0 0 15px #ff0;
+}
+.legal-links a {
+    color: rgba(255,255,255,0.7);
+    text-decoration: none;
+    position: relative;
+    transition: color 0.3s ease;
+
+    text-shadow: none !important; 
+}
+.legal-links a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 100%;
+    height: 1px;
+    background: rgba(255,255,255,0.6);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+}
+
+.legal-links a:hover {
+    color: #fff;
+}
+
+.legal-links a:hover::after {
+    transform: scaleX(1);
+}

@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Log in</title>
     <link rel="icon" type="image/x-icon" href="../images/logo2-pabg.png">
-    <link rel="stylesheet" href="../css/login.css">
+    <link rel="stylesheet" href="../css/loginp.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
          body {
@@ -29,8 +29,8 @@
                     </div>
                 </div>
                 <h1 class="y2k-title">
-                    <span class="title-chrome">ECHO</span>
-                    <span class="title-neon">FEST</span>
+                    <span class="title-chrome">LOG</span>
+                    <span class="title-neon">IN</span>
                 </h1>
             </div>
             
@@ -52,12 +52,21 @@
                         <label for="password">Password</label>
                         <div class="field-hologram"></div>
                     </div>
-                    <span class="retro-error" id="passwordError"></span>
                 </div>
 
                 <button class="login-btn">
-                    <span class="bg-gradient-to-r from-cyan-300 to-indigo-300 bg-clip-text ">Login</span>
+                    <span>Login</span>
                 </button>
+                <div class="signup-option">
+    <p>
+        Don't have an account?
+        <a href="signup.php">Sign up</a>
+    </p>
+    <div class="legal-links">
+    <a href="#">Terms</a> • 
+    <a href="#">Privacy</a>
+</div>
+</div>
             </form>
         </div>
     </div>
