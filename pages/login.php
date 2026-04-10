@@ -54,17 +54,16 @@
                     </div>
                 </div>
 
-                <button class="login-btn">
-                    <span>Login</span>
-                </button>
+                <a href="login.html" class="login-btn px-6 py-2.5 bg-gradient-to-r from-indigo-900 to-purple-900 rounded-lg text-white text-sm hover:shadow-lg transition">
+                Login </a>
                 <div class="signup-option">
-    <p>
-        Don't have an account?
-        <a href="signup.php">Sign up</a>
-    </p>
-    <div class="legal-links">
-    <a href="#">Terms</a> • 
-    <a href="#">Privacy</a>
+                <p>
+                    Don't have an account?
+                    <a href="signup.php">Sign up</a>
+                </p>
+                <div class="legal-links">
+                <a href="#">Terms</a> • 
+                <a href="#">Privacy</a>
 </div>
 </div>
             </form>

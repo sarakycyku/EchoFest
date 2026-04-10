@@ -204,14 +204,11 @@ body {
 
 /* HOVER */
 .login-btn:hover {
-    transform: scale(1.03);
+    /* transform: scale(1.03); */
     opacity: 0.95;
 }
 
-/* ACTIVE */
-.login-btn:active {
-    transform: scale(0.98);
-}
+
 
 /* RESPONSIVE BUTTON */
 @media (max-width: 480px) {

@@ -1,3 +1,4 @@
+<?php?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -120,11 +121,9 @@ body {
                 <a href="#">Privacy Policy</a>
             </p>
             <!-- BUTTON -->
-            <button class="login-btn mt-4">
-                <span class="bg-gradient-to-r from-indigo-200 to-cyan-200 bg-clip-text ">
-                    Create Account
-                </span>
-            </button>
+            <button class="login-btn w-full py-2 rounded bg-gradient-to-r from-cyan-500 to-indigo-600  transition">
+    Create Account
+  </button>
             
   <!-- Link to Login -->
             <p class="switch-form">
