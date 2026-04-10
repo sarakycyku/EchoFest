@@ -1,11 +1,9 @@
-/* RESET */
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
-/* BODY */
 body {
     font-family: Arial, sans-serif;
     background: #111 url('../images/bg.png') center/cover no-repeat;
@@ -19,7 +17,6 @@ body {
     overflow: hidden;
 }
 
-/* MOBILE BG FIX */
 @media (max-width: 768px) {
     body {
         background-size: cover;
@@ -27,33 +24,29 @@ body {
     }
 }
 
-/* CONTAINER */
 .login-container {
     width: 100%;
-    max-width: 600px; /* MA WIDE */
+    max-width: 450px;
     position: relative;
     z-index: 1;
 }
 
-/* CARD */
 .future-card {
     background: rgba(255,255,255,0.05);
     backdrop-filter: blur(20px);
     border: 2px solid white;
     border-radius: 24px;
-    padding: 30px 40px 40px; /* ma pak space nalt */
+    padding: 30px 40px 40px; 
     box-shadow: 0 25px 50px rgba(0,0,0,0.3);
     position: relative;
     overflow: hidden;
 }
 
-/* HEADER */
 .chrome-header {
     text-align: center;
     margin-bottom: 30px;
 }
 
-/* LOGO */
 .retro-logo {
     display: flex;
     justify-content: center;
@@ -74,7 +67,6 @@ body {
     height: auto;
 }
 
-/* TITLE */
 .y2k-title {
     font-size: 2rem;
     font-weight: 900;
@@ -86,25 +78,17 @@ body {
     justify-content: center;
     gap: 8px;
 }
-/* GRID for 2 inputs per row */
-.form-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
-}
 
 .title-chrome,
 .title-neon {
     color: #fff;
-   text-shadow: 0 0 5px #0ff, 0 0 10px #f0f, 0 0 20px #ff0;
+    text-shadow: 0 0 5px #0ff, 0 0 10px #f0f, 0 0 20px #ff0;
 }
 
-/* FORM */
 .future-form {
     width: 100%;
 }
 
-/* INPUT ROW (2 per row nëse don me përdor ma vonë) */
 .input-row {
     display: flex;
     gap: 15px;
@@ -114,7 +98,6 @@ body {
     flex: 1;
 }
 
-/* FIELDS */
 .retro-field {
     position: relative;
     margin-bottom: 20px;
@@ -128,7 +111,6 @@ body {
     transition: 0.3s;
 }
 
-/* INPUT */
 .retro-field input {
     width: 100%;
     background: transparent;
@@ -139,7 +121,6 @@ body {
     outline: none;
 }
 
-/* LABEL (floating fix) */
 .retro-field label {
     position: absolute;
     left: 16px;
@@ -151,7 +132,6 @@ body {
     transition: 0.25s ease;
 }
 
-/* FLOAT EFFECT */
 .retro-field input:focus + label,
 .retro-field input:not(:placeholder-shown) + label {
     top: 8px;
@@ -159,7 +139,6 @@ body {
     color: #fff;
 }
 
-/* LINE EFFECT */
 .field-hologram {
     position: absolute;
     bottom: 0;
@@ -174,14 +153,7 @@ body {
     width: 100%;
 }
 
-/* ERROR */
-.retro-error {
-    color: #ff4444;
-    font-size: 11px;
-    margin-top: 4px;
-}
 
-/* BUTTON */
 .login-btn {
     width: 100%;
     height: 55px;
@@ -193,7 +165,7 @@ body {
     font-weight: bold;
     color: white;
 
-    background: linear-gradient(to right, #4f46e5, #9333ea);
+    /* background: linear-gradient(to right, #4f46e5, #9333ea); */
 
     display: flex;
     align-items: center;
@@ -202,18 +174,15 @@ body {
     transition: 0.3s;
 }
 
-/* HOVER */
 .login-btn:hover {
     transform: scale(1.03);
     opacity: 0.95;
 }
 
-/* ACTIVE */
 .login-btn:active {
     transform: scale(0.98);
 }
 
-/* RESPONSIVE BUTTON */
 @media (max-width: 480px) {
     .login-btn {
         height: 50px;
@@ -221,38 +190,40 @@ body {
     }
 }
 
-/* SUCCESS */
 .retro-success {
     display: none;
     text-align: center;
 }
 
-/* EXTRA SMALL */
-@media (max-width: 400px) {
-    .future-card {
-        padding: 20px;
-    }
-
-    .y2k-title {
-        font-size: 1.5rem;
-    }
-}
-.switch-form {
+.signup-option {
     margin-top: 20px;
     text-align: center;
     font-size: 14px;
     color: rgba(255,255,255,0.7);
 }
 
-.switch-form a {
-   color: #fff;
+.signup-option a {
+    color: #fff;
     font-weight: bold;
     text-decoration: none;
     position: relative;
     transition: 0.3s;
 }
 
-.switch-form a:hover {
+.signup-option a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    width: 0%;
+    height: 2px;
+    /* background: white; */
+    transition: 0.3s;
+}
+.signup-option a:hover::after {
+    width: 100%;
+}
+.signup-option a:hover {
     text-shadow: 
         0 0 5px #0ff,
         0 0 10px #f0f,
@@ -285,4 +256,14 @@ body {
 
 .legal-links a:hover::after {
     transform: scaleX(1);
+}
+
+@media (max-width: 400px) {
+    .future-card {
+        padding: 20px;
+    }
+
+    .y2k-title {
+        font-size: 1.5rem;
+    }
 }

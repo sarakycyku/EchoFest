@@ -5,12 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Log in</title>
-    <link rel="icon" type="image/x-icon" href="../images/logo2-pabg.png">
-    <link rel="stylesheet" href="../css/loginp.css">
+    <link rel="icon" type="image/x-icon" href="../assets/images/logo2-pabg.png">
+    <link rel="stylesheet" href="../assets/css/loginp.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
          body {
-    background-image: url('../images/bg.png');
+    background-image: url('../assets/images/bg.png');
     background-size: cover;          
     background-position: center;    
     background-repeat: no-repeat;
@@ -24,7 +24,7 @@
             <div class="chrome-header">
                 <div class="retro-logo mt-1">
                     <div class="logo-chrome">
-                        <img src="../images/logo2-pabg.png" alt="Logo" width="150" height="150">
+                        <img src="../assets/images/logo2-pabg.png" alt="Logo" width="150" height="150">
                         <div class="chrome-glow"></div>
                     </div>
                 </div>
@@ -54,17 +54,16 @@
                     </div>
                 </div>
 
-                <button class="login-btn">
-                    <span>Login</span>
-                </button>
+                <a href="login.html" class="login-btn px-6 py-2.5 bg-gradient-to-r from-indigo-900 to-purple-900 rounded-lg text-white text-sm hover:shadow-lg transition">
+                Login </a>
                 <div class="signup-option">
-    <p>
-        Don't have an account?
-        <a href="signup.php">Sign up</a>
-    </p>
-    <div class="legal-links">
-    <a href="#">Terms</a> • 
-    <a href="#">Privacy</a>
+                <p>
+                    Don't have an account?
+                    <a href="signup.php">Sign up</a>
+                </p>
+                <div class="legal-links">
+                <a href="#">Terms</a> • 
+                <a href="#">Privacy</a>
 </div>
 </div>
             </form>
