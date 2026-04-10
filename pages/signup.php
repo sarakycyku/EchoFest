@@ -117,7 +117,7 @@ body {
             </div>
               <p class="legal-links">
                 By signing up you agree to our 
-                <a href="#">Terms & Conditions</a> and 
+                <a href="terms.html">Terms & Conditions</a> and 
                 <a href="#">Privacy Policy</a>
             </p>
             <!-- BUTTON -->
