@@ -5,13 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sign Up</title>
 
-<link rel="icon" type="image/x-icon" href="../images/logo2-pabg.png">
+<link rel="icon" type="image/x-icon" href="../assets/images/logo2-pabg.png">
 <script src="https://cdn.tailwindcss.com"></script>
-<link rel="stylesheet" href="../css/signupp.css">
+<link rel="stylesheet" href="../assets/css/signupp.css">
 
 <style>
 body {
-    background: #111 url('../images/bg.png') center/cover no-repeat;
+    background: #111 url('../assets/images/bg.png') center/cover no-repeat;
     overflow-y:scroll; 
 }
 </style>
@@ -26,7 +26,7 @@ body {
         <div class="chrome-header">
             <div class="retro-logo">
                 <div class="logo-chrome">
-                    <img src="../images/logo2-pabg.png" width="150" height="200" alt="Logo">
+                    <img src="../assets/images/logo2-pabg.png" width="150" height="200" alt="Logo">
                 </div>
             </div>
 
