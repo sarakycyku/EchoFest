@@ -8,12 +8,17 @@ $success     = $_SESSION['success'] ?? "";
 $ageErr   = $_SESSION['ageErr'] ?? "";
 $phoneErr = $_SESSION['phoneErr'] ?? "";
 
+$firstNameErr = $_SESSION['firstNameErr'] ?? "";
+$lastNameErr  = $_SESSION['lastNameErr'] ?? "";
+
 unset(
     $_SESSION['passwordErr'],
     $_SESSION['confirmErr'],
     $_SESSION['success'],
     $_SESSION['ageErr'],
-    $_SESSION['phoneErr']
+    $_SESSION['phoneErr'],
+    $_SESSION['firstNameErr'],
+    $_SESSION['lastNameErr']
 );
 ?>
 
@@ -61,21 +66,37 @@ body {
 
             <!-- NAME -->
             <div class="form-row">
+
+                <!-- FIRST NAME -->
                 <div class="retro-field">
                     <div class="field-chrome">
                         <input type="text" name="first_name" placeholder=" " required>
                         <label>First Name</label>
                         <div class="field-hologram"></div>
                     </div>
+
+                    <?php if($firstNameErr): ?>
+                        <div class="error-wrap text-danger small px-2">
+                            <?= $firstNameErr ?>
+                        </div>
+                    <?php endif; ?>
                 </div>
 
+                <!-- LAST NAME -->
                 <div class="retro-field">
                     <div class="field-chrome">
                         <input type="text" name="last_name" placeholder=" " required>
                         <label>Last Name</label>
                         <div class="field-hologram"></div>
                     </div>
+
+                    <?php if($lastNameErr): ?>
+                        <div class="error-wrap text-danger small px-2">
+                            <?= $lastNameErr ?>
+                        </div>
+                    <?php endif; ?>
                 </div>
+
             </div>
 
             <!-- USERNAME + EMAIL -->
@@ -103,7 +124,7 @@ body {
                 <!-- PHONE -->
                 <div class="retro-field">
                     <div class="field-chrome">
-                        <input type="number" name="phone" placeholder=" " required>
+                        <input type="text" name="phone" placeholder=" " required>
                         <label>Phone</label>
                         <div class="field-hologram"></div>
                     </div>

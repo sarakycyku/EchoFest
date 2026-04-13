@@ -8,6 +8,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     $phone = $_POST["phone"] ?? "";
     $age   = $_POST["age"] ?? "";
+    $first_name = $_POST["first_name"] ?? "";
+    $last_name  = $_POST["last_name"] ?? "";
 
     $pattern = "/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$/";
 
@@ -15,6 +17,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $_SESSION['confirmErr'] = "";
     $_SESSION['phoneErr'] = "";
     $_SESSION['ageErr'] = "";
+    $_SESSION['firstNameErr'] = "";
+    $_SESSION['lastNameErr'] = "";
 
     if (!preg_match($pattern, $p)) {
         $_SESSION['passwordErr'] = " Password must be at least 8 characters long, contain an uppercase letter, a lowercase letter, a number, and a special character! ";
@@ -31,12 +35,21 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     if (!is_numeric($age) || $age < 18 || $age > 120) {
         $_SESSION['ageErr'] = "Age must be a number between 18 and 120!";
     }
+    if (!preg_match("/^[a-zA-ZëËçÇ]+$/u", $first_name)) {
+    $_SESSION['firstNameErr'] = "Only letters!";
+   }
+
+    if (!preg_match("/^[a-zA-ZëËçÇ]+$/u", $last_name)) {
+    $_SESSION['lastNameErr'] = "Only letters!";
+    }
 
     if (
         empty($_SESSION['passwordErr']) &&
         empty($_SESSION['confirmErr']) &&
         empty($_SESSION['phoneErr']) &&
-        empty($_SESSION['ageErr'])
+        empty($_SESSION['ageErr']) &&
+        empty($_SESSION['firstNameErr']) &&
+        empty($_SESSION['lastNameErr'])
     ) {
         $_SESSION['success'] = "Account created successfully!";
     }
