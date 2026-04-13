@@ -43,7 +43,7 @@
         <div class="row ">
           <div class="col-12 text-center">
             <div class="copyright mt-5 pt-5">
-              <p><small>&copy; 2026 All Rights Reserved.</small></p>
+              <p><small>&copy; 2026 All Rights Reserved to EchoFest .</small></p>
             </div>
           </div>
         </div> 

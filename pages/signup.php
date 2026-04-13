@@ -104,7 +104,7 @@ body {
 
 <div class="retro-field">
 <div class="field-chrome">
-<input type="email" name="email" placeholder=" " required>
+<input type="text" name="email" placeholder=" " required>
 <label>Email</label>
 <div class="field-hologram"></div>
 </div>
