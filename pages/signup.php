@@ -5,7 +5,16 @@ $passwordErr = $_SESSION['passwordErr'] ?? "";
 $confirmErr  = $_SESSION['confirmErr'] ?? "";
 $success     = $_SESSION['success'] ?? "";
 
-unset($_SESSION['passwordErr'], $_SESSION['confirmErr'], $_SESSION['success']);
+$ageErr   = $_SESSION['ageErr'] ?? "";
+$phoneErr = $_SESSION['phoneErr'] ?? "";
+
+unset(
+    $_SESSION['passwordErr'],
+    $_SESSION['confirmErr'],
+    $_SESSION['success'],
+    $_SESSION['ageErr'],
+    $_SESSION['phoneErr']
+);
 ?>
 
 <!DOCTYPE html>
@@ -17,16 +26,14 @@ unset($_SESSION['passwordErr'], $_SESSION['confirmErr'], $_SESSION['success']);
 
 <link rel="icon" type="image/x-icon" href="../assets/images/logo2-pabg.png">
 
-<!-- Bootstrap ONLY for text utilities -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-
 <link rel="stylesheet" href="../assets/css/signupp.css">
 
 <style>
 body {
     background: #111 url('../assets/images/bg.png') center/cover no-repeat;
     overflow-y: scroll;
-} 
+}
 </style>
 </head>
 
@@ -92,21 +99,37 @@ body {
 
             <!-- PHONE + AGE -->
             <div class="form-row">
+
+                <!-- PHONE -->
                 <div class="retro-field">
                     <div class="field-chrome">
-                        <input type="text" name="phone" placeholder=" " required>
+                        <input type="number" name="phone" placeholder=" " required>
                         <label>Phone</label>
                         <div class="field-hologram"></div>
                     </div>
+
+                    <?php if($phoneErr): ?>
+                        <div class="error-wrap text-danger small px-2">
+                            <?= $phoneErr ?>
+                        </div>
+                    <?php endif; ?>
                 </div>
 
+                <!-- AGE -->
                 <div class="retro-field">
                     <div class="field-chrome">
                         <input type="number" name="age" placeholder=" " required>
                         <label>Age</label>
                         <div class="field-hologram"></div>
                     </div>
+
+                    <?php if($ageErr): ?>
+                        <div class="error-wrap text-danger small px-2">
+                            <?= $ageErr ?>
+                        </div>
+                    <?php endif; ?>
                 </div>
+
             </div>
 
             <!-- PASSWORD -->
@@ -156,7 +179,9 @@ body {
 
             <!-- SUCCESS -->
             <?php if($success): ?>
-                <div class="success-msg text-success text-center mt-2"><?= $success ?></div>
+                <div class="success-msg text-success text-center mt-2">
+                    <?= $success ?>
+                </div>
             <?php endif; ?>
 
             <!-- LOGIN -->
