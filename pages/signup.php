@@ -10,6 +10,8 @@ $phoneErr = $_SESSION['phoneErr'] ?? "";
 
 $firstNameErr = $_SESSION['firstNameErr'] ?? "";
 $lastNameErr  = $_SESSION['lastNameErr'] ?? "";
+$usernameErr  = $_SESSION['usernameErr'] ?? "";
+$emailErr     = $_SESSION['emailErr'] ?? "";
 
 unset(
     $_SESSION['passwordErr'],
@@ -18,7 +20,9 @@ unset(
     $_SESSION['ageErr'],
     $_SESSION['phoneErr'],
     $_SESSION['firstNameErr'],
-    $_SESSION['lastNameErr']
+    $_SESSION['lastNameErr'],
+    $_SESSION['usernameErr'],
+    $_SESSION['emailErr']
 );
 ?>
 
@@ -77,7 +81,7 @@ body {
 
                     <?php if($firstNameErr): ?>
                         <div class="error-wrap text-danger small px-2">
-                            <?= $firstNameErr ?>
+                            <?= htmlspecialchars($firstNameErr) ?>
                         </div>
                     <?php endif; ?>
                 </div>
@@ -92,7 +96,7 @@ body {
 
                     <?php if($lastNameErr): ?>
                         <div class="error-wrap text-danger small px-2">
-                            <?= $lastNameErr ?>
+                            <?= htmlspecialchars($lastNameErr) ?>
                         </div>
                     <?php endif; ?>
                 </div>
@@ -101,21 +105,37 @@ body {
 
             <!-- USERNAME + EMAIL -->
             <div class="form-row">
+
+                <!-- USERNAME -->
                 <div class="retro-field">
                     <div class="field-chrome">
                         <input type="text" name="username" placeholder=" " required>
                         <label>Username</label>
                         <div class="field-hologram"></div>
                     </div>
+
+                    <?php if($usernameErr): ?>
+                        <div class="error-wrap text-danger small px-2">
+                            <?= htmlspecialchars($usernameErr) ?>
+                        </div>
+                    <?php endif; ?>
                 </div>
 
+                <!-- EMAIL -->
                 <div class="retro-field">
                     <div class="field-chrome">
                         <input type="email" name="email" placeholder=" " required>
                         <label>Email</label>
                         <div class="field-hologram"></div>
                     </div>
+
+                    <?php if($emailErr): ?>
+                        <div class="error-wrap text-danger small px-2">
+                            <?= htmlspecialchars($emailErr) ?>
+                        </div>
+                    <?php endif; ?>
                 </div>
+
             </div>
 
             <!-- PHONE + AGE -->
@@ -131,7 +151,7 @@ body {
 
                     <?php if($phoneErr): ?>
                         <div class="error-wrap text-danger small px-2">
-                            <?= $phoneErr ?>
+                            <?= htmlspecialchars($phoneErr) ?>
                         </div>
                     <?php endif; ?>
                 </div>
@@ -146,7 +166,7 @@ body {
 
                     <?php if($ageErr): ?>
                         <div class="error-wrap text-danger small px-2">
-                            <?= $ageErr ?>
+                            <?= htmlspecialchars($ageErr) ?>
                         </div>
                     <?php endif; ?>
                 </div>
@@ -156,6 +176,7 @@ body {
             <!-- PASSWORD -->
             <div class="form-row">
 
+                <!-- PASSWORD -->
                 <div class="retro-field">
                     <div class="field-chrome">
                         <input type="password" name="password" placeholder=" " required>
@@ -165,11 +186,12 @@ body {
 
                     <?php if($passwordErr): ?>
                         <div class="error-wrap text-danger small px-2">
-                            <?= $passwordErr ?>
+                            <?= htmlspecialchars($passwordErr) ?>
                         </div>
                     <?php endif; ?>
                 </div>
 
+                <!-- CONFIRM PASSWORD -->
                 <div class="retro-field">
                     <div class="field-chrome">
                         <input type="password" name="confirm_password" placeholder=" " required>
@@ -179,7 +201,7 @@ body {
 
                     <?php if($confirmErr): ?>
                         <div class="error-wrap text-danger small px-2">
-                            <?= $confirmErr ?>
+                            <?= htmlspecialchars($confirmErr) ?>
                         </div>
                     <?php endif; ?>
                 </div>
@@ -201,7 +223,7 @@ body {
             <!-- SUCCESS -->
             <?php if($success): ?>
                 <div class="success-msg text-success text-center mt-2">
-                    <?= $success ?>
+                    <?= htmlspecialchars($success) ?>
                 </div>
             <?php endif; ?>
 
