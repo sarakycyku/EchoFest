@@ -2,7 +2,7 @@
 
 
     <?php
- include('header.php')
+ require('header.php')
     ?>
     
     <footer class="footer-48201">
@@ -56,5 +56,7 @@
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="../js/header.js"></script>
+    
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>

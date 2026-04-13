@@ -1,4 +1,4 @@
 <?php
-include '../includes/header.php';
-include '../includes/footer.php';
+require '../includes/header.php';
+require '../includes/footer.php';
 ?>

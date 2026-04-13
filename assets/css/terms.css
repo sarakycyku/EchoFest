@@ -1,0 +1,50 @@
+body{
+  font-family:'Space Grotesk',sans-serif;
+  background:#111;
+  color:white;
+}
+
+/* TOP NAV BAR */
+.topbar{
+  height:90px;
+  background:rgba(17,24,39,0.85);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(0,255,255,0.25);
+}
+
+/* CONTENT */
+.content{
+  padding-top:120px;
+  padding-bottom:60px;
+}
+
+/* TITLE */
+h1{
+  color:#22d3ee;
+  font-weight:700;
+}
+
+/* SECTION TITLE */
+h2{
+  font-size:20px;
+  margin-top:30px;
+  color:#f1f5f9;
+}
+
+/* TEXT */
+p{
+  color:#cbd5e1;
+  line-height:1.7;
+}
+
+/* BACK LINK */
+.back-btn{
+  color:white;
+  text-decoration:none;
+  font-weight:500;
+  transition:0.3s;
+}
+
+.back-btn:hover{
+  color:#22d3ee;
+}
