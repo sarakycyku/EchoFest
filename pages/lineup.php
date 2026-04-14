@@ -25,34 +25,6 @@ if ($search && !preg_match("/^[a-zA-Z ]+$/", $search)) {
 }
 ?>
 
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-
-<div class="container py-4">
-
-    <h1 class="text-center mb-4"> EchoFest Lineup</h1>
-
-    <!-- SEARCH BAR -->
-    <form method="GET" class="d-flex justify-content-center mb-4">
-
-        <input class="form-control w-50"
-               name="q"
-               placeholder="Search artist..."
-               value="<?= htmlspecialchars($search) ?>">
-
-        <button class="btn btn-dark ms-2">Search</button>
-
-        <a href="lineup.php" class="btn btn-outline-secondary ms-2">Reset</a>
-
-    </form>
-
-// SEARCH (GET)
-$search = isset($_GET['q']) ? trim($_GET['q']) : "";
-
-// validation
-if ($search && !preg_match("/^[a-zA-Z ]+$/", $search)) {
-    die("Invalid search input");
-}
-?>
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
