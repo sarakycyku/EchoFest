@@ -1,9 +1,6 @@
-
-
-
-    <?php
+ <?php
  require('header.php')
-    ?>
+ ?>
     
     <footer class="footer-48201">
       
