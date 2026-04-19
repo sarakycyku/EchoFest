@@ -32,11 +32,11 @@
 
       <!-- LINKS (CENTER FIXED) -->
       <ul class="navbar-nav">
-        <li><a class="nav-link" href="#home">Home</a></li>
+        <li><a class="nav-link" href="home.php">Home</a></li>
         <li><a class="nav-link" href="#about">About</a></li>
         <li><a class="nav-link" href="#services">Gallery</a></li>
         <li><a class="nav-link" href="#portfolio">Tickets</a></li>
-        <li><a class="nav-link" href="#contact">Line Up</a></li>
+        <li><a class="nav-link" href="lineup.php">Line Up</a></li>
       </ul>
 
       <!-- BUTTONS (RIGHT SIDE) -->
