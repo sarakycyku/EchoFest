@@ -16,7 +16,7 @@
               <li><a href="#">About Us</a></li>
               <li><a href="#">Gallery</a></li>
               <li><a href="#">Tickets</a></li>
-              <li><a href="#">Line Up</a></li>
+              <li><a href="lineup.php">Line Up</a></li>
             </ul>
           </div>
           <!-- <div class="col-md">
@@ -26,7 +26,7 @@
               <li><a href="#">Career</a></li>
               <li><a href="#">Testimonials</a></li>
               <li><a href="#">Journal</a></li>
-            </ul>
+            </ul>git rebase origin/main
           </div> -->
           <div class="col-md">
             <ul class="list-unstyled nav-links">
