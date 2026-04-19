@@ -72,19 +72,21 @@ body {
 
 <div class="retro-field">
 <div class="field-chrome">
-<input type="text" name="first_name" placeholder=" " required>
+<input id="first_name" type="text" name="first_name" placeholder=" " required>
 <label>First Name</label>
 <div class="field-hologram"></div>
 </div>
+<small id="firstNameFrontErr" class="text-danger small px-2"></small>
 <?php if($firstNameErr) echo '<div class="error-wrap text-danger small px-2">'.$firstNameErr.'</div>'; ?>
 </div>
 
 <div class="retro-field">
 <div class="field-chrome">
-<input type="text" name="last_name" placeholder=" " required>
+<input id="last_name" type="text" name="last_name" placeholder=" " required>
 <label>Last Name</label>
 <div class="field-hologram"></div>
 </div>
+<small id="lastNameFrontErr" class="text-danger small px-2"></small>
 <?php if($lastNameErr) echo '<div class="error-wrap text-danger small px-2">'.$lastNameErr.'</div>'; ?>
 </div>
 
@@ -95,19 +97,21 @@ body {
 
 <div class="retro-field">
 <div class="field-chrome">
-<input type="text" name="username" placeholder=" " required>
+<input id="username" type="text" name="username" placeholder=" " required>
 <label>Username</label>
 <div class="field-hologram"></div>
 </div>
+<small id="usernameFrontErr" class="text-danger small px-2"></small>
 <?php if($usernameErr) echo '<div class="error-wrap text-danger small px-2">'.$usernameErr.'</div>'; ?>
 </div>
 
 <div class="retro-field">
 <div class="field-chrome">
-<input type="text" name="email" placeholder=" " required>
+<input id="email" type="email" name="email" placeholder=" " required>
 <label>Email</label>
 <div class="field-hologram"></div>
 </div>
+<small id="emailFrontErr" class="text-danger small px-2"></small>
 <?php if($emailErr) echo '<div class="error-wrap text-danger small px-2">'.$emailErr.'</div>'; ?>
 </div>
 
@@ -118,19 +122,21 @@ body {
 
 <div class="retro-field">
 <div class="field-chrome">
-<input type="text" name="phone" placeholder=" " required>
+<input id="phone" type="text" name="phone" placeholder=" " required>
 <label>Phone</label>
 <div class="field-hologram"></div>
 </div>
+<small id="phoneFrontErr" class="text-danger small px-2"></small>
 <?php if($phoneErr) echo '<div class="error-wrap text-danger small px-2">'.$phoneErr.'</div>'; ?>
 </div>
 
 <div class="retro-field">
 <div class="field-chrome">
-<input type="number" name="age" placeholder=" " required>
+<input id="age" type="number" name="age" placeholder=" " required>
 <label>Age</label>
 <div class="field-hologram"></div>
 </div>
+<small id="ageFrontErr" class="text-danger small px-2"></small>
 <?php if($ageErr) echo '<div class="error-wrap text-danger small px-2">'.$ageErr.'</div>'; ?>
 </div>
 
@@ -141,19 +147,21 @@ body {
 
 <div class="retro-field">
 <div class="field-chrome">
-<input type="password" name="password" placeholder=" " required>
+<input id="password" type="password" name="password" placeholder=" " required>
 <label>Password</label>
 <div class="field-hologram"></div>
 </div>
+<small id="passwordFrontErr" class="text-danger small px-2"></small>
 <?php if($passwordErr) echo '<div class="error-wrap text-danger small px-2">'.$passwordErr.'</div>'; ?>
 </div>
 
 <div class="retro-field">
 <div class="field-chrome">
-<input type="password" name="confirm_password" placeholder=" " required>
+<input id="confirm_password" type="password" name="confirm_password" placeholder=" " required>
 <label>Confirm Password</label>
 <div class="field-hologram"></div>
 </div>
+<small id="confirmFrontErr" class="text-danger small px-2"></small>
 <?php if($confirmErr) echo '<div class="error-wrap text-danger small px-2">'.$confirmErr.'</div>'; ?>
 </div>
 
@@ -187,6 +195,6 @@ Already have an account? <a href="login.php" class="future-link">Login</a>
 
 </div>
 </div>
-
+<script src="../assets/js/signup.js"></script>
 </body>
 </html>
