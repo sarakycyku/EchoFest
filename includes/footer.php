@@ -1,5 +1,5 @@
  <?php
- require('header.php')
+require('header.php');
  ?>
     
     <footer class="footer-48201">
@@ -8,11 +8,11 @@
         <div class="row">
           <div class="col-md-4 pr-md-5">
             <a href="#" class="footer-site-logo d-block mb-4">EchoFest</a>
-            <img src="../images/logo2.png" height="100px">
+            <img src="/EchoFest/assets/images/logo2.png" height="100px">
           </div>
           <div class="col-md">
             <ul class="list-unstyled nav-links">
-              <li><a href="#">Home</a></li>
+              <li><a href="home.php">Home</a></li>
               <li><a href="#">About Us</a></li>
               <li><a href="#">Gallery</a></li>
               <li><a href="#">Tickets</a></li>
