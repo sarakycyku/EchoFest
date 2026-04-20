@@ -10,6 +10,24 @@ body {
   font-family: 'Space Grotesk', sans-serif;
 }
 
+:root {
+  --bg: #06060f;
+  --surface: #0e0e1f;
+  --surface2: #14142a;
+  --border: rgba(255,255,255,0.07);
+  --purple: #7c3aed;
+  --purple-light: #9d5df0;
+  --purple-glow: rgba(124,58,237,0.35);
+  --cyan: #22d3ee;
+  --cyan-glow: rgba(34,211,238,0.2);
+  --gold: #f59e0b;
+  --text: #f0eeff;
+  --muted: #7c7a9a;
+  --coming: #2a2a45;
+}
+
+/*HERO */
+
 .hero {
   position: relative;
   height: 420px;
@@ -43,4 +61,83 @@ body {
   font-size: 1rem;
   font-weight: 600;
   color: white;
+}
+
+/*LOCATION */
+
+.location-wrap {
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.location-box {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 28px 32px;
+  margin: -30px auto 0;
+  position: relative;
+}
+
+.location-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 16px;
+  font-weight: 600;
+}
+
+.location-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.loc-card {
+  background: var(--surface2);
+  border: 1.5px solid var(--border);
+  border-radius: 14px;
+  padding: 22px 24px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  text-align: center;
+  position: relative;
+}
+
+.loc-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.25s;
+  background: radial-gradient(ellipse at center, var(--purple-glow) 0%, transparent 70%);
+}
+
+.loc-card:hover::before { opacity: 0.5; }
+.loc-card:hover { border-color: rgba(124,58,237,0.4); transform: translateY(-2px); }
+
+.loc-card.active {
+  border-color: var(--purple-light);
+  background: rgba(124,58,237,0.15);
+}
+
+.loc-card.active::before { opacity: 1; }
+
+.loc-country {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.loc-city {
+  font-size: 0.82rem;
+  color: var(--muted);
+  margin-top: 3px;
+}
+
+.loc-dates {
+  font-size: 0.75rem;
+  color: var(--purple-light);
+  margin-top: 6px;
+  font-weight: 500;
 }
