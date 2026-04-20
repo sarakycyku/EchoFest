@@ -1,4 +1,3 @@
-<?php?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -34,7 +33,7 @@
                 </h1>
             </div>
             
-            <form class="future-form" id="loginForm" novalidate>
+            <form class="future-form" id="loginForm" method="POST" action="../logic/login_logic.php">
                 <div class="retro-field">
                     <div class="field-chrome">
                         <div class="chrome-border"></div>
@@ -54,8 +53,9 @@
                     </div>
                 </div>
 
-                <a href="login.html" class="login-btn px-6 py-2.5 bg-gradient-to-r from-indigo-900 to-purple-900 rounded-lg text-white text-sm hover:shadow-lg transition">
-                Login </a>
+                <button type="submit" class="login-btn px-6 py-2.5 bg-gradient-to-r from-indigo-900 to-purple-900 rounded-lg text-white text-sm hover:shadow-lg transition">
+                    Login
+                </button>
                 <div class="signup-option">
                 <p>
                     Don't have an account?
