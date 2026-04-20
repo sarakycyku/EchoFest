@@ -5,9 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="icon" type="image/x-icon" href="../assets/images/logo2-pabg.png">
   <title>ECHOFEST</title>
-  <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="../assets/css/index.css" />
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
 </head>
 <body>
 
@@ -29,9 +28,13 @@
   </div>
 </div>
 
-
-
-
+<div class="date-strip">
+  <span>July 18&ndash;21, 2026</span>
+  <span class="sep">/</span>
+  <span>4 Stages</span>
+  <span class="sep">/</span>
+  <span>80+ Artists</span>
+</div>
 </body>
 <script src="../assets/js/index.js"></script>
 </html>
