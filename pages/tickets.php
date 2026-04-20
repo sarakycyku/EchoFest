@@ -20,6 +20,36 @@ $locations = [
 $selected = isset($_GET['loc']) && array_key_exists($_GET['loc'], $locations) ? $_GET['loc'] :'xk'; 
 $event = $locations[$selected];
 
+$tickets = [
+    [
+        'id'=>'early',
+        'img_class'=>'img-early',
+        'name'=>'Early Bird',
+        'desc'=>'Lock in the best price and be among the first to experience EchoFest! Early Bird tickets give you full access to all main stages and performances. Perfect for the dedicated music fan who plans ahead. These limited tickets won\'t last long, so grab yours now and save big while securing your spot at the biggest festival of the summer.',
+        'price'=>79,
+        'available'=>true,
+        'coming_date'=>null
+    ],
+    [
+        'id'=>'regular',
+        'img_class'=>'img-regular',
+        'name'=>'Regular',
+        'desc'=>'The complete festival experience with added perks! Skip the long lines with fast-track entry and enjoy complimentary water refills throughout the day. Regular tickets include access to all stages plus special areas not available to Early Bird holders. Get ready for three days of non-stop music, amazing vibes, and memories that will last forever.',
+        'price'=>129,
+        'available'=>false,
+        'coming_date'=>'Coming May 1, 2026'
+    ],
+    [
+        'id'=>'vip',
+        'img_class'=>'img-vip',
+        'name'=>'VIP Experience',
+        'desc'=>'Live like a rockstar with our exclusive VIP package! Enjoy premium viewing areas with the best sightlines, relax in air-conditioned VIP lounges, and indulge in complimentary gourmet food and premium drinks. Meet your favorite artists, access private restrooms, and receive an exclusive merchandise pack. This is the ultimate festival experience for those who demand the very best.',
+        'price'=>299,
+        'available'=>false,
+        'coming_date'=>'Coming June 1, 2026'
+    ],
+];
+
 ?>
 
 <title>Tickets</title>    
