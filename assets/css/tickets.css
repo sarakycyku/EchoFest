@@ -1,0 +1,46 @@
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #111;    
+  color: white;
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+.hero {
+  position: relative;
+  height: 420px;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  padding: 0 60px 48px;
+}
+
+.hero-info {
+  display: flex;
+  gap: 40px;
+}
+
+.info-block {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.info-label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: white;
+  font-weight: 600;
+}
+
+.info-value {
+  font-family: 'Syne', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: white;
+}
