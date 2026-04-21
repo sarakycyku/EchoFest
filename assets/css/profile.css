@@ -517,3 +517,27 @@
   color: #c4b5fd;
   transform: scale(1.07);
 }
+
+.pf-actions {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 1rem;
+}
+
+.pf-btn {
+  flex: 1;
+  font-family: "DM Sans", sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  padding: 13px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.15s, filter 0.2s;
+}
+
+.pf-btn:active {
+  transform: scale(0.97);
+}
