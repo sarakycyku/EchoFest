@@ -153,6 +153,22 @@ $tickets = [
   </div>
 </section>
 
+<script>
+const qtys = {};
+
+function changeQty(id, change) {
+  if (!qtys[id]) qtys[id] = 1;
+  qtys[id] = Math.max(1, qtys[id] + change);
+  document.getElementById('num-' + id).textContent = qtys[id];
+
+  // Update buy button price dynamically
+  const priceMap = { early: 79, regular: 129, vip: 299 };
+  const total = priceMap[id] * qtys[id];
+  const btn = document.getElementById('buy-' + id);
+  if (btn) btn.textContent = 'Buy Now - €' + total;
+}
+</script>
+
 <?php
 include '../includes/footer.php';
 ?>
