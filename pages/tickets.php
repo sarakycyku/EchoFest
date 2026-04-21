@@ -24,6 +24,7 @@ $tickets = [
     [
         'id'=>'early',
         'img_class'=>'img-early',
+        'img_src'=>'../assets/images/ticket1.jpg',
         'name'=>'Early Bird',
         'desc'=>'Lock in the best price and be among the first to experience EchoFest! Early Bird tickets give you full access to all main stages and performances. Perfect for the dedicated music fan who plans ahead. These limited tickets won\'t last long, so grab yours now and save big while securing your spot at the biggest festival of the summer.',
         'price'=>79,
@@ -33,6 +34,7 @@ $tickets = [
     [
         'id'=>'regular',
         'img_class'=>'img-regular',
+        'img_src'=>'../assets/images/ticket2.jpg',
         'name'=>'Regular',
         'desc'=>'The complete festival experience with added perks! Skip the long lines with fast-track entry and enjoy complimentary water refills throughout the day. Regular tickets include access to all stages plus special areas not available to Early Bird holders. Get ready for three days of non-stop music, amazing vibes, and memories that will last forever.',
         'price'=>129,
@@ -42,6 +44,7 @@ $tickets = [
     [
         'id'=>'vip',
         'img_class'=>'img-vip',
+        'img_src'=>'../assets/images/ticket3.jpg',
         'name'=>'VIP Experience',
         'desc'=>'Live like a rockstar with our exclusive VIP package! Enjoy premium viewing areas with the best sightlines, relax in air-conditioned VIP lounges, and indulge in complimentary gourmet food and premium drinks. Meet your favorite artists, access private restrooms, and receive an exclusive merchandise pack. This is the ultimate festival experience for those who demand the very best.',
         'price'=>299,
@@ -103,12 +106,10 @@ $tickets = [
     <?php foreach ($tickets as $t): ?>
     <div class="ticket-card <?= !$t['available'] ? 'disabled' : '' ?>">
 
-      <!-- Image / Placeholder -->
       <div class="ticket-img">
-        <div class="ticket-img-placeholder <?= $t['img_class'] ?>"></div>
+        <img src="<?= $t['img_src'] ?>" class="<?= $t['img_class'] ?>">
       </div>
 
-      <!-- Body -->
       <div class="ticket-body">
         <div>
           <div class="ticket-top">
@@ -130,7 +131,7 @@ $tickets = [
 
           <div class="ticket-actions">
             <?php if ($t['available']): ?>
-              <!-- Quantity control -->
+              
               <div class="qty-control" id="qty-<?= $t['id'] ?>">
                 <button class="qty-btn" onclick="changeQty('<?= $t['id'] ?>', -1)">-</button>
                 <span class="qty-num" id="num-<?= $t['id'] ?>">1</span>
