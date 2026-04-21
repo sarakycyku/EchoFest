@@ -370,3 +370,33 @@
   color: rgba(240, 238, 232, 0.3);
   margin-bottom: 0.9rem;
 }
+
+.pf-ticket {
+  border-radius: 12px;
+  padding: 1rem 1.1rem;
+  margin-bottom: 0.65rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  animation: ticketSlide 0.5s ease both;
+  position: relative;
+  overflow: hidden;
+}
+
+.pf-ticket:last-child {
+  margin-bottom: 0;
+}
+
+.pf-ticket::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.03) 50%,
+    transparent 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 2.5s ease-in-out infinite;
+}
