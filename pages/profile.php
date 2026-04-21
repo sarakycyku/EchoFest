@@ -1,3 +1,21 @@
+<?php
+// Keto te dhena i kam marre per si shembull 
+$user = [
+  "name" => "Artan Krasniqi",
+  "username" => "@artank",
+  "email" => "ar***@gmail.com",
+  "phone" => "+383 *** *** 21",
+  "age" => 24,
+  "member_since" => "April 2026",
+  "initials" => "AK"
+];
+
+
+?>
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
