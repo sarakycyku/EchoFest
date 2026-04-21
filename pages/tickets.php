@@ -56,26 +56,28 @@ $tickets = [
 <link rel="stylesheet" href="../assets/css/style.css">
 <link rel="stylesheet" href="../assets/css/tickets.css">
 
+<!--HERO -->
+
 <section class="hero">
-
-    <div class="hero-info">
-      <div class="info-block">
-        <span class="info-label">Festival Dates</span>
-        <span class="info-value">
-          <?= $event['dates'] ?>
-        </span>
-      </div>
-      <div class="info-block">
-        <span class="info-label">Location</span>
-        <span class="info-value">
-          <?= $event['venue'] ?>
-        </span>
-      </div>
-    </div>
+    <div class="hero-container">
+        <div class="hero-info">
+            <div class="info-block">
+                <span class="info-label">Festival Dates</span>
+                <span class="info-value">
+                <?= $event['dates'] ?>
+                </span>
+            </div>
+            <div class="info-block">
+                <span class="info-label">Location</span>
+                <span class="info-value">
+                <?= $event['venue'] ?>
+                </span>
+            </div>
+        </div>
   </div>
-
 </section>
 
+<!--LOCATION -->
 <div class="location-wrap">
   <div class="location-box">
     <div class="location-label">Select Event Location:</div>
@@ -92,6 +94,63 @@ $tickets = [
     </div>
   </div>
 </div>
+
+<!--TICKETS -->
+<section class="tickets-section">
+  <h2 class="section-title">Choose Your Ticket</h2>
+
+  <div class="ticket-list">
+    <?php foreach ($tickets as $t): ?>
+    <div class="ticket-card <?= !$t['available'] ? 'disabled' : '' ?>">
+
+      <!-- Image / Placeholder -->
+      <div class="ticket-img">
+        <div class="ticket-img-placeholder <?= $t['img_class'] ?>"></div>
+      </div>
+
+      <!-- Body -->
+      <div class="ticket-body">
+        <div>
+          <div class="ticket-top">
+            <div>
+              <div class="ticket-name"><?= $t['name'] ?></div>
+              <?php if ($t['coming_date']): ?>
+                <div class="coming-badge"> <?= $t['coming_date'] ?></div>
+              <?php endif; ?> 
+            </div>
+          </div>
+          <p class="ticket-desc"><?= $t['desc'] ?></p>
+        </div>
+
+        <div class="ticket-footer">
+          <div class="ticket-price-block">
+            <div class="price-label">Price per ticket</div>
+            <div class="price-amount">€<?= $t['price'] ?></div>
+          </div>
+
+          <div class="ticket-actions">
+            <?php if ($t['available']): ?>
+              <!-- Quantity control -->
+              <div class="qty-control" id="qty-<?= $t['id'] ?>">
+                <button class="qty-btn" onclick="changeQty('<?= $t['id'] ?>', -1)">-</button>
+                <span class="qty-num" id="num-<?= $t['id'] ?>">1</span>
+                <button class="qty-btn" onclick="changeQty('<?= $t['id'] ?>', 1)">+</button>
+              </div>
+              <button class="buy-btn" id="buy-<?= $t['id'] ?>"
+                onclick="buyNow('<?= $t['id'] ?>', <?= $t['price'] ?>)">
+                Buy Now - €<?= $t['price'] ?>
+              </button>
+            <?php else: ?>
+              <button class="coming-btn" disabled>Coming Soon</button>
+            <?php endif; ?>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <?php endforeach; ?>
+  </div>
+</section>
 
 <?php
 include '../includes/footer.php';

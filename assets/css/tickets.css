@@ -39,6 +39,17 @@ body {
   padding: 0 60px 48px;
 }
 
+.hero-container {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
 .hero-info {
   display: flex;
   gap: 40px;
