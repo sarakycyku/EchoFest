@@ -110,6 +110,18 @@ $artists = ["Four Tet","Burial","Floating Points","Bonobo","Actress","Objekt","L
 
   </div>
 
+
+  <div class="pf-card">
+    <div class="pf-section-label">Account Details</div>
+
+    <div class="pf-row"><span class="pf-row-lbl">Full name</span><span class="pf-row-val"><?= $user["name"] ?></span></div>
+    <div class="pf-row"><span class="pf-row-lbl">Username</span><span class="pf-row-val"><?= $user["username"] ?></span></div>
+    <div class="pf-row"><span class="pf-row-lbl">Email</span><span class="pf-row-val dim"><?= $user["email"] ?></span></div>
+    <div class="pf-row"><span class="pf-row-lbl">Phone</span><span class="pf-row-val dim"><?= $user["phone"] ?></span></div>
+    <div class="pf-row"><span class="pf-row-lbl">Age</span><span class="pf-row-val"><?= $user["age"] ?></span></div>
+    <div class="pf-row"><span class="pf-row-lbl">Member since</span><span class="pf-row-val dim"><?= $user["member_since"] ?></span></div>
+  </div>
+
 </div>
 </body>
 </html>
