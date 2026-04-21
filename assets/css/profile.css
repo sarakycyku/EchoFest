@@ -135,3 +135,36 @@
   border-radius: 50%;
   animation: floatDot linear infinite;
 }
+
+.pf-hero-wrap {
+  position: relative;
+  z-index: 1;
+  background: linear-gradient(
+    160deg,
+    rgba(107, 33, 168, 0.22) 0%,
+    rgba(6, 182, 212, 0.1) 60%,
+    rgba(10, 10, 15, 0) 100%
+  );
+  border: 0.5px solid rgba(107, 33, 168, 0.35);
+  border-radius: 20px;
+  padding: 1.5rem 1.25rem 1.25rem;
+  margin-bottom: 1rem;
+  animation: fadeUp 0.7s 0.1s ease both;
+  overflow: hidden;
+}
+
+.pf-hero-wrap::before {
+  content: "";
+  position: absolute;
+  top: -40px;
+  right: -40px;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(107, 33, 168, 0.18) 0%,
+    transparent 70%
+  );
+  animation: pulseGlow 3s ease-in-out infinite;
+}
