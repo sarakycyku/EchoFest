@@ -139,7 +139,7 @@ $artists = ["Four Tet","Burial","Floating Points","Bonobo","Actress","Objekt","L
   </div>
 
   <div class="pf-footer">July 18–21, 2026 / 4 Stages / 80+ Artists</div>
-
+  </div>
   <script src="../js/profile.js"></script>
 <script>
   
@@ -150,6 +150,6 @@ $artists = ["Four Tet","Burial","Floating Points","Bonobo","Actress","Objekt","L
   };
 </script>
 
-</div>
+
 </body>
 </html>
