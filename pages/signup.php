@@ -50,31 +50,33 @@ body {
 <div class="login-container">
 <div class="future-card">
 
-<!-- HEADER -->
+<!-- HEADER (SAME AS LOGIN) -->
 <div class="chrome-header">
-    <div class="retro-logo">
+
+    <div class="retro-logo mt-1">
         <div class="logo-chrome">
             <img src="../assets/images/logo2-pabg.png" width="150" height="200" alt="Logo">
         </div>
     </div>
 
     <h1 class="y2k-title">
-        <span class="title-chrome">SIGN</span>
-        <span class="title-neon">UP</span>
+        <span class="title-chrome">ECHO</span>
+        <span class="title-neon">FEST</span>
     </h1>
+
+    <p class="login-subtitle">Sign up</p>
+
 </div>
 
 <!-- FORM -->
-<form method="POST" action="../logic/signup_logic.php" class="future-form">
+<form class="future-form" method="POST" action="../logic/signup_logic.php">
 
-<!-- NAME -->
 <div class="form-row">
 
 <div class="retro-field">
 <div class="field-chrome">
 <input id="first_name" type="text" name="first_name" placeholder=" " required>
 <label>First Name</label>
-<div class="field-hologram"></div>
 </div>
 <small id="firstNameFrontErr" class="text-danger small px-2"></small>
 <?php if($firstNameErr) echo '<div class="error-wrap text-danger small px-2">'.$firstNameErr.'</div>'; ?>
@@ -84,7 +86,6 @@ body {
 <div class="field-chrome">
 <input id="last_name" type="text" name="last_name" placeholder=" " required>
 <label>Last Name</label>
-<div class="field-hologram"></div>
 </div>
 <small id="lastNameFrontErr" class="text-danger small px-2"></small>
 <?php if($lastNameErr) echo '<div class="error-wrap text-danger small px-2">'.$lastNameErr.'</div>'; ?>
@@ -92,14 +93,12 @@ body {
 
 </div>
 
-<!-- USERNAME + EMAIL -->
 <div class="form-row">
 
 <div class="retro-field">
 <div class="field-chrome">
 <input id="username" type="text" name="username" placeholder=" " required>
 <label>Username</label>
-<div class="field-hologram"></div>
 </div>
 <small id="usernameFrontErr" class="text-danger small px-2"></small>
 <?php if($usernameErr) echo '<div class="error-wrap text-danger small px-2">'.$usernameErr.'</div>'; ?>
@@ -109,7 +108,6 @@ body {
 <div class="field-chrome">
 <input id="email" type="email" name="email" placeholder=" " required>
 <label>Email</label>
-<div class="field-hologram"></div>
 </div>
 <small id="emailFrontErr" class="text-danger small px-2"></small>
 <?php if($emailErr) echo '<div class="error-wrap text-danger small px-2">'.$emailErr.'</div>'; ?>
@@ -117,14 +115,12 @@ body {
 
 </div>
 
-<!-- PHONE + AGE -->
 <div class="form-row">
 
 <div class="retro-field">
 <div class="field-chrome">
 <input id="phone" type="text" name="phone" placeholder=" " required>
 <label>Phone</label>
-<div class="field-hologram"></div>
 </div>
 <small id="phoneFrontErr" class="text-danger small px-2"></small>
 <?php if($phoneErr) echo '<div class="error-wrap text-danger small px-2">'.$phoneErr.'</div>'; ?>
@@ -134,22 +130,18 @@ body {
 <div class="field-chrome">
 <input id="age" type="number" name="age" placeholder=" " required>
 <label>Age</label>
-<div class="field-hologram"></div>
 </div>
-<small id="ageFrontErr" class="text-danger small px-2"></small>
-<?php if($ageErr) echo '<div class="error-wrap text-danger small px-2">'.$ageErr.'</div>'; ?>
+<?php if($ageErr) echo "<small class='error'>$ageErr</small>"; ?>
 </div>
 
 </div>
 
-<!-- PASSWORD -->
 <div class="form-row">
 
 <div class="retro-field">
 <div class="field-chrome">
 <input id="password" type="password" name="password" placeholder=" " required>
 <label>Password</label>
-<div class="field-hologram"></div>
 </div>
 <small id="passwordFrontErr" class="text-danger small px-2"></small>
 <?php if($passwordErr) echo '<div class="error-wrap text-danger small px-2">'.$passwordErr.'</div>'; ?>
@@ -159,7 +151,6 @@ body {
 <div class="field-chrome">
 <input id="confirm_password" type="password" name="confirm_password" placeholder=" " required>
 <label>Confirm Password</label>
-<div class="field-hologram"></div>
 </div>
 <small id="confirmFrontErr" class="text-danger small px-2"></small>
 <?php if($confirmErr) echo '<div class="error-wrap text-danger small px-2">'.$confirmErr.'</div>'; ?>
