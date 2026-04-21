@@ -22,7 +22,17 @@
       <div class="pf-avatar"><?= $user["initials"] ?></div>
 
       </div>
+        <div>
+        <div class="pf-name"><?= $user["name"] ?></div>
+        <div class="pf-username"><?= $user["username"] ?></div>
 
+        <div class="pf-badges">
+          <span class="pf-badge pf-badge-vip">VIP</span>
+          <span class="pf-badge pf-badge-cyan">All 4 Days</span>
+          <span class="pf-badge pf-badge-gray">Since 2026</span>
+        </div>
+      </div>
+      
     </div>
 
     </div>
