@@ -10,7 +10,28 @@ $user = [
   "initials" => "AK"
 ];
 
+$stats = [
+  "days" => 4,
+  "tickets" => 2,
+  "artists" => 8
+];
 
+$tickets = [
+  [
+    "type" => "VIP Weekend Pass",
+    "meta" => "July 18–21 · Open Air Arena",
+    "ref" => "ECH-4821-VIP",
+    "class" => "vip"
+  ],
+  [
+    "type" => "General Admission",
+    "meta" => "July 18–21 · Open Air Arena",
+    "ref" => "ECH-3302-GA",
+    "class" => "ga"
+  ]
+];
+
+$artists = ["Four Tet","Burial","Floating Points","Bonobo","Actress","Objekt","Loraine James","Call Super"];
 ?>
 
 
