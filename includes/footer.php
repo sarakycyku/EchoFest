@@ -15,19 +15,11 @@ require('header.php');
               <li><a href="home.php">Home</a></li>
               <li><a href="#">About Us</a></li>
               <li><a href="#">Gallery</a></li>
-              <li><a href="#">Tickets</a></li>
+              <li><a href="tickets.php">Tickets</a></li>
               <li><a href="lineup.php">Line Up</a></li>
             </ul>
           </div>
-          <!-- <div class="col-md">
-            <ul class="list-unstyled nav-links">
-              <li><a href="#">Clients</a></li>
-              <li><a href="#">Team</a></li>
-              <li><a href="#">Career</a></li>
-              <li><a href="#">Testimonials</a></li>
-              <li><a href="#">Journal</a></li>
-            </ul>git rebase origin/main
-          </div> -->
+          
           <div class="col-md">
             <ul class="list-unstyled nav-links">
               <li><a href="#">Privacy Policy</a></li>

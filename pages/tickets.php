@@ -24,6 +24,7 @@ $tickets = [
     [
         'id'=>'early',
         'img_class'=>'img-early',
+        'img_src'=>'../assets/images/ticket1.jpg',
         'name'=>'Early Bird',
         'desc'=>'Lock in the best price and be among the first to experience EchoFest! Early Bird tickets give you full access to all main stages and performances. Perfect for the dedicated music fan who plans ahead. These limited tickets won\'t last long, so grab yours now and save big while securing your spot at the biggest festival of the summer.',
         'price'=>79,
@@ -33,6 +34,7 @@ $tickets = [
     [
         'id'=>'regular',
         'img_class'=>'img-regular',
+        'img_src'=>'../assets/images/ticket2.jpg',
         'name'=>'Regular',
         'desc'=>'The complete festival experience with added perks! Skip the long lines with fast-track entry and enjoy complimentary water refills throughout the day. Regular tickets include access to all stages plus special areas not available to Early Bird holders. Get ready for three days of non-stop music, amazing vibes, and memories that will last forever.',
         'price'=>129,
@@ -42,6 +44,7 @@ $tickets = [
     [
         'id'=>'vip',
         'img_class'=>'img-vip',
+        'img_src'=>'../assets/images/ticket3.jpg',
         'name'=>'VIP Experience',
         'desc'=>'Live like a rockstar with our exclusive VIP package! Enjoy premium viewing areas with the best sightlines, relax in air-conditioned VIP lounges, and indulge in complimentary gourmet food and premium drinks. Meet your favorite artists, access private restrooms, and receive an exclusive merchandise pack. This is the ultimate festival experience for those who demand the very best.',
         'price'=>299,
@@ -56,26 +59,28 @@ $tickets = [
 <link rel="stylesheet" href="../assets/css/style.css">
 <link rel="stylesheet" href="../assets/css/tickets.css">
 
+<!--HERO -->
+
 <section class="hero">
-
-    <div class="hero-info">
-      <div class="info-block">
-        <span class="info-label">Festival Dates</span>
-        <span class="info-value">
-          <?= $event['dates'] ?>
-        </span>
-      </div>
-      <div class="info-block">
-        <span class="info-label">Location</span>
-        <span class="info-value">
-          <?= $event['venue'] ?>
-        </span>
-      </div>
-    </div>
+    <div class="hero-container">
+        <div class="hero-info">
+            <div class="info-block">
+                <span class="info-label">Festival Dates</span>
+                <span class="info-value">
+                <?= $event['dates'] ?>
+                </span>
+            </div>
+            <div class="info-block">
+                <span class="info-label">Location</span>
+                <span class="info-value">
+                <?= $event['venue'] ?>
+                </span>
+            </div>
+        </div>
   </div>
-
 </section>
 
+<!--LOCATION -->
 <div class="location-wrap">
   <div class="location-box">
     <div class="location-label">Select Event Location:</div>
@@ -92,6 +97,77 @@ $tickets = [
     </div>
   </div>
 </div>
+
+<!--TICKETS -->
+<section class="tickets-section">
+  <h2 class="section-title">Choose Your Ticket</h2>
+
+  <div class="ticket-list">
+    <?php foreach ($tickets as $t): ?>
+    <div class="ticket-card <?= !$t['available'] ? 'disabled' : '' ?>">
+
+      <div class="ticket-img">
+        <img src="<?= $t['img_src'] ?>" class="<?= $t['img_class'] ?>">
+      </div>
+
+      <div class="ticket-body">
+        <div>
+          <div class="ticket-top">
+            <div>
+              <div class="ticket-name"><?= $t['name'] ?></div>
+              <?php if ($t['coming_date']): ?>
+                <div class="coming-badge"> <?= $t['coming_date'] ?></div>
+              <?php endif; ?> 
+            </div>
+          </div>
+          <p class="ticket-desc"><?= $t['desc'] ?></p>
+        </div>
+
+        <div class="ticket-footer">
+          <div class="ticket-price-block">
+            <div class="price-label">Price per ticket</div>
+            <div class="price-amount">€<?= $t['price'] ?></div>
+          </div>
+
+          <div class="ticket-actions">
+            <?php if ($t['available']): ?>
+              
+              <div class="qty-control" id="qty-<?= $t['id'] ?>">
+                <button class="qty-btn" onclick="changeQty('<?= $t['id'] ?>', -1)">-</button>
+                <span class="qty-num" id="num-<?= $t['id'] ?>">1</span>
+                <button class="qty-btn" onclick="changeQty('<?= $t['id'] ?>', 1)">+</button>
+              </div>
+              <button class="buy-btn" id="buy-<?= $t['id'] ?>"
+                onclick="buyNow('<?= $t['id'] ?>', <?= $t['price'] ?>)">
+                Buy Now - €<?= $t['price'] ?>
+              </button>
+            <?php else: ?>
+              <button class="coming-btn" disabled>Coming Soon</button>
+            <?php endif; ?>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <?php endforeach; ?>
+  </div>
+</section>
+
+<script>
+const qtys = {};
+
+function changeQty(id, change) {
+  if (!qtys[id]) qtys[id] = 1;
+  qtys[id] = Math.max(1, qtys[id] + change);
+  document.getElementById('num-' + id).textContent = qtys[id];
+
+  // Update buy button price dynamically
+  const priceMap = { early: 79, regular: 129, vip: 299 };
+  const total = priceMap[id] * qtys[id];
+  const btn = document.getElementById('buy-' + id);
+  if (btn) btn.textContent = 'Buy Now - €' + total;
+}
+</script>
 
 <?php
 include '../includes/footer.php';
