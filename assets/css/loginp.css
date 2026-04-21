@@ -36,7 +36,7 @@ body {
     backdrop-filter: blur(20px);
     border: 2px solid white;
     border-radius: 24px;
-    padding: 30px 40px 40px; 
+    padding: 30px 40px 40px;
     box-shadow: 0 25px 50px rgba(0,0,0,0.3);
     position: relative;
     overflow: hidden;
@@ -68,21 +68,36 @@ body {
 }
 
 .y2k-title {
-    font-size: 2rem;
+    font-size: 2.8rem;
     font-weight: 900;
     margin-top: 0;
     margin-bottom: 8px;
     text-transform: uppercase;
-    letter-spacing: 2px;
+    letter-spacing: -0.02em;
     display: flex;
     justify-content: center;
     gap: 8px;
 }
 
-.title-chrome,
-.title-neon {
+.title-chrome {
     color: #fff;
-    text-shadow: 0 0 5px #0ff, 0 0 10px #f0f, 0 0 20px #ff0;
+    text-shadow: none;
+}
+
+/* FEST */
+.title-neon {
+    color: transparent;
+    -webkit-text-stroke: 2px #fff; /* border i bardhë */
+    text-shadow: none; /* heq glow */
+}
+.login-subtitle {
+    text-align: center;
+    font-size: 12px;
+    letter-spacing: 3px;
+    color: rgba(255,255,255,0.7);
+    margin-top: -5px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
 }
 
 .future-form {
@@ -153,7 +168,6 @@ body {
     width: 100%;
 }
 
-
 .login-btn {
     width: 100%;
     height: 55px;
@@ -164,13 +178,9 @@ body {
     font-size: 16px;
     font-weight: bold;
     color: white;
-
-    /* background: linear-gradient(to right, #4f46e5, #9333ea); */
-
     display: flex;
     align-items: center;
     justify-content: center;
-
     transition: 0.3s;
 }
 
@@ -217,26 +227,29 @@ body {
     bottom: -3px;
     width: 0%;
     height: 2px;
-    /* background: white; */
     transition: 0.3s;
 }
+
 .signup-option a:hover::after {
     width: 100%;
 }
+
 .signup-option a:hover {
-    text-shadow: 
-        0 0 5px #0ff,
-        0 0 10px #f0f,
-        0 0 15px #ff0;
+    opacity: 0.7;
 }
+
+.legal-links {
+    margin-top: 8px;
+}
+
 .legal-links a {
     color: rgba(255,255,255,0.7);
     text-decoration: none;
     position: relative;
     transition: color 0.3s ease;
-
-    text-shadow: none !important; 
+    text-shadow: none !important;
 }
+
 .legal-links a::after {
     content: "";
     position: absolute;
@@ -264,6 +277,6 @@ body {
     }
 
     .y2k-title {
-        font-size: 1.5rem;
+        font-size: 2rem;
     }
 }

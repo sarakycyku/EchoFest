@@ -17,13 +17,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION['username'] = $username;
             $_SESSION['role'] = $users[$username]['role'];
 
-            if ($users[$username]['role'] == "admin") {
-                header("Location: ../pages/admin.php");
-                exit;
-            } else {
+            
                 header("Location: ../pages/home.php");
                 exit;
-            }
+            
 
         } else {
             echo "Password gabim!";
