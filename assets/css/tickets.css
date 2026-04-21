@@ -32,7 +32,8 @@ body {
 
 .hero {
   position: relative;
-  height: 420px;
+  min-height: 420px;
+  height: auto;
   overflow: hidden;
   display: flex;
   align-items: flex-end;
