@@ -295,3 +295,37 @@
   border: 0.5px solid rgba(255, 255, 255, 0.1);
   animation-delay: 0.7s;
 }
+
+.pf-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-bottom: 1rem;
+  animation: fadeUp 0.6s 0.4s ease both;
+}
+
+.pf-stat {
+  background: rgba(255, 255, 255, 0.04);
+  border: 0.5px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  padding: 1rem 0.75rem;
+  text-align: center;
+  transition: transform 0.2s, border-color 0.2s;
+  cursor: default;
+}
+
+.pf-stat:hover {
+  transform: translateY(-3px);
+  border-color: rgba(167, 139, 250, 0.35);
+}
+
+.pf-stat-num {
+  font-family: "Black Han Sans", sans-serif;
+  font-size: 30px;
+  background: linear-gradient(135deg, #a78bfa, #67e8f9);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 2px;
+  animation: countUp 0.5s ease both;
+}
