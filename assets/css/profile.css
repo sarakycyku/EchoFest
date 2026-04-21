@@ -117,3 +117,21 @@
     border-color: rgba(107, 33, 168, 0.7);
   }
 }
+
+
+.pf-particles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 340px;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.pf-dot {
+  position: absolute;
+  border-radius: 50%;
+  animation: floatDot linear infinite;
+}
