@@ -12,8 +12,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $last_name  = $_POST["last_name"] ?? "";
     $username   = $_POST["username"] ?? "";
     $email      = $_POST["email"] ?? "";
+    $city       = $_POST["city"] ?? "";   
 
-    $pattern = "/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$/";
+    $passRegex = "/^[a-zA-Z0-9\W_]{8,}$/";
+    $phoneRegex = "/^[0-9]{8,15}$/";
+    $regexname = "/^[a-zA-ZëËçÇ]+$/u";
+    $cityregex = "/^[a-zA-Z\s\-']+$/";  
 
     $_SESSION['passwordErr'] = "";
     $_SESSION['confirmErr'] = "";
@@ -23,8 +27,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $_SESSION['lastNameErr'] = "";
     $_SESSION['usernameErr'] = "";
     $_SESSION['emailErr'] = "";
+    $_SESSION['cityErr'] = "";   
 
-    if (!preg_match($pattern, $p)) {
+    if (!preg_match($passRegex, $p)) {
         $_SESSION['passwordErr'] = "Password must be at least 8 characters long and include uppercase, lowercase, number, and special character!";
     }
 
@@ -32,7 +37,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $_SESSION['confirmErr'] = "Passwords do not match!";
     }
 
-    if (!preg_match("/^[0-9]{8,15}$/", $phone)) {
+    if (!preg_match($phoneRegex, $phone)) {
         $_SESSION['phoneErr'] = "Phone number is not valid!";
     }
 
@@ -40,20 +45,23 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $_SESSION['ageErr'] = "Age must be between 18 and 120!";
     }
 
-    if (!preg_match("/^[a-zA-ZëËçÇ]+$/u", $first_name)) {
+    if (!preg_match($regexname, $first_name)) {
         $_SESSION['firstNameErr'] = "Only letters are allowed!";
     }
 
-    if (!preg_match("/^[a-zA-ZëËçÇ]+$/u", $last_name)) {
+    if (!preg_match($regexname, $last_name)) {
         $_SESSION['lastNameErr'] = "Only letters are allowed!";
+    }
+    if(!preg_match($cityregex, $city)){
+        $_SESSION['cityErr'] = "City can contain only letters!";
     }
 
     $blocked = ["admin"];
-    $patternUsername = "/^[a-zA-Z][a-zA-Z0-9]{2,19}$/";
+    $usernameReg = "/^[a-zA-Z][a-zA-Z0-9]{2,19}$/";
 
     if (in_array(strtolower($username), $blocked)) {
         $_SESSION['usernameErr'] = "This username is not allowed!";
-    } elseif (!preg_match($patternUsername, $username)) {
+    } elseif (!preg_match($usernameReg, $username)) {
         $_SESSION['usernameErr'] = "Username must be 3-20 characters, start with a letter, and contain only letters and numbers!";
     }
 
@@ -81,7 +89,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         empty($_SESSION['firstNameErr']) &&
         empty($_SESSION['lastNameErr']) &&
         empty($_SESSION['usernameErr']) &&
-        empty($_SESSION['emailErr'])
+        empty($_SESSION['emailErr']) &&
+        empty($_SESSION['cityErr'])   
     ) {
         $_SESSION['success'] = "Account created successfully!";
     }
@@ -89,3 +98,4 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     header("Location: ../pages/signup.php");
     exit();
 }
+?>
