@@ -1,5 +1,5 @@
 <?php
-// Keto te dhena i kam marre per si shembull 
+// Keto te dhena i kam marre si shembull 
 $user = [
   "name" => "Artan Krasniqi",
   "username" => "@artank",
@@ -90,6 +90,24 @@ $artists = ["Four Tet","Burial","Floating Points","Bonobo","Actress","Objekt","L
       <div class="pf-stat-num" id="s3">0</div>
       <div class="pf-stat-lbl">Artists</div>
     </div>
+  </div>
+
+
+    <div class="pf-card">
+    <div class="pf-section-label">My Tickets</div>
+
+    <?php foreach($tickets as $t): ?>
+      <div class="pf-ticket pf-ticket-<?= $t["class"] ?>">
+        <div>
+          <div class="pf-ticket-name"><?= $t["type"] ?></div>
+          <div class="pf-ticket-meta"><?= $t["meta"] ?></div>
+        </div>
+        <div class="pf-ticket-ref pf-ticket-ref-<?= $t["class"] ?>">
+          <?= $t["ref"] ?>
+        </div>
+      </div>
+    <?php endforeach; ?>
+
   </div>
 
 </div>
