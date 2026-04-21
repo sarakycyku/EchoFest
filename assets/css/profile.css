@@ -168,3 +168,29 @@
   );
   animation: pulseGlow 3s ease-in-out infinite;
 }
+
+.pf-toprow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.1rem;
+}
+
+.pf-brand {
+  font-family: "Black Han Sans", sans-serif;
+  font-size: 18px;
+  letter-spacing: -0.02em;
+  color: #f0eee8;
+}
+
+.pf-brand span {
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.28);
+}
+
+.pf-edition {
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(240, 238, 232, 0.3);
+}
