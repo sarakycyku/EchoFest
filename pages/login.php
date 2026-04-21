@@ -21,17 +21,19 @@
     <div class="login-container">
         <div class="future-card">
             <div class="chrome-header">
-                <div class="retro-logo mt-1">
-                    <div class="logo-chrome">
-                        <img src="../assets/images/logo2-pabg.png" alt="Logo" width="150" height="150">
-                        <div class="chrome-glow"></div>
-                    </div>
-                </div>
-                <h1 class="y2k-title">
-                    <span class="title-chrome">LOG</span>
-                    <span class="title-neon">IN</span>
-                </h1>
-            </div>
+    <div class="retro-logo mt-1">
+        <div class="logo-chrome">
+            <img src="../assets/images/logo2-pabg.png" alt="Logo" width="150" height="150">
+            <div class="chrome-glow"></div>
+        </div>
+    </div>
+    <h1 class="y2k-title">
+    <span class="title-chrome">ECHO</span>
+    <span class="title-neon">FEST</span>
+</h1>
+
+<p class="login-subtitle">Login</p>
+</div>
             
             <form class="future-form" id="loginForm" method="POST" action="../logic/login_logic.php">
                 <div class="retro-field">

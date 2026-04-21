@@ -93,10 +93,25 @@ body {
     gap: 16px;
 }
 
-.title-chrome,
-.title-neon {
+.title-chrome {
     color: #fff;
-   text-shadow: 0 0 5px #0ff, 0 0 10px #f0f, 0 0 20px #ff0;
+    text-shadow: none;
+}
+
+/* FEST */
+.title-neon {
+    color: transparent;
+    -webkit-text-stroke: 2px #fff; /* border i bardhë */
+    text-shadow: none; /* heq glow */
+}
+.login-subtitle {
+    text-align: center;
+    font-size: 12px;
+    letter-spacing: 3px;
+    color: rgba(255,255,255,0.7);
+    margin-top: -5px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
 }
 
 /* FORM */
