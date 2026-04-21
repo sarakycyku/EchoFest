@@ -10,19 +10,21 @@ $users = [
         "email" => "admin1@gmail.com",
         "phone" => "044123456",
         "age" => 25,
-        "city" => "Prishtine"
+        "city" => "Prishtine",
+        "profile_picture" => "../assets/images/profile/user1.png"
     ],
 
     "admin2" => [
-    "password" => "Smith3#",
-    "role" => "admin",
-    "first_name" => "Jane",
-    "last_name" => "Smith",
-    "email" => "admin2@echofest.com",
-    "phone" => "612345678",
-    "age" => 31,
-    "city" => "Madrid"
-],
+        "password" => "Smith3#",
+        "role" => "admin",
+        "first_name" => "Jane",
+        "last_name" => "Smith",
+        "email" => "admin2@echofest.com",
+        "phone" => "612345678",
+        "age" => 31,
+        "city" => "Madrid",
+        "profile_picture" => "../assets/images/profile/user2.png"
+    ],
 
     "user1" => [
         "password" => "@user12?",
@@ -32,7 +34,8 @@ $users = [
         "email" => "user1@gmail.com",
         "phone" => "0693218866",
         "age" => 19,
-        "city" => "Tirana"
+        "city" => "Tirana",
+        "profile_picture" => "../assets/images/profile/user3.png"
     ],
 
     "user2" => [
@@ -43,7 +46,8 @@ $users = [
         "email" => "user2@gmail.com",
         "phone" => "070271796",
         "age" => 55,
-        "city" => "Skopje"
+        "city" => "Skopje",
+        "profile_picture" => "../assets/images/profile/user4.png"
     ],
 
     "user3" => [
@@ -54,7 +58,8 @@ $users = [
         "email" => "user3@gmail.com",
         "phone" => "03454166693",
         "age" => 40,
-        "city" => "Milan"
+        "city" => "Milan",
+        "profile_picture" => "../assets/images/profile/user5.jpg"
     ]
 
 ];
