@@ -217,3 +217,26 @@
   background: conic-gradient(#a78bfa, #06b6d4, #6b21a8, #a78bfa);
   animation: spinRing 3s linear infinite;
 }
+
+.pf-avatar-ring::after {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: 50%;
+  background: #0a0a0f;
+}
+
+.pf-avatar {
+  position: relative;
+  z-index: 1;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #312e81, #6b21a8, #0e7490);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Black Han Sans", sans-serif;
+  font-size: 28px;
+  color: #f0eee8;
+}
