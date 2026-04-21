@@ -37,6 +37,22 @@
 
     </div>
 
+
+    <div class="pf-stats">
+      <div class="pf-stat">
+      <div class="pf-stat-num" id="s1">0</div>
+      <div class="pf-stat-lbl">Days</div>
+    </div>
+    <div class="pf-stat">
+      <div class="pf-stat-num" id="s2">0</div>
+      <div class="pf-stat-lbl">Tickets</div>
+    </div>
+    <div class="pf-stat">
+      <div class="pf-stat-num" id="s3">0</div>
+      <div class="pf-stat-lbl">Artists</div>
+    </div>
+  </div>
+
 </div>
 </body>
 </html>
