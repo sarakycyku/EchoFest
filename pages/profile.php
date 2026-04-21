@@ -122,6 +122,16 @@ $artists = ["Four Tet","Burial","Floating Points","Bonobo","Actress","Objekt","L
     <div class="pf-row"><span class="pf-row-lbl">Member since</span><span class="pf-row-val dim"><?= $user["member_since"] ?></span></div>
   </div>
 
+
+  <div class="pf-card">
+   <div class="pf-section-label">Favourite Artists</div>
+    <div class="pf-artists">
+      <?php foreach($artists as $a): ?>
+        <span class="pf-pill"><?= $a ?></span>
+      <?php endforeach; ?>
+    </div>
+  </div>
+
 </div>
 </body>
 </html>
