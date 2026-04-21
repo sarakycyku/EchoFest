@@ -140,6 +140,16 @@ $artists = ["Four Tet","Burial","Floating Points","Bonobo","Actress","Objekt","L
 
   <div class="pf-footer">July 18–21, 2026 / 4 Stages / 80+ Artists</div>
 
+  <script src="../js/profile.js"></script>
+<script>
+  
+  window.stats = {
+    days: <?= $stats["days"] ?>,
+    tickets: <?= $stats["tickets"] ?>,
+    artists: <?= $stats["artists"] ?>
+  };
+</script>
+
 </div>
 </body>
 </html>
