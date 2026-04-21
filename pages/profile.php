@@ -138,6 +138,8 @@ $artists = ["Four Tet","Burial","Floating Points","Bonobo","Actress","Objekt","L
     <button class="pf-btn pf-btn-out">Log Out</button>
   </div>
 
+  <div class="pf-footer">July 18–21, 2026 / 4 Stages / 80+ Artists</div>
+
 </div>
 </body>
 </html>
