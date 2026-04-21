@@ -15,8 +15,16 @@
       <div class="pf-toprow">
       <div class="pf-brand">ECHO<span>FEST</span></div>
       <div class="pf-edition">2026 Edition</div>
+      </div>
+
+      <div class="pf-avatar-wrap">
+      <div class="pf-avatar-ring">
+      <div class="pf-avatar"><?= $user["initials"] ?></div>
+
+      </div>
+
     </div>
-    
+
     </div>
 
 </div>
