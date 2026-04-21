@@ -93,6 +93,26 @@ body {
 
 </div>
 
+<!-- PROFILE PHOTO + CITY -->
+<div class="form-row">
+
+<div class="retro-field">
+<div class="field-chrome">
+<input id="profile_photo" type="file" name="profile_photo" required>
+<label>Profile Picture</label>
+</div>
+</div>
+
+<div class="retro-field">
+<div class="field-chrome">
+<input id="city" type="text" name="city" placeholder=" " required>
+<label>City</label>
+</div>
+</div>
+
+</div>
+
+<!-- USERNAME + EMAIL -->
 <div class="form-row">
 
 <div class="retro-field">
@@ -186,6 +206,7 @@ Already have an account? <a href="login.php" class="future-link">Login</a>
 
 </div>
 </div>
+
 <script src="../assets/js/signup.js"></script>
 </body>
 </html>
