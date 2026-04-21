@@ -270,3 +270,28 @@
   border-radius: 20px;
   animation: popIn 0.5s ease both;
 }
+
+.pf-badge-vip {
+  background: linear-gradient(
+    90deg,
+    rgba(107, 33, 168, 0.4),
+    rgba(79, 70, 229, 0.35)
+  );
+  color: #c4b5fd;
+  border: 0.5px solid rgba(139, 92, 246, 0.5);
+  animation-delay: 0.5s;
+}
+
+.pf-badge-cyan {
+  background: rgba(6, 182, 212, 0.15);
+  color: #67e8f9;
+  border: 0.5px solid rgba(6, 182, 212, 0.3);
+  animation-delay: 0.6s;
+}
+
+.pf-badge-gray {
+  background: rgba(255, 255, 255, 0.06);
+  color: rgba(240, 238, 232, 0.45);
+  border: 0.5px solid rgba(255, 255, 255, 0.1);
+  animation-delay: 0.7s;
+}
