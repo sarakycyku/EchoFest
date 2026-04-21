@@ -42,7 +42,7 @@ $artists = ["Four Tet","Burial","Floating Points","Bonobo","Actress","Objekt","L
 <head>
   <meta charset="UTF-8">
   <title>Profile</title>
-  <link rel="stylesheet" href="../css/profile.css">
+  <link rel="stylesheet" href="../assets/css/profile.css">
 </head>
 
 <body>
@@ -140,7 +140,7 @@ $artists = ["Four Tet","Burial","Floating Points","Bonobo","Actress","Objekt","L
 
   <div class="pf-footer">July 18–21, 2026 / 4 Stages / 80+ Artists</div>
   </div>
-  <script src="../js/profile.js"></script>
+  <script src="../assets/js/profile.js"></script>
 <script>
   
   window.stats = {
