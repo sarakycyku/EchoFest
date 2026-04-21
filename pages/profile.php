@@ -132,6 +132,12 @@ $artists = ["Four Tet","Burial","Floating Points","Bonobo","Actress","Objekt","L
     </div>
   </div>
 
+
+  <div class="pf-actions">
+    <button class="pf-btn pf-btn-edit">Edit Profile</button>
+    <button class="pf-btn pf-btn-out">Log Out</button>
+  </div>
+
 </div>
 </body>
 </html>
