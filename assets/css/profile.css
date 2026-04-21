@@ -541,3 +541,25 @@
 .pf-btn:active {
   transform: scale(0.97);
 }
+
+.pf-btn-edit {
+  background: linear-gradient(90deg, #312e81, #6b21a8);
+  color: #ffffff;
+}
+
+.pf-btn-edit:hover {
+  filter: brightness(1.2);
+  transform: translateY(-2px);
+}
+
+.pf-btn-out {
+  background: rgba(255, 255, 255, 0.05);
+  color: rgba(240, 238, 232, 0.5);
+  border: 0.5px solid rgba(255, 255, 255, 0.1);
+}
+
+.pf-btn-out:hover {
+  background: rgba(220, 50, 50, 0.1);
+  color: #fca5a5;
+  border-color: rgba(220, 50, 50, 0.3);
+}
