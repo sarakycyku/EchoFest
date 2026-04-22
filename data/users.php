@@ -63,4 +63,13 @@ $users = [
     ]
 
 ];
+
+$usersFile = __DIR__ . '/users.json';
+if (file_exists($usersFile)) {
+    $jsonUsers = json_decode(file_get_contents($usersFile), true);
+    if ($jsonUsers) {
+        $users = array_merge($users, $jsonUsers);
+    }
+}
+
 ?>
