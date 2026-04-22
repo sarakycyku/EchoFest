@@ -11,7 +11,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (isset($users[$username])) {
 
         // kontrollo password
-        if ($users[$username]['password'] === $password) {
+        if (password_verify($password, $users[$username]['password'])) {
 
             // login sukses
             $_SESSION['username'] = $username;

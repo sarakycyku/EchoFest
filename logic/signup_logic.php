@@ -92,6 +92,19 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         empty($_SESSION['emailErr']) &&
         empty($_SESSION['cityErr'])   
     ) {
+        include "../data/users.php";
+
+        $users[$username] = [
+            'password' => password_hash($p, PASSWORD_DEFAULT), 
+            'email'      => $email,
+            'first_name' => $first_name,
+            'last_name'  => $last_name,
+            'phone'      => $phone,
+            'age'        => $age,
+            'city'       => $city,
+            'role'       => 'user'
+        ];
+        saveUsers($users);
         $_SESSION['success'] = "Account created successfully!";
     }
 
