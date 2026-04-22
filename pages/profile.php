@@ -55,6 +55,7 @@ $artists = ["Four Tet","Burial","Floating Points","Bonobo","Actress","Objekt","L
 <head>
   <meta charset="UTF-8">
   <title>Profile</title>
+  <link rel="icon" type="image/x-icon" href="../assets/images/logo2-pabg.png">
   <link rel="stylesheet" href="../assets/css/profile.css">
 </head>
 
@@ -92,15 +93,15 @@ $artists = ["Four Tet","Burial","Floating Points","Bonobo","Actress","Objekt","L
 
     <div class="pf-stats">
       <div class="pf-stat">
-      <div class="pf-stat-num" id="s1">0</div>
+      <div class="pf-stat-num" id="s1"><?= $stats["days"] ?></div>
       <div class="pf-stat-lbl">Days</div>
     </div>
     <div class="pf-stat">
-      <div class="pf-stat-num" id="s2">0</div>
+      <div class="pf-stat-num" id="s2"><?= $stats["tickets"] ?></div>
       <div class="pf-stat-lbl">Tickets</div>
     </div>
     <div class="pf-stat">
-      <div class="pf-stat-num" id="s3">0</div>
+      <div class="pf-stat-num" id="s3"><?= $stats["artists"] ?></div>
       <div class="pf-stat-lbl">Artists</div>
     </div>
   </div>
@@ -131,6 +132,7 @@ $artists = ["Four Tet","Burial","Floating Points","Bonobo","Actress","Objekt","L
     <div class="pf-row"><span class="pf-row-lbl">Username</span><span class="pf-row-val"><?= $user["username"] ?></span></div>
     <div class="pf-row"><span class="pf-row-lbl">Email</span><span class="pf-row-val dim"><?= $user["email"] ?></span></div>
     <div class="pf-row"><span class="pf-row-lbl">Phone</span><span class="pf-row-val dim"><?= $user["phone"] ?></span></div>
+    <div class="pf-row"><span class="pf-row-lbl">City</span><span class="pf-row-val dim"><?= $user["city"] ?></span></div>
     <div class="pf-row"><span class="pf-row-lbl">Age</span><span class="pf-row-val"><?= $user["age"] ?></span></div>
     <div class="pf-row"><span class="pf-row-lbl">Member since</span><span class="pf-row-val dim"><?= $user["member_since"] ?></span></div>
   </div>
@@ -147,8 +149,8 @@ $artists = ["Four Tet","Burial","Floating Points","Bonobo","Actress","Objekt","L
 
 
   <div class="pf-actions">
-    <button class="pf-btn pf-btn-edit">Edit Profile</button>
-    <button class="pf-btn pf-btn-out">Log Out</button>
+    <button class="pf-btn pf-btn-edit" >Edit Profile</button>
+    <button class="pf-btn pf-btn-out" onclick="window.location='../logic/logout.php'">Log Out</button>
   </div>
 
   <div class="pf-footer">July 18–21, 2026 / 4 Stages / 80+ Artists</div>
