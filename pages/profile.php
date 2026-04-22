@@ -1,13 +1,25 @@
 <?php
-// Keto te dhena i kam marre si shembull 
+session_start();
+
+if (!isset($_SESSION['username'])) {
+    header("Location: ../pages/login.php");
+    exit;
+}
+
+include "../data/users.php";
+
+$username = $_SESSION['username'];
+$data = $users[$username];
+
 $user = [
-  "name" => "Artan Krasniqi",
-  "username" => "@artank",
-  "email" => "ar***@gmail.com",
-  "phone" => "+383 *** *** 21",
-  "age" => 24,
-  "member_since" => "April 2026",
-  "initials" => "AK"
+    "name"         => $data["first_name"] . " " . $data["last_name"],
+    "username"     => "@" . $username,
+    "email"        => $data["email"],
+    "phone"        => $data["phone"],
+    "city"         => $data["city"],
+    "age"          => $data["age"],
+    "member_since" => "April 2026",
+    "initials"     => strtoupper(substr($data["first_name"], 0, 1) . substr($data["last_name"], 0, 1))
 ];
 
 $stats = [
@@ -33,6 +45,7 @@ $tickets = [
 
 $artists = ["Four Tet","Burial","Floating Points","Bonobo","Actress","Objekt","Loraine James","Call Super"];
 ?>
+
 
 
 
