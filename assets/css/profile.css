@@ -9,6 +9,7 @@
 .pf-root {
   font-family: 'DM Sans', sans-serif;
   background: #0a0a0f;
+  position: relative;
   color: #f0eee8;
   padding: 1.5rem 1.25rem 2rem;
   min-height: 100vh;
@@ -61,19 +62,17 @@
 }
 
 @keyframes floatDot {
-  0% {
-    transform: translateY(100%) scale(0);
-    opacity: 0;
+  0%   { 
+    transform: translateY(0); opacity: 0; 
   }
-  10% {
-    opacity: 1;
+  10%  { 
+    opacity: 1; 
   }
-  90% {
-    opacity: 0.5;
+  90%  { 
+    opacity: 0.6; 
   }
-  100% {
-    transform: translateY(-120px) scale(1.2);
-    opacity: 0;
+  100% { 
+    transform: translateY(-40vh); opacity: 0; 
   }
 }
 
@@ -120,11 +119,10 @@
 
 
 .pf-particles {
-  position: absolute;
-  top: 0;
+  position: fixed;  
   left: 0;
   right: 0;
-  height: 340px;
+  bottom: 0;       
   overflow: hidden;
   pointer-events: none;
   z-index: 0;
