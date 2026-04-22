@@ -1,3 +1,14 @@
+<?php
+session_start();
+if (!isset($_SESSION['username'])) {
+    header("Location: ../pages/login.php");
+    exit;
+}
+include "../data/users.php";
+$username = $_SESSION['username'];
+$data = $users[$username];
+?>
+
 
 <!DOCTYPE html>
 
