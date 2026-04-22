@@ -1,0 +1,598 @@
+@import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=DM+Sans:wght@300;400;500&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.pf-root {
+  font-family: 'DM Sans', sans-serif;
+  background: #0a0a0f;
+  color: #f0eee8;
+  padding: 1.5rem 1.25rem 2rem;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes popIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.7);
+  }
+  70% {
+    transform: scale(1.08);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes spinRing {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pulseGlow {
+  0%,
+  100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes floatDot {
+  0% {
+    transform: translateY(100%) scale(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateY(-120px) scale(1.2);
+    opacity: 0;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+@keyframes ticketSlide {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes countUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes borderPulse {
+  0%,
+  100% {
+    border-color: rgba(107, 33, 168, 0.3);
+  }
+  50% {
+    border-color: rgba(107, 33, 168, 0.7);
+  }
+}
+
+
+.pf-particles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 340px;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.pf-dot {
+  position: absolute;
+  border-radius: 50%;
+  animation: floatDot linear infinite;
+}
+
+.pf-hero-wrap {
+  position: relative;
+  z-index: 1;
+  background: linear-gradient(
+    160deg,
+    rgba(107, 33, 168, 0.22) 0%,
+    rgba(6, 182, 212, 0.1) 60%,
+    rgba(10, 10, 15, 0) 100%
+  );
+  border: 0.5px solid rgba(107, 33, 168, 0.35);
+  border-radius: 20px;
+  padding: 1.5rem 1.25rem 1.25rem;
+  margin-bottom: 1rem;
+  animation: fadeUp 0.7s 0.1s ease both;
+  overflow: hidden;
+}
+
+.pf-hero-wrap::before {
+  content: "";
+  position: absolute;
+  top: -40px;
+  right: -40px;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(107, 33, 168, 0.18) 0%,
+    transparent 70%
+  );
+  animation: pulseGlow 3s ease-in-out infinite;
+}
+
+.pf-toprow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.1rem;
+}
+
+.pf-brand {
+  font-family: "Black Han Sans", sans-serif;
+  font-size: 18px;
+  letter-spacing: -0.02em;
+  color: #f0eee8;
+}
+
+.pf-brand span {
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.28);
+}
+
+.pf-edition {
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(240, 238, 232, 0.3);
+}
+
+.pf-avatar-wrap {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.pf-avatar-ring {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  flex-shrink: 0;
+  animation: popIn 0.6s 0.3s ease both;
+}
+
+.pf-avatar-ring::before {
+  content: "";
+  position: absolute;
+  inset: -3px;
+  border-radius: 50%;
+  background: conic-gradient(#a78bfa, #06b6d4, #6b21a8, #a78bfa);
+  animation: spinRing 3s linear infinite;
+}
+
+.pf-avatar-ring::after {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: 50%;
+  background: #0a0a0f;
+}
+
+.pf-avatar {
+  position: relative;
+  z-index: 1;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #312e81, #6b21a8, #0e7490);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Black Han Sans", sans-serif;
+  font-size: 28px;
+  color: #f0eee8;
+}
+
+.pf-name {
+  font-family: "Black Han Sans", sans-serif;
+  font-size: 24px;
+  letter-spacing: -0.02em;
+  margin-bottom: 3px;
+}
+
+.pf-username {
+  font-size: 12px;
+  color: rgba(240, 238, 232, 0.4);
+  letter-spacing: 0.07em;
+  margin-bottom: 10px;
+}
+
+.pf-badges {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.pf-badge {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  padding: 3px 11px;
+  border-radius: 20px;
+  animation: popIn 0.5s ease both;
+}
+
+.pf-badge-vip {
+  background: linear-gradient(
+    90deg,
+    rgba(107, 33, 168, 0.4),
+    rgba(79, 70, 229, 0.35)
+  );
+  color: #c4b5fd;
+  border: 0.5px solid rgba(139, 92, 246, 0.5);
+  animation-delay: 0.5s;
+}
+
+.pf-badge-cyan {
+  background: rgba(6, 182, 212, 0.15);
+  color: #67e8f9;
+  border: 0.5px solid rgba(6, 182, 212, 0.3);
+  animation-delay: 0.6s;
+}
+
+.pf-badge-gray {
+  background: rgba(255, 255, 255, 0.06);
+  color: rgba(240, 238, 232, 0.45);
+  border: 0.5px solid rgba(255, 255, 255, 0.1);
+  animation-delay: 0.7s;
+}
+
+.pf-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-bottom: 1rem;
+  animation: fadeUp 0.6s 0.4s ease both;
+}
+
+.pf-stat {
+  background: rgba(255, 255, 255, 0.04);
+  border: 0.5px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  padding: 1rem 0.75rem;
+  text-align: center;
+  transition: transform 0.2s, border-color 0.2s;
+  cursor: default;
+}
+
+.pf-stat:hover {
+  transform: translateY(-3px);
+  border-color: rgba(167, 139, 250, 0.35);
+}
+
+.pf-stat-num {
+  font-family: "Black Han Sans", sans-serif;
+  font-size: 30px;
+  background: linear-gradient(135deg, #a78bfa, #67e8f9);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 2px;
+  animation: countUp 0.5s ease both;
+}
+
+.pf-stat:nth-child(1) .pf-stat-num {
+  animation-delay: 0.5s;
+}
+
+.pf-stat:nth-child(2) .pf-stat-num {
+  animation-delay: 0.65s;
+}
+
+.pf-stat:nth-child(3) .pf-stat-num {
+  animation-delay: 0.8s;
+}
+
+.pf-stat-lbl {
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(240, 238, 232, 0.35);
+}
+
+.pf-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 0.5px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 1.15rem 1.2rem;
+  margin-bottom: 1rem;
+  transition: border-color 0.25s;
+}
+
+.pf-card:hover {
+  border-color: rgba(167, 139, 250, 0.2);
+}
+
+.pf-section-label {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: rgba(240, 238, 232, 0.3);
+  margin-bottom: 0.9rem;
+}
+
+.pf-ticket {
+  border-radius: 12px;
+  padding: 1rem 1.1rem;
+  margin-bottom: 0.65rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  animation: ticketSlide 0.5s ease both;
+  position: relative;
+  overflow: hidden;
+}
+
+.pf-ticket:last-child {
+  margin-bottom: 0;
+}
+
+.pf-ticket::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.03) 50%,
+    transparent 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 2.5s ease-in-out infinite;
+}
+
+.pf-ticket-vip {
+  background: rgba(107, 33, 168, 0.12);
+  border: 0.5px solid rgba(107, 33, 168, 0.3);
+  animation: borderPulse 3s ease-in-out infinite,
+    ticketSlide 0.5s 0.5s ease both;
+}
+
+.pf-ticket-ga {
+  background: rgba(6, 182, 212, 0.08);
+  border: 0.5px solid rgba(6, 182, 212, 0.2);
+  animation-delay: 0.65s;
+}
+
+.pf-ticket-name {
+  font-size: 13px;
+  font-weight: 500;
+  color: #f0eee8;
+  margin-bottom: 3px;
+}
+
+.pf-ticket-meta {
+  font-size: 11px;
+  color: rgba(240, 238, 232, 0.38);
+  letter-spacing: 0.05em;
+}
+
+.pf-ticket-ref {
+  font-size: 11px;
+  font-family: monospace;
+  letter-spacing: 0.1em;
+  padding: 4px 10px;
+  border-radius: 6px;
+}
+
+.pf-ticket-ref-vip {
+  color: #a78bfa;
+  background: rgba(107, 33, 168, 0.2);
+  border: 0.5px solid rgba(107, 33, 168, 0.25);
+}
+
+.pf-ticket-ref-ga {
+  color: #67e8f9;
+  background: rgba(6, 182, 212, 0.12);
+  border: 0.5px solid rgba(6, 182, 212, 0.2);
+}
+
+.pf-qr {
+  width: 64px;
+  height: 64px;
+  border-radius: 8px;
+  background: #fff;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.pf-qr svg {
+  width: 54px;
+  height: 54px;
+}
+
+.pf-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 9px 0;
+  border-bottom: 0.5px solid rgba(255, 255, 255, 0.05);
+}
+
+.pf-row:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.pf-row-lbl {
+  font-size: 12px;
+  color: rgba(240, 238, 232, 0.38);
+}
+
+.pf-row-val {
+  font-size: 13px;
+  font-weight: 500;
+  color: #f0eee8;
+}
+
+.pf-row-val.dim {
+  color: rgba(240, 238, 232, 0.5);
+  font-weight: 400;
+}
+
+.pf-artists {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.pf-pill {
+  font-size: 12px;
+  color: rgba(240, 238, 232, 0.75);
+  background: rgba(255, 255, 255, 0.05);
+  border: 0.5px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 5px 14px;
+  cursor: default;
+  transition: all 0.2s;
+  animation: popIn 0.4s ease both;
+}
+
+.pf-pill:hover {
+  background: rgba(167, 139, 250, 0.18);
+  border-color: rgba(167, 139, 250, 0.4);
+  color: #c4b5fd;
+  transform: scale(1.07);
+}
+
+.pf-actions {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 1rem;
+}
+
+.pf-btn {
+  flex: 1;
+  font-family: "DM Sans", sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  padding: 13px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.15s, filter 0.2s;
+}
+
+.pf-btn:active {
+  transform: scale(0.97);
+}
+
+.pf-btn-edit {
+  background: linear-gradient(90deg, #312e81, #6b21a8);
+  color: #ffffff;
+}
+
+.pf-btn-edit:hover {
+  filter: brightness(1.2);
+  transform: translateY(-2px);
+}
+
+.pf-btn-out {
+  background: rgba(255, 255, 255, 0.05);
+  color: rgba(240, 238, 232, 0.5);
+  border: 0.5px solid rgba(255, 255, 255, 0.1);
+}
+
+.pf-btn-out:hover {
+  background: rgba(220, 50, 50, 0.1);
+  color: #fca5a5;
+  border-color: rgba(220, 50, 50, 0.3);
+}
+
+.pf-footer {
+  text-align: center;
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(240, 238, 232, 0.18);
+  padding-bottom: 0.5rem;
+}
+
+.a1 {
+  animation: fadeUp 0.6s 0.15s ease both;
+}
+
+.a2 {
+  animation: fadeUp 0.6s 0.25s ease both;
+}
+
+.a3 {
+  animation: fadeUp 0.6s 0.35s ease both;
+}
+
+.a4 {
+  animation: fadeUp 0.6s 0.45s ease both;
+}
+
+.a5 {
+  animation: fadeUp 0.6s 0.55s ease both;
+}
+
+.a6 {
+  animation: fadeUp 0.6s 0.65s ease both;
+}
