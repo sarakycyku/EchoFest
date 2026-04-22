@@ -149,7 +149,7 @@ $artists = ["Four Tet","Burial","Floating Points","Bonobo","Actress","Objekt","L
 
 
   <div class="pf-actions">
-    <button class="pf-btn pf-btn-edit" >Edit Profile</button>
+    <button class="pf-btn pf-btn-edit" onclick="window.location='../pages/edit_profile.php'" >Edit Profile</button>
     <button class="pf-btn pf-btn-out" onclick="window.location='../logic/logout.php'">Log Out</button>
   </div>
 
