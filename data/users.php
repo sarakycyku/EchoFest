@@ -72,4 +72,7 @@ if (file_exists($usersFile)) {
     }
 }
 
+function saveUsers($users) {
+    file_put_contents(__DIR__ . '/users.json', json_encode($users, JSON_PRETTY_PRINT));
+}
 ?>
