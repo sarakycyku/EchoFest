@@ -165,6 +165,13 @@ $artists = ["Four Tet","Burial","Floating Points","Bonobo","Actress","Objekt","L
     artists: <?= $stats["artists"] ?>
   };
 </script>
+<script>
+function confirmDelete() {
+    if (confirm("Are you sure you want to delete your account? This cannot be undone.")) {
+        window.location = '../logic/delete_logic.php';
+    }
+}
+</script>
 
 
 </body>
