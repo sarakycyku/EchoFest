@@ -151,6 +151,7 @@ $artists = ["Four Tet","Burial","Floating Points","Bonobo","Actress","Objekt","L
   <div class="pf-actions">
     <button class="pf-btn pf-btn-edit" onclick="window.location='../pages/edit_profile.php'" >Edit Profile</button>
     <button class="pf-btn pf-btn-out" onclick="window.location='../logic/logout.php'">Log Out</button>
+    <button class="pf-btn" onclick="confirmDelete()" style="background:rgba(220,50,50,0.1);color:#fca5a5;border:0.5px solid rgba(220,50,50,0.3);">Delete Account</button>
   </div>
 
   <div class="pf-footer">July 18–21, 2026 / 4 Stages / 80+ Artists</div>
