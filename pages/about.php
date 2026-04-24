@@ -12,4 +12,20 @@ include '../includes/header.php';
     </div>
 </section>
 
+<section class="about-section">
+    <div class="container about-grid">
+        <div>
+            <h2>Our Story</h2>
+            <p>
+              EchoFest is more than a music festival. It is a space where people,
+              sound and energy come together.
+            </p> 
+        </div>
+
+        <div>
+            <img src="../assets/images/story.jpg" class="about-img">
+        </div>
+    </div>
+</section>
+
 <?php include '../includes/footer.php'; ?>
