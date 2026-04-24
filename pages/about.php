@@ -33,14 +33,14 @@ $team = [
     new TeamMember(
         "Pranvera Gashi",
         "Operations Director",
-        "MCoordinates logistics, artist planning, and the smooth running of the full event experience.",
+        "Coordinates logistics, artist planning, and the smooth running of the full event experience.",
         "../assets/images/team-pranvera.jpg"
     )
 ];
 ?>
 
 <title>About Us</title>
-<link rel="stylesheet" href="../assets/css/about.css">
+<link rel="stylesheet" href="/EchoFest/assets/css/about.css">
 
 <section class="about-hero">
     <div class="about-overlay"></div>
@@ -70,17 +70,17 @@ $team = [
         <div class="reveal">
             <img 
                 src="../assets/images/story.jpg" 
-                alt="EchFest Crowd"
-                class="about-img"
+                alt="Ech0Fest Crowd"
+                class="about-image"
             >
         </div>
     </div>
 </section>
 
-<section class="about-section stats">
+<section class="about-section about-stats">
     <div class="about-container stats-grid">
         <?php foreach ($stats as $s): ?>
-            <div class="stats-card reveal">
+            <div class="stat-card reveal">
                 <div class="stat-number"
                      data-target="<?= $s['number']; ?>"
                      data-suffix="<?= $s['suffix']; ?>">0</div>
@@ -101,8 +101,8 @@ $team = [
     </div>
 
     <div class="cards-grid">
-        <div class="info-card reval">
-            <div class="incon-circle">♫</div>
+        <div class="info-card reveal">
+            <div class="icon-circle">♫</div>
             <h3>Passion for Music</h3>
             <p>We believe music creates connection, emotion, and unforgettable moments.</p>
         </div>
@@ -113,8 +113,8 @@ $team = [
                 <p>EchoFest is a shared space for artists, fans, and everyone who loves live experiences.</p>
             </div>
 
-        <div class="info-card reval">
-            <div class="incon-circle">★</div>
+        <div class="info-card reveal">
+            <div class="icon-circle">★</div>
             <h3>Qualityc</h3>
             <p>We celebrate diversity and create an open environment where everyone feels welcome.</p>
         </div>
@@ -175,6 +175,6 @@ $team = [
     </div>
 </section>
 
-<script src="../assets/js/aboutjs"></script>
+<script src="/EchoFest/assets/js/about.js"></script>
 
 <?php include '../includes/footer.php'; ?>
