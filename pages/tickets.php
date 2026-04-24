@@ -167,6 +167,12 @@ function changeQty(id, change) {
   const btn = document.getElementById('buy-' + id);
   if (btn) btn.textContent = 'Buy Now - €' + total;
 }
+
+function buyNow(id, basePrice) {
+  const qty = qtys[id] || 1;
+  window.location.href = `purchase.php?ticket=${id}&qty=${qty}&loc=<?= $selected ?>`;
+}
+
 </script>
 
 <?php
