@@ -347,3 +347,40 @@ body {
   border-color: rgba(124,58,237,0.35);
   box-shadow: 0 20px 40px rgba(0,0,0,0.22);
 }
+
+@media (max-width: 1100px) {
+  .team-grid,
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .about-grid,
+  .cards-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-image {
+    height: 380px;
+  }
+}
+
+@media (max-width: 640px) {
+  .about-section {
+    padding: 65px 0;
+  }
+
+  .team-grid,
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .mission-quote {
+    font-size: 22px;
+  }
+
+  .about-image {
+    height: 280px;
+  }
+}
