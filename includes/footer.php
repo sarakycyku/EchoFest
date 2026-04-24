@@ -1,6 +1,4 @@
- <?php
-require('header.php');
- ?>
+<link rel="stylesheet" href="../assets/css/footer.css">
     
     <footer class="footer-48201">
       
@@ -40,12 +38,8 @@ require('header.php');
       
     </footer>
 
-    
-    <script src="js/jquery-3.3.1.min.js"></script>
-    <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="../js/header.js"></script>
-    
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  </body>
+  <script src="/EchoFest/assets/js/header.js"></script>
+</body>
 </html>

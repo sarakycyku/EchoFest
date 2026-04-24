@@ -1,4 +1,4 @@
-/* STILIMET E PËRGJITHSHME */
+/* ================== BASE ================== */
 body {
     font-family: 'Space Grotesk', sans-serif;
     background: #111;
@@ -6,52 +6,36 @@ body {
     padding-top: 90px;
 }
 
-/* NAVBAR STRUKTURA */
+/* ================== NAVBAR ================== */
 .navbar {
     min-height: 90px;
     background: rgba(17, 24, 39, 0.85);
     backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(0, 255, 255, 0.25);
-    display: flex;
-    align-items: center;
+    border-bottom: 1px solid rgba(0,255,255,0.25);
 }
 
 /* LOGO */
+.navbar-brand {
+    display: flex;
+    align-items: center;
+    padding: 0;
+}
+
 .navbar-brand img {
-    height: 45px;
+    height: 60px;
     width: auto;
-    object-fit: contain;
-    display: block;
 }
 
-/* --- DESKTOP (Ekrane mbi 992px) --- */
-@media (min-width: 992px) {
-    .navbar-collapse {
-        display: flex !important;
-        justify-content: space-between; /* Shpërndan logon, linqet dhe butonat */
-        align-items: center;
-        width: 100%;
-    }
-
-    .navbar-nav {
-        /* Kjo i shtyn linqet në qendër të hapësirës së mbetur */
-        margin: 0 auto; 
-        display: flex;
-        gap: 25px;
-    }
-
-    .nav-buttons {
-        margin-left: 0; /* Nuk na duhet auto sepse e rregullon justify-content */
-        display: flex;
-        gap: 12px;
-    }
+/* ================== LINKS ================== */
+.navbar-nav {
+    gap: 25px;
 }
-/* LINQET (Stilimi vizual) */
+
 .nav-link {
     color: #cbd5e1 !important;
+    font-weight: 500;
     position: relative;
     transition: 0.3s;
-    font-weight: 500;
 }
 
 .nav-link:hover {
@@ -73,14 +57,18 @@ body {
     width: 100%;
 }
 
-/* BUTONAT */
+/* ================== BUTTONS ================== */
+.nav-buttons {
+    display: flex;
+    gap: 12px;
+}
+
 .btn-login, .btn-signup {
-    border: none;
-    color: white;
     padding: 10px 22px;
     border-radius: 10px;
     font-weight: 600;
-    transition: 0.3s;
+    text-decoration: none;
+    color: white;
 }
 
 .btn-login {
@@ -90,41 +78,83 @@ body {
 .btn-signup {
     background: linear-gradient(90deg, #06b6d4, #4f46e5);
 }
-/* 
-.btn-login:hover, .btn-signup:hover {
-    opacity: 0.9;
-    transform: translateY(-2px);
-} */
 
-/* --- MOBILE & MEDIUM (Nën 991px) --- */
+/* ================== MOBILE ================== */
 @media (max-width: 991px) {
     .navbar-collapse {
-        background: rgba(10, 10, 15, 0.98);
-        padding: 25px;
-        margin-top: 15px;
-        border-radius: 15px;
-        border: 1px solid rgba(255, 255, 255, 0.1);
+        background: #0a0a0f;
+        padding: 20px;
+        margin-top: 10px;
+        border-radius: 10px;
     }
 
     .navbar-nav {
-        margin-bottom: 20px;
-        gap: 10px;
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
     }
 
     .nav-buttons {
-        display: flex;
-        flex-direction: column; /* Butonat dalin njëri nën tjetrin */
-        gap: 10px;
-        width: 100%;
-    }
-
-    .btn-login, .btn-signup {
-        width: 100%; /* Butonat zënë gjithë gjerësinë në mobile */
-        text-align: center;
+        flex-direction: column;
+        margin-top: 15px;
     }
 }
 
- button a {
-    color: white;
-    text-decoration: none;
+/* ================== HAMBURGER ================== */
+.navbar-toggler {
+    border: none;
+    outline: none;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+}
+
+/* 3 vijat */
+.icon {
+    width: 32px;
+    height: 3px;
+    background: #0dcaf0;
+    display: block;
+    position: relative;
+    transition: 0.3s;
+    border-radius: 2px;
+}
+
+.icon::before,
+.icon::after {
+    content: "";
+    position: absolute;
+    width: 32px;
+    height: 3px;
+    background: #0dcaf0;
+    left: 0;
+    transition: 0.3s;
+    border-radius: 2px;
+}
+
+/* spacing perfekt */
+.icon::before {
+    top: -10px;
+}
+
+.icon::after {
+    top: 10px;
+}
+
+/* ================== ACTIVE (X) ================== */
+.navbar-toggler.active .icon {
+    background: transparent;
+}
+
+.navbar-toggler.active .icon::before {
+    transform: rotate(45deg);
+    top: 0;
+}
+
+.navbar-toggler.active .icon::after {
+    transform: rotate(-45deg);
+    top: 0;
 }
