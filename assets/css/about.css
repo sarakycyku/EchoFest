@@ -133,3 +133,58 @@ body {
     font-size: 12px;
 }
 
+.heading-center {
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto 48px;
+}
+
+.heading-center h2 {
+  font-family: "Black Han Sans", sans-serif;
+  font-size: clamp(28px, 4vw, 46px);
+  margin-bottom: 18px;
+  letter-spacing: 1px;
+}
+
+.heading-center p {
+  color: #cbd5e1;
+  line-height: 1.8;
+  font-size: 17px;
+}
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+.info-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 20px;
+  padding: 28px;
+  transition: 0.3s ease;
+}
+
+.icon-circle {
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 28px;
+  margin-bottom: 16px;
+  background: linear-gradient(135deg, rgba(124,58,237,0.20), rgba(34,211,238,0.16));
+  color: #f5d0fe;
+}
+
+.info-card h3 {
+  margin: 0 0 10px;
+  font-size: 24px;
+}
+
+.info-card p {
+  color: #cbd5e1;
+  line-height: 1.8;
+  font-size: 17px;
+}
