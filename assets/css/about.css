@@ -98,7 +98,7 @@ body {
 }
 
 .about-stats {
-    border-top: 1px slid rgba(255,255,255,0.08);
+    border-top: 1px solid rgba(255,255,255,0.08);
     border-bottom: 1px solid rgba(255,255,255,0.08);
     background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
 }
@@ -109,7 +109,7 @@ body {
     gap: 22px;
 }
 
-.stats-card {
+.stat-card {
     background: rgba(255,255,255,0.04);
     border: 1px solid rgba(255,255,255,0.08);
     border-radius: 20px;
@@ -125,7 +125,7 @@ body {
   color: transparent;           
 }
 
-.stats-label {
+.stat-label {
     margin-top: 10px;
     color: #cbd5e1;
     text-transform: uppercase;
