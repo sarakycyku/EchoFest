@@ -1,48 +1,115 @@
 <?php
 include '../includes/header.php';
 
+require_once '../classes/Person.php';
+require_once '../classes/TeamMember.php';
+
 $stats = [
-    ["number" => 150, "suffix" => "K+", "label"=> "Visitors"],
-    ["number" => 200, "suffix" => "+", "label"=> "Artists"],
-    ["number" => 6, "suffix" => "", "label"=>"Years"],
+    ["number" => 150, "suffix" => "K+", "label"=> "Annual Visitors"],
+    ["number" => 200, "suffix" => "+", "label"=> "Artists Performed"],
+    ["number" => 6, "suffix" => "", "label"=>"Years Running"],
     ["number" => 5, "suffix" => "", "label"=> "Stages"],
+];
+
+$team = [
+    new TeamMember(
+        "Sara Kycyku",
+        "Festival Director",
+        "Leads the vision of EchoFest and oversees the creative direction of every edition.",
+        "../assets/images/team_sara.jpg"
+    ),
+    new TeamMember(
+        "Dua Bilalli",
+        "Marketing Director",
+        "Builds the EchoFest identity and connects the festival with audiences across platforms.",
+        "../assets/images/team-dua.jpg"
+    ),
+    new TeamMember(
+        "Rrezon Ibishi",
+        "Creative Director",
+        "Shapes the festival atmosphere through visuals, stage concepts, and immersive design.",
+        "../assets/images/team-rrezon.jpg"
+    ),
+    new TeamMember(
+        "Pranvera Gashi",
+        "Operations Director",
+        "MCoordinates logistics, artist planning, and the smooth running of the full event experience.",
+        "../assets/images/team-pranvera.jpg"
+    )
 ];
 ?>
 
+<title>About Us</title>
 <link rel="stylesheet" href="../assets/css/about.css">
 
 <section class="about-hero">
-    <div class="overlay"></div>
-    <div class="hero-content">
+    <div class="about-overlay"></div>
+    <div class="about-hero-content reveal">
+        <p class="about-eyebrow">Official Story / EchoFest 2026</p>
         <h1>ABOUT US</h1>
-        <p>Where sound becomes memory</p>
+        <p class="about-tagline">Where sound becomes memory</p>
     </div>
 </section>
 
 <section class="about-section">
-    <div class="container about-grid">
-        <div>
-            <h2>Our Story</h2>
+    <div class="about-container about-grid">
+        <div class="about-text reveal">
+            <p class="section-label">Our Story</p>
+            <h2>A Festival Built Around Energy, Sound, and People</h2>
             <p>
-              EchoFest is more than a music festival. It is a space where people,
-              sound and energy come together.
+              EchoFest was created with one goal in mind: to bring people together through unforgettable
+              music experiences. More than just a festival, it is a place where sound, emotion, and atmosphere
+              come together in one immersive world.
             </p> 
+            <p>
+              From live performances and powerful visuals to the energy of the crowd, every part of EchoFest
+              is designed to create moments that stay with you long after the event ends.
+            </p>
         </div>
 
-        <div>
-            <img src="../assets/images/story.jpg" class="about-img">
+        <div class="reveal">
+            <img 
+                src="../assets/images/story.jpg" 
+                alt="EchFest Crowd"
+                class="about-img"
+            >
         </div>
     </div>
 </section>
 
 <section class="about-section stats">
-    <div class="container stats-grid">
+    <div class="about-container stats-grid">
         <?php foreach ($stats as $s): ?>
-            <div>
-                <h3><?=$s['number'] . $s['suffix']; ?></h3>
-                <p><?= $s['label']; ?></p>
+            <div class="stats-card reveal">
+                <div class="stat-number"
+                     data-target="<?= $s['number']; ?>"
+                     data-suffix="<?= $s['suffix']; ?>">0</div>
+                <div class="stat-label"><?= $s['label']; ?></div>
             </div>
         <?php endforeach; ?>
     </div>
 </section>
+
+<section class="about-section">
+    <div class="about-container">
+        <div class="heading-center reveal">
+            <p class="section-label">Meet The Team</p>
+            <h2>The People Behind EchoFest</h2>
+        </div>  
+        
+        <div class="team-grid">
+            <?php foreach($team as $member): ?>
+                <div class="team-card reveal">
+                    <img src="<?= $member->getImage(); ?>" alt="<?=$member->getName(); ?>">
+                    <div class="team-info">
+                        <h3><?=$member->getName(); ?></h3>
+                        <div class="team-role"><?= $member->getRole();?></div>
+                        <p><?=$member->getBio(); ?></p>
+                    </div>
+                </div>
+            <?php endforeach; ?>
+        </div>
+    </div>
+</section>
+    
 <?php include '../includes/footer.php'; ?>
