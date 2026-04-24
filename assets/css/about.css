@@ -269,3 +269,62 @@ body {
   color: #e9d5ff;
   font-style: italic;
 }
+
+.cta-box {
+  text-align: center;
+  padding: 42px 28px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 20px;
+}
+
+.cta-box h2 {
+  font-family: "Black Han Sans", sans-serif;
+  font-size: clamp(28px, 4vw, 46px);
+  margin-bottom: 18px;
+  letter-spacing: 1px;
+}
+
+.cta-box p {
+  color: #cbd5e1;
+  line-height: 1.8;
+  font-size: 17px;
+}
+
+.cta-actions {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-top: 24px;
+}
+
+.btn-primary,
+.btn-secondary {
+  text-decoration: none;
+  padding: 12px 22px;
+  border-radius: 12px;
+  font-weight: 600;
+  transition: 0.3s ease;
+}
+
+.btn-primary {
+  background: linear-gradient(90deg, #312e81, #6b21a8);
+  color: #fff;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  opacity: 0.95;
+}
+
+.btn-secondary {
+  border: 1px solid rgba(255,255,255,0.14);
+  color: #fff;
+  background: rgba(255,255,255,0.04);
+}
+
+.btn-secondary:hover {
+  background: rgba(255,255,255,0.09);
+  transform: translateY(-2px);
+}
