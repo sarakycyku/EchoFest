@@ -40,6 +40,9 @@ $team = [
 ?>
 
 <title>About Us</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Black+Han+Sans&display=swap" rel="stylesheet">
+
 <link rel="stylesheet" href="/EchoFest/assets/css/about.css">
 
 <section class="about-hero">
