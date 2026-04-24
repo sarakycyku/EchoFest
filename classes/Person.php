@@ -4,7 +4,7 @@ class Person {
     protected $name;
     protected $role;
 
-    public function _construct($name, $role) {
+    public function __construct($name, $role) {
         $this-> name= $name;
         $this-> role= $role;
     }
