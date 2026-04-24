@@ -149,5 +149,19 @@ $team = [
         </div>
     </div>
 </section>
+
+<section class="about-section">
+    <div class="about-container">
+        <div class="mission-box reveal">
+            <div class="mission-icon">⚡</div>
+            <h2>Our Mission</h2>
+            <p>
+                To create a festival experience that unites people through music, creativity, and
+                shared energy in an unforgettable atmosphere.
+            </p>
+            <div class="mission-quote">"Where music unites, memories begin"</div>
+            </div>
+        </div>
+</section>
     
 <?php include '../includes/footer.php'; ?>
