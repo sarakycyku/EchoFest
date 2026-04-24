@@ -12,3 +12,50 @@ body {
 .about-section {
   padding: 85px 0;
 }
+
+.about-hero {
+    position: relative;
+    min-height: 78vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+    background: 
+    linear-gradient(180deg, rgba(5,5,10,0.25), rgba(5,5,10,0.78)),
+    url('../images/festival-bg.jpg') center/cover no-repeat;
+}
+
+.about-overlay {
+    position: absolute;
+    inset: 0;
+    background: 
+    radial-gradient(circle at top, rgba(124,58,237,0.18), transparent 40%),
+    linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(7,7,10,0.95));
+}
+
+.about-hero-content {
+    position: relative;
+    z-index: 2;
+    padding: 20px;
+}
+
+.about-eyebrow {
+    font-size: 13px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #c4b5fd;
+    margin-bottom: 14px;
+}
+
+.about-hero h1 {
+    font-family: "Black Han Sans", sans-serif;
+    font-size: clamp(48px, 10vw, 108px);
+    margin: 0 0 14px;
+    letter-spacing: 1px;
+}
+
+.about-tagline {
+    font-size: clamp(16px, 2vw, 24px);
+    color: #e9d5ff;
+}
