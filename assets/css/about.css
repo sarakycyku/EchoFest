@@ -1,0 +1,14 @@
+body {
+  font-family: 'Space Grotesk', sans-serif;
+  background: #111;
+  color: white;
+}
+
+.about-container {
+  width: min(1180px, 92%);
+  margin: 0 auto;
+}
+
+.about-section {
+  padding: 85px 0;
+}
