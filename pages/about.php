@@ -1,5 +1,12 @@
 <?php
 include '../includes/header.php';
+
+$stats = [
+    ["number" => 150, "suffix" => "K+", "label"=> "Visitors"],
+    ["number" => 200, "suffix" => "+", "label"=> "Artists"],
+    ["number" => 6, "suffix" => "", "label"=>"Years"],
+    ["number" => 5, "suffix" => "", "label"=> "Stages"],
+];
 ?>
 
 <link rel="stylesheet" href="../assets/css/about.css">
@@ -28,4 +35,14 @@ include '../includes/header.php';
     </div>
 </section>
 
+<section class="about-section stats">
+    <div class="container stats-grid">
+        <?php foreach ($stats as $s): ?>
+            <div>
+                <h3><?=$s['number'] . $s['suffix']; ?></h3>
+                <p><?= $s['label']; ?></p>
+            </div>
+        <?php endforeach; ?>
+    </div>
+</section>
 <?php include '../includes/footer.php'; ?>
