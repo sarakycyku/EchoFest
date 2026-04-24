@@ -118,11 +118,11 @@ body {
 }
 
 .stat-number {
-    font-family: "black Han sans", sans-serif;
-    font-size: 44px;
-    background: linear-gradient(90deg, #7c3aed, #22d3ee);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+  font-family: "Black Han Sans", sans-serif;
+  font-size: 44px;
+  background: linear-gradient(90deg, #7c3aed, #22d3ee);
+  background-clip: text;        
+  color: transparent;           
 }
 
 .stats-label {
