@@ -1,0 +1,130 @@
+/* STILIMET E PËRGJITHSHME */
+body {
+    font-family: 'Space Grotesk', sans-serif;
+    background: #111;
+    color: white;
+    padding-top: 90px;
+}
+
+/* NAVBAR STRUKTURA */
+.navbar {
+    min-height: 90px;
+    background: rgba(17, 24, 39, 0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(0, 255, 255, 0.25);
+    display: flex;
+    align-items: center;
+}
+
+/* LOGO */
+.navbar-brand img {
+    height: 45px;
+    width: auto;
+    object-fit: contain;
+    display: block;
+}
+
+/* --- DESKTOP (Ekrane mbi 992px) --- */
+@media (min-width: 992px) {
+    .navbar-collapse {
+        display: flex !important;
+        justify-content: space-between; /* Shpërndan logon, linqet dhe butonat */
+        align-items: center;
+        width: 100%;
+    }
+
+    .navbar-nav {
+        /* Kjo i shtyn linqet në qendër të hapësirës së mbetur */
+        margin: 0 auto; 
+        display: flex;
+        gap: 25px;
+    }
+
+    .nav-buttons {
+        margin-left: 0; /* Nuk na duhet auto sepse e rregullon justify-content */
+        display: flex;
+        gap: 12px;
+    }
+}
+/* LINQET (Stilimi vizual) */
+.nav-link {
+    color: #cbd5e1 !important;
+    position: relative;
+    transition: 0.3s;
+    font-weight: 500;
+}
+
+.nav-link:hover {
+    color: #22d3ee !important;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    width: 0%;
+    height: 2px;
+    background: #22d3ee;
+    transition: 0.3s;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+/* BUTONAT */
+.btn-login, .btn-signup {
+    border: none;
+    color: white;
+    padding: 10px 22px;
+    border-radius: 10px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.btn-login {
+    background: linear-gradient(90deg, #312e81, #6b21a8);
+}
+
+.btn-signup {
+    background: linear-gradient(90deg, #06b6d4, #4f46e5);
+}
+/* 
+.btn-login:hover, .btn-signup:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+} */
+
+/* --- MOBILE & MEDIUM (Nën 991px) --- */
+@media (max-width: 991px) {
+    .navbar-collapse {
+        background: rgba(10, 10, 15, 0.98);
+        padding: 25px;
+        margin-top: 15px;
+        border-radius: 15px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .navbar-nav {
+        margin-bottom: 20px;
+        gap: 10px;
+    }
+
+    .nav-buttons {
+        display: flex;
+        flex-direction: column; /* Butonat dalin njëri nën tjetrin */
+        gap: 10px;
+        width: 100%;
+    }
+
+    .btn-login, .btn-signup {
+        width: 100%; /* Butonat zënë gjithë gjerësinë në mobile */
+        text-align: center;
+    }
+}
+
+ button a {
+    color: white;
+    text-decoration: none;
+}
