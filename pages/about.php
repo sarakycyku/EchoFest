@@ -163,5 +163,18 @@ $team = [
             </div>
         </div>
 </section>
-    
+
+<section class="about-section">
+    <div class="about-container cta-box reveal">
+        <h2>Ready to Feel the Echo?</h2>
+        <p>Explore the lineup, discover the experience, and join EchoFest 2026.</p>
+        <div class="cta-actions">
+            <a href="tickets.php" class="btn-primary">Get Tickets</a>
+            <a href="lineup.php" class="btn-secondary">Explore Lineup</a>
+        </div>    
+    </div>
+</section>
+
+<script src="../assets/js/aboutjs"></script>
+
 <?php include '../includes/footer.php'; ?>
