@@ -89,6 +89,27 @@ include '../includes/header.php';
                 </div>
             </div>
 
+            <div class="panel">
+                <div class="panel-title">Payment Information</div>
+                <div class="form-grid">
+                    <div class="field full">
+                        <label>Card Number <span class="req">*</span></label>
+                        <input type="text" name="card_number"
+                            placeholder="1234 5678 9012 3456"
+                            maxlength="19" oninput="formatCard(this)" required>
+                    </div>
+                    <div class="field">
+                        <label>Expiry Date <span class="req">*</span></label>
+                        <input type="text" name="expiry" placeholder="MM/YY"
+                            maxlength="5" oninput="formatExpiry(this)" required>
+                    </div>
+                    <div class="field">
+                        <label>CVV <span class="req">*</span></label>
+                        <input type="password" name="cvv" placeholder="123" maxlength="4" required>
+                    </div>
+                </div>
+            </div>
+
         </div>
 </form>
 
