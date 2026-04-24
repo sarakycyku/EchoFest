@@ -39,7 +39,7 @@ include '../includes/header.php';
                     <div class="field">
                         <label>First Name <span class="req">*</span></label>
                         <input type="text" name="first_name"
-                            value="<?=$firstName?>"
+                            value="<?= $firstName ?>"
                             class="<?= $firstName ? 'prefilled' : '' ?>"
                             placeholder="First Name"
                             <?= $firstName ? 'readonly' : 'required' ?>>
@@ -47,26 +47,44 @@ include '../includes/header.php';
                     <div class="field">
                         <label>Last Name <span class="req">*</span></label>
                         <input type="text" name="last_name"
-                            value="<?=$lastName?>"
-                            class="<?=$lastName ? 'prefilled' : '' ?>"
+                            value="<?= $lastName ?>"
+                            class="<?= $lastName ? 'prefilled' : '' ?>"
                             placeholder="Last Name"
                             <?= $lastName ? 'readonly' : 'required' ?>>
                     </div>
                     <div class="field">
                         <label>Email <span class="req">*</span></label>
                         <input type="email" name="email"
-                            value="<?=$email?>"
-                            class="<?=$email ? 'prefilled' : '' ?>"
+                            value="<?= $email ?>"
+                            class="<?= $email ? 'prefilled' : '' ?>"
                             placeholder="john@example.com"
                             <?= $email ? 'readonly' : 'required' ?>>
                     </div>
                     <div class="field">
                         <label>Phone Number <span class="req">*</span></label>
                         <input type="tel" name="phone"
-                            value="<?= $phone?>"
-                            class="<?=$phone ? 'prefilled' : '' ?>"
+                            value="<?= $phone ?>"
+                            class="<?= $phone ? 'prefilled' : '' ?>"
                             placeholder="+383 44 000 000"
                             <?= $phone ? 'readonly' : 'required' ?>>
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel">
+                <div class="panel-title">Billing Address</div>
+                <div class="form-grid">
+                    <div class="field">
+                        <label>Address <span class="req">*</span></label>
+                        <input type="text" name="address" placeholder="123 Main Street" required>
+                    </div>
+                    <div class="field">
+                        <label>City <span class="req">*</span></label>
+                        <input type="text" name="city" placeholder="Pristina" required>
+                    </div>
+                    <div class="field">
+                        <label>Country <span class="req">*</span></label>
+                        <input type="text" name="country" placeholder="Kosovo" required>
                     </div>
                 </div>
             </div>
