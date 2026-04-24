@@ -93,6 +93,44 @@ $team = [
 <section class="about-section">
     <div class="about-container">
         <div class="heading-center reveal">
+            <p class="section-label">What We Stand For</p>
+            <h2>Core Values</h2>
+            <p>
+                 The ideas that shape every EchoFest edition and every visitor experience.
+        </p>
+    </div>
+
+    <div class="cards-grid">
+        <div class="info-card reval">
+            <div class="incon-circle">♫</div>
+            <h3>Passion for Music</h3>
+            <p>We believe music creates connection, emotion, and unforgettable moments.</p>
+        </div>
+
+        <div class="info-card reveal">
+                <div class="icon-circle">♥</div>
+                <h3>Community</h3>
+                <p>EchoFest is a shared space for artists, fans, and everyone who loves live experiences.</p>
+            </div>
+
+        <div class="info-card reval">
+            <div class="incon-circle">★</div>
+            <h3>Qualityc</h3>
+            <p>We celebrate diversity and create an open environment where everyone feels welcome.</p>
+        </div>
+
+        <div class="info-card reveal">
+                <div class="icon-circle">◎</div>
+                <h3>Inclusion</h3>
+                <p>We celebrate diversity and create an open environment where everyone feels welcome.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="about-section">
+    <div class="about-container">
+        <div class="heading-center reveal">
             <p class="section-label">Meet The Team</p>
             <h2>The People Behind EchoFest</h2>
         </div>  
