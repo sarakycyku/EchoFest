@@ -33,7 +33,7 @@ $team = [
     new TeamMember(
         "Pranvera Gashi",
         "Operations Director",
-        "MCoordinates logistics, artist planning, and the smooth running of the full event experience.",
+        "Coordinates logistics, artist planning, and the smooth running of the full event experience.",
         "../assets/images/team-pranvera.jpg"
     )
 ];
@@ -114,7 +114,7 @@ $team = [
             </div>
 
         <div class="info-card reveal">
-            <div class="incon-circle">★</div>
+            <div class="icon-circle">★</div>
             <h3>Qualityc</h3>
             <p>We celebrate diversity and create an open environment where everyone feels welcome.</p>
         </div>
