@@ -18,6 +18,17 @@
     </style>
 </head>
 <body>
+    <?php
+session_start();
+if (isset($_SESSION['error'])):
+?>
+<script>
+    alert("<?= $_SESSION['error'] ?>");
+</script>
+<?php
+    unset($_SESSION['error']);
+endif;
+?>
     <div class="login-container">
         <div class="future-card">
             <div class="chrome-header">
