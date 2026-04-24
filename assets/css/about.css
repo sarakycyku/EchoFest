@@ -328,3 +328,22 @@ body {
   background: rgba(255,255,255,0.09);
   transform: translateY(-2px);
 }
+
+.reveal {
+  opacity: 0;
+  transform: translateY(35px);
+  transition: all 0.8s ease;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.info-card:hover,
+.team-card:hover,
+.stat-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(124,58,237,0.35);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.22);
+}
