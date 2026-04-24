@@ -40,7 +40,7 @@ $team = [
 ?>
 
 <title>About Us</title>
-<link rel="stylesheet" href="../assets/css/about.css">
+<link rel="stylesheet" href="/EchoFest/assets/css/about.css">
 
 <section class="about-hero">
     <div class="about-overlay"></div>
@@ -175,6 +175,6 @@ $team = [
     </div>
 </section>
 
-<script src="../assets/js/about.js"></script>
+<script src="/EchoFest/assets/js/about.js"></script>
 
 <?php include '../includes/footer.php'; ?>
