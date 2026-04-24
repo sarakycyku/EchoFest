@@ -22,24 +22,27 @@ $team = [
         "Dua Bilalli",
         "Marketing Director",
         "Builds the EchoFest identity and connects the festival with audiences across platforms.",
-        "../assets/images/team-dua.jpg"
+        "../assets/images/team_dua.jpg"
     ),
     new TeamMember(
         "Rrezon Ibishi",
         "Creative Director",
         "Shapes the festival atmosphere through visuals, stage concepts, and immersive design.",
-        "../assets/images/team-rrezon.jpg"
+        "../assets/images/team_rrezon.jpg"
     ),
     new TeamMember(
         "Pranvera Gashi",
         "Operations Director",
         "Coordinates logistics, artist planning, and the smooth running of the full event experience.",
-        "../assets/images/team-pranvera.jpg"
+        "../assets/images/team_pranvera.jpg"
     )
 ];
 ?>
 
 <title>About Us</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Black+Han+Sans&display=swap" rel="stylesheet">
+
 <link rel="stylesheet" href="/EchoFest/assets/css/about.css">
 
 <section class="about-hero">
