@@ -1,0 +1,160 @@
+/* ================== BASE ================== */
+body {
+    font-family: 'Space Grotesk', sans-serif;
+    background: #111;
+    color: white;
+    padding-top: 90px;
+}
+
+/* ================== NAVBAR ================== */
+.navbar {
+    min-height: 90px;
+    background: rgba(17, 24, 39, 0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(0,255,255,0.25);
+}
+
+/* LOGO */
+.navbar-brand {
+    display: flex;
+    align-items: center;
+    padding: 0;
+}
+
+.navbar-brand img {
+    height: 60px;
+    width: auto;
+}
+
+/* ================== LINKS ================== */
+.navbar-nav {
+    gap: 25px;
+}
+
+.nav-link {
+    color: #cbd5e1 !important;
+    font-weight: 500;
+    position: relative;
+    transition: 0.3s;
+}
+
+.nav-link:hover {
+    color: #22d3ee !important;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    width: 0%;
+    height: 2px;
+    background: #22d3ee;
+    transition: 0.3s;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+/* ================== BUTTONS ================== */
+.nav-buttons {
+    display: flex;
+    gap: 12px;
+}
+
+.btn-login, .btn-signup {
+    padding: 10px 22px;
+    border-radius: 10px;
+    font-weight: 600;
+    text-decoration: none;
+    color: white;
+}
+
+.btn-login {
+    background: linear-gradient(90deg, #312e81, #6b21a8);
+}
+
+.btn-signup {
+    background: linear-gradient(90deg, #06b6d4, #4f46e5);
+}
+
+/* ================== MOBILE ================== */
+@media (max-width: 991px) {
+    .navbar-collapse {
+        background: #0a0a0f;
+        padding: 20px;
+        margin-top: 10px;
+        border-radius: 10px;
+    }
+
+    .navbar-nav {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
+
+    .nav-buttons {
+        flex-direction: column;
+        margin-top: 15px;
+    }
+}
+
+/* ================== HAMBURGER ================== */
+.navbar-toggler {
+    border: none;
+    outline: none;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+}
+
+/* 3 vijat */
+.icon {
+    width: 32px;
+    height: 3px;
+    background: #0dcaf0;
+    display: block;
+    position: relative;
+    transition: 0.3s;
+    border-radius: 2px;
+}
+
+.icon::before,
+.icon::after {
+    content: "";
+    position: absolute;
+    width: 32px;
+    height: 3px;
+    background: #0dcaf0;
+    left: 0;
+    transition: 0.3s;
+    border-radius: 2px;
+}
+
+/* spacing perfekt */
+.icon::before {
+    top: -10px;
+}
+
+.icon::after {
+    top: 10px;
+}
+
+/* ================== ACTIVE (X) ================== */
+.navbar-toggler.active .icon {
+    background: transparent;
+}
+
+.navbar-toggler.active .icon::before {
+    transform: rotate(45deg);
+    top: 0;
+}
+
+.navbar-toggler.active .icon::after {
+    transform: rotate(-45deg);
+    top: 0;
+}

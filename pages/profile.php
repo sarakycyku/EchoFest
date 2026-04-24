@@ -16,7 +16,6 @@ $user = [
     "username"     => "@" . $username,
     "email"        => $data["email"],
     "phone"        => $data["phone"],
-    "city"         => $data["city"],
     "age"          => $data["age"],
     "member_since" => "April 2026",
     "initials"     => strtoupper(substr($data["first_name"], 0, 1) . substr($data["last_name"], 0, 1))
@@ -132,7 +131,6 @@ $artists = ["Four Tet","Burial","Floating Points","Bonobo","Actress","Objekt","L
     <div class="pf-row"><span class="pf-row-lbl">Username</span><span class="pf-row-val"><?= $user["username"] ?></span></div>
     <div class="pf-row"><span class="pf-row-lbl">Email</span><span class="pf-row-val dim"><?= $user["email"] ?></span></div>
     <div class="pf-row"><span class="pf-row-lbl">Phone</span><span class="pf-row-val dim"><?= $user["phone"] ?></span></div>
-    <div class="pf-row"><span class="pf-row-lbl">City</span><span class="pf-row-val dim"><?= $user["city"] ?></span></div>
     <div class="pf-row"><span class="pf-row-lbl">Age</span><span class="pf-row-val"><?= $user["age"] ?></span></div>
     <div class="pf-row"><span class="pf-row-lbl">Member since</span><span class="pf-row-val dim"><?= $user["member_since"] ?></span></div>
   </div>

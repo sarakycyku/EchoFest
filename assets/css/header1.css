@@ -46,7 +46,6 @@ body {
         gap: 12px;
     }
 }
-
 /* LINQET (Stilimi vizual) */
 .nav-link {
     color: #cbd5e1 !important;
@@ -91,11 +90,11 @@ body {
 .btn-signup {
     background: linear-gradient(90deg, #06b6d4, #4f46e5);
 }
-
+/* 
 .btn-login:hover, .btn-signup:hover {
     opacity: 0.9;
     transform: translateY(-2px);
-}
+} */
 
 /* --- MOBILE & MEDIUM (Nën 991px) --- */
 @media (max-width: 991px) {
@@ -123,4 +122,9 @@ body {
         width: 100%; /* Butonat zënë gjithë gjerësinë në mobile */
         text-align: center;
     }
+}
+
+ button a {
+    color: white;
+    text-decoration: none;
 }
