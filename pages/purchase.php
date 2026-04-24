@@ -22,6 +22,25 @@ $email = $data['email'] ?? '';
 $phone = $data['phone'] ?? '';
 
 include '../includes/header.php';
+
+$ticketParam = $_GET['ticket'] ?? 'early';
+$qty = max(1, (int)($_GET['qty'] ?? 1));
+$loc = $_GET['loc'] ?? 'xk';
+
+$ticketDefs = [ 'early' => ['name'=>'Early Bird','price'=>79],
+                'regular' => ['name'=>'Regular', 'price'=>129],
+                'vip'=> ['name' => 'VIP Experience', 'price' => 299] ];
+
+$ticket     = $ticketDefs[$ticketParam] ?? $ticketDefs['early'];
+$subtotal   = $ticket['price'] * $qty;
+$serviceFee = 5;
+$total      = $subtotal + $serviceFee;
+
+$locations = [
+    'xk' => ['flag' => 'XK', 'country' => 'Kosovo',  'city' => 'Pristina', 'dates' => 'July 15-17, 2026'],
+    'al' => ['flag' => 'AL', 'country' => 'Albania',  'city' => 'Durres',   'dates' => 'August 5-7, 2026']
+];
+$event = $locations[$loc] ?? $locations['xk'];
 ?>
 
 <link rel="stylesheet" href="../assets/css/purchase.css">
