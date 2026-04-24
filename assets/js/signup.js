@@ -6,7 +6,6 @@ function validateForm() {
 
     let first_name = document.getElementById("first_name").value.trim();
     let last_name  = document.getElementById("last_name").value.trim();
-    let city       = document.getElementById("city").value.trim();
     let username   = document.getElementById("username").value.trim();
     let email      = document.getElementById("email").value.trim();
     let phone      = document.getElementById("phone").value.trim();
@@ -16,7 +15,6 @@ function validateForm() {
 
     let passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$/;
     let namePattern = /^[a-zA-ZëËçÇ]+$/u;
-    let cityPattern = /^[a-zA-Z\s\-']+$/;
     let usernamePattern = /^[a-zA-Z][a-zA-Z0-9]{2,19}$/;
     let blocked = ["admin"];
 
@@ -62,12 +60,7 @@ function validateForm() {
         valid = false;
     }
 
-    // CITY
-    if(!cityPattern.test(city)){
-        document.getElementById("cityFrontErr").innerText =
-        "City can contain only letters";
-        valid = false;
-    }
+   
 
     // USERNAME
     if(blocked.includes(username.toLowerCase())){
@@ -116,7 +109,6 @@ function validateForm() {
 const patterns = {
     password: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$/,
     name: /^[a-zA-ZëËçÇ]+$/u,
-    city: /^[a-zA-Z\s\-']+$/,
     username: /^[a-zA-Z][a-zA-Z0-9]{2,19}$/,
     phone: /^[0-9]{8,15}$/
 };
@@ -151,19 +143,7 @@ function validateLastName() {
     return true;
 }
 
-// city
-function validateCity() {
-    const val = document.getElementById("city").value.trim();
-    const err = document.getElementById("cityFrontErr");
 
-    if(val && !patterns.city.test(val)){
-        err.innerText = "City can contain only letters";
-        return false;
-    }
-
-    err.innerText = "";
-    return true;
-}
 
 // username
 function validateUsername() {
@@ -285,7 +265,6 @@ document.addEventListener("DOMContentLoaded", function(){
 
     document.getElementById("first_name").addEventListener("input", validateFirstName);
     document.getElementById("last_name").addEventListener("input", validateLastName);
-    document.getElementById("city").addEventListener("input", validateCity);
     document.getElementById("username").addEventListener("input", validateUsername);
     document.getElementById("email").addEventListener("input", validateEmail);
     document.getElementById("phone").addEventListener("input", validatePhone);
