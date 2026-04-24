@@ -53,10 +53,7 @@ $data = $users[$username];
         <input type="text" name="phone" value="<?= $data['phone'] ?>" style="background:transparent;border:none;border-bottom:0.5px solid rgba(255,255,255,0.15);color:#f0eee8;font-size:13px;text-align:right;outline:none;">
       </div>
 
-      <div class="pf-row">
-        <span class="pf-row-lbl">City</span>
-        <input type="text" name="city" value="<?= $data['city'] ?>" style="background:transparent;border:none;border-bottom:0.5px solid rgba(255,255,255,0.15);color:#f0eee8;font-size:13px;text-align:right;outline:none;">
-      </div>
+      
 
       <div class="pf-row">
         <span class="pf-row-lbl">Age</span>

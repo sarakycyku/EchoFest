@@ -11,7 +11,6 @@ $users[$username]['first_name'] = $_POST['first_name'];
 $users[$username]['last_name']  = $_POST['last_name'];
 $users[$username]['email']      = $_POST['email'];
 $users[$username]['phone']      = $_POST['phone'];
-$users[$username]['city']       = $_POST['city'];
 $users[$username]['age']        = $_POST['age'];
 
 saveUsers($users);
