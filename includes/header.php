@@ -21,8 +21,9 @@ if (session_status() === PHP_SESSION_NONE) {
   <div class="container">
 
     <!-- LOGO -->
-    <a class="navbar-brand" href="#">
-      <img src="../assets/images/logo2.png">
+    <a class="navbar-brand" href="../pages/index.php">
+       <img src="../assets/images/logo-last.png"  class="img-fluid " alt="EchoFest Logo"> 
+       
     </a>
 
     <!-- TOGGLER -->
@@ -35,15 +36,16 @@ if (session_status() === PHP_SESSION_NONE) {
 
       <!-- LINKS -->
       <ul class="navbar-nav mx-auto">
-            <li class="nav-item"><a class="nav-link" href="../pages/home.php">Home</a></li>
-            <li class="nav-item"><a class="nav-link" href="../pages/about.php">About</a></li>
-            <li class="nav-item"><a class="nav-link" href="../pages/profile.php">Profile</a></li>
-            <li class="nav-item"><a class="nav-link" href="../pages/tickets.php">Tickets</a></li>
+            <li class="nav-item"><a class="nav-link" href="../pages/index.php">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="../pages/about.php">About us</a></li>
             <li class="nav-item"><a class="nav-link" href="../pages/lineup.php">Line Up</a></li>
+            <li class="nav-item"><a class="nav-link" href="../pages/events.php">Events</a></li>
+            <li class="nav-item"><a class="nav-link" href="../pages/tickets.php">Tickets</a></li>
+            <li class="nav-item"><a class="nav-link" href="../pages/profile.php">Profile</a></li>
 
             <?php if (isset($_SESSION['role']) && $_SESSION['role'] === 'admin'): ?>
               <li class="nav-item">
-                <a class="nav-link" href="../pages/admin.php">Admin</a>
+                <a class="nav-link" href="../pages/loginadmin.php">Admin</a>
               </li>
             <?php endif; ?>
       </ul>
@@ -55,7 +57,7 @@ if (session_status() === PHP_SESSION_NONE) {
             <a href="../pages/signup.php" class="btn-signup">Signup</a>
           <?php else: ?>
             <span style="color:white; margin-right:10px; margin-top:15px; font-size:14px;">
-              Hi, <?= $_SESSION['username'] ?>
+              Welcome, <?= $_SESSION['username'] ?>
             </span>
             <a href="../logic/logout.php" class="btn-login">Logout</a>
           <?php endif; ?>
