@@ -1,0 +1,36 @@
+body {
+  background: #06060f;
+  color: #f0eeff;
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+.events-container {
+  width: min(1180px, 92%);
+  margin: 0 auto;
+}
+
+.events-hero {
+  min-height: 420px;
+  display: flex;
+  align-items: flex-end;
+  padding: 0 60px 48px;
+  background:
+    linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.85)),
+    url('../images/events-bg.jpg') center/cover no-repeat;
+}
+
+.hero-info {
+  display: flex;
+  gap: 40px;
+}
+
+.hero-info span {
+  display: block;
+  font-size: 12px;
+  text-transform: uppercase;
+  color: #cbd5e1;
+}
+
+.hero-info strong {
+  color: white;
+}
