@@ -47,3 +47,19 @@ h1 {
     border-radius: 16px;
 }
 
+.list-group-item {
+    background: rgba(255,255,255,0.03);
+    color: #fff;
+    border: 1px solid rgba(255,255,255,0.05);
+}
+/* TEXT FIX - make everything readable */
+
+body, .card, .card-body, p, h5 {
+    color: #f0eee8 !important;
+}
+
+/* SEARCH INPUT TEXT */
+.form-control {
+    color: #fff !important;
+}
+
