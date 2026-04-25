@@ -1,3 +1,21 @@
+<?php
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
+require_once '../data/events.php';
+require_once '../includes/header.php';
+
+$logged_in = isset($_SESSION['username']);
+
+// 3 featured artists for the grid
+$featured = array_slice($events, 0, 3);
+
+// doubled for seamless ticker loop
+$ticker = array_merge($events, $events);
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -46,5 +64,7 @@
 
 
     </section>
+
+
 </body>
 </html>
