@@ -282,6 +282,7 @@ body {
   height: 40px;
 }
 
+
 @media (max-width: 1000px) {
   .events-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -290,6 +291,30 @@ body {
   .filter-container form {
     grid-template-columns: 1fr 1fr;
   }
+}
+
+.modal-body {
+  padding: 28px;
+}
+
+.modal-body h2 {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+#modalArtist {
+  color: #22d3ee;
+  margin-bottom: 16px;
+}
+
+#modalInfo {
+  margin-bottom: 16px;
+  color: #cbd5e1;
+}
+
+#modalDescription {
+  color: #cbd5e1;
+  margin-bottom: 24px;
 }
 
 @media (max-width: 650px) {

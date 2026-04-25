@@ -202,7 +202,7 @@ if ($sort === "title") {
             <p id="modalArtist"></p>
             <p id="modalInfo"></p>
             <p id="modalDescription"></p>
-            <a href="tickets.php" class="btn-ticket-modal">Get Ticket Now</a>
+            <a href="tickets.php" class="btn-ticket">Get Ticket Now</a>
         </div>
     </div>
 </div>

@@ -3,7 +3,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const modal = document.getElementById("eventModal");
   const closeBtn = document.getElementById("modalClose");
   const detailsButtons = document.querySelectorAll(".btn-details");
-
+  
+  if (!modal || !closeBtn) return;
+  
   detailsButtons.forEach(btn => {
     btn.addEventListener("click", () => {
       document.getElementById("modalImage").src = btn.dataset.image;
