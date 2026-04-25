@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=DM+Sans:wght@300;400;500&display=swap');
+
+body {
+    font-family: 'DM Sans', sans-serif;
+    background: #0a0a0f;
+    color: #f0eee8;
+}
+
+/* TITLE */
+h1 {
+    font-family: 'Black Han Sans', sans-serif;
+}
+
+/* CARD */
+.card {
+    background: rgba(255,255,255,0.03) !important;
+    border: 1px solid rgba(255,255,255,0.08) !important;
+    border-radius: 16px !important;
+    transition: 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(167,139,250,0.4) !important;
+}
+
+/* BUTTON */
+.btn-primary {
+    background: linear-gradient(135deg, #6b21a8, #06b6d4);
+    border: none;
+}
+
+/* INPUT */
+.form-control {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    color: #fff;
+}
+
+/* MODAL SAFE (NO BUGS) */
+.modal-backdrop.show {
+    opacity: 0.6;
+}
+
+.modal-content {
+    background: #111827;
+    border-radius: 16px;
+}
+
+.list-group-item {
+    background: rgba(255,255,255,0.03);
+    color: #fff;
+    border: 1px solid rgba(255,255,255,0.05);
+}
+/* TEXT FIX - make everything readable */
+
+body, .card, .card-body, p, h5 {
+    color: #f0eee8 !important;
+}
+
+/* SEARCH INPUT TEXT */
+.form-control {
+    color: #fff !important;
+}
+
+/* kur shkruan në input */
+.form-control:focus {
+    color: #fff !important;
+    background: rgba(255,255,255,0.08);
+}
+
+/* placeholder më i lehtë */
+.form-control::placeholder {
+    color: rgba(255,255,255,0.4) !important;
+}
+
+/* artist names */
+.card h5 {
+    color: #ffffff !important;
+    font-weight: 700;
+}
+
+.form-control {
+    border-radius: 10px;
+}
