@@ -5,16 +5,16 @@
       <div class="container">
         <div class="row">
           <div class="col-md-4 pr-md-5">
-            <a href="#" class="footer-site-logo d-block mb-4">EchoFest</a>
-            <img src="/EchoFest/assets/images/logo2.png" height="100px">
+            <img src="/EchoFest/assets/images/logo-last.png" height="200px">
           </div>
           <div class="col-md">
             <ul class="list-unstyled nav-links">
               <li><a href="home.php">Home</a></li>
-              <li><a href="#">About Us</a></li>
-              <li><a href="#">Gallery</a></li>
-              <li><a href="tickets.php">Tickets</a></li>
+              <li><a href="about.php">About Us</a></li>
               <li><a href="lineup.php">Line Up</a></li>
+              <li><a href="#">Events</a></li>
+              <li><a href="tickets.php">Tickets</a></li>
+              
             </ul>
           </div>
           
