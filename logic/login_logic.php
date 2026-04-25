@@ -17,7 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION['username'] = $username;
             $_SESSION['role'] = $users[$username]['role'];
 
-            header("Location: ../pages/home.php");
+            header("Location: ../pages/index.php");
             exit;
 
         } else {

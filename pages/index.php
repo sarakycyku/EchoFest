@@ -1,40 +1,113 @@
+<?php
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
+require_once '../data/events.php';
+require_once '../includes/header.php';
+
+$logged_in = isset($_SESSION['username']);
+
+// 3 featured artists for the grid
+$featured = array_slice($events, 0, 3);
+
+// doubled for seamless ticker loop
+$ticker = array_merge($events, $events);
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="icon" type="image/x-icon" href="../assets/images/logo2-pabg.png">
-  <title>ECHOFEST</title>
-  <link rel="stylesheet" href="../assets/css/index.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <title>EchoFest 2026</title>
+  <link rel="stylesheet" href="../assets/css/style.css" />
+  <link rel="stylesheet" href="../assets/css/home.css" />
 </head>
 <body>
+    <div id="particles"></div>
 
-<div class="bg"></div>
-<div class="grid"></div>
+    <section class="hero">
 
-<div class="particles" id="particles"></div>
+    <div class="hero-eyebrow">July 18–21, 2026 &nbsp;·&nbsp; Open Air Arena</div>
 
-<div class="wrapper">
-  <p class="eyebrow">Official Portal &mdash; 2026 Edition</p>
-  <h1 class="logo">
-    ECHO
-    <span>FEST</span>
-  </h1>
-  <p class="tagline">Where sound becomes memory &nbsp;&bull;&nbsp; July 18&ndash;21 &bull;&nbsp; Open Air Arena</p>
-  <div class="actions">
-    <a href="login.php" class="btn btn-login">Log In</a>
-    <a href="signup.php" class="btn btn-signup">Sign Up</a>
-  </div>
-</div>
+        <h1 class="hero-title">
+            <span class="outline">ECHO</span><br>
+            <span class="grad">FEST</span>
+        </h1>
 
-<div class="date-strip">
-  <span>July 18&ndash;21, 2026</span>
-  <span class="sep">/</span>
-  <span>4 Stages</span>
-  <span class="sep">/</span>
-  <span>80+ Artists</span>
-</div>
+         <p class="hero-sub">
+            Four days. Four stages. <?= count($events) ?>+ artists across electronic,
+            ambient, and club music.
+        </p>
+
+        <div class="hero-cta">
+            <?php if ($logged_in): ?>
+            <a href="tickets.php" class="btn-main">Buy Tickets</a>
+            <a href="lineup.php"  class="btn-ghost">View Lineup</a>
+            <?php else: ?>
+            <a href="signup.php" class="btn-main">Get Your Pass</a>
+            <a href="lineup.php" class="btn-ghost">View Lineup</a>
+            <?php endif; ?>
+        </div>
+
+        <div class="hero-meta">
+            <span>4 Days</span>
+            <span class="bar"></span>
+            <span>4 Stages</span>
+            <span class="bar"></span>
+            <span><?= count($events) ?>+ Artists</span>
+            <span class="bar"></span>
+            <span>Pristina, Kosovo</span>
+        </div>
+
+
+    </section>
+
+    <div class="ticker">
+        <div class="ticker-track">
+            <?php foreach ($ticker as $e): ?>
+            <span class="ticker-item">
+            <span class="spark"></span>
+            <?= htmlspecialchars($e['artist']) ?>
+            </span>
+            <?php endforeach; ?>
+        </div>
+    </div>
+
+
+    <div class="lineup-preview">
+        <p class="section-eyebrow">Who's Playing</p>
+        <h2 class="section-title">The <span class="grad">Lineup</span></h2>
+
+        <div class="artists-grid">
+            <?php foreach ($featured as $i => $a): ?>
+            <div class="artist-card" style="animation: fadeUp 0.5s <?= $i * 0.07 ?>s ease both;">
+            <img src="<?= htmlspecialchars($a['image']) ?>"
+                alt="<?= htmlspecialchars($a['artist']) ?>"
+                onerror="this.style.display='none'">
+            <div class="artist-name"><?= htmlspecialchars($a['artist']) ?></div>
+            <div class="artist-tag">
+                <?= htmlspecialchars($a['stage']) ?> &nbsp;·&nbsp; <?= htmlspecialchars($a['day']) ?>
+            </div>
+            </div>
+            <?php endforeach; ?>
+        </div>
+
+        <a href="lineup.php" class="lineup-link">Full Lineup &nbsp;→</a>
+    </div>
+
+    <footer class="home-footer">
+        <div class="footer-brand">ECHO<span>FEST</span></div>
+        <span class="footer-copy">
+            July 18–21, 2026 &nbsp;/&nbsp; 4 Stages &nbsp;/&nbsp; <?= count($events) ?>+ Artists
+        </span>
+    </footer>
+
+    <script src="../assets/js/home.js"></script>
+
 </body>
-<script src="../assets/js/index.js"></script>
 </html>
+
+<?php require_once '../includes/footer.php'; ?>

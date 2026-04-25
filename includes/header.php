@@ -35,7 +35,7 @@ if (session_status() === PHP_SESSION_NONE) {
 
       <!-- LINKS -->
       <ul class="navbar-nav mx-auto">
-            <li class="nav-item"><a class="nav-link" href="../pages/home.php">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="../pages/index.php">Home</a></li>
             <li class="nav-item"><a class="nav-link" href="../pages/about.php">About</a></li>
             <li class="nav-item"><a class="nav-link" href="../pages/profile.php">Profile</a></li>
             <li class="nav-item"><a class="nav-link" href="../pages/tickets.php">Tickets</a></li>
