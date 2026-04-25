@@ -1,12 +1,16 @@
 <?php
-session_start();
+
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 
 if (!isset($_SESSION['username'])) {
     header("Location: ../pages/login.php");
     exit;
 }
 
-include "../data/users.php";
+require_once '../data/users.php';
+require_once '../includes/header.php';
 
 $username = $_SESSION['username'];
 $data = $users[$username];
@@ -174,3 +178,4 @@ function confirmDelete() {
 
 </body>
 </html>
+<?php require_once '../includes/footer.php'; ?>
