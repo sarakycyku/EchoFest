@@ -130,6 +130,57 @@ $event = $locations[$loc] ?? $locations['xk'];
             </div>
 
         </div>
+
+        <div class="summary-panel">
+            <div class="summary-title">Order Summary</div>
+            <div class="summary-event">
+                <div class="summary-flag"><?=$event['flag']?></div>
+                <div>
+                    <div class="summary-event-name"><?=$event['country'] ?></div>
+                    <div class="summary-event-city"><?=$event['city']?></div>
+                    <div class="summary-event-date"><?=$event['dates']?></div>
+                </div>
+            </div>
+            <div class="summary-rows">
+                <div class="summary-row">
+                    <span class="label">Ticket Type:</span>
+                    <span class="val"><?=$ticket['name']?></span>
+                </div>
+                <div class="summary-row">
+                    <span class="label">Quantity:</span>
+                    <span class="val"><?= $qty ?></span>
+                </div>
+                <div class="summary-row">
+                    <span class="label">Subtotal:</span>
+                    <span class="val">€<?= $subtotal ?></span>
+                </div>
+                <div class="summary-row">
+                    <span class="label">Service Fee:</span>
+                    <span class="val">€<?= $serviceFee ?></span>
+                </div>
+            </div>
+            <div class="summary-divider"></div>
+            <div class="summary-total">
+                <span class="t-label">Total:</span>
+                <span class="t-val">€<?= $total ?></span>
+            </div>
+
+            <input type="hidden" name="ticket_type" value="<?=$ticketParam?>">
+            <input type="hidden" name="ticket_name" value="<?=$ticket['name'] ?>">
+            <input type="hidden" name="qty" value="<?= $qty ?>">
+            <input type="hidden" name="event_name" value="<?=$event['country']?>">
+            <input type="hidden" name="event_city" value="<?=$event['city']?>">
+            <input type="hidden" name="event_dates" value="<?=$event['dates'] ?>">
+            <input type="hidden" name="subtotal" value="<?=$subtotal ?>">
+            <input type="hidden" name="service_fee" value="<?= $serviceFee ?>">
+            <input type="hidden" name="total" value="<?= $total ?>">
+
+            <button class="complete-btn" type="submit">
+                Complete Purchase €<?= $total ?>
+            </button>
+        </div>
+
+    </div>
 </form>
 
 <script>
