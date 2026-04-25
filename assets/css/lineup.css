@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=DM+Sans:wght@300;400;500&display=swap');
+
+body {
+    font-family: 'DM Sans', sans-serif;
+    background: #0a0a0f;
+    color: #f0eee8;
+}
+
+/* TITLE */
+h1 {
+    font-family: 'Black Han Sans', sans-serif;
+}
+
+/* CARD */
+.card {
+    background: rgba(255,255,255,0.03) !important;
+    border: 1px solid rgba(255,255,255,0.08) !important;
+    border-radius: 16px !important;
+    transition: 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(167,139,250,0.4) !important;
+}
+
