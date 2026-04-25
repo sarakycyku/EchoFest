@@ -69,11 +69,11 @@ $artists_count = count($events);
         </div>
 
         <div class="hero-meta">
-            <span>4 Days</span>
+            <span><?= $days_count ?> Days</span>
             <span class="bar"></span>
-            <span>4 Stages</span>
+            <span><?= $stages_count ?> Stages</span>
             <span class="bar"></span>
-            <span><?= count($events) ?>+ Artists</span>
+            <span><?= $artists_count ?>+ Artists</span>
             <span class="bar"></span>
             <span>Pristina, Kosovo</span>
         </div>
