@@ -92,6 +92,27 @@ $artists_count = count($events);
         </div>
     </div>
 
+    <section class="summary-shell">
+        <div class="summary-panel">
+            <div class="summary-stat">
+                <div class="summary-value"><?= $days_count ?></div>
+                <div class="summary-label">Festival Days</div>
+            </div>
+            <div class="summary-stat">
+                <div class="summary-value"><?= $stages_count ?></div>
+                <div class="summary-label">Live Stages</div>
+            </div>
+            <div class="summary-stat">
+                <div class="summary-value"><?= $artists_count ?>+</div>
+                <div class="summary-label">Featured Artists</div>
+            </div>
+            <div class="summary-stat">
+                <div class="summary-value"><?= $logged_in ? 'Member' : 'Open' ?></div>
+                <div class="summary-label">Access Status</div>
+            </div>
+        </div>
+    </section>
+
 
     <div class="lineup-preview">
         <p class="section-eyebrow">Who's Playing</p>
