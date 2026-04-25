@@ -46,7 +46,7 @@ $event = $locations[$loc] ?? $locations['xk'];
 
 <h1 class="page-title">Complete Your Purchase</h1>
 
-<form method="POST" action="purchase_logic.php">
+<form method="POST" action="../logic/purchase_logic.php>
     <div class="purchase-layout">
 
         <div class="forms-col">
@@ -174,7 +174,7 @@ $event = $locations[$loc] ?? $locations['xk'];
             <input type="hidden" name="service_fee" value="<?= $serviceFee ?>">
             <input type="hidden" name="total" value="<?= $total ?>">
 
-            <button class="complete-btn" type="submit">
+            <button class="complete-btn">
                 Complete Purchase €<?= $total ?>
             </button>
         </div>
