@@ -1,10 +1,14 @@
 <?php
 session_start();
 
-if (isset($_SESSION['admin_id'])) {
-    header("Location: admin_dashboard.php");
-    exit;
-}
+if (isset($_SESSION['error'])):
+?>
+<script>
+    alert("<?= addslashes($_SESSION['error']) ?>");
+</script>
+<?php
+    unset($_SESSION['error']);
+endif;
 ?>
 <!DOCTYPE html>
 <html lang="en">
