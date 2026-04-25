@@ -77,5 +77,26 @@ $ticker = array_merge($events, $events);
     </div>
 
 
+    <div class="lineup-preview">
+        <p class="section-eyebrow">Who's Playing</p>
+        <h2 class="section-title">The <span class="grad">Lineup</span></h2>
+
+        <div class="artists-grid">
+            <?php foreach ($featured as $i => $a): ?>
+            <div class="artist-card" style="animation: fadeUp 0.5s <?= $i * 0.07 ?>s ease both;">
+            <img src="<?= htmlspecialchars($a['image']) ?>"
+                alt="<?= htmlspecialchars($a['artist']) ?>"
+                onerror="this.style.display='none'">
+            <div class="artist-name"><?= htmlspecialchars($a['artist']) ?></div>
+            <div class="artist-tag">
+                <?= htmlspecialchars($a['stage']) ?> &nbsp;·&nbsp; <?= htmlspecialchars($a['day']) ?>
+            </div>
+            </div>
+            <?php endforeach; ?>
+        </div>
+
+        <a href="lineup.php" class="lineup-link">Full Lineup &nbsp;→</a>
+    </div>
+
 </body>
 </html>
