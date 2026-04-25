@@ -637,6 +637,20 @@ body {
   }
 }
 
+@media (min-width: 601px) and (max-width: 900px) {
+  .summary-panel,
+  .quick-links-grid,
+  .artists-grid,
+  .highlight-grid,
+  .schedule-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .two-col-section {
+    grid-template-columns: 1fr;
+  }
+}
+
 .artist-card img {
   width: 100%;
   height: 180px;
