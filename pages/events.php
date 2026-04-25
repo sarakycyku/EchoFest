@@ -194,4 +194,21 @@ if ($sort === "title") {
     </div>
 </section>
 
+<div class="event-modal" id="eventModal">
+    <div class="event-modal-content">
+        <button id="modalClose" class="modal-close">×</button>
+        <img id="modalImage" src="" alt="">
+        <div class="modal-body">
+            <h2 id="modalTitle"></h2>
+            <p id="modalArtist"></p>
+            <p id="modalInfo"></p>
+            <p id="modalDescription"></p>
+            <a href="tickets.php" class="btn-ticket-modal">Get Ticket Now</a>
+        </div>
+    </div>
+</div>
+
+<script src="/EchoFest/assets/js/events.js"></script>
+
 <?php include '../includes/footer.php'; ?>
+
