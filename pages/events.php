@@ -110,4 +110,41 @@ if ($sort === "title") {
         </div>
     </div>
 </section>
+
+<section class="filter-section">
+    <div class="filter-container">
+        <h2>Festival Events</h2>
+
+        <form method="GET">
+            <input type="hidden" name="location" value="<?= $selectedLocation; ?>">
+
+            <input type="text" name="search" placeholder="Search events, artists, or dates..."
+                   value="<?= htmlspecialchars($search); ?>">
+
+            <select name="category">
+                <option value="all" <?= $category === "all" ? "selected" : ""; ?>>All Categories</option>
+                <option value="pop" <?= $category === "pop" ? "selected" : ""; ?>>Pop</option>
+                <option value="electronic" <?= $category === "electronic" ? "selected" : ""; ?>>Electronic</option>
+                <option value="acoustic" <?= $category === "acoustic" ? "selected" : ""; ?>>Acoustic</option>
+            </select>
+
+            <select name="sort">
+                <option value="date" <?= $sort === "date" ? "selected" : ""; ?>>Sort by Date</option>
+                <option value="title" <?= $sort === "title" ? "selected" : ""; ?>>Sort by Title</option>
+            </select>
+
+            <button type="submit">Filter</button>
+            <a href="events.php">Reset</a>
+        </form>
+
+        <?php if ($error): ?>
+            <p class="validation-error"><?= $error; ?></p>
+        <?php endif; ?>
+
+        <p class="results-count">
+            Found <?= count($filteredEvents); ?> event<?= count($filteredEvents) !== 1 ? "s" : ""; ?>
+        </p>
+    </div>
+</section>
+
 <?php include '../includes/footer.php'; ?>
