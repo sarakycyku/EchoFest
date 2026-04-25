@@ -175,3 +175,53 @@ body {
   display: inline-block;
   transition: border-color 0.2s, color 0.2s;
 }
+
+.btn-ghost:hover { 
+  border-color: rgba(255,255,255,0.22);
+  color: #f0eee8; }
+
+.hero-meta {
+  margin-top: 3.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  font-size: 10px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: rgba(240,238,232,0.2);
+  animation: fadeUp 0.7s 0.5s ease both;
+}
+.hero-meta .bar { width: 1px; height: 16px; background: rgba(255,255,255,0.1); }
+
+.ticker {
+  position: relative;
+  z-index: 1;
+  border-top: 0.5px solid rgba(255,255,255,0.07);
+  border-bottom: 0.5px solid rgba(255,255,255,0.07);
+  background: rgba(255,255,255,0.02);
+  overflow: hidden;
+  padding: 13px 0;
+  display: flex;
+  align-items: center;
+}
+.ticker-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 26s linear infinite;
+}
+.ticker-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 0 28px;
+  font-size: 10px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: rgba(240,238,232,0.3);
+  white-space: nowrap;
+}
+.ticker-item .spark {
+  width: 3px; height: 3px;
+  border-radius: 50%;
+  background: #a78bfa;
+}
