@@ -46,7 +46,7 @@ $event = $locations[$loc] ?? $locations['xk'];
 
 <h1 class="page-title">Complete Your Purchase</h1>
 
-<form method="POST" action="../logic/purchase_logic.php>
+<form method="POST" action="../logic/purchase_logic.php">
     <div class="purchase-layout">
 
         <div class="forms-col">
@@ -195,16 +195,16 @@ $event = $locations[$loc] ?? $locations['xk'];
     }
 </script>
 
-<?php 
+<?php
 
 // mesazhet
 if (!empty($_SESSION['error'])) {
-    echo '<p style="color:#f87171; text-align:center;">' . $_SESSION['error'] . '</p>';
+    echo '<p style="color:#f87171; text-align:center; margin-bottom:50px;">' . $_SESSION['error'] . '</p>';
     unset($_SESSION['error']);
 }
 
 if (!empty($_SESSION['order_done'])) {
-    echo '<p style="color:#10b981; text-align:center;">Porosia u krye!</p>';
+    echo '<p style="color:#10b981; text-align:center; margin-bottom:50px;">Porosia u krye!</p>';
     unset($_SESSION['order_done']);
     unset($_SESSION['order_content']);
 }
