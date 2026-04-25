@@ -241,6 +241,18 @@ body {
   gap: 14px;
 }
 
+.summary-stat,
+.glass-card,
+.detail-panel,
+.schedule-card,
+.quick-link-card {
+  background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
+  border: 0.5px solid rgba(255,255,255,0.08);
+  border-radius: 18px;
+  box-shadow: 0 14px 40px rgba(0,0,0,0.18);
+  backdrop-filter: blur(8px);
+}
+
 .lineup-preview {
   position: relative;
   z-index: 1;
