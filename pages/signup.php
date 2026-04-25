@@ -12,7 +12,6 @@ $firstNameErr = $_SESSION['firstNameErr'] ?? "";
 $lastNameErr  = $_SESSION['lastNameErr'] ?? "";
 $usernameErr  = $_SESSION['usernameErr'] ?? "";
 $emailErr     = $_SESSION['emailErr'] ?? "";
-$cityErr      = $_SESSION['cityErr'] ?? "";
 
 unset(
     $_SESSION['passwordErr'],
@@ -24,7 +23,6 @@ unset(
     $_SESSION['lastNameErr'],
     $_SESSION['usernameErr'],
     $_SESSION['emailErr'],
-    $_SESSION['cityErr']
 );
 ?>
 
@@ -95,26 +93,6 @@ body {
 
 </div>
 
-<!-- PROFILE PHOTO + CITY -->
-<div class="form-row">
-
-<div class="retro-field">
-<div class="field-chrome">
-<input id="profile_photo" type="file" name="profile_photo" required>
-<label>Profile Picture</label>
-</div>
-</div>
-
-<div class="retro-field">
-<div class="field-chrome">
-<input id="city" type="text" name="city" placeholder=" " required>
-<label>City</label>
-</div>
-<small id="cityFrontErr" class="text-danger small px-2"></small>
-<?php if($cityErr) echo '<div class="error-wrap text-danger small px-2">'.$cityErr.'</div>'; ?>
-</div>
-
-</div>
 
 <!-- USERNAME + EMAIL -->
 <div class="form-row">

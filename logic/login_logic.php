@@ -1,5 +1,8 @@
 <?php
-session_start();
+
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 include "../data/users.php";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -7,27 +10,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = trim($_POST['username']);
     $password = trim($_POST['password']);
 
-    // kontrollo a ekziston useri
     if (isset($users[$username])) {
 
-        // kontrollo password
-        if ($users[$username]['password'] === $password) {
+        if (password_verify($password, $users[$username]['password'])) {
 
-            // login sukses
             $_SESSION['username'] = $username;
             $_SESSION['role'] = $users[$username]['role'];
 
-            
-                header("Location: ../pages/home.php");
-                exit;
-            
+            header("Location: ../pages/home.php");
+            exit;
 
         } else {
-            echo "Password gabim!";
+            $_SESSION['error'] = "Username or password is incorrect!";
         }
 
     } else {
-        echo "Useri nuk ekziston!";
+        $_SESSION['error'] = "User doesn't exist!";
     }
+
+    header("Location: ../pages/login.php");
+    exit;
 }
 ?>

@@ -1,13 +1,28 @@
 <?php
-// Keto te dhena i kam marre si shembull 
+
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
+if (!isset($_SESSION['username'])) {
+    header("Location: ../pages/login.php");
+    exit;
+}
+
+require_once '../data/users.php';
+require_once '../includes/header.php';
+
+$username = $_SESSION['username'];
+$data = $users[$username];
+
 $user = [
-  "name" => "Artan Krasniqi",
-  "username" => "@artank",
-  "email" => "ar***@gmail.com",
-  "phone" => "+383 *** *** 21",
-  "age" => 24,
-  "member_since" => "April 2026",
-  "initials" => "AK"
+    "name"         => $data["first_name"] . " " . $data["last_name"],
+    "username"     => "@" . $username,
+    "email"        => $data["email"],
+    "phone"        => $data["phone"],
+    "age"          => $data["age"],
+    "member_since" => "April 2026",
+    "initials"     => strtoupper(substr($data["first_name"], 0, 1) . substr($data["last_name"], 0, 1))
 ];
 
 $stats = [
@@ -37,11 +52,13 @@ $artists = ["Four Tet","Burial","Floating Points","Bonobo","Actress","Objekt","L
 
 
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <title>Profile</title>
+  <link rel="icon" type="image/x-icon" href="../assets/images/logo2-pabg.png">
   <link rel="stylesheet" href="../assets/css/profile.css">
 </head>
 
@@ -79,15 +96,15 @@ $artists = ["Four Tet","Burial","Floating Points","Bonobo","Actress","Objekt","L
 
     <div class="pf-stats">
       <div class="pf-stat">
-      <div class="pf-stat-num" id="s1">0</div>
+      <div class="pf-stat-num" id="s1"><?= $stats["days"] ?></div>
       <div class="pf-stat-lbl">Days</div>
     </div>
     <div class="pf-stat">
-      <div class="pf-stat-num" id="s2">0</div>
+      <div class="pf-stat-num" id="s2"><?= $stats["tickets"] ?></div>
       <div class="pf-stat-lbl">Tickets</div>
     </div>
     <div class="pf-stat">
-      <div class="pf-stat-num" id="s3">0</div>
+      <div class="pf-stat-num" id="s3"><?= $stats["artists"] ?></div>
       <div class="pf-stat-lbl">Artists</div>
     </div>
   </div>
@@ -134,8 +151,9 @@ $artists = ["Four Tet","Burial","Floating Points","Bonobo","Actress","Objekt","L
 
 
   <div class="pf-actions">
-    <button class="pf-btn pf-btn-edit">Edit Profile</button>
-    <button class="pf-btn pf-btn-out">Log Out</button>
+    <button class="pf-btn pf-btn-edit" onclick="window.location='../pages/edit_profile.php'" >Edit Profile</button>
+    <button class="pf-btn pf-btn-out" onclick="window.location='../logic/logout.php'">Log Out</button>
+    <button class="pf-btn" onclick="confirmDelete()" style="background:rgba(220,50,50,0.1);color:#fca5a5;border:0.5px solid rgba(220,50,50,0.3);">Delete Account</button>
   </div>
 
   <div class="pf-footer">July 18–21, 2026 / 4 Stages / 80+ Artists</div>
@@ -149,7 +167,15 @@ $artists = ["Four Tet","Burial","Floating Points","Bonobo","Actress","Objekt","L
     artists: <?= $stats["artists"] ?>
   };
 </script>
+<script>
+function confirmDelete() {
+    if (confirm("Are you sure you want to delete your account? This cannot be undone.")) {
+        window.location = '../logic/delete_logic.php';
+    }
+}
+</script>
 
 
 </body>
 </html>
+<?php require_once '../includes/footer.php'; ?>
