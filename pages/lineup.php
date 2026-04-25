@@ -86,6 +86,17 @@ if ($sort == "stage") {
 
         <button class="btn btn-dark ms-2">Search</button>
 
+          <!-- SORT DROPDOWN  -->
+                <select name="sort" class="form-select w-auto ms-2">
+                    <option value="">Sort</option>
+                    <option value="az" <?= $sort=="az"?"selected":"" ?>>Artist A-Z</option>
+                    <option value="za" <?= $sort=="za"?"selected":"" ?>>Artist Z-A</option>
+                    <option value="day" <?= $sort=="day"?"selected":"" ?>>Day</option>
+                    <option value="stage" <?= $sort=="stage"?"selected":"" ?>>Stage</option>
+                </select>
+
+                <button class="btn btn-dark ms-2">Search</button>
+
         <a href="lineup.php" class="btn btn-outline-secondary ms-2">Reset</a>
 
     </form>
