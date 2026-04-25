@@ -12,7 +12,7 @@ function changeQty(id, change) {
   if (btn) btn.textContent = 'Buy Now €' + total;
 }
 
-function buyNow(id, basePrice) {
+function buyNow(id, basePrice, loc) {
   const qty = qtys[id] || 1;
-  window.location.href = `purchase.php?ticket=${id}&qty=${qty}&loc=<?= $selected ?>`;
+  window.location.href = `purchase.php?ticket=${id}&qty=${qty}&loc=${loc}`;
 }
