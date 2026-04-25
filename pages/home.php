@@ -13,6 +13,22 @@ $featured = array_slice($events, 0, 3);
 
 // doubled for seamless ticker loop
 $ticker = array_merge($events, $events);
+
+$days = [];
+$stages = [];
+foreach ($events as $event) {
+    if (!in_array($event['day'], $days)) {
+        $days[] = $event['day'];
+    }
+
+    if (!in_array($event['stage'], $stages)) {
+        $stages[] = $event['stage'];
+    }
+}
+
+$days_count = count($days);
+$stages_count = count($stages);
+$artists_count = count($events);
 ?>
 
 
