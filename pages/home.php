@@ -227,20 +227,20 @@ $artists_count = count($events);
         <h2 class="section-title">The <span class="grad">Lineup</span></h2>
 
         <div class="artists-grid">
-            <?php foreach ($featured as $i => $a): ?>
-            <div class="artist-card" style="animation: fadeUp 0.5s <?= $i * 0.07 ?>s ease both;">
-            <img src="<?= htmlspecialchars($a['image']) ?>"
-                alt="<?= htmlspecialchars($a['artist']) ?>"
+            <?php foreach ($featured as $index => $artist): ?>
+            <div class="artist-card" style="animation: fadeUp 0.5s <?= $index * 0.07 ?>s ease both;">
+            <img src="<?= htmlspecialchars($artist['image']) ?>"
+                alt="<?= htmlspecialchars($artist['artist']) ?>"
                 onerror="this.style.display='none'">
-            <div class="artist-name"><?= htmlspecialchars($a['artist']) ?></div>
+            <div class="artist-name"><?= htmlspecialchars($artist['artist']) ?></div>
             <div class="artist-tag">
-                <?= htmlspecialchars($a['stage']) ?> &nbsp;·&nbsp; <?= htmlspecialchars($a['day']) ?>
+                <?= htmlspecialchars($artist['stage']) ?> &nbsp;&middot;&nbsp; <?= htmlspecialchars($artist['day']) ?>
             </div>
             </div>
             <?php endforeach; ?>
         </div>
 
-        <a href="lineup.php" class="lineup-link">Full Lineup &nbsp;→</a>
+        <a href="lineup.php" class="lineup-link">Full Lineup &nbsp;&rarr;</a>
     </div>
 
     <footer class="home-footer">
