@@ -227,6 +227,20 @@ body {
   background: #a78bfa;
 }
 
+.summary-shell {
+  position: relative;
+  z-index: 1;
+  padding: 30px 1.5rem 0;
+}
+
+.summary-panel {
+  max-width: 1080px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+}
+
 .lineup-preview {
   position: relative;
   z-index: 1;
