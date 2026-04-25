@@ -113,6 +113,21 @@ $artists_count = count($events);
         </div>
     </section>
 
+    <section class="content-section">
+        <div class="section-heading">
+            <p class="section-eyebrow">Festival Snapshot</p>
+            <h2 class="section-title">Why <span class="grad">EchoFest</span> matters</h2>
+        </div>
+
+        <div class="highlight-grid">
+            <article class="glass-card">
+                <p class="card-kicker">What It Is</p>
+                <h3 class="card-title">A fast overview of EchoFest</h3>
+                <p class="card-copy">EchoFest brings together headline artists, immersive stages, and a crowd experience built around music, visuals, and atmosphere.</p>
+            </article>
+        </div>
+    </section>
+
 
     <div class="lineup-preview">
         <p class="section-eyebrow">Who's Playing</p>
