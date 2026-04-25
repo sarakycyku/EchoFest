@@ -167,18 +167,19 @@ body {
   text-transform: uppercase;
   padding: 14px 34px;
   border-radius: 8px;
-  border: 0.5px solid rgba(255,255,255,0.1);
+  border: 0.5px solid rgba(255,255,255,0.12);
   background: transparent;
-  color: rgba(240,238,232,0.45);
+  color: rgba(240,238,232,0.66);
   cursor: pointer;
   text-decoration: none;
   display: inline-block;
-  transition: border-color 0.2s, color 0.2s;
+  transition: border-color 0.2s, color 0.2s, transform 0.15s;
 }
 
 .btn-ghost:hover { 
-  border-color: rgba(255,255,255,0.22);
-  color: #f0eee8; }
+  border-color: rgba(255,255,255,0.3);
+  color: #f0eee8;
+  transform: translateY(-2px); }
 
 .hero-meta {
   margin-top: 3.5rem;
