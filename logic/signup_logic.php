@@ -12,12 +12,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $last_name  = $_POST["last_name"] ?? "";
     $username   = $_POST["username"] ?? "";
     $email      = $_POST["email"] ?? "";
-    $city       = $_POST["city"] ?? "";   
 
     $passRegex = "/^[a-zA-Z0-9\W_]{8,}$/";
     $phoneRegex = "/^[0-9]{8,15}$/";
     $regexname = "/^[a-zA-ZëËçÇ]+$/u";
-    $cityregex = "/^[a-zA-Z\s\-']+$/";  
 
     $_SESSION['passwordErr'] = "";
     $_SESSION['confirmErr'] = "";
@@ -27,7 +25,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $_SESSION['lastNameErr'] = "";
     $_SESSION['usernameErr'] = "";
     $_SESSION['emailErr'] = "";
-    $_SESSION['cityErr'] = "";   
 
     if (!preg_match($passRegex, $p)) {
         $_SESSION['passwordErr'] = "Password must be at least 8 characters long and include uppercase, lowercase, number, and special character!";
@@ -52,9 +49,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     if (!preg_match($regexname, $last_name)) {
         $_SESSION['lastNameErr'] = "Only letters are allowed!";
     }
-    if(!preg_match($cityregex, $city)){
-        $_SESSION['cityErr'] = "City can contain only letters!";
-    }
+   
 
     $blocked = ["admin"];
     $usernameReg = "/^[a-zA-Z][a-zA-Z0-9]{2,19}$/";
@@ -89,9 +84,20 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         empty($_SESSION['firstNameErr']) &&
         empty($_SESSION['lastNameErr']) &&
         empty($_SESSION['usernameErr']) &&
-        empty($_SESSION['emailErr']) &&
-        empty($_SESSION['cityErr'])   
+        empty($_SESSION['emailErr']) 
     ) {
+        include "../data/users.php";
+
+        $users[$username] = [
+            'password' => password_hash($p, PASSWORD_DEFAULT), 
+            'email'      => $email,
+            'first_name' => $first_name,
+            'last_name'  => $last_name,
+            'phone'      => $phone,
+            'age'        => $age,
+            'role'       => 'user'
+        ];
+        saveUsers($users);
         $_SESSION['success'] = "Account created successfully!";
     }
 

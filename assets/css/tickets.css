@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=DM+Sans:wght@300;400;500&display=swap');
+
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
@@ -23,7 +25,7 @@
 body {
   background: var(--bg);
   color: var(--text);
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: 'DM Sans', sans-serif;
   min-height: 100vh;
   overflow-x: hidden;
 }
@@ -79,23 +81,20 @@ body {
   text-transform: uppercase;
   letter-spacing: 0.12em;
   color: white;
-  font-weight: 600;
+  font-weight: 500;
 }
 
 .info-value {
-  font-family: 'Syne', sans-serif;
+  font-family: "Black Han Sans", sans-serif;
   font-size: 1rem;
-  font-weight: 600;
+  font-weight: 500;
   color: white;
 }
 
 /*LOCATION */
 
 .location-wrap {
-  max-width: 900px;
-  margin: 0 auto;
   margin-top: 100px;
-  padding: 0 24px;
 }
 
 .location-box {
@@ -106,6 +105,8 @@ body {
   margin: -30px auto 0;
   position: relative;
   z-index: 10;
+  max-width: 1100px; 
+
 }
 
 .location-label {
@@ -114,12 +115,12 @@ body {
   letter-spacing: 0.12em;
   color: var(--muted);
   margin-bottom: 16px;
-  font-weight: 600;
+  font-weight: 500;
 }
 
 .location-cards {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns:2fr 2fr;
   gap: 16px;
 }
 
@@ -156,7 +157,7 @@ body {
 
 .loc-country {
   font-size: 1rem;
-  font-weight: 700;
+  font-weight: 500;
   color: var(--text);
 }
 
@@ -182,7 +183,7 @@ body {
 }
 
 .section-title {
-  font-family: 'Syne', sans-serif;
+  font-family: "Black Han Sans", sans-serif;
   font-size: 2.2rem;
   font-weight: 800;
   text-align: center;
@@ -247,9 +248,9 @@ body {
 }
 
 .ticket-name {
-  font-family: 'Syne', sans-serif;
+  font-family: "Black Han Sans", sans-serif;
   font-size: 1.3rem;
-  font-weight: 700;
+  font-weight: 500;
   line-height: 1.2;
 }
 
@@ -291,7 +292,7 @@ body {
 }
 
 .price-amount {
-  font-family: 'Syne', sans-serif;
+  font-family: "Black Han Sans", sans-serif;
   font-size: 1.9rem;
   font-weight: 800;
   letter-spacing: -0.02em;
@@ -332,8 +333,8 @@ body {
 .qty-num {
   min-width: 32px;
   text-align: center;
-  font-family: 'Syne', sans-serif;
-  font-weight: 700;
+  font-family: "Black Han Sans", sans-serif;
+  font-weight: 500;
   font-size: 0.95rem;
 }
 
@@ -343,8 +344,8 @@ body {
   border-radius: 10px;
   color: #fff;
   padding: 10px 22px;
-  font-family: 'Syne', sans-serif;
-  font-weight: 700;
+  font-family: "Black Han Sans", sans-serif;
+  font-weight: 500;
   font-size: 0.9rem;
   cursor: pointer;
   transition: opacity 0.2s, transform 0.15s;
@@ -359,8 +360,8 @@ body {
   border-radius: 10px;
   color: var(--muted);
   padding: 10px 22px;
-  font-family: 'Syne', sans-serif;
-  font-weight: 700;
+  font-family: "Black Han Sans", sans-serif;
+  font-weight: 500;
   font-size: 0.9rem;
   cursor: not-allowed;
 }
