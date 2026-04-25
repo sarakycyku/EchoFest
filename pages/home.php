@@ -140,6 +140,43 @@ $artists_count = count($events);
         </div>
     </section>
 
+    <section class="content-section two-col-section">
+        <div class="section-block">
+            <p class="section-eyebrow">Festival Structure</p>
+            <h2 class="section-title">Built to give visitors the full <span class="grad">picture</span></h2>
+            <p class="section-copy">
+                This homepage now works like a summary page. It introduces the scale of the festival,
+                previews the lineup, surfaces the event structure, and points visitors to the most
+                important parts of the website.
+            </p>
+
+            <div class="chip-row">
+                <span class="info-chip">Main Stage</span>
+                <span class="info-chip">EDM Stage</span>
+                <span class="info-chip">Pop Stage</span>
+            </div>
+        </div>
+
+        <div class="detail-panel">
+            <div class="detail-row">
+                <span class="detail-label">Dates</span>
+                <span class="detail-value">July 18-21, 2026</span>
+            </div>
+            <div class="detail-row">
+                <span class="detail-label">Location</span>
+                <span class="detail-value">Pristina, Kosovo</span>
+            </div>
+            <div class="detail-row">
+                <span class="detail-label">Audience</span>
+                <span class="detail-value">Fans, newcomers, and returning members</span>
+            </div>
+            <div class="detail-row">
+                <span class="detail-label">Focus</span>
+                <span class="detail-value">Lineup, tickets, story, and profile</span>
+            </div>
+        </div>
+    </section>
+
 
     <div class="lineup-preview">
         <p class="section-eyebrow">Who's Playing</p>
