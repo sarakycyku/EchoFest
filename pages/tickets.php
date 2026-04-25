@@ -96,7 +96,7 @@ $tickets = [
 
 <!--TICKETS -->
 <section class="tickets-section">
-    <h2 class="section-title">Choose Your Ticket</h2>
+    <h2 class="section-title">Choose <span class='highlight'>Your Ticket</span></h2>
 
     <div class="ticket-list">
         <?php foreach ($tickets as $t): ?>

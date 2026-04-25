@@ -191,6 +191,13 @@ body {
   letter-spacing: -0.02em;
 }
 
+.highlight{
+  background: linear-gradient(90deg, #a78bfa 20%, #67e8f9);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
 .ticket-list {
   display: flex;
   flex-direction: column;

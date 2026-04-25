@@ -44,7 +44,7 @@ $event = $locations[$loc] ?? $locations['xk'];
 
 <link rel="stylesheet" href="../assets/css/purchase.css">
 
-<h1 class="page-title">Complete Your Purchase</h1>
+<h1 class="page-title"><span class='highlight'>Complete Your Purchase</span></h1>
 
 <form method="POST" action="../logic/purchase_logic.php">
     <div class="purchase-layout">
