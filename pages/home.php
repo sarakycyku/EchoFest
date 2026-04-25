@@ -177,6 +177,50 @@ $artists_count = count($events);
         </div>
     </section>
 
+    <section class="content-section">
+        <div class="section-heading split-heading">
+            <div>
+                <p class="section-eyebrow">Plan The Weekend</p>
+                <h2 class="section-title">Schedule <span class="grad">pulse</span></h2>
+            </div>
+            <p class="heading-side-copy">
+                A small PHP-driven preview showing how artists are spread across the festival days.
+            </p>
+        </div>
+
+        <div class="schedule-grid">
+            <?php foreach ($days as $day): ?>
+            <?php
+            $day_count = 0;
+            $shown = 0;
+            ?>
+            <article class="schedule-card">
+                <div class="schedule-top">
+                    <p class="card-kicker"><?= htmlspecialchars($day) ?></p>
+                    <?php foreach ($events as $event): ?>
+                        <?php if ($event['day'] === $day): ?>
+                            <?php $day_count++; ?>
+                        <?php endif; ?>
+                    <?php endforeach; ?>
+                    <span class="schedule-count"><?= $day_count ?> artists</span>
+                </div>
+
+                <div class="schedule-list">
+                    <?php foreach ($events as $event): ?>
+                        <?php if ($event['day'] === $day && $shown < 2): ?>
+                        <div class="schedule-item">
+                            <span class="schedule-artist"><?= htmlspecialchars($event['artist']) ?></span>
+                            <span class="schedule-stage"><?= htmlspecialchars($event['stage']) ?></span>
+                        </div>
+                        <?php $shown++; ?>
+                        <?php endif; ?>
+                    <?php endforeach; ?>
+                </div>
+            </article>
+            <?php endforeach; ?>
+        </div>
+    </section>
+
 
     <div class="lineup-preview">
         <p class="section-eyebrow">Who's Playing</p>
