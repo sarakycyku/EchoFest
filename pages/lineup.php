@@ -84,7 +84,7 @@ if ($sort == "stage") {
                placeholder="Search artist..."
                value="<?= htmlspecialchars($search) ?>">
 
-        <button class="btn btn-dark ms-2">Search</button>
+
 
           <!-- SORT DROPDOWN  -->
                 <select name="sort" class="form-select w-auto ms-2">
@@ -103,7 +103,7 @@ if ($sort == "stage") {
 
     <div class="row">
 
-        <?php foreach ($events as $e): ?>
+        <?php foreach ($filtered as $e): ?>
             <?php if ($search == "" || stripos($e["artist"], $search) !== false): ?>
 
                 <?php $id = md5($e["artist"]); ?>
@@ -126,7 +126,7 @@ if ($sort == "stage") {
                             <button class="btn btn-primary btn-sm"
                                 data-bs-toggle="modal"
                                 data-bs-target="#modal<?= $id ?>">
-                                🎵 See Hits
+                                🎵 Top Hits
                             </button>
 
                         </div>
