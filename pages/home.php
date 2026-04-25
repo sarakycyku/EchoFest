@@ -98,5 +98,12 @@ $ticker = array_merge($events, $events);
         <a href="lineup.php" class="lineup-link">Full Lineup &nbsp;→</a>
     </div>
 
+    <footer class="home-footer">
+        <div class="footer-brand">ECHO<span>FEST</span></div>
+        <span class="footer-copy">
+            July 18–21, 2026 &nbsp;/&nbsp; 4 Stages &nbsp;/&nbsp; <?= count($events) ?>+ Artists
+        </span>
+    </footer>
+
 </body>
 </html>
