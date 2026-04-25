@@ -4,8 +4,8 @@
       
       <div class="container">
         <div class="row">
-          <div class="col-md-4 pr-md-5">
-            <img src="/EchoFest/assets/images/logo-last.png" height="200px">
+          <div class="col-md-4 pr-md-5 ">
+            <div class="footer-brand">ECHO<span>FEST</span></div>
           </div>
           <div class="col-md">
             <ul class="list-unstyled nav-links">

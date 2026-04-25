@@ -21,8 +21,9 @@ if (session_status() === PHP_SESSION_NONE) {
   <div class="container">
 
     <!-- LOGO -->
-    <a class="navbar-brand" href="#">
-      <img src="../assets/images/logo2.png">
+    <a class="navbar-brand" href="../pages/index.php">
+      <!-- <img src="../assets/images/logo-last.png" width="150" height="150"> -->
+       <div class="footer-brand fs-4">ECHO<span>FEST</span></div>
     </a>
 
     <!-- TOGGLER -->

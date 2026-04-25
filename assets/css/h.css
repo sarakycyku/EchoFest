@@ -24,8 +24,8 @@ body {
 }
 
 .navbar-brand img {
-    height: 60px;
-    width: auto;
+    height: 60px; 
+    /* width: auto; */
 }
 
 /* ================== LINKS ================== */
