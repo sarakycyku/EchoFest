@@ -295,8 +295,8 @@ body {
 .lineup-preview {
   position: relative;
   z-index: 1;
-  padding: 80px 1.5rem;
-  max-width: 860px;
+  padding: 80px 1.5rem 0;
+  max-width: 1080px;
   margin: 0 auto;
 }
 .section-eyebrow {
@@ -436,8 +436,8 @@ body {
 
 .artists-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 12px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
   margin-bottom: 1.75rem;
 }
 
