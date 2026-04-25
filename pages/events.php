@@ -76,9 +76,38 @@ if ($sort === "title") {
 }
 ?>
 
-?>
-
 <title>Events</title>
 <link rel="stylesheet" href="/EchoFest/assets/css/events.css">
 
+<section class="events-hero">
+    <div class="events-hero-content">
+        <div class="hero-info">
+            <div>
+                <span>Festival Dates</span>
+                <strong><?= $locations[$selectedLocation]["dates"]; ?></strong>
+            </div>
+            <div>
+                <span>Location</span>
+                <strong><?= $locations[$selectedLocation]["venue"]; ?></strong>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="location-wrap">
+    <div class="location-box">
+        <p>Select Event Location:</p>
+
+        <div class="location-cards">
+            <?php foreach ($locations as $key => $loc): ?>
+                <a href="events.php?location=<?= $key; ?>"
+                   class="loc-card <?= $selectedLocation === $key ? 'active' : ''; ?>">
+                    <strong><?= $loc["country"]; ?></strong>
+                    <span><?= $loc["city"]; ?></span>
+                    <small><?= $loc["dates"]; ?></small>
+                </a>
+            <?php endforeach; ?>
+        </div>
+    </div>
+</section>
 <?php include '../includes/footer.php'; ?>
