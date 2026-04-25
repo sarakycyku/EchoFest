@@ -518,6 +518,31 @@ body {
   letter-spacing: 0.2em;
 }
 
+.schedule-list {
+  display: grid;
+  gap: 10px;
+}
+
+.schedule-item {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: rgba(255,255,255,0.03);
+  border: 0.5px solid rgba(255,255,255,0.06);
+}
+
+.schedule-artist {
+  font-weight: 500;
+}
+
+.schedule-stage {
+  color: rgba(240,238,232,0.42);
+  font-size: 12px;
+  text-align: right;
+}
+
 .lineup-link {
   display: inline-flex;
   align-items: center;
