@@ -46,7 +46,7 @@ $artists_count = count($events);
 
     <section class="hero">
 
-    <div class="hero-eyebrow">July 18–21, 2026 &nbsp;·&nbsp; Open Air Arena</div>
+    <div class="hero-eyebrow">July 18-21, 2026 &nbsp;&middot;&nbsp; Open Air Arena</div>
 
         <h1 class="hero-title">
             <span class="outline">ECHO</span><br>
