@@ -52,15 +52,12 @@ $tickets = [
         'coming_date'=>'Coming June 1, 2026'
     ],
 ];
-
 ?>
 
 <title>Tickets</title>    
-<link rel="stylesheet" href="../assets/css/style.css">
 <link rel="stylesheet" href="../assets/css/tickets.css">
 
 <!--HERO -->
-
 <section class="hero">
     <div class="hero-container">
         <div class="hero-info">
@@ -131,7 +128,6 @@ $tickets = [
 
           <div class="ticket-actions">
             <?php if ($t['available']): ?>
-              
               <div class="qty-control" id="qty-<?= $t['id'] ?>">
                 <button class="qty-btn" onclick="changeQty('<?= $t['id'] ?>', -1)">-</button>
                 <span class="qty-num" id="num-<?= $t['id'] ?>">1</span>
@@ -139,7 +135,7 @@ $tickets = [
               </div>
               <button class="buy-btn" id="buy-<?= $t['id'] ?>"
                 onclick="buyNow('<?= $t['id'] ?>', <?= $t['price'] ?>)">
-                Buy Now - €<?= $t['price'] ?>
+                Buy Now €<?= $t['price'] ?>
               </button>
             <?php else: ?>
               <button class="coming-btn" disabled>Coming Soon</button>
@@ -153,28 +149,6 @@ $tickets = [
   </div>
 </section>
 
-<script>
-const qtys = {};
+<script src="../assets/js/tickets.js"></script>
 
-function changeQty(id, change) {
-  if (!qtys[id]) qtys[id] = 1;
-  qtys[id] = Math.max(1, qtys[id] + change);
-  document.getElementById('num-' + id).textContent = qtys[id];
-
-  // Update buy button price dynamically
-  const priceMap = { early: 79, regular: 129, vip: 299 };
-  const total = priceMap[id] * qtys[id];
-  const btn = document.getElementById('buy-' + id);
-  if (btn) btn.textContent = 'Buy Now - €' + total;
-}
-
-function buyNow(id, basePrice) {
-  const qty = qtys[id] || 1;
-  window.location.href = `purchase.php?ticket=${id}&qty=${qty}&loc=<?= $selected ?>`;
-}
-
-</script>
-
-<?php
-include '../includes/footer.php';
-?>
+<?php include '../includes/footer.php'; ?>
