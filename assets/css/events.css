@@ -34,3 +34,43 @@ body {
 .hero-info strong {
   color: white;
 }
+
+.location-wrap {
+  width: min(1000px, 92%);
+  margin: 40px auto;
+}
+
+.location-box {
+  background: #0e0e1f;
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 20px;
+  padding: 28px 32px;
+}
+
+.location-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.loc-card {
+  background: #14142a;
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 14px;
+  padding: 22px;
+  text-decoration: none;
+  color: white;
+  text-align: center;
+}
+
+.loc-card span,
+.loc-card small {
+  display: block;
+  color: #7c7a9a;
+  margin-top: 5px;
+}
+
+.loc-card.active {
+  border-color: #9d5df0;
+  background: rgba(124,58,237,0.15);
+}
