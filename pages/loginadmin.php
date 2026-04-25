@@ -17,6 +17,7 @@ endif;
     <title>Admin Login</title>
     <link rel="icon" href="../assets/images/logo2-pabg.png">
     <link rel="stylesheet" href="../assets/css/loginp.css">
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
 
@@ -60,7 +61,7 @@ endif;
                 </div>
             </div>
 
-            <button type="submit" class="login-btn">
+            <button type="submit" class="login-btn px-6 py-2.5 bg-gradient-to-r from-indigo-900 to-purple-900 rounded-lg text-white text-sm hover:shadow-lg transition">
                 Login as Admin
             </button>
         </form>
