@@ -83,10 +83,10 @@ $artists_count = count($events);
 
     <div class="ticker">
         <div class="ticker-track">
-            <?php foreach ($ticker as $e): ?>
+            <?php foreach ($ticker as $event): ?>
             <span class="ticker-item">
             <span class="spark"></span>
-            <?= htmlspecialchars($e['artist']) ?>
+            <?= htmlspecialchars($event['artist']) ?>
             </span>
             <?php endforeach; ?>
         </div>
