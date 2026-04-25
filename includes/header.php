@@ -40,6 +40,7 @@ if (session_status() === PHP_SESSION_NONE) {
             <li class="nav-item"><a class="nav-link" href="../pages/profile.php">Profile</a></li>
             <li class="nav-item"><a class="nav-link" href="../pages/tickets.php">Tickets</a></li>
             <li class="nav-item"><a class="nav-link" href="../pages/lineup.php">Line Up</a></li>
+            <li class="nav-item"><a class="nav-link" href="../pages/events.php">Events</a></li>
 
             <?php if (isset($_SESSION['role']) && $_SESSION['role'] === 'admin'): ?>
               <li class="nav-item">
@@ -55,7 +56,7 @@ if (session_status() === PHP_SESSION_NONE) {
             <a href="../pages/signup.php" class="btn-signup">Signup</a>
           <?php else: ?>
             <span style="color:white; margin-right:10px; margin-top:15px; font-size:14px;">
-              Hi, <?= $_SESSION['username'] ?>
+              Welcome, <?= $_SESSION['username'] ?>
             </span>
             <a href="../logic/logout.php" class="btn-login">Logout</a>
           <?php endif; ?>
