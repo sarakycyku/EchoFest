@@ -108,3 +108,34 @@ body {
   margin-bottom: 1.5rem;
   animation: fadeUp 0.7s 0.2s ease both;
 }
+
+.hero-title .outline {
+  color: transparent;
+  -webkit-text-stroke: 1.5px rgba(255,255,255,0.2);
+}
+.hero-title .grad {
+  background: linear-gradient(135deg, #a78bfa, #67e8f9);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 4s linear infinite;
+}
+
+.hero-sub {
+  font-size: 15px;
+  font-weight: 300;
+  color: rgba(240,238,232,0.45);
+  max-width: 420px;
+  line-height: 1.75;
+  margin-bottom: 2.5rem;
+  animation: fadeUp 0.7s 0.3s ease both;
+}
+
+.hero-cta {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+  animation: fadeUp 0.7s 0.4s ease both;
+}
