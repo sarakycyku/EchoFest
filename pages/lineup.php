@@ -19,14 +19,42 @@ $events = [
     ["artist"=>"Sia","stage"=>"Pop Stage","day"=>"Sunday","image"=>"../assets/images/sia.png","hits"=>["Chandelier","Cheap Thrills","Elastic Heart"]],
 ];
 
-// SEARCH (GET)
-$search = isset($_GET['q']) ? trim($_GET['q']) : "";
 
-// validation
+//   GET VALUES (SEARCH + SORT)
+
+$search = isset($_GET['q']) ? trim($_GET['q']) : "";
+$sort   = isset($_GET['sort']) ? $_GET['sort'] : "";   //
+
+/*
+   VALIDATION (search only letters)
+    */
 if ($search && !preg_match("/^[a-zA-Z ]+$/", $search)) {
     die("Invalid search input");
 }
-?>
+
+/* =========================
+   FILTER LOGIC (NEW)
+   - këtu krijohet lista e filtruar
+*/
+
+$filtered = array_filter($events, function($e) use ($search) {
+    return $search == "" || stripos($e["artist"], $search) !== false;
+});
+
+/* =========================
+   SORT LOGIC (NEW)
+   - rendit rezultatet sipas zgjedhjes
+   ========================= */
+/* A-Z */
+if ($sort == "az") {
+    usort($filtered, fn($a, $b) => strcmp($a["artist"], $b["artist"]));
+}
+
+/* Z-A */
+if ($sort == "za") {
+    usort($filtered, fn($a, $b) => strcmp($b["artist"], $a["artist"]));
+}
+
 
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
