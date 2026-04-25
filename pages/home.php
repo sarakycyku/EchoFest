@@ -9,5 +9,16 @@
 </head>
 <body>
     <div id="particles"></div>
+
+    <section class="hero">
+
+    <div class="hero-eyebrow">July 18–21, 2026 &nbsp;·&nbsp; Open Air Arena</div>
+
+        <h1 class="hero-title">
+            <span class="outline">ECHO</span><br>
+            <span class="grad">FEST</span>
+        </h1>
+
+    </section>
 </body>
 </html>
