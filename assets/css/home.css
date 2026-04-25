@@ -556,6 +556,18 @@ body {
 }
 .lineup-link:hover { gap: 14px; }
 
+.quick-links-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.quick-link-card {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  padding: 1.5rem;
+  transition: transform 0.22s, border-color 0.22s, box-shadow 0.22s;
+}
+
 .home-footer {
   position: relative;
   z-index: 1;
