@@ -147,4 +147,51 @@ if ($sort === "title") {
     </div>
 </section>
 
+<section class="events-list-section">
+    <div class="events-container">
+        <?php if (count($filteredEvents) === 0): ?>
+            <div class="no-results">No events found matching your criteria.</div>
+        <?php else: ?>
+            <div class="events-grid">
+                <?php foreach ($filteredEvents as $event): ?>
+                    <div class="event-card">
+                        <div class="event-image">
+                            <img src="<?= $event->getImage(); ?>" alt="<?= $event->getTitle(); ?>">
+                            <button class="favorite-btn" data-id="<?= $event->getId(); ?>">FAV</button>
+                        </div>
+
+                        <div class="event-body">
+                            <div class="event-category"><?= $event->getCategory(); ?></div>
+                            <h3><?= $event->getTitle(); ?></h3>
+                            <p class="event-artist">Artist: <?= $event->getArtist(); ?></p>
+
+                            <div class="event-details-grid">
+                                <div><span>Date:</span> <strong><?= $event->getDate(); ?></strong></div>
+                                <div><span>Time:</span> <strong><?= $event->getTime(); ?></strong></div>
+                                <div><span>Stage:</span> <strong><?= $event->getStage(); ?></strong></div>
+                            </div>
+
+                            <div class="event-actions">
+                                <button class="btn-details"
+                                        data-title="<?= htmlspecialchars($event->getTitle()); ?>"
+                                        data-artist="<?= htmlspecialchars($event->getArtist()); ?>"
+                                        data-date="<?= htmlspecialchars($event->getDate()); ?>"
+                                        data-time="<?= htmlspecialchars($event->getTime()); ?>"
+                                        data-location="<?= htmlspecialchars($event->getLocation()); ?>"
+                                        data-stage="<?= htmlspecialchars($event->getStage()); ?>"
+                                        data-description="<?= htmlspecialchars($event->getDescription()); ?>"
+                                        data-image="<?= htmlspecialchars($event->getImage()); ?>">
+                                    View Details
+                                </button>
+
+                                <a href="tickets.php" class="btn-ticket">Get Ticket</a>
+                            </div>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
+            </div>
+        <?php endif; ?>
+    </div>
+</section>
+
 <?php include '../includes/footer.php'; ?>
