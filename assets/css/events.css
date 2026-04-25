@@ -277,3 +277,25 @@ body {
   width: 40px;
   height: 40px;
 }
+
+@media (max-width: 1000px) {
+  .events-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .filter-container form {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 650px) {
+  .events-grid,
+  .location-cards,
+  .filter-container form {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-info {
+    flex-direction: column;
+  }
+}
