@@ -297,7 +297,7 @@ $artists_count = count($events);
     <footer class="home-footer">
         <div class="footer-brand">ECHO<span>FEST</span></div>
         <span class="footer-copy">
-            July 18–21, 2026 &nbsp;/&nbsp; 4 Stages &nbsp;/&nbsp; <?= count($events) ?>+ Artists
+            July 18-21, 2026 &nbsp;/&nbsp; <?= $stages_count ?> stages &nbsp;/&nbsp; <?= $artists_count ?>+ artists
         </span>
     </footer>
 
