@@ -1,0 +1,11 @@
+{
+    "johndoe": {
+        "password": "$2y$10$6OZdPEoxVaB3GHIEgRCP8elb7kd.B\/j.0PWqujmVUPrjrS6dwd\/4O",
+        "email": "john@test.com",
+        "first_name": "John",
+        "last_name": "Doe",
+        "phone": "044111111",
+        "age": "20",
+        "role": "user"
+    }
+}

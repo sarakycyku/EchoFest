@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=DM+Sans:wght@300;400;500&display=swap');
 
 :root {
   --bg:           #06060f;
@@ -18,13 +18,13 @@
 body {
   background: var(--bg);
   color: var(--text);
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: 'DM Sans', sans-serif;
   min-height: 100vh;
   overflow-x: hidden;
 }
 
 .page-title {
-  font-family: 'Syne', sans-serif;
+  font-family: "Black Han Sans", sans-serif;
   font-size: 2rem;
   font-weight: 800;
   text-align: center;
@@ -57,9 +57,9 @@ body {
 .panel:last-child { margin-bottom: 50px; }
 
 .panel-title {
-  font-family: 'Syne', sans-serif;
+  font-family: "Black Han Sans", sans-serif;
   font-size: 1.1rem;
-  font-weight: 700;
+  font-weight: 500;
   margin-bottom: 24px;
   display: flex;
   align-items: center;
@@ -80,7 +80,7 @@ body {
 
 .field label {
   font-size: 0.72rem;
-  font-weight: 600;
+  font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.09em;
   color: var(--muted);
@@ -121,7 +121,7 @@ body {
 }
 
 .summary-title {
-  font-family: 'Syne', sans-serif;
+  font-family: "Black Han Sans", sans-serif;
   font-size: 1.1rem;
   font-weight: 800;
   margin-bottom: 20px;
@@ -146,7 +146,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: 'Syne', sans-serif;
+  font-family: "Black Han Sans", sans-serif;
   font-weight: 800;
   font-size: 0.75rem;
   color: var(--muted);
@@ -154,8 +154,8 @@ body {
 }
 
 .summary-event-name {
-  font-family: 'Syne', sans-serif;
-  font-weight: 700;
+  font-family: "Black Han Sans", sans-serif;
+  font-weight: 500;
   font-size: 0.95rem;
 }
 
@@ -195,13 +195,13 @@ body {
 }
 
 .summary-total .t-label {
-  font-family: 'Syne', sans-serif;
-  font-weight: 700;
+  font-family: "Black Han Sans", sans-serif;
+  font-weight: 500;
   font-size: 1rem;
 }
 
 .summary-total .t-val {
-  font-family: 'Syne', sans-serif;
+  font-family: "Black Han Sans", sans-serif;
   font-weight: 800;
   font-size: 1.5rem;
   color: var(--cyan);
@@ -214,8 +214,8 @@ body {
   border: none;
   border-radius: 12px;
   padding: 14px;
-  font-family: 'Syne', sans-serif;
-  font-weight: 700;
+  font-family: "Black Han Sans", sans-serif;
+  font-weight: 500;
   font-size: 1rem;
   color: #fff;
   cursor: pointer;

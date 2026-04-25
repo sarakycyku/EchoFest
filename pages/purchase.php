@@ -46,7 +46,7 @@ $event = $locations[$loc] ?? $locations['xk'];
 
 <h1 class="page-title">Complete Your Purchase</h1>
 
-<form method="POST" action="purchase_logic.php">
+<form method="POST" action="../logic/purchase_logic.php">
     <div class="purchase-layout">
 
         <div class="forms-col">
@@ -165,16 +165,9 @@ $event = $locations[$loc] ?? $locations['xk'];
             </div>
 
             <input type="hidden" name="ticket_type" value="<?=$ticketParam?>">
-            <input type="hidden" name="ticket_name" value="<?=$ticket['name'] ?>">
             <input type="hidden" name="qty" value="<?= $qty ?>">
-            <input type="hidden" name="event_name" value="<?=$event['country']?>">
-            <input type="hidden" name="event_city" value="<?=$event['city']?>">
-            <input type="hidden" name="event_dates" value="<?=$event['dates'] ?>">
-            <input type="hidden" name="subtotal" value="<?=$subtotal ?>">
-            <input type="hidden" name="service_fee" value="<?= $serviceFee ?>">
-            <input type="hidden" name="total" value="<?= $total ?>">
 
-            <button class="complete-btn" type="submit">
+            <button class="complete-btn">
                 Complete Purchase €<?= $total ?>
             </button>
         </div>
@@ -182,17 +175,19 @@ $event = $locations[$loc] ?? $locations['xk'];
     </div>
 </form>
 
-<script>
-    function formatCard(input) {
-        let v = input.value.replace(/\D/g, '').substring(0, 16);
-        input.value = v.replace(/(.{4})/g, '$1 ').trim();
-    }
+<script src="../assets/js/purchase.js"></script>
 
-    function formatExpiry(input) {
-        let v = input.value.replace(/\D/g, '').substring(0, 4);
-        if (v.length >= 3) v = v.slice(0, 2) + '/' + v.slice(2);
-        input.value = v;
-    }
-</script>
+<?php
+// mesazhet
+if (!empty($_SESSION['error'])) {
+    echo '<p style="color:#f87171; text-align:center; margin-bottom:50px;">' . $_SESSION['error'] . '</p>';
+    unset($_SESSION['error']);
+}
 
-<?php include '../includes/footer.php'; ?>
+if (!empty($_SESSION['order_done'])) {
+    echo '<p style="color:#10b981; text-align:center; margin-bottom:50px;">Porosia u krye!</p>';
+    unset($_SESSION['order_done']);
+    unset($_SESSION['order_content']);
+}
+
+include '../includes/footer.php'; ?>
