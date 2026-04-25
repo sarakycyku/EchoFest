@@ -63,3 +63,23 @@ body, .card, .card-body, p, h5 {
     color: #fff !important;
 }
 
+/* kur shkruan në input */
+.form-control:focus {
+    color: #fff !important;
+    background: rgba(255,255,255,0.08);
+}
+
+/* placeholder më i lehtë */
+.form-control::placeholder {
+    color: rgba(255,255,255,0.4) !important;
+}
+
+/* artist names */
+.card h5 {
+    color: #ffffff !important;
+    font-weight: 700;
+}
+
+.form-control {
+    border-radius: 10px;
+}
