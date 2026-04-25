@@ -105,7 +105,7 @@ $ticker = array_merge($events, $events);
         </span>
     </footer>
 
-    <script src="../js/home.js"></script>
+    <script src="../assets/js/home.js"></script>
 
 </body>
 </html>
