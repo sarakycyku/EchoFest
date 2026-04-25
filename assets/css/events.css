@@ -1,7 +1,11 @@
 body {
   background: #06060f;
   color: #f0eeff;
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: 'DM Sans', sans-serif;
+}
+
+h1, h2, h3 {
+  font-family: 'Black Han Sans', sans-serif;
 }
 
 .events-container {
@@ -295,11 +299,13 @@ body {
 
 .modal-body {
   padding: 28px;
+  font-family: 'DM Sans', sans-serif;
 }
 
 .modal-body h2 {
   font-size: 28px;
   margin-bottom: 10px;
+  font-family: 'Black Han Sans', sans-serif;
 }
 
 #modalArtist {

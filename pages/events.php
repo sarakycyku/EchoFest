@@ -77,6 +77,7 @@ if ($sort === "title") {
 ?>
 
 <title>Events</title>
+<link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/EchoFest/assets/css/events.css">
 
 <section class="events-hero">
