@@ -610,8 +610,31 @@ body {
 }
 
 @media (max-width: 600px) {
-  .artists-grid { grid-template-columns: repeat(2, 1fr); }
-  .hero-meta    { gap: 1rem; font-size: 9px; }
+  .summary-panel,
+  .highlight-grid,
+  .schedule-grid,
+  .artists-grid,
+  .quick-links-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-meta {
+    gap: 1rem;
+    font-size: 9px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .split-heading,
+  .two-col-section,
+  .detail-row {
+    display: block;
+  }
+
+  .detail-value {
+    text-align: left;
+    margin-top: 8px;
+  }
 }
 
 .artist-card img {
