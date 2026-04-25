@@ -35,4 +35,17 @@ if ((int)('20' . $m[2]) < (int)date('Y')) {
     exit;
 }
 
+//veprimet me files
+$filename = "../data/orders.txt";
+
+//shton order pa i fshi tvjetrat
+$file = fopen($filename, "a") or die("Unable to open file!");
+fwrite($file, "ORDER: $ticketName x$qty | $eventName | $eventDates | Total: EUR $total | User: {$_SESSION['username']} | Date: " . date('Y-m-d H:i:s') . "\n");
+fclose($file);
+
+//per lexim
+$file = fopen($filename, "r") or die("Unable to open file!");
+$content = fread($file, filesize($filename));
+fclose($file);
+
 ?>
