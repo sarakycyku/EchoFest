@@ -54,7 +54,7 @@ $tickets = [
 ];
 ?>
 
-<link rel="stylesheet" href="../assets/css/tickets.css">
+<link rel="stylesheet" href="../assets/css/tickets.css?v=1.1">
 
 <!--HERO -->
 <section class="hero">
