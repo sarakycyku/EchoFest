@@ -52,6 +52,23 @@ $events = [
     new Event("sia-al", "Echoes of Farewell", "August 7, 2026", "19:30 - 21:00", "Durrës", "Arena Stage", "Sia gives an emotional farewell performance to close the festival mood.", "Sia", "../assets/images/sia.png", "pop")
 ];
 
+$filteredEvents = [];
+
+foreach ($events as $event) {
+    $matchesLocation = $event->getLocation() === $locations[$selectedLocation]["city"];
+    $matchesSearch =
+        $search === "" ||
+        stripos($event->getTitle(), $search) !== false ||
+        stripos($event->getArtist(), $search) !== false ||
+        stripos($event->getDate(), $search) !== false;
+
+    $matchesCategory = $category === "all" || $event->getCategory() === $category;
+
+    if ($matchesLocation && $matchesSearch && $matchesCategory) {
+        $filteredEvents[] = $event;
+    }
+}
+
 ?>
 
 <title>Events</title>
