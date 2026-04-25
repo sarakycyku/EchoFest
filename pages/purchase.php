@@ -1,4 +1,5 @@
 <?php
+include '../includes/header.php';
 // fillon sessioni
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
@@ -20,8 +21,6 @@ $firstName = $data['first_name'] ?? '';
 $lastName = $data['last_name'] ?? '';
 $email = $data['email'] ?? '';
 $phone = $data['phone'] ?? '';
-
-include '../includes/header.php';
 
 $ticketParam = $_GET['ticket'] ?? 'early';
 $qty = max(1, (int)($_GET['qty'] ?? 1));
