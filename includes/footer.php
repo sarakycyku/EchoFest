@@ -4,17 +4,20 @@
       
       <div class="container">
         <div class="row">
-          <div class="col-md-4 pr-md-5 mt-5">
-            <div class="footer-brand fs-1">ECHO<span>FEST</span></div>
+          <div class="col-md-4 pr-md-5">
+            <img src="../assets/images/logo-last.png" width="350" height="200"> 
           </div>
           <div class="col-md">
             <ul class="list-unstyled nav-links">
-              <li><a href="home.php">Home</a></li>
-              <li><a href="about.php">About Us</a></li>
-              <li><a href="lineup.php">Line Up</a></li>
-              <li><a href="#">Events</a></li>
-              <li><a href="tickets.php">Tickets</a></li>
-              
+              <li><a href="../pages/index.php">Home</a></li>
+              <li><a href="../pages/about.php">About Us</a></li>
+              <li><a href="../pages/lineup.php">Line Up</a></li>
+              <li><a href="../pages/events.php">Events</a></li>
+              <li><a href="../pages/tickets.php">Tickets</a></li>
+              <li><a href="../pages/profile.php">Profile</a></li>
+              <?php if (isset($_SESSION['role']) && $_SESSION['role'] === 'admin'): ?>
+                <li><a href="../pages/admin.php">Admin</a></li>
+              <?php endif; ?>
             </ul>
           </div>
           

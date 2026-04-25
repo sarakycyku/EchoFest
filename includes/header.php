@@ -22,8 +22,8 @@ if (session_status() === PHP_SESSION_NONE) {
 
     <!-- LOGO -->
     <a class="navbar-brand" href="../pages/index.php">
-      <!-- <img src="../assets/images/logo-last.png" width="150" height="150"> -->
-       <div class="footer-brand fs-4">ECHO<span>FEST</span></div>
+       <img src="../assets/images/logo-last.png"  class="img-fluid " alt="EchoFest Logo"> 
+       
     </a>
 
     <!-- TOGGLER -->
@@ -37,11 +37,11 @@ if (session_status() === PHP_SESSION_NONE) {
       <!-- LINKS -->
       <ul class="navbar-nav mx-auto">
             <li class="nav-item"><a class="nav-link" href="../pages/index.php">Home</a></li>
-            <li class="nav-item"><a class="nav-link" href="../pages/about.php">About</a></li>
-            <li class="nav-item"><a class="nav-link" href="../pages/profile.php">Profile</a></li>
-            <li class="nav-item"><a class="nav-link" href="../pages/tickets.php">Tickets</a></li>
+            <li class="nav-item"><a class="nav-link" href="../pages/about.php">About us</a></li>
             <li class="nav-item"><a class="nav-link" href="../pages/lineup.php">Line Up</a></li>
             <li class="nav-item"><a class="nav-link" href="../pages/events.php">Events</a></li>
+            <li class="nav-item"><a class="nav-link" href="../pages/tickets.php">Tickets</a></li>
+            <li class="nav-item"><a class="nav-link" href="../pages/profile.php">Profile</a></li>
 
             <?php if (isset($_SESSION['role']) && $_SESSION['role'] === 'admin'): ?>
               <li class="nav-item">
