@@ -1,0 +1,309 @@
+<?php
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
+require_once '../data/events.php';
+require_once '../includes/header.php';
+
+$logged_in = isset($_SESSION['username']);
+
+// featured artists for the grid
+$featured = array_slice($events, 0, 4);
+
+// doubled for seamless ticker loop
+$ticker = array_merge($events, $events);
+
+$days = [];
+$stages = [];
+foreach ($events as $event) {
+    if (!in_array($event['day'], $days)) {
+        $days[] = $event['day'];
+    }
+
+    if (!in_array($event['stage'], $stages)) {
+        $stages[] = $event['stage'];
+    }
+}
+
+$days_count = count($days);
+$stages_count = count($stages);
+$artists_count = count($events);
+?>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EchoFest 2026</title>
+  <link rel="stylesheet" href="../assets/css/style.css" />
+  <link rel="stylesheet" href="../assets/css/home.css" />
+</head>
+<body>
+    <div id="particles"></div>
+
+    <section class="hero">
+
+    <div class="hero-eyebrow">July 18-21, 2026 &nbsp;&middot;&nbsp; Open Air Arena</div>
+
+        <h1 class="hero-title">
+            <span class="outline">ECHO</span><br>
+            <span class="grad">FEST</span>
+        </h1>
+
+         <p class="hero-sub">
+            <?= $days_count ?> days. <?= $stages_count ?> stages. <?= $artists_count ?>+ artists across electronic,
+            ambient, pop, and club music.
+        </p>
+
+        <div class="hero-cta">
+            <?php if ($logged_in): ?>
+            <a href="tickets.php" class="btn-main">Buy Tickets</a>
+            <a href="lineup.php"  class="btn-ghost">View Lineup</a>
+            <?php else: ?>
+            <a href="signup.php" class="btn-main">Get Your Pass</a>
+            <a href="lineup.php" class="btn-ghost">View Lineup</a>
+            <?php endif; ?>
+        </div>
+
+        <div class="hero-meta">
+            <span><?= $days_count ?> Days</span>
+            <span class="bar"></span>
+            <span><?= $stages_count ?> Stages</span>
+            <span class="bar"></span>
+            <span><?= $artists_count ?>+ Artists</span>
+            <span class="bar"></span>
+            <span>Pristina, Kosovo</span>
+        </div>
+
+
+    </section>
+
+    <div class="ticker">
+        <div class="ticker-track">
+            <?php foreach ($ticker as $event): ?>
+            <span class="ticker-item">
+            <span class="spark"></span>
+            <?= htmlspecialchars($event['artist']) ?>
+            </span>
+            <?php endforeach; ?>
+        </div>
+    </div>
+
+    <section class="summary-shell">
+        <div class="summary-panel">
+            <div class="summary-stat">
+                <div class="summary-value"><?= $days_count ?></div>
+                <div class="summary-label">Festival Days</div>
+            </div>
+            <div class="summary-stat">
+                <div class="summary-value"><?= $stages_count ?></div>
+                <div class="summary-label">Live Stages</div>
+            </div>
+            <div class="summary-stat">
+                <div class="summary-value"><?= $artists_count ?>+</div>
+                <div class="summary-label">Featured Artists</div>
+            </div>
+            <div class="summary-stat">
+                <div class="summary-value"><?= $logged_in ? 'Member' : 'Open' ?></div>
+                <div class="summary-label">Access Status</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="content-section">
+        <div class="section-heading">
+            <p class="section-eyebrow">Festival Snapshot</p>
+            <h2 class="section-title">Why <span class="grad">EchoFest</span> matters</h2>
+        </div>
+
+        <div class="highlight-grid">
+            <article class="glass-card">
+                <p class="card-kicker">What It Is</p>
+                <h3 class="card-title">A fast overview of EchoFest</h3>
+                <p class="card-copy">EchoFest brings together headline artists, immersive stages, and a crowd experience built around music, visuals, and atmosphere.</p>
+            </article>
+
+            <article class="glass-card">
+                <p class="card-kicker">Where To Start</p>
+                <h3 class="card-title">Everything important in one page</h3>
+                <p class="card-copy">This homepage works like a summary, helping visitors quickly understand the lineup, tickets, story, and account pages.</p>
+            </article>
+
+            <article class="glass-card">
+                <p class="card-kicker">What To Expect</p>
+                <h3 class="card-title">Music, planning, and identity</h3>
+                <p class="card-copy">The page keeps the cinematic festival style, but it also guides users through the main parts of the website.</p>
+            </article>
+        </div>
+    </section>
+
+    <section class="content-section two-col-section">
+        <div class="section-block">
+            <p class="section-eyebrow">Festival Structure</p>
+            <h2 class="section-title">Built to give visitors the full <span class="grad">picture</span></h2>
+            <p class="section-copy">
+                This homepage now works like a summary page. It introduces the scale of the festival,
+                previews the lineup, surfaces the event structure, and points visitors to the most
+                important parts of the website.
+            </p>
+
+            <div class="chip-row">
+                <span class="info-chip">Main Stage</span>
+                <span class="info-chip">EDM Stage</span>
+                <span class="info-chip">Pop Stage</span>
+            </div>
+        </div>
+
+        <div class="detail-panel">
+            <div class="detail-row">
+                <span class="detail-label">Dates</span>
+                <span class="detail-value">July 18-21, 2026</span>
+            </div>
+            <div class="detail-row">
+                <span class="detail-label">Location</span>
+                <span class="detail-value">Pristina, Kosovo</span>
+            </div>
+            <div class="detail-row">
+                <span class="detail-label">Audience</span>
+                <span class="detail-value">Fans, newcomers, and returning members</span>
+            </div>
+            <div class="detail-row">
+                <span class="detail-label">Focus</span>
+                <span class="detail-value">Lineup, tickets, story, and profile</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="content-section">
+        <div class="section-heading split-heading">
+            <div>
+                <p class="section-eyebrow">Plan The Weekend</p>
+                <h2 class="section-title">Schedule <span class="grad">pulse</span></h2>
+            </div>
+            <p class="heading-side-copy">
+                A small PHP-driven preview showing how artists are spread across the festival days.
+            </p>
+        </div>
+
+        <div class="schedule-grid">
+            <?php foreach ($days as $day): ?>
+            <?php
+            $day_count = 0;
+            $shown = 0;
+            ?>
+            <article class="schedule-card">
+                <div class="schedule-top">
+                    <p class="card-kicker"><?= htmlspecialchars($day) ?></p>
+                    <?php foreach ($events as $event): ?>
+                        <?php if ($event['day'] === $day): ?>
+                            <?php $day_count++; ?>
+                        <?php endif; ?>
+                    <?php endforeach; ?>
+                    <span class="schedule-count"><?= $day_count ?> artists</span>
+                </div>
+
+                <div class="schedule-list">
+                    <?php foreach ($events as $event): ?>
+                        <?php if ($event['day'] === $day && $shown < 2): ?>
+                        <div class="schedule-item">
+                            <span class="schedule-artist"><?= htmlspecialchars($event['artist']) ?></span>
+                            <span class="schedule-stage"><?= htmlspecialchars($event['stage']) ?></span>
+                        </div>
+                        <?php $shown++; ?>
+                        <?php endif; ?>
+                    <?php endforeach; ?>
+                </div>
+            </article>
+            <?php endforeach; ?>
+        </div>
+    </section>
+
+
+    <div class="lineup-preview">
+        <p class="section-eyebrow">Who's Playing</p>
+        <h2 class="section-title">The <span class="grad">Lineup</span></h2>
+
+        <div class="artists-grid">
+            <?php foreach ($featured as $index => $artist): ?>
+            <div class="artist-card" style="animation: fadeUp 0.5s <?= $index * 0.07 ?>s ease both;">
+            <img src="<?= htmlspecialchars($artist['image']) ?>"
+                alt="<?= htmlspecialchars($artist['artist']) ?>"
+                onerror="this.style.display='none'">
+            <div class="artist-name"><?= htmlspecialchars($artist['artist']) ?></div>
+            <div class="artist-tag">
+                <?= htmlspecialchars($artist['stage']) ?> &nbsp;&middot;&nbsp; <?= htmlspecialchars($artist['day']) ?>
+            </div>
+            </div>
+            <?php endforeach; ?>
+        </div>
+
+        <a href="lineup.php" class="lineup-link">Full Lineup &nbsp;&rarr;</a>
+    </div>
+
+    <section class="content-section">
+        <div class="section-heading split-heading">
+            <div>
+                <p class="section-eyebrow">Explore The Site</p>
+                <h2 class="section-title">Your next <span class="grad">move</span></h2>
+            </div>
+            <p class="heading-side-copy">
+                These shortcut cards make the homepage feel richer and turn it into a proper navigation summary for the whole project.
+            </p>
+        </div>
+
+        <div class="quick-links-grid">
+            <a class="quick-link-card" href="lineup.php">
+                <p class="card-kicker">Lineup</p>
+                <h3 class="card-title">Explore the artists</h3>
+                <p class="card-copy">Browse performers, stages, and festival days in one place.</p>
+                <span class="card-action">Open Lineup</span>
+            </a>
+
+            <a class="quick-link-card" href="tickets.php">
+                <p class="card-kicker">Tickets</p>
+                <h3 class="card-title">Plan your pass</h3>
+                <p class="card-copy">Compare ticket tiers and choose your preferred event location.</p>
+                <span class="card-action">View Tickets</span>
+            </a>
+
+            <a class="quick-link-card" href="about.php">
+                <p class="card-kicker">About</p>
+                <h3 class="card-title">See the story</h3>
+                <p class="card-copy">Learn the mission, values, and team behind EchoFest.</p>
+                <span class="card-action">About EchoFest</span>
+            </a>
+
+            <?php if ($logged_in): ?>
+            <a class="quick-link-card" href="profile.php">
+                <p class="card-kicker">Profile</p>
+                <h3 class="card-title">Manage your account</h3>
+                <p class="card-copy">Review your details, tickets, and personal festival space.</p>
+                <span class="card-action">Open Profile</span>
+            </a>
+            <?php else: ?>
+            <a class="quick-link-card" href="signup.php">
+                <p class="card-kicker">Account</p>
+                <h3 class="card-title">Join the festival</h3>
+                <p class="card-copy">Create an account to unlock your EchoFest journey.</p>
+                <span class="card-action">Create Account</span>
+            </a>
+            <?php endif; ?>
+        </div>
+    </section>
+
+    <footer class="home-footer">
+        <div class="footer-brand">ECHO<span>FEST</span></div>
+        <span class="footer-copy">
+            July 18-21, 2026 &nbsp;/&nbsp; <?= $stages_count ?> stages &nbsp;/&nbsp; <?= $artists_count ?>+ artists
+        </span>
+    </footer>
+
+    <script src="../assets/js/home.js"></script>
+
+</body>
+</html>
+
+<?php require_once '../includes/footer.php'; ?>
