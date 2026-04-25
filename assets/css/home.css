@@ -319,6 +319,51 @@ body {
   background-clip: text;
 }
 
+.heading-side-copy,
+.section-copy {
+  color: rgba(240,238,232,0.58);
+  font-size: 15px;
+  line-height: 1.8;
+  max-width: 430px;
+}
+
+.highlight-grid,
+.schedule-grid,
+.quick-links-grid {
+  display: grid;
+  gap: 16px;
+}
+
+.highlight-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.glass-card {
+  padding: 1.5rem;
+}
+
+.card-kicker {
+  font-size: 10px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: #67e8f9;
+  margin-bottom: 14px;
+}
+
+.card-title {
+  font-family: 'Black Han Sans', sans-serif;
+  font-size: 20px;
+  line-height: 1.15;
+  margin-bottom: 12px;
+  letter-spacing: -0.02em;
+}
+
+.card-copy {
+  color: rgba(240,238,232,0.52);
+  font-size: 14px;
+  line-height: 1.8;
+}
+
 .artists-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
