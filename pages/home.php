@@ -54,8 +54,8 @@ $artists_count = count($events);
         </h1>
 
          <p class="hero-sub">
-            Four days. Four stages. <?= count($events) ?>+ artists across electronic,
-            ambient, and club music.
+            <?= $days_count ?> days. <?= $stages_count ?> stages. <?= $artists_count ?>+ artists across electronic,
+            ambient, pop, and club music.
         </p>
 
         <div class="hero-cta">
