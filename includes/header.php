@@ -45,7 +45,7 @@ if (session_status() === PHP_SESSION_NONE) {
 
             <?php if (isset($_SESSION['role']) && $_SESSION['role'] === 'admin'): ?>
               <li class="nav-item">
-                <a class="nav-link" href="../pages/admin.php">Admin</a>
+                <a class="nav-link" href="../pages/loginadmin.php">Admin</a>
               </li>
             <?php endif; ?>
       </ul>
