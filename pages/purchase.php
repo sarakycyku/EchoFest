@@ -195,4 +195,18 @@ $event = $locations[$loc] ?? $locations['xk'];
     }
 </script>
 
-<?php include '../includes/footer.php'; ?>
+<?php 
+
+// mesazhet
+if (!empty($_SESSION['error'])) {
+    echo '<p style="color:#f87171; text-align:center;">' . $_SESSION['error'] . '</p>';
+    unset($_SESSION['error']);
+}
+
+if (!empty($_SESSION['order_done'])) {
+    echo '<p style="color:#10b981; text-align:center;">Porosia u krye!</p>';
+    unset($_SESSION['order_done']);
+    unset($_SESSION['order_content']);
+}
+
+include '../includes/footer.php'; ?>

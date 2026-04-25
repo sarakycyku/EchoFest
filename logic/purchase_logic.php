@@ -48,4 +48,9 @@ $file = fopen($filename, "r") or die("Unable to open file!");
 $content = fread($file, filesize($filename));
 fclose($file);
 
-?>
+//me rujt porosine ne session
+$_SESSION['order_done'] = true;
+$_SESSION['order_content'] = $content;
+
+header("Location: ../pages/purchase.php");
+exit;
