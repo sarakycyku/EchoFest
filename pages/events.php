@@ -157,7 +157,6 @@ if ($sort === "title") {
                     <div class="event-card">
                         <div class="event-image">
                             <img src="<?= $event->getImage(); ?>" alt="<?= $event->getTitle(); ?>">
-                            <button class="favorite-btn" data-id="<?= $event->getId(); ?>">FAV</button>
                         </div>
 
                         <div class="event-body">
