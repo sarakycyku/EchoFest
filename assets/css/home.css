@@ -36,3 +36,28 @@ body {
   from { transform: translateX(0); }
   to   { transform: translateX(-50%); }
 }
+
+#particles {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+.dot {
+  position: absolute;
+  border-radius: 50%;
+  animation: floatDot linear infinite;
+}
+
+.hero {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 100px 1.5rem 60px;
+}
