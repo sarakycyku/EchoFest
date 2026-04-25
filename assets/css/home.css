@@ -125,9 +125,9 @@ body {
 .hero-sub {
   font-size: 15px;
   font-weight: 300;
-  color: rgba(240,238,232,0.45);
-  max-width: 420px;
-  line-height: 1.75;
+  color: rgba(240,238,232,0.68);
+  max-width: 620px;
+  line-height: 1.85;
   margin-bottom: 2.5rem;
   animation: fadeUp 0.7s 0.3s ease both;
 }
