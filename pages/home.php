@@ -131,6 +131,12 @@ $artists_count = count($events);
                 <h3 class="card-title">Everything important in one page</h3>
                 <p class="card-copy">This homepage works like a summary, helping visitors quickly understand the lineup, tickets, story, and account pages.</p>
             </article>
+
+            <article class="glass-card">
+                <p class="card-kicker">What To Expect</p>
+                <h3 class="card-title">Music, planning, and identity</h3>
+                <p class="card-copy">The page keeps the cinematic festival style, but it also guides users through the main parts of the website.</p>
+            </article>
         </div>
     </section>
 
