@@ -55,6 +55,18 @@ if ($sort == "za") {
     usort($filtered, fn($a, $b) => strcmp($b["artist"], $a["artist"]));
 }
 
+/* DAY ORDER (Friday -> Sunday) */
+if ($sort == "day") {
+    $order = ["Friday"=>1, "Saturday"=>2, "Sunday"=>3];
+    usort($filtered, fn($a, $b) => $order[$a["day"]] <=> $order[$b["day"]]);
+}
+
+/* STAGE SORT */
+if ($sort == "stage") {
+    usort($filtered, fn($a, $b) => strcmp($a["stage"], $b["stage"]));
+}
+?>
+
 
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
