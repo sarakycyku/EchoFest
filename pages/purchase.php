@@ -111,7 +111,7 @@ $event = $locations[$loc] ?? $locations['xk'];
             <div class="panel">
                 <div class="panel-title">Payment Information</div>
                 <div class="form-grid">
-                    <div class="field full">
+                    <div class="field">
                         <label>Card Number <span class="req">*</span></label>
                         <input type="text" name="card_number"
                             placeholder="1234 5678 9012 3456"
