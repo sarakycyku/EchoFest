@@ -8,8 +8,8 @@ require_once '../includes/header.php';
 
 $logged_in = isset($_SESSION['username']);
 
-// 3 featured artists for the grid
-$featured = array_slice($events, 0, 3);
+// featured artists for the grid
+$featured = array_slice($events, 0, 4);
 
 // doubled for seamless ticker loop
 $ticker = array_merge($events, $events);
