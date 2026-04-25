@@ -157,7 +157,6 @@ if ($sort === "title") {
                     <div class="event-card">
                         <div class="event-image">
                             <img src="<?= $event->getImage(); ?>" alt="<?= $event->getTitle(); ?>">
-                            <button class="favorite-btn" data-id="<?= $event->getId(); ?>">FAV</button>
                         </div>
 
                         <div class="event-body">
@@ -203,7 +202,7 @@ if ($sort === "title") {
             <p id="modalArtist"></p>
             <p id="modalInfo"></p>
             <p id="modalDescription"></p>
-            <a href="tickets.php" class="btn-ticket-modal">Get Ticket Now</a>
+            <a href="tickets.php" class="btn-ticket">Get Ticket Now</a>
         </div>
     </div>
 </div>
