@@ -253,6 +253,24 @@ body {
   backdrop-filter: blur(8px);
 }
 
+.summary-stat {
+  padding: 1.2rem 1.15rem;
+}
+
+.summary-value {
+  font-family: 'Black Han Sans', sans-serif;
+  font-size: clamp(26px, 4vw, 34px);
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.summary-label {
+  color: rgba(240,238,232,0.48);
+  font-size: 10px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+}
+
 .lineup-preview {
   position: relative;
   z-index: 1;
