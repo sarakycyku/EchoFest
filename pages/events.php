@@ -69,6 +69,13 @@ foreach ($events as $event) {
     }
 }
 
+if ($sort === "title") {
+    usort($filteredEvents, function($a, $b) {
+        return strcmp($a->getTitle(), $b->getTitle());
+    });
+}
+?>
+
 ?>
 
 <title>Events</title>
