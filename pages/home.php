@@ -105,5 +105,9 @@ $ticker = array_merge($events, $events);
         </span>
     </footer>
 
+    <script src="../js/home.js"></script>
+
 </body>
 </html>
+
+<?php require_once '../includes/footer.php'; ?>
