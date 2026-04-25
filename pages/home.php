@@ -65,6 +65,17 @@ $ticker = array_merge($events, $events);
 
     </section>
 
+    <div class="ticker">
+        <div class="ticker-track">
+            <?php foreach ($ticker as $e): ?>
+            <span class="ticker-item">
+            <span class="spark"></span>
+            <?= htmlspecialchars($e['artist']) ?>
+            </span>
+            <?php endforeach; ?>
+        </div>
+    </div>
+
 
 </body>
 </html>
