@@ -34,6 +34,17 @@
             <?php endif; ?>
         </div>
 
+        <div class="hero-meta">
+            <span>4 Days</span>
+            <span class="bar"></span>
+            <span>4 Stages</span>
+            <span class="bar"></span>
+            <span><?= count($events) ?>+ Artists</span>
+            <span class="bar"></span>
+            <span>Pristina, Kosovo</span>
+        </div>
+
+
     </section>
 </body>
 </html>
