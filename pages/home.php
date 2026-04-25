@@ -8,5 +8,6 @@
   <link rel="stylesheet" href="../assets/css/home.css" />
 </head>
 <body>
+    <div id="particles"></div>
 </body>
 </html>
