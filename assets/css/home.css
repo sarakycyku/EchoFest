@@ -593,8 +593,8 @@ body {
   justify-content: space-between;
   flex-wrap: wrap;
   gap: 1rem;
-  max-width: 860px;
-  margin: 0 auto;
+  max-width: 1080px;
+  margin: 80px auto 0;
 }
 .footer-brand {
   font-family: 'Black Han Sans', sans-serif;
