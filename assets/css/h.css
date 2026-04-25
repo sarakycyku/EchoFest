@@ -160,3 +160,23 @@ body {
     transform: rotate(-45deg);
     top: 0;
 }
+.footer-brand {
+    font-family: 'Arial Black', sans-serif; /* ose Orbitron / Montserrat nëse don ma fancy */
+    font-weight: lighter;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #e5e5e5; /* ngjyrë për ECHO */
+}
+
+.footer-brand span {
+    color: #6b7280; /* ngjyrë pak ma e errët për FEST */
+}
+
+/* nëse don me e bo ma clean si neon/dark style */
+.navbar-brand {
+    text-decoration: none;
+}
+
+.footer-brand {
+    transition: 0.3s ease;
+}

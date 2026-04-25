@@ -4,8 +4,8 @@
       
       <div class="container">
         <div class="row">
-          <div class="col-md-4 pr-md-5 ">
-            <div class="footer-brand">ECHO<span>FEST</span></div>
+          <div class="col-md-4 pr-md-5 mt-5">
+            <div class="footer-brand fs-1">ECHO<span>FEST</span></div>
           </div>
           <div class="col-md">
             <ul class="list-unstyled nav-links">
