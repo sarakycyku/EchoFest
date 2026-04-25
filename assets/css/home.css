@@ -225,3 +225,30 @@ body {
   border-radius: 50%;
   background: #a78bfa;
 }
+
+.lineup-preview {
+  position: relative;
+  z-index: 1;
+  padding: 80px 1.5rem;
+  max-width: 860px;
+  margin: 0 auto;
+}
+.section-eyebrow {
+  font-size: 10px;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: rgba(240,238,232,0.22);
+  margin-bottom: 0.5rem;
+}
+.section-title {
+  font-family: 'Black Han Sans', sans-serif;
+  font-size: clamp(30px, 5vw, 44px);
+  letter-spacing: -0.025em;
+  margin-bottom: 2rem;
+}
+.section-title .grad {
+  background: linear-gradient(135deg, #a78bfa, #67e8f9);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
