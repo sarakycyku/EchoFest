@@ -15,6 +15,7 @@
               <li><a href="../pages/events.php">Events</a></li>
               <li><a href="../pages/tickets.php">Tickets</a></li>
               <li><a href="../pages/profile.php">Profile</a></li>
+               <li><a href="../pages/news.php">News</a></li>
               <?php if (isset($_SESSION['role']) && $_SESSION['role'] === 'admin'): ?>
                 <li><a href="../pages/admin.php">Admin</a></li>
               <?php endif; ?>
