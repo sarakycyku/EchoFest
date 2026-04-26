@@ -11,6 +11,24 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <link rel="stylesheet" href="/EchoFest/assets/css/admin.css">
 </head>
+<style>
+    :root {
+      --bg: #000;
+      --sidebar: #09090b;
+      --card: #09090b;
+      --border: #27272a;
+      --accent: #a855f7;
+      --text: #fafafa;
+      --dim: #71717a;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      margin: 0;
+    }
+    </style>
 <body>
     <div class="sidebar d-flex flex-column">
             <div class="mb-5 px-3">

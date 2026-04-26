@@ -11,8 +11,8 @@
 }
 
 ody {
-    background: var(--bg);
-    color: var(--text);
+    background: black !important;
+    color: white !important;
     font-family: 'Plus Jakarta Sans', sans-serif;
     margin: 0;
 }
