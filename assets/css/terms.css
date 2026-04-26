@@ -50,3 +50,8 @@ p{
 .back-btn:hover{
   color:#22d3ee;
 }
+
+.mb-4{
+  font-family: "Black Han Sans", sans serif;
+  font-weight: 400;
+}
