@@ -51,3 +51,33 @@ body {
 .admin-header p {
   color: #cbd5e1;
 }
+
+.events-list,
+.event-form-container {
+  background: #16162a;
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 18px;
+  padding: 24px;
+}
+
+.events-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.admin-event-card {
+  background: #1e1e38;
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 14px;
+  padding: 18px;
+}
+
+.admin-event-card h3 {
+  margin: 0;
+  font-size: 20px;
+}
+
+.event-artist {
+  color: #22d3ee;
+}
