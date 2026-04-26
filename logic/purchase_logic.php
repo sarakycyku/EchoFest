@@ -11,6 +11,7 @@ $ticketName = $_POST['ticket_name'] ?? '';
 $qty = $_POST['qty'] ?? 1;
 $eventName = $_POST['event_name'] ?? '';
 $eventDates = $_POST['event_dates'] ?? '';
+$eventCode = $_POST['event_code'] ?? '';
 $total = $_POST['total'] ?? 0;
 $expiry = trim($_POST['expiry'] ?? '');
 $cvv = trim($_POST['cvv'] ?? '');
@@ -40,7 +41,8 @@ $filename = "../data/orders.txt";
 
 //shton order pa i fshi tvjetrat
 $file = fopen($filename, "a") or die("Unable to open file!");
-fwrite($file, "ORDER: $ticketName x$qty | $eventName | $eventDates | Total: EUR $total | User: {$_SESSION['username']} | Date: " . date('Y-m-d H:i:s') . "\n");
+$locationPart = $eventCode !== '' ? " | Location: $eventCode" : "";
+fwrite($file, "ORDER: $ticketName x$qty | $eventName | $eventDates$locationPart | Total: EUR $total | User: {$_SESSION['username']} | Date: " . date('Y-m-d H:i:s') . "\n");
 fclose($file);
 
 //per lexim
