@@ -18,6 +18,7 @@ endif;
     <link rel="icon" href="../assets/images/logo2-pabg.png">
     <link rel="stylesheet" href="../assets/css/loginp.css">
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../assets/css/logadmin.css">
 </head>
 <body>
 
@@ -29,6 +30,10 @@ endif;
 
 <div class="login-container">
     <div class="future-card">
+        <a href="javascript:history.back()" 
+   class="back-btn absolute top-4 left-4 px-3 py-1.5 text-sm rounded-md bg-white/10 text-white hover:bg-white/20 transition">
+    ← Back
+</a>
         <div class="chrome-header">
             <div class="retro-logo mt-1">
                 <div class="logo-chrome">
