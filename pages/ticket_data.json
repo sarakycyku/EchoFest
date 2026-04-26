@@ -68,47 +68,5 @@
             "time": "",
             "stage": ""
         }
-    ],
-    "tickets": [
-        {
-            "id": 1,
-            "event_id": 1,
-            "ticket_type": "VIP",
-            "quantity": 500,
-            "price": 199,
-            "sold": 234
-        },
-        {
-            "id": 2,
-            "event_id": 1,
-            "ticket_type": "Regular",
-            "quantity": 3000,
-            "price": 89,
-            "sold": 1876
-        },
-        {
-            "id": 3,
-            "event_id": 1,
-            "ticket_type": "Early Bird",
-            "quantity": 1000,
-            "price": 49,
-            "sold": 1000
-        },
-        {
-            "id": 4,
-            "event_id": 2,
-            "ticket_type": "Standard",
-            "quantity": 1500,
-            "price": 299,
-            "sold": 892
-        },
-        {
-            "id": 5,
-            "event_id": 2,
-            "ticket_type": "Student",
-            "quantity": 500,
-            "price": 149,
-            "sold": 312
-        }
     ]
 }
