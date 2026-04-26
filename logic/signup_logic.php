@@ -27,7 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $_SESSION['emailErr'] = "";
 
     if (!preg_match($passRegex, $p)) {
-        $_SESSION['passwordErr'] = "Password must be at least 8 characters long and include uppercase, lowercase, number, and special character!";
+        $_SESSION['passwordErr'] = "Password must be at least 8 characters!";
     }
 
     if ($p !== $c) {
@@ -60,21 +60,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $_SESSION['usernameErr'] = "Username must be 3-20 characters, start with a letter, and contain only letters and numbers!";
     }
 
-    if (strpos($email, "@") === false) {
-        $_SESSION['emailErr'] = "Email must contain @";
-    } else {
-        $parts = explode("@", $email);
-        $beforeAt = $parts[0];
-        $afterAt  = $parts[1] ?? "";
-
-        if (str_starts_with($beforeAt, ".") || str_ends_with($beforeAt, ".")) {
-            $_SESSION['emailErr'] = "Invalid email format before @";
-        } elseif (strpos($afterAt, ".") === false) {
-            $_SESSION['emailErr'] = "Domain must contain dot (.)";
-        } elseif (count(explode(".", $afterAt)) < 2) {
-            $_SESSION['emailErr'] = "Invalid domain format";
-        }
-    }
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    $_SESSION['emailErr'] = "Email is not valid!";
+}
 
     if (
         empty($_SESSION['passwordErr']) &&
