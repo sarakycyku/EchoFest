@@ -2,27 +2,27 @@
 $awards = [
   [
     "title" => "Best Festival 2025",
-    "img" => "../assets/img/awards/award1.jpg"
+    "img" => "../assets/images/award1.png"
   ],
   [
     "title" => "Top Music Event",
-    "img" => "../assets/img/awards/award2.jpg"
+    "img" => "../assets/images/award2.png"
   ],
   [
     "title" => "Best Stage Design",
-    "img" => "../assets/img/awards/award3.jpg"
+    "img" => "../assets/images/award3.jpg"
   ],
   [
     "title" => "Eco Friendly Award",
-    "img" => "../assets/img/awards/award4.jpg"
+    "img" => "../assets/images/award4.png"
   ],
   [
     "title" => "Audience Choice",
-    "img" => "../assets/img/awards/award5.jpg"
+    "img" => "../assets/images/award5.jpg"
   ],
   [
     "title" => "Best Lineup",
-    "img" => "../assets/img/awards/award6.jpg"
+    "img" => "../assets/images/award6.jpg"
   ]
 ];
 $news = [
@@ -107,6 +107,22 @@ $news = [
 
     </div>
   <?php endforeach; ?>
+
+</section>
+<section class="awards-section">
+
+  <h2 class="section-title">Awards</h2>
+
+  <div class="awards-grid">
+
+    <?php foreach($awards as $a): ?>
+      <div class="award-card">
+        <img src="<?= $a['img'] ?>" alt="<?= $a['title'] ?>">
+        <h3><?= $a['title'] ?></h3>
+      </div>
+    <?php endforeach; ?>
+
+  </div>
 
 </section>
 
