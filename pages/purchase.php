@@ -1,4 +1,5 @@
 <?php
+require_once '../data/festival.php';
 include '../includes/header.php';
 // fillon sessioni
 if (session_status() === PHP_SESSION_NONE) {
@@ -26,19 +27,20 @@ $ticketParam = $_GET['ticket'] ?? 'early';
 $qty = max(1, (int)($_GET['qty'] ?? 1));
 $loc = $_GET['loc'] ?? 'xk';
 
-$ticketDefs = [ 'early' => ['name'=>'Early Bird','price'=>79],
-                'regular' => ['name'=>'Regular', 'price'=>129],
-                'vip'=> ['name' => 'VIP Experience', 'price' => 299] ];
+$ticketDefs = [];
+foreach (loadTicketData() as $ticketItem) {
+    $ticketDefs[$ticketItem['id']] = [
+        'name' => $ticketItem['name'],
+        'price' => $ticketItem['price'],
+    ];
+}
 
 $ticket     = $ticketDefs[$ticketParam] ?? $ticketDefs['early'];
 $subtotal   = $ticket['price'] * $qty;
 $serviceFee = 5;
 $total      = $subtotal + $serviceFee;
 
-$locations = [
-    'xk' => ['flag' => 'XK', 'country' => 'Kosovo',  'city' => 'Pristina', 'dates' => 'July 15-17, 2026'],
-    'al' => ['flag' => 'AL', 'country' => 'Albania',  'city' => 'Durres',   'dates' => 'August 5-7, 2026']
-];
+$locations = $festivalLocations;
 $event = $locations[$loc] ?? $locations['xk'];
 ?>
 
@@ -169,6 +171,7 @@ $event = $locations[$loc] ?? $locations['xk'];
             <input type="hidden" name="ticket_name" value="<?= $ticket['name'] ?>">
             <input type="hidden" name="event_name" value="<?= $event['country'] ?>">
             <input type="hidden" name="event_dates" value="<?= $event['dates'] ?>">
+            <input type="hidden" name="event_code" value="<?= $loc ?>">
             <input type="hidden" name="total" value="<?= $total ?>">
 
             <button class="complete-btn">
