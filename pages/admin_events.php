@@ -79,9 +79,8 @@ if (isset($_GET["delete"])) {
 
             <div class="events-list">
                 <h2>Event List</h2>
-            </div>
 
-            <div class="events-cards">
+                <div class="events-cards">
                     <?php if (count($events) === 0): ?>
                         <div class="no-events">No events yet. Add one using the form.</div>
                     <?php endif; ?>
