@@ -18,6 +18,7 @@ endif;
     <link rel="icon" href="../assets/images/logo2-pabg.png">
     <link rel="stylesheet" href="../assets/css/loginp.css">
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../assets/css/logadmin.css">
 </head>
 <body>
 
