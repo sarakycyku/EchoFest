@@ -1,4 +1,30 @@
 <?php
+$awards = [
+  [
+    "title" => "Best Festival 2025",
+    "img" => "../assets/images/award1.png"
+  ],
+  [
+    "title" => "Top Music Event",
+    "img" => "../assets/images/award2.png"
+  ],
+  [
+    "title" => "Best Stage Design",
+    "img" => "../assets/images/award3.jpg"
+  ],
+  [
+    "title" => "Eco Friendly Award",
+    "img" => "../assets/images/award4.png"
+  ],
+  [
+    "title" => "Audience Choice",
+    "img" => "../assets/images/award5.jpg"
+  ],
+  [
+    "title" => "Best Lineup",
+    "img" => "../assets/images/award6.jpg"
+  ]
+];
 $news = [
   [
     "title" => "EchoFest 2026 Lineup Announcement",
@@ -81,6 +107,30 @@ $news = [
 
     </div>
   <?php endforeach; ?>
+
+</section>
+<section class="awards-section">
+ <section class="about-hero">
+     <div class="about-overlay"></div>
+     <div class="about-hero-content reveal">
+         <p class="about-eyebrow"> Celebrating excellence at EchoFest</p>
+         <h1>AWARDS </h1>
+         <p class="about-tagline">where music, creativity, and experience become award-winning moments.</p>
+     </div>
+ </section>
+
+
+
+  <div class="awards-grid">
+
+    <?php foreach($awards as $a): ?>
+      <div class="award-card">
+        <img src="<?= $a['img'] ?>" alt="<?= $a['title'] ?>">
+        <h3><?= $a['title'] ?></h3>
+      </div>
+    <?php endforeach; ?>
+
+  </div>
 
 </section>
 
