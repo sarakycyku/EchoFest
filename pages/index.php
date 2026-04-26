@@ -200,62 +200,51 @@ $summaryCards = [
             <article class="schedule-card">
                 <div class="schedule-top">
                     <p class="card-kicker"><?= htmlspecialchars($day) ?></p>
-                    <?php foreach ($events as $event): ?>
-                        <?php if ($event['day'] === $day): ?>
-                            <?php $day_count++; ?>
-                        <?php endif; ?>
-                    <?php endforeach; ?>
-                    <span class="schedule-count"><?= $day_count ?> artists</span>
+                    <span class="schedule-count"><?= count($dayEvents) ?> artists</span>
                 </div>
 
                 <div class="schedule-list">
-                    <?php foreach ($events as $event): ?>
-                        <?php if ($event['day'] === $day && $shown < 2): ?>
+                    <?php foreach (array_slice($dayEvents, 0, 2) as $event): ?>
                         <div class="schedule-item">
                             <span class="schedule-artist"><?= htmlspecialchars($event['artist']) ?></span>
                             <span class="schedule-stage"><?= htmlspecialchars($event['stage']) ?></span>
                         </div>
-                        <?php $shown++; ?>
-                        <?php endif; ?>
                     <?php endforeach; ?>
                 </div>
             </article>
-            <?php endforeach; ?>
-        </div>
-    </section>
+        <?php endforeach; ?>
+    </div>
+</section>
 
+<div class="lineup-preview">
+    <p class="section-eyebrow">Who's Playing</p>
+    <h2 class="section-title">The <span class="grad">Lineup</span></h2>
 
-    <div class="lineup-preview">
-        <p class="section-eyebrow">Who's Playing</p>
-        <h2 class="section-title">The <span class="grad">Lineup</span></h2>
-
-        <div class="artists-grid">
-            <?php foreach ($featured as $index => $artist): ?>
+    <div class="artists-grid">
+        <?php foreach ($featuredArtists as $index => $artist): ?>
             <div class="artist-card" style="animation: fadeUp 0.5s <?= $index * 0.07 ?>s ease both;">
-            <img src="<?= htmlspecialchars($artist['image']) ?>"
-                alt="<?= htmlspecialchars($artist['artist']) ?>"
-                onerror="this.style.display='none'">
-            <div class="artist-name"><?= htmlspecialchars($artist['artist']) ?></div>
-            <div class="artist-tag">
-                <?= htmlspecialchars($artist['stage']) ?> &nbsp;&middot;&nbsp; <?= htmlspecialchars($artist['day']) ?>
+                <img
+                    src="<?= htmlspecialchars($artist['image']) ?>"
+                    alt="<?= htmlspecialchars($artist['artist']) ?>"
+                    onerror="this.style.display='none'">
+                <div class="artist-name"><?= htmlspecialchars($artist['artist']) ?></div>
+                <div class="artist-tag">
+                    <?= htmlspecialchars($artist['stage']) ?> &nbsp;&middot;&nbsp; <?= htmlspecialchars($artist['day']) ?>
+                </div>
             </div>
-            </div>
-            <?php endforeach; ?>
-        </div>
-
-        <a href="lineup.php" class="lineup-link">Full Lineup &nbsp;&rarr;</a>
+        <?php endforeach; ?>
     </div>
 
-    <footer class="home-footer">
-        <div class="footer-brand">ECHO<span>FEST</span></div>
-        <span class="footer-copy">
-            July 18–21, 2026 &nbsp;/&nbsp; 4 Stages &nbsp;/&nbsp; <?= count($events) ?>+ Artists
-        </span>
-    </footer>
+    <a href="lineup.php" class="lineup-link">Full Lineup &nbsp;&rarr;</a>
+</div>
 
-    <script src="../assets/js/home.js"></script>
+<footer class="home-footer">
+    <div class="footer-brand">ECHO<span>FEST</span></div>
+    <span class="footer-copy">
+        <?= htmlspecialchars($festivalInfo['dates']) ?> &nbsp;/&nbsp; <?= $stagesCount ?> Stages &nbsp;/&nbsp; <?= $artistsCount ?> Artists
+    </span>
+</footer>
 
-</body>
-</html>
+<script src="../assets/js/home.js"></script>
 
 <?php require_once '../includes/footer.php'; ?>
