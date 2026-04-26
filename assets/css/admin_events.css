@@ -64,6 +64,9 @@ body {
   display: flex;
   flex-direction: column;
   gap: 14px;
+
+  max-height: 450px;
+  overflow-y: auto;
 }
 
 .admin-event-card {
