@@ -91,4 +91,18 @@
                         <h1 class="fw-800 text-white">Manage Events</h1>
                         <button class="btn btn-vivid" data-bs-toggle="modal" data-bs-target="#addEvModal">+ Create Event</button>
                     </div>
+
+                <table class="f-table">
+                                <thead><tr><th class="text-muted px-3 small">EVENT TITLE</th><th class="text-muted px-3 small">DATE & TIME</th><th class="text-muted px-3 small">STAGE</th></tr></thead>
+                                <tbody>
+                                    <?php foreach($events as $e): ?>
+                                    <tr>
+                                        <td class="fw-bold fs-5 text-white"><?= $e['title'] ?></td>
+                                        <td><div class="text-white"><?= $e['date'] ?></div><small class="text-accent"><?= $e['time'] ?? '' ?></small></td>
+                                        <td class="text-dim"><?= $e['stage'] ?? 'TBA' ?></td>
+                                    </tr>
+                                    <?php endforeach; ?>
+                                </tbody>
+                            </table>
+
 ?>
