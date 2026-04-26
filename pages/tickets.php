@@ -2,18 +2,8 @@
 include '../includes/header.php';
 
 $locations = [
-    'xk' => [
-        'country' => 'Kosovo',
-        'city' => 'Pristina',
-        'dates' => 'July 15-17, 2026',
-        'venue' => 'Pristina National Stadium, Rr. Agim Ramadani, Pristina 10000'
-    ],
-    'al' => [
-        'country' => 'Albania',
-        'city' => 'Durrës',
-        'dates' => 'August 5-7, 2026',
-        'venue' => 'Arena Kombëtare, Durrës, Albania'
-    ],
+    'xk' => ['country' => 'Kosovo', 'city' => 'Pristina', 'dates' => 'July 15-17, 2026', 'venue' => 'Pristina National Stadium, Pristina 10000'],
+    'al' => ['country' => 'Albania', 'city' => 'Durres', 'dates' => 'August 5-7, 2026', 'venue' => 'Arena Kombetare, Durres, Albania']
 ];
 
 //lexon lokacionin nga GET, default xk
