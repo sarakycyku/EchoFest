@@ -6,43 +6,62 @@ if (session_status() === PHP_SESSION_NONE) {
 require_once '../data/festival.php';
 require_once '../includes/cookies.php';
 
-$logged_in = isset($_SESSION['username']);
+$pageTitle = 'EchoFest 2026';
+$extraStyles = [
+    '../assets/css/style.css',
+    '../assets/css/home.css',
+];
 
-// featured artists for the grid
-$featured = array_slice($events, 0, 4);
+require_once '../includes/header.php';
 
-// doubled for seamless ticker loop
-$ticker = array_merge($events, $events);
+$loggedIn = isset($_SESSION['username']);
+$lineup = loadLineupData();
+$featuredArtists = array_slice($lineup, 0, 4);
+$tickerArtists = array_merge($lineup, $lineup);
 
 $days = [];
 $stages = [];
-foreach ($events as $event) {
-    if (!in_array($event['day'], $days)) {
+$artists = [];
+$eventsByDay = [];
+
+foreach ($lineup as $event) {
+    if (!in_array($event['day'], $days, true)) {
         $days[] = $event['day'];
     }
 
-    if (!in_array($event['stage'], $stages)) {
+    if (!in_array($event['stage'], $stages, true)) {
         $stages[] = $event['stage'];
     }
+
+    if (!in_array($event['artist'], $artists, true)) {
+        $artists[] = $event['artist'];
+    }
+
+    $eventsByDay[$event['day']][] = $event;
 }
 
-$days_count = count($days);
-$stages_count = count($stages);
-$artists_count = count($events);
+$daysCount = count($days);
+$stagesCount = count($stages);
+$artistsCount = count($artists);
+
+$summaryCards = [
+    [
+        'kicker' => 'What It Is',
+        'title' => 'A fast overview of EchoFest',
+        'copy' => 'EchoFest brings together headline artists, immersive stages, and a crowd experience built around music, visuals, and atmosphere.',
+    ],
+    [
+        'kicker' => 'Where To Start',
+        'title' => 'Everything important in one page',
+        'copy' => 'This homepage works like a summary, helping visitors quickly understand the lineup, tickets, story, and account pages.',
+    ],
+    [
+        'kicker' => 'What To Expect',
+        'title' => 'Music, planning, and identity',
+        'copy' => 'The page keeps the cinematic festival style, but it also guides users through the main parts of the website.',
+    ],
+];
 ?>
-
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>EchoFest 2026</title>
-  <link rel="stylesheet" href="../assets/css/style.css" />
-  <link rel="stylesheet" href="../assets/css/home.css" />
-</head>
-<body>
-    <div id="particles"></div>
 
     <section class="hero">
 
