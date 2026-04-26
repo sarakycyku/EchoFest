@@ -97,3 +97,31 @@ body {
 .event-card-body strong {
   font-size: 14px;
 }
+
+.event-card-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.btn-edit-small,
+.btn-delete-small {
+  flex: 1;
+  padding: 9px 12px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+}
+
+.btn-edit-small {
+  background: rgba(34,211,238,0.15);
+  color: #22d3ee;
+  border: 1px solid rgba(34,211,238,0.3);
+}
+
+.btn-delete-small {
+  background: rgba(239,68,68,0.15);
+  color: #ef4444;
+  border: 1px solid rgba(239,68,68,0.3);
+}
