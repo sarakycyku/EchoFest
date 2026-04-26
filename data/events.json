@@ -22,5 +22,41 @@
     "category": "Electronic",
     "description": "DJ Snake brings his signature sound to EchoFest.",
     "image": "../assets/images/dj_snake.png"
+  },
+  {
+    "id": "3",
+    "title": "Ed Sheeran Acoustic",
+    "artist": "Ed Sheeran",
+    "date": "2026-07-16",
+    "time": "19:00",
+    "location": "Pristina",
+    "stage": "Acoustic Stage",
+    "category": "Acoustic",
+    "description": "Ed Sheeran performs an intimate acoustic session.",
+    "image": "../assets/images/ed_sheeran.png"
+  },
+  {
+    "id": "4",
+    "title": "The Weeknd Live",
+    "artist": "The Weeknd",
+    "date": "2026-07-16",
+    "time": "23:45",
+    "location": "Pristina",
+    "stage": "Main Stage",
+    "category": "Pop",
+    "description": "The Weeknd brings a night performance full of vibes.",
+    "image": "../assets/images/the_weeknd.png"
+  },
+  {
+    "id": "5",
+    "title": "Martin Garrix Festival Set",
+    "artist": "Martin Garrix",
+    "date": "2026-07-17",
+    "time": "21:00",
+    "location": "Pristina",
+    "stage": "EDM Stage",
+    "category": "Electronic",
+    "description": "Martin Garrix delivers a high-energy festival set.",
+    "image": "../assets/images/martin_garrix.png"
   }
 ]
