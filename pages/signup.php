@@ -181,11 +181,6 @@ By signing up you agree to our
 Create Account
 </button>
 
-<!-- SUCCESS -->
-<?php
-if($success){
-    echo '<div class="success-msg text-success text-center mt-2">'.$success.'</div>';
-}?>
 
 <!-- LOGIN -->
 <p class="switch-form">
