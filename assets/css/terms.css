@@ -1,5 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=DM+Sans:wght@300;400;500;700&display=swap');
+
 body{
-  font-family:'Space Grotesk',sans-serif;
+  font-family:'DM Sans',sans-serif;
   background:#111;
   color:white;
 }
