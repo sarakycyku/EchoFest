@@ -129,11 +129,78 @@ if (isset($_GET["delete"])) {
             </div>
 
             <div class="event-form-container">
-                <h2>Add New Event</h2>
+                <div class="form-header">
+                    <h2 id="formTitle">Add New Event</h2>
+                    <button type="button" class="btn-clear" id="clearBtn">Clear</button>
+                </div>
+
+                <form method="POST" class="event-form">
+                    <input type="hidden" name="id" id="eventId">
+
+                    <div class="form-group">
+                        <label>Title</label>
+                        <input type="text" name="title" id="title" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Artist</label>
+                        <input type="text" name="artist" id="artist" required>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Date</label>
+                            <input type="date" name="date" id="date" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Time</label>
+                            <input type="time" name="time" id="time">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Location</label>
+                            <input type="text" name="location" id="location">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Stage</label>
+                            <input type="text" name="stage" id="stage">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Category</label>
+                        <select name="category" id="category">
+                            <option value="">Select category</option>
+                            <option value="Pop">Pop</option>
+                            <option value="Electronic">Electronic</option>
+                            <option value="Acoustic">Acoustic</option>
+                            <option value="Rock">Rock</option>
+                            <option value="Hip-Hop">Hip-Hop</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Image</label>
+                        <input type="text" name="image" id="image" placeholder="../assets/images/event.jpg">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Description</label>
+                        <textarea name="description" id="description"></textarea>
+                    </div>
+
+                    <button type="submit" class="btn-save" id="saveBtn">Add Event</button>
+                </form>
             </div>
 
         </div>
     </div>
 </section>
+
+<script src="/EchoFest/assets/js/admin_events.js"></script>
 
 <?php include '../includes/footer.php'; ?>
