@@ -78,7 +78,7 @@ $tickets = [
 
 <!--LOCATION -->
 <div class="location-wrap">
-    <div class="location-box">
+    <div class="location-box animate">
         <div class="location-label">Select Event Location:</div>
         <div class="location-cards">
             <?php foreach ($locations as $key => $loc): ?>
@@ -96,11 +96,11 @@ $tickets = [
 
 <!--TICKETS -->
 <section class="tickets-section">
-    <h2 class="section-title">Choose Your Ticket</h2>
+    <h2 class="section-title">Choose <span class='highlight'>Your Ticket</span></h2>
 
     <div class="ticket-list">
         <?php foreach ($tickets as $t): ?>
-            <div class="ticket-card <?= !$t['available'] ? 'disabled' : '' ?>">
+            <div class="ticket-card <?= !$t['available'] ? 'disabled' : '' ?> animate">
 
                 <div class="ticket-img">
                     <img src="<?= $t['img_src'] ?>" class="<?= $t['img_class'] ?>">

@@ -9,7 +9,7 @@ if (file_exists($usersFile)) {
 /* Admina hardcoded */
 $admins = [
     "admin1" => [
-        "password"   => password_hash("Admin123#", PASSWORD_DEFAULT),
+        "password"   => '$2y$10$zACmuYDI936I.R9.rWyT9OBxXlJfJ625gRWLRAFRbEK95vOOAE7pK', // Hash për "Admin123#
         "email"      => "admin1@echofest.com",
         "first_name" => "Sara",
         "last_name"  => "Admin",
@@ -19,7 +19,7 @@ $admins = [
     ],
 
     "admin2" => [
-        "password"   => password_hash("EchoFest1#", PASSWORD_DEFAULT),
+        "password"   => '$2y$10$DKkB9az/MewyGmEzhh9yxumumeTDIdxXbrUWgS7qWgs0l3M6Iv4.e', 
         "email"      => "admin2@echofest.com",
         "first_name" => "Echo",
         "last_name"  => "Fest",

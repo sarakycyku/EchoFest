@@ -1,0 +1,83 @@
+ body {
+            background: linear-gradient(135deg, #0a0f1c 0%, #0f172a 100%);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            min-height: 100vh;
+        }
+        .admin-wrapper {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1.5rem;
+        }
+        .glass-card {
+            background: rgba(15, 25, 45, 0.75);
+            backdrop-filter: blur(10px);
+            border-radius: 1.25rem;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(255,255,255,0.08);
+        }
+        .admin-header {
+            background: rgba(15, 25, 45, 0.9);
+            backdrop-filter: blur(10px);
+            border-radius: 1.25rem;
+            padding: 1rem 1.5rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .logo h1 {
+            background: linear-gradient(135deg, #f97316, #ffb347);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 700;
+        }
+        .artist-card {
+            background: rgba(30, 41, 59, 0.6);
+            border-radius: 1rem;
+            overflow: hidden;
+            transition: transform 0.2s;
+            height: 100%;
+        }
+        .artist-card:hover {
+            transform: translateY(-5px);
+        }
+        .artist-image {
+            height: 200px;
+            object-fit: cover;
+            width: 100%;
+        }
+        .hits-list {
+            font-size: 0.85rem;
+            color: #cbd5e1;
+        }
+        table {
+            color: #e2e8f0;
+        }
+        th {
+            color: #94a3b8;
+        }
+        .form-label {
+            color: #cbd5e1;
+            font-weight: 500;
+        }
+        textarea, input, select {
+            background: #1e293b;
+            border: 1px solid #334155;
+            color: white;
+        }
+        textarea:focus, input:focus, select:focus {
+            background: #1e293b;
+            border-color: #f97316;
+            color: white;
+            box-shadow: 0 0 0 0.2rem rgba(249,115,22,0.25);
+        }
+        .btn-warning-custom {
+            background: #f59e0b;
+            color: white;
+        }
+        .btn-warning-custom:hover {
+            background: #d97706;
+        }
