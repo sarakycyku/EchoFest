@@ -28,4 +28,31 @@
             </div>
         </div>
 
+        <div class="main-view">
+            <?php $view = $_GET['view'] ?? 'dashboard'; ?>
+
+            <?php if($view == 'dashboard'): ?>
+                <h1 class="fw-800 mb-5 text-white">Overview</h1>
+                <div class="row g-4 mb-5">
+                    <div class="col-lg-4">
+                        <div class="f-card">
+                            <p class="text-muted small fw-bold uppercase">TOTAL USERS</p>
+                            <div style="font-size: 3rem; font-weight: 800;"><?= count($users_list) ?></div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="f-card text-center">
+                            <p class="text-muted small fw-bold text-start uppercase">ORDERS SATURATION</p>
+                            <div class="py-2"><canvas id="orderChart" style="max-height: 120px;"></canvas></div>
+                            <div class="small mt-2 text-muted fw-bold"><?= $totalTicketsSold ?> / <?= $festivalCapacity ?> Tickets Sold</div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="f-card">
+                            <p class="text-muted small fw-bold uppercase">ACTIVE ARTISTS</p>
+                            <div style="font-size: 3rem; font-weight: 800; color: var(--accent);"><?= count($lineup) ?></div>
+                        </div>
+                    </div>
+                </div>
+
 ?>
