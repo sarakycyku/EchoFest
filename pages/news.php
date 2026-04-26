@@ -55,6 +55,41 @@ $news = [
   <h1>Latest News</h1>
   <p>Updates about EchoFest 2026 festival experience</p>
 </section>
+<section class="news-container">
+
+  <?php foreach($news as $n): ?>
+    <div class="news-card"
+         onclick='openNews(<?= json_encode($n["title"]) ?>,
+                            <?= json_encode($n["desc"]) ?>,
+                            <?= json_encode($n["full"]) ?>)'>
+
+      <div class="left">
+        <h3><?= $n['title'] ?></h3>
+        <p><?= $n['desc'] ?></p>
+      </div>
+
+      <div class="right">
+       <?php $now = date("d M Y H:i"); ?>
+       <span><?= $now ?></span>
+      </div>
+
+    </div>
+  <?php endforeach; ?>
+
+</section>
+
+<!-- MODAL -->
+<div id="newsModal" class="modal">
+  <div class="modal-content">
+
+    <span class="close" onclick="closeNews()">&times;</span>
+
+    <h2 id="modalTitle"></h2>
+    <p id="modalDesc"></p>
+    <div id="modalFull"></div>
+
+  </div>
+</div>
 
 
 
