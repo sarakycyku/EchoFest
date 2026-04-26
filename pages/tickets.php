@@ -102,7 +102,7 @@ $tickets = json_decode(file_get_contents('../data/tickets.json'), true);
                                     <button class="qty-btn" onclick="changeQty('<?= $t['id'] ?>', 1)">+</button>
                                 </div>
                                 <button class="buy-btn" onclick="buyNow('<?= $t['id'] ?>', <?= $t['price'] ?>, '<?= $selected ?>')">
-                                    Buy Now €<?= $t['price'] ?>
+                                    Buy Ticket
                                 </button>
                             <?php else: ?>
                                 <button class="coming-btn" disabled>Coming Soon</button>
