@@ -20,6 +20,7 @@ body {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 24px;
+  align-items: stretch;
 }
 
 .btn-back {
@@ -58,6 +59,9 @@ body {
   border: 1px solid rgba(255,255,255,0.08);
   border-radius: 18px;
   padding: 24px;
+
+  display: flex;
+  flex-direction: column;
 }
 
 .events-cards {
@@ -65,8 +69,9 @@ body {
   flex-direction: column;
   gap: 14px;
 
-  max-height: 450px;
+  max-height: 700px;
   overflow-y: auto;
+  padding-right: 6px;
 }
 
 .admin-event-card {
@@ -205,6 +210,19 @@ textarea {
   text-align: center;
   color: #7c7a9a;
   padding: 30px;
+}
+
+.events-cards::-webkit-scrollbar {
+  width: 6px;
+}
+
+.events-cards::-webkit-scrollbar-thumb {
+  background: #7c3aed;
+  border-radius: 10px;
+}
+
+.events-cards::-webkit-scrollbar-track {
+  background: #1e1e38;
 }
 
 @media (max-width: 900px) {
