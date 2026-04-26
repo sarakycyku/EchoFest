@@ -183,9 +183,7 @@ $artists_count = count($events);
                 <p class="section-eyebrow">Plan The Weekend</p>
                 <h2 class="section-title">Schedule <span class="grad">pulse</span></h2>
             </div>
-            <p class="heading-side-copy">
-                A small PHP-driven preview showing how artists are spread across the festival days.
-            </p>
+           
         </div>
 
         <div class="schedule-grid">
@@ -243,61 +241,10 @@ $artists_count = count($events);
         <a href="lineup.php" class="lineup-link">Full Lineup &nbsp;&rarr;</a>
     </div>
 
-    <section class="content-section">
-        <div class="section-heading split-heading">
-            <div>
-                <p class="section-eyebrow">Explore The Site</p>
-                <h2 class="section-title">Your next <span class="grad">move</span></h2>
-            </div>
-            <p class="heading-side-copy">
-                These shortcut cards make the homepage feel richer and turn it into a proper navigation summary for the whole project.
-            </p>
-        </div>
-
-        <div class="quick-links-grid">
-            <a class="quick-link-card" href="lineup.php">
-                <p class="card-kicker">Lineup</p>
-                <h3 class="card-title">Explore the artists</h3>
-                <p class="card-copy">Browse performers, stages, and festival days in one place.</p>
-                <span class="card-action">Open Lineup</span>
-            </a>
-
-            <a class="quick-link-card" href="tickets.php">
-                <p class="card-kicker">Tickets</p>
-                <h3 class="card-title">Plan your pass</h3>
-                <p class="card-copy">Compare ticket tiers and choose your preferred event location.</p>
-                <span class="card-action">View Tickets</span>
-            </a>
-
-            <a class="quick-link-card" href="about.php">
-                <p class="card-kicker">About</p>
-                <h3 class="card-title">See the story</h3>
-                <p class="card-copy">Learn the mission, values, and team behind EchoFest.</p>
-                <span class="card-action">About EchoFest</span>
-            </a>
-
-            <?php if ($logged_in): ?>
-            <a class="quick-link-card" href="profile.php">
-                <p class="card-kicker">Profile</p>
-                <h3 class="card-title">Manage your account</h3>
-                <p class="card-copy">Review your details, tickets, and personal festival space.</p>
-                <span class="card-action">Open Profile</span>
-            </a>
-            <?php else: ?>
-            <a class="quick-link-card" href="signup.php">
-                <p class="card-kicker">Account</p>
-                <h3 class="card-title">Join the festival</h3>
-                <p class="card-copy">Create an account to unlock your EchoFest journey.</p>
-                <span class="card-action">Create Account</span>
-            </a>
-            <?php endif; ?>
-        </div>
-    </section>
-
     <footer class="home-footer">
         <div class="footer-brand">ECHO<span>FEST</span></div>
         <span class="footer-copy">
-            July 18-21, 2026 &nbsp;/&nbsp; <?= $stages_count ?> stages &nbsp;/&nbsp; <?= $artists_count ?>+ artists
+            July 18–21, 2026 &nbsp;/&nbsp; 4 Stages &nbsp;/&nbsp; <?= count($events) ?>+ Artists
         </span>
     </footer>
 
