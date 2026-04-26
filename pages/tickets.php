@@ -23,7 +23,7 @@ $event = $locations[$selected];
 $tickets = json_decode(file_get_contents('../data/tickets.json'), true);
 ?>
 
-<link rel="stylesheet" href="../assets/css/tickets.css?v=1.1">
+<link rel="stylesheet" href="../assets/css/tickets.css?v=1.2">
 
 <!--HERO -->
 <section class="hero">
