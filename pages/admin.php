@@ -12,5 +12,20 @@
 <link rel="stylesheet" href="/EchoFest/assets/css/admin.css">
 </head>
 <body>
+    <div class="sidebar d-flex flex-column">
+            <div class="mb-5 px-3">
+                <h3 class="fw-800 m-0" style="letter-spacing:-1.5px;">ECHOFEST<span class="text-primary">.</span></h3>
+                <span class="text-muted small fw-bold">MISSION CONTROL</span>
+            </div>
+            <nav class="nav flex-column flex-grow-1">
+                <a href="?view=dashboard" class="nav-link <?= (!isset($_GET['view']) || $_GET['view']=='dashboard') ? 'active':'' ?>"><i class="fa-solid fa-grid-2 me-3"></i> Dashboard</a>
+                <a href="?view=lineup" class="nav-link <?= ($_GET['view']??'')=='lineup' ? 'active':'' ?>"><i class="fa-solid fa-microphone-lines me-3"></i> Manage Lineup</a>
+                <a href="?view=events" class="nav-link <?= ($_GET['view']??'')=='events' ? 'active':'' ?>"><i class="fa-solid fa-calendar-day me-3"></i> Manage Events</a>
+                <a href="?download_csv=1" class="nav-link text-info"><i class="fa-solid fa-file-csv me-3"></i> Export CSV</a>
+            </nav>
+            <div class="pt-4 border-top border-secondary">
+                <a href="../logout.php" class="nav-link text-danger"><i class="fa-solid fa-power-off me-3"></i> Logout</a>
+            </div>
+        </div>
 
 ?>
