@@ -16,7 +16,7 @@
             <li><a href="../pages/admin.php">Dashboard</a></li>
             <li><a href="#">Events</a></li>
             <li><a href="#">Lineup</a></li>
-            <li><a href="#">Tickets</a></li>
+            <li><a href="../pages/tickets-admin.php">Tickets</a></li>
             <li><a href="#">Users Management</a></li>
 
           <?php else: ?>
@@ -28,7 +28,7 @@
             <li><a href="../pages/events.php">Events</a></li>
             <li><a href="../pages/tickets.php">Tickets</a></li>
             <li><a href="../pages/news.php">News</a></li>
-            <li><a href="../pages/profile.php">Profile</a></li>
+            <!-- <li><a href="../pages/profile.php">Profile</a></li> -->
 
           <?php endif; ?>
 
