@@ -81,6 +81,53 @@ if (isset($_GET["delete"])) {
                 <h2>Event List</h2>
             </div>
 
+            <div class="events-cards">
+                    <?php if (count($events) === 0): ?>
+                        <div class="no-events">No events yet. Add one using the form.</div>
+                    <?php endif; ?>
+
+                    <?php foreach ($events as $event): ?>
+                        <div class="admin-event-card">
+                            <h3><?= htmlspecialchars($event["title"]); ?></h3>
+                            <p class="event-artist"><?= htmlspecialchars($event["artist"]); ?></p>
+
+                            <div class="event-card-body">
+                                <div><span>Date:</span> <strong><?= htmlspecialchars($event["date"]); ?></strong></div>
+                                <div><span>Time:</span> <strong><?= htmlspecialchars($event["time"]); ?></strong></div>
+                                <div><span>Location:</span> <strong><?= htmlspecialchars($event["location"]); ?></strong></div>
+                                <div><span>Stage:</span> <strong><?= htmlspecialchars($event["stage"]); ?></strong></div>
+                            </div>
+
+                            <div class="event-card-actions">
+                                <button 
+                                    class="btn-edit-small"
+                                    data-id="<?= htmlspecialchars($event["id"]); ?>"
+                                    data-title="<?= htmlspecialchars($event["title"]); ?>"
+                                    data-artist="<?= htmlspecialchars($event["artist"]); ?>"
+                                    data-date="<?= htmlspecialchars($event["date"]); ?>"
+                                    data-time="<?= htmlspecialchars($event["time"]); ?>"
+                                    data-location="<?= htmlspecialchars($event["location"]); ?>"
+                                    data-stage="<?= htmlspecialchars($event["stage"]); ?>"
+                                    data-category="<?= htmlspecialchars($event["category"]); ?>"
+                                    data-description="<?= htmlspecialchars($event["description"]); ?>"
+                                    data-image="<?= htmlspecialchars($event["image"]); ?>"
+                                >
+                                    Edit
+                                </button>
+
+                                <a 
+                                    href="admin_events.php?delete=<?= htmlspecialchars($event["id"]); ?>" 
+                                    class="btn-delete-small"
+                                    onclick="return confirm('Are you sure you want to delete this event?');"
+                                >
+                                    Delete
+                                </a>
+                            </div>
+                        </div>
+                    <?php endforeach; ?>
+                </div>
+            </div>
+
             <div class="event-form-container">
                 <h2>Add New Event</h2>
             </div>
