@@ -50,28 +50,17 @@ $news = [
 <body class="news-page">
 
 <?php include '../includes/header.php'; ?>
- <?php foreach (array_slice($news, 0, 5) as $index => $e): ?>
 
- <div class="carousel-item <?= $index == 0 ? 'active' : '' ?>">
-
-     <div class="slider-card">
-
-         <div class="slider-overlay">
-             <h2><?= $e["title"] ?></h2>
-             <p><?= $e["desc"] ?></p>
-         </div>
-
+ <section class="about-hero">
+     <div class="about-overlay"></div>
+     <div class="about-hero-content reveal">
+         <p class="about-eyebrow"> Don't miss anything</p>
+         <h1>Latest News</h1>
+         <p class="about-tagline">Updates about EchoFest 2026 festival experience</p>
      </div>
-
- </div>
-
- <?php endforeach; ?>
+ </section>
 
 
-<section class="hero">
-  <h1>Latest News</h1>
-  <p>Updates about EchoFest 2026 festival experience</p>
-</section>
 <section class="news-container">
 
   <?php foreach($news as $n): ?>

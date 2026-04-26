@@ -5,6 +5,7 @@ if (session_status() === PHP_SESSION_NONE) {
 
 require_once '../data/events.php';
 require_once '../includes/header.php';
+require_once '../includes/cookies.php';
 
 $logged_in = isset($_SESSION['username']);
 
