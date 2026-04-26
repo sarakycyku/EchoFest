@@ -50,6 +50,23 @@ $news = [
 <body class="news-page">
 
 <?php include '../includes/header.php'; ?>
+ <?php foreach (array_slice($news, 0, 5) as $index => $e): ?>
+
+ <div class="carousel-item <?= $index == 0 ? 'active' : '' ?>">
+
+     <div class="slider-card">
+
+         <div class="slider-overlay">
+             <h2><?= $e["title"] ?></h2>
+             <p><?= $e["desc"] ?></p>
+         </div>
+
+     </div>
+
+ </div>
+
+ <?php endforeach; ?>
+
 
 <section class="hero">
   <h1>Latest News</h1>
