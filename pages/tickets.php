@@ -1,5 +1,4 @@
 <?php
-require_once '../data/festival.php';
 include '../includes/header.php';
 
 $locations = [
@@ -7,13 +6,10 @@ $locations = [
     'al' => ['country' => 'Albania', 'city' => 'Durres', 'dates' => 'August 5-7, 2026', 'venue' => 'Arena Kombetare, Durres, Albania']
 ];
 
-$locations = $festivalLocations;
-
 //lexon lokacionin nga GET, default xk
 $selected = isset($_GET['loc']) && array_key_exists($_GET['loc'], $locations) ? $_GET['loc'] : 'xk';
 $event = $locations[$selected];
 
-$tickets = loadTicketData();
 ?>
 
 <link rel="stylesheet" href="../assets/css/tickets.css?v=1.2">
