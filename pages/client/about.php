@@ -11,38 +11,35 @@ $stats = [
     ["number" => 5, "suffix" => "", "label"=> "Stages"],
 ];
 
-$team = [
-    new TeamMember(
-        "Sara Kycyku",
-        "Festival Director",
-        "Leads the vision of EchoFest and oversees the creative direction of every edition.",
-        "../assets/images/team_sara.jpg"
-    ),
-    new TeamMember(
-        "Dua Bilalli",
-        "Marketing Director",
-        "Builds the EchoFest identity and connects the festival with audiences across platforms.",
-        "../assets/images/team_dua.jpg"
-    ),
-    new TeamMember(
-        "Rrezon Ibishi",
-        "Creative Director",
-        "Shapes the festival atmosphere through visuals, stage concepts, and immersive design.",
-        "../assets/images/team_rrezon.jpg"
-    ),
-    new TeamMember(
-        "Pranvera Gashi",
-        "Operations Director",
-        "Coordinates logistics, artist planning, and the smooth running of the full event experience.",
-        "../assets/images/team_pranvera.jpg"
-    ),
-     new TeamMember(
-            "Rumesa Bejiqi",
-            "Stage & Artist Coordinator",
-            "This role keeps the whole festival running on time and prevents chaos on stage.",
-            "../assets/images/team_rumesa.jpg"
-        )
-];
+$team = [];
+
+$member1 = new TeamMember();
+$member1->setName("Sara Kycyku");
+$member1->setRole("Festival Director");
+$member1->setBio("Leads the vision of EchoFest and oversees the creative direction of every edition.");
+$member1->setImage("../assets/images/team_sara.jpg");
+$team[] = $member1;
+
+$member2 = new TeamMember();
+$member2->setName("Dua Bilalli");
+$member2->setRole("Marketing Director");
+$member2->setBio("Builds the EchoFest identity and connects the festival with audiences across platforms.");
+$member2->setImage("../assets/images/team_dua.jpg");
+$team[] = $member2;
+
+$member3 = new TeamMember();
+$member3->setName("Rrezon Ibishi");
+$member3->setRole("Creative Director");
+$member3->setBio("Shapes the festival atmosphere through visuals, stage concepts, and immersive design.");
+$member3->setImage("../assets/images/team_rrezon.jpg");
+$team[] = $member3;
+
+$member4 = new TeamMember();
+$member4->setName("Pranvera Gashi");
+$member4->setRole("Operations Director");
+$member4->setBio("Coordinates logistics, artist planning, and the smooth running of the full event experience.");
+$member4->setImage("../assets/images/team_pranvera.jpg");
+$team[] = $member4;
 ?>
 
 <title>About Us</title>
