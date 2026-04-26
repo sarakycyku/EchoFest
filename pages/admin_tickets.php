@@ -16,6 +16,11 @@ $tickets = json_decode(file_get_contents('../data/tickets.json'), true);
         <p class="admin-sub">Add, enable, disable or delete ticket types</p>
     </div>
 
+    <?php if (!empty($_SESSION['admin_msg'])): ?>
+        <div class="admin-msg"><?= $_SESSION['admin_msg'] ?></div>
+        <?php unset($_SESSION['admin_msg']); ?>
+    <?php endif; ?>
+
     <!--me shtu ticket -->
     <div class="add-card">
         <div class="add-title">Add New Ticket</div>
