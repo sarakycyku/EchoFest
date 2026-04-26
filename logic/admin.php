@@ -13,5 +13,14 @@ function loadJSON($file) {
     $content = file_get_contents($file);
     return json_decode($content, true) ?? [];
 }
+// Funksioni për ruajtjen në JSON
+function saveJSON($file, $data) {
+    file_put_contents($file, json_encode(array_values($data), JSON_PRETTY_PRINT));
+}
+
+// Ngarkimi i të dhënave
+$lineup = loadJSON($LINEUP_FILE);
+$events = loadJSON($EVENTS_FILE);
+$users_list = loadJSON($USERS_FILE);
 
 ?>
