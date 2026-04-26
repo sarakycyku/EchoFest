@@ -166,6 +166,10 @@ $event = $locations[$loc] ?? $locations['xk'];
 
             <input type="hidden" name="ticket_type" value="<?=$ticketParam?>">
             <input type="hidden" name="qty" value="<?= $qty ?>">
+            <input type="hidden" name="ticket_name" value="<?= $ticket['name'] ?>">
+            <input type="hidden" name="event_name" value="<?= $event['country'] ?>">
+            <input type="hidden" name="event_dates" value="<?= $event['dates'] ?>">
+            <input type="hidden" name="total" value="<?= $total ?>">
 
             <button class="complete-btn">
                 Complete Purchase €<?= $total ?>
