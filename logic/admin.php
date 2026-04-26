@@ -76,5 +76,15 @@ if (isset($_GET['delete_artist'])) {
     header("Location: admin.php?view=lineup");
     exit();
 }
-
+// --- EXPORT CSV ---
+if (isset($_GET['download_csv'])) {
+    header('Content-Type: text/csv');
+    header('Content-Disposition: attachment; filename="EchoFest_Report.csv"');
+    $out = fopen('php://output', 'w');
+    fputcsv($out, ['TYPE', 'NAME', 'DETAIL', 'INFO']);
+    foreach($lineup as $a) fputcsv($out, ['Artist', $a['artist'], $a['stage'], $a['day']]);
+    foreach($events as $e) fputcsv($out, ['Event', $e['title'], $e['stage'], $e['date']]);
+    fclose($out);
+    exit();
+}
 ?>
