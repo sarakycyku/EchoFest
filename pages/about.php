@@ -35,7 +35,13 @@ $team = [
         "Operations Director",
         "Coordinates logistics, artist planning, and the smooth running of the full event experience.",
         "../assets/images/team_pranvera.jpg"
-    )
+    ),
+     new TeamMember(
+            "Rumesa Bejiqi",
+            "Stage & Artist Coordinator",
+            "This role keeps the whole festival running on time and prevents chaos on stage.",
+            "../assets/images/team_rumesa.jpg"
+        )
 ];
 ?>
 
