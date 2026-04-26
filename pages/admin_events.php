@@ -58,3 +58,35 @@ if (isset($_GET["delete"])) {
     header("Location: admin_events.php");
     exit;
 }
+?>
+
+<title>Admin Events</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/EchoFest/assets/css/admin_events.css">
+
+<section class="admin-events">
+    <div class="admin-container">
+
+        <a href="admin.php" class="btn-back">Back to Dashboard</a>
+
+        <div class="admin-header">
+            <h1>Manage Events</h1>
+            <p>Add, edit and delete festival events.</p>
+        </div>
+
+        <div class="admin-grid">
+
+            <div class="events-list">
+                <h2>Event List</h2>
+            </div>
+
+            <div class="event-form-container">
+                <h2>Add New Event</h2>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<?php include '../includes/footer.php'; ?>
