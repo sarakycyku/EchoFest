@@ -110,8 +110,16 @@ $news = [
 
 </section>
 <section class="awards-section">
+ <section class="about-hero">
+     <div class="about-overlay"></div>
+     <div class="about-hero-content reveal">
+         <p class="about-eyebrow"> Celebrating excellence at EchoFest</p>
+         <h1>AWARDS </h1>
+         <p class="about-tagline">where music, creativity, and experience become award-winning moments.</p>
+     </div>
+ </section>
 
-  <h2 class="section-title">Awards</h2>
+
 
   <div class="awards-grid">
 
