@@ -1,0 +1,26 @@
+[
+  {
+    "id": "1",
+    "title": "Dua Lipa Spectacular",
+    "artist": "Dua Lipa",
+    "date": "2026-07-16",
+    "time": "22:00",
+    "location": "Pristina",
+    "stage": "Main Stage",
+    "category": "Pop",
+    "description": "Pop superstar Dua Lipa lights up the Main Stage.",
+    "image": "../assets/images/dua_lipa.png"
+  },
+  {
+    "id": "2",
+    "title": "DJ Snake Live",
+    "artist": "DJ Snake",
+    "date": "2026-07-15",
+    "time": "21:00",
+    "location": "Pristina",
+    "stage": "Main Stage",
+    "category": "Electronic",
+    "description": "DJ Snake brings his signature sound to EchoFest.",
+    "image": "../assets/images/dj_snake.png"
+  }
+]
