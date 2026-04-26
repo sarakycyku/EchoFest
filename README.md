@@ -11,7 +11,8 @@ Hap CMD dhe shkruaj
 Projekti duhet te ruhet ne folderin htdocs
 
 Starto Apache ne XAMPP Control Panel.
-<img width="875" height="554" alt="image" src="https://github.com/user-attachments/assets/9f044ba9-cc34-4032-bfa2-30bbec807abb" />
+<img width="839" height="541" alt="image" src="https://github.com/user-attachments/assets/d10be144-d4c3-4366-9c2f-4bfb9b7f17b6" />
+
 
  
  Hap browserin dhe shkruaj:
