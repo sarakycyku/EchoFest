@@ -58,7 +58,6 @@ if ($action === 'add') {
 
     $_SESSION['admin_msg'] = "Ticket '$name' added successfully.";
 }
-
 //enable/disable
 elseif ($action === 'enable' || $action === 'disable') {
     $id = $_POST['id'] ?? '';
@@ -72,4 +71,13 @@ elseif ($action === 'enable' || $action === 'disable') {
     unset($t);
 
     $_SESSION['admin_msg'] = "Ticket '$id' is " . ($action === 'enable' ? 'enabled' : 'disabled') . ".";
+}
+//delete tickts
+elseif ($action === 'delete') {
+    $id = $_POST['id'] ?? '';
+
+    $tickets = array_filter($tickets, fn($t) => $t['id'] !== $id);
+    $tickets = array_values($tickets); //me indeksu
+
+    $_SESSION['admin_msg'] = "Ticket '$id' is deleted.";
 }
