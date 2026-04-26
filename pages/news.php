@@ -1,5 +1,30 @@
 <?php
-
+$awards = [
+  [
+    "title" => "Best Festival 2025",
+    "img" => "../assets/img/awards/award1.jpg"
+  ],
+  [
+    "title" => "Top Music Event",
+    "img" => "../assets/img/awards/award2.jpg"
+  ],
+  [
+    "title" => "Best Stage Design",
+    "img" => "../assets/img/awards/award3.jpg"
+  ],
+  [
+    "title" => "Eco Friendly Award",
+    "img" => "../assets/img/awards/award4.jpg"
+  ],
+  [
+    "title" => "Audience Choice",
+    "img" => "../assets/img/awards/award5.jpg"
+  ],
+  [
+    "title" => "Best Lineup",
+    "img" => "../assets/img/awards/award6.jpg"
+  ]
+];
 $news = [
   [
     "title" => "EchoFest 2026 Lineup Announcement",
