@@ -172,3 +172,28 @@ textarea {
   min-height: 80px;
   resize: vertical;
 }
+
+.btn-save {
+  background: linear-gradient(135deg, #7c3aed, #22d3ee);
+  border: none;
+  color: white;
+  padding: 13px;
+  border-radius: 10px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.form-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.btn-clear {
+  background: #1e1e38;
+  border: 1px solid rgba(255,255,255,0.1);
+  color: #a0a0b0;
+  padding: 8px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+}
