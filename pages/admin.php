@@ -104,5 +104,44 @@
                                     <?php endforeach; ?>
                                 </tbody>
                             </table>
+                         <?php endif; ?>
+                            </div>
+
+                            <div class="modal fade" id="addArtModal" tabindex="-1">
+                                <div class="modal-dialog modal-dialog-centered">
+                                    <div class="modal-content" style="background:#0c0c0e; border:1px solid #27272a; border-radius:24px;">
+                                        <form method="POST">
+                                            <div class="modal-header border-0 pt-4 px-4"><h4 class="fw-800 m-0">New Artist</h4></div>
+                                            <div class="modal-body p-4">
+                                                <input type="text" name="artist" class="form-control f-input mb-3" placeholder="Artist Name" required>
+                                                <input type="text" name="image" class="form-control f-input mb-3" placeholder="Image Path (../assets/images/name.png)">
+                                                <input type="text" name="stage" class="form-control f-input mb-3" placeholder="Stage" required>
+                                                <select name="day" class="form-select f-input mb-3"><option>Friday</option><option>Saturday</option><option>Sunday</option></select>
+                                                <textarea name="hits" class="form-control f-input" placeholder="Hits (comma separated)"></textarea>
+                                            </div>
+                                            <div class="modal-footer border-0 p-4"><button type="submit" name="add_artist" class="btn btn-vivid w-100 py-3">Confirm Entry</button></div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="modal fade" id="addEvModal" tabindex="-1">
+                                <div class="modal-dialog modal-dialog-centered modal-lg">
+                                    <div class="modal-content" style="background:#0c0c0e; border:1px solid #27272a; border-radius:24px;">
+                                        <form method="POST">
+                                            <div class="modal-header border-0 pt-4 px-4"><h4 class="fw-800 m-0">Create Event</h4></div>
+                                            <div class="modal-body p-4 row g-3">
+                                                <div class="col-12"><input type="text" name="event_title" class="form-control f-input" placeholder="Event Title" required></div>
+                                                <div class="col-md-6"><input type="text" name="event_date" class="form-control f-input" placeholder="July 15, 2026"></div>
+                                                <div class="col-md-6"><input type="text" name="event_time" class="form-control f-input" placeholder="Time (21:00 - 23:00)"></div>
+                                                <div class="col-md-6"><input type="text" name="event_location" class="form-control f-input" placeholder="Location"></div>
+                                                <div class="col-md-6"><input type="text" name="event_stage" class="form-control f-input" placeholder="Stage"></div>
+                                                <div class="col-12"><textarea name="event_desc" class="form-control f-input" placeholder="Description"></textarea></div>
+                                            </div>
+                                            <div class="modal-footer border-0 p-4"><button type="submit" name="add_event" class="btn btn-vivid w-100 py-3">Publish Event</button></div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
 
 ?>
