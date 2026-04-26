@@ -66,5 +66,10 @@
                                 </tbody>
                             </table>
                         </div>
+                     <?php elseif($view == 'lineup'): ?>
+                                <div class="d-flex justify-content-between align-items-center mb-5">
+                                    <h1 class="fw-800 text-white">Festival Lineup</h1>
+                                    <button class="btn btn-vivid" data-bs-toggle="modal" data-bs-target="#addArtModal">+ Add Artist</button>
+                                </div>
 
 ?>
