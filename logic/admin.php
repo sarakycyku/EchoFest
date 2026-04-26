@@ -33,4 +33,20 @@ if (file_exists($ORDERS_FILE)) {
 $festivalCapacity = 5000; // Kapaciteti total
 $availableTickets = $festivalCapacity - $totalTicketsSold;
 if ($availableTickets < 0) $availableTickets = 0;
+
+// --- HANDLE ADD ARTIST ---
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['add_artist'])) {
+    $newArtist = [
+        "artist" => trim($_POST['artist']),
+        "stage"  => trim($_POST['stage']),
+        "day"    => $_POST['day'],
+        "image"  => !empty($_POST['image']) ? trim($_POST['image']) : "../assets/images/default.png",
+        "hits"   => array_filter(array_map('trim', explode(',', $_POST['hits'])))
+    ];
+    $lineup[] = $newArtist;
+    saveJSON($LINEUP_FILE, $lineup);
+    header("Location: admin.php?view=lineup");
+    exit();
+}
+
 ?>
