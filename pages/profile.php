@@ -12,6 +12,7 @@ if (!isset($_SESSION['username'])) {
 $pageTitle = 'Profile';
 $extraStyles = ['../assets/css/profile.css'];
 
+require_once '../data/festival.php';
 require_once '../data/users.php';
 require_once '../includes/header.php';
 
