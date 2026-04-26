@@ -144,4 +144,22 @@
                                 </div>
                             </div>
 
+
+                        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+                            <script>
+                                const ctx = document.getElementById('orderChart').getContext('2d');
+                                new Chart(ctx, {
+                                    type: 'doughnut',
+                                    data: {
+                                        labels: ['Sold', 'Available'],
+                                        datasets: [{
+                                            data: [<?= $totalTicketsSold ?>, <?= $availableTickets ?>],
+                                            backgroundColor: ['#a855f7', '#18181b'],
+                                            borderWidth: 0
+                                        }]
+                                    },
+                                    options: { cutout: '80%', plugins: { legend: { display: false } } }
+                                });
+                            </script>
+
 ?>
