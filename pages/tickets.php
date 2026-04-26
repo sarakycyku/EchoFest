@@ -1,4 +1,5 @@
 <?php
+require_once '../data/festival.php';
 include '../includes/header.php';
 
 $locations = [
