@@ -1,4 +1,5 @@
 <?php
+require_once '../data/festival.php';
 include '../includes/header.php';
 
 if (!isset($_SESSION['username'])) {
@@ -33,10 +34,7 @@ $subtotal = $ticket['price'] * $qty;
 $serviceFee = 5;
 $total = $subtotal + $serviceFee;
 
-$locations = [
-    'xk' => ['flag' => 'XK', 'country' => 'Kosovo',  'city' => 'Pristina', 'dates' => 'July 15-17, 2026'],
-    'al' => ['flag' => 'AL', 'country' => 'Albania',  'city' => 'Durres',   'dates' => 'August 5-7, 2026']
-];
+$locations = $festivalLocations;
 $event = $locations[$loc] ?? $locations['xk'];
 ?>
 
@@ -134,6 +132,7 @@ $event = $locations[$loc] ?? $locations['xk'];
             <input type="hidden" name="ticket_name" value="<?= $ticket['name'] ?>">
             <input type="hidden" name="event_name" value="<?= $event['country'] ?>">
             <input type="hidden" name="event_dates" value="<?= $event['dates'] ?>">
+            <input type="hidden" name="event_code" value="<?= $loc ?>">
             <input type="hidden" name="total" value="<?= $total ?>">
 
             <button class="complete-btn">

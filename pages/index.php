@@ -3,255 +3,248 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
-require_once '../data/events.php';
-require_once '../includes/header.php';
+require_once '../data/festival.php';
 require_once '../includes/cookies.php';
 
-$logged_in = isset($_SESSION['username']);
+$pageTitle = 'EchoFest 2026';
+$extraStyles = [
+    '../assets/css/style.css',
+    '../assets/css/home.css',
+];
 
-// featured artists for the grid
-$featured = array_slice($events, 0, 4);
+require_once '../includes/header.php';
 
-// doubled for seamless ticker loop
-$ticker = array_merge($events, $events);
+$loggedIn = isset($_SESSION['username']);
+$lineup = loadLineupData();
+$featuredArtists = array_slice($lineup, 0, 4);
+$tickerArtists = array_merge($lineup, $lineup);
 
 $days = [];
 $stages = [];
-foreach ($events as $event) {
-    if (!in_array($event['day'], $days)) {
+$artists = [];
+$eventsByDay = [];
+
+foreach ($lineup as $event) {
+    if (!in_array($event['day'], $days, true)) {
         $days[] = $event['day'];
     }
 
-    if (!in_array($event['stage'], $stages)) {
+    if (!in_array($event['stage'], $stages, true)) {
         $stages[] = $event['stage'];
     }
+
+    if (!in_array($event['artist'], $artists, true)) {
+        $artists[] = $event['artist'];
+    }
+
+    $eventsByDay[$event['day']][] = $event;
 }
 
-$days_count = count($days);
-$stages_count = count($stages);
-$artists_count = count($events);
+$daysCount = count($days);
+$stagesCount = count($stages);
+$artistsCount = count($artists);
+
+$summaryCards = [
+    [
+        'kicker' => 'What It Is',
+        'title' => 'A fast overview of EchoFest',
+        'copy' => 'EchoFest brings together headline artists, immersive stages, and a crowd experience built around music, visuals, and atmosphere.',
+    ],
+    [
+        'kicker' => 'Where To Start',
+        'title' => 'Everything important in one page',
+        'copy' => 'This homepage works like a summary, helping visitors quickly understand the lineup, tickets, story, and account pages.',
+    ],
+    [
+        'kicker' => 'What To Expect',
+        'title' => 'Music, planning, and identity',
+        'copy' => 'The page keeps the cinematic festival style, but it also guides users through the main parts of the website.',
+    ],
+];
 ?>
 
+<div id="particles"></div>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>EchoFest 2026</title>
-  <link rel="stylesheet" href="../assets/css/style.css" />
-  <link rel="stylesheet" href="../assets/css/home.css" />
-</head>
-<body>
-    <div id="particles"></div>
+<section class="hero">
+    <div class="hero-eyebrow">
+        <?= htmlspecialchars($festivalInfo['dates']) ?> &nbsp;&middot;&nbsp; <?= htmlspecialchars($festivalInfo['venue']) ?>
+    </div>
 
-    <section class="hero">
+    <h1 class="hero-title">
+        <span class="outline">ECHO</span><br>
+        <span class="grad">FEST</span>
+    </h1>
 
-    <div class="hero-eyebrow">July 18-21, 2026 &nbsp;&middot;&nbsp; Open Air Arena</div>
+    <p class="hero-sub">
+        <?= $daysCount ?> days. <?= $stagesCount ?> stages. <?= $artistsCount ?> artists across electronic,
+        ambient, pop, and club music.
+    </p>
 
-        <h1 class="hero-title">
-            <span class="outline">ECHO</span><br>
-            <span class="grad">FEST</span>
-        </h1>
-
-         <p class="hero-sub">
-            <?= $days_count ?> days. <?= $stages_count ?> stages. <?= $artists_count ?>+ artists across electronic,
-            ambient, pop, and club music.
-        </p>
-
-        <div class="hero-cta">
-            <?php if ($logged_in): ?>
+    <div class="hero-cta">
+        <?php if ($loggedIn): ?>
             <a href="tickets.php" class="btn-main">Buy Tickets</a>
-            <a href="lineup.php"  class="btn-ghost">View Lineup</a>
-            <?php else: ?>
+            <a href="lineup.php" class="btn-ghost">View Lineup</a>
+        <?php else: ?>
             <a href="signup.php" class="btn-main">Get Your Pass</a>
             <a href="lineup.php" class="btn-ghost">View Lineup</a>
-            <?php endif; ?>
-        </div>
+        <?php endif; ?>
+    </div>
 
-        <div class="hero-meta">
-            <span><?= $days_count ?> Days</span>
-            <span class="bar"></span>
-            <span><?= $stages_count ?> Stages</span>
-            <span class="bar"></span>
-            <span><?= $artists_count ?>+ Artists</span>
-            <span class="bar"></span>
-            <span>Pristina, Kosovo</span>
-        </div>
+    <div class="hero-meta">
+        <span><?= $daysCount ?> Days</span>
+        <span class="bar"></span>
+        <span><?= $stagesCount ?> Stages</span>
+        <span class="bar"></span>
+        <span><?= $artistsCount ?> Artists</span>
+        <span class="bar"></span>
+        <span><?= htmlspecialchars($festivalInfo['location']) ?></span>
+    </div>
+</section>
 
-
-    </section>
-
-    <div class="ticker">
-        <div class="ticker-track">
-            <?php foreach ($ticker as $event): ?>
+<div class="ticker">
+    <div class="ticker-track">
+        <?php foreach ($tickerArtists as $event): ?>
             <span class="ticker-item">
-            <span class="spark"></span>
-            <?= htmlspecialchars($event['artist']) ?>
+                <span class="spark"></span>
+                <?= htmlspecialchars($event['artist']) ?>
             </span>
+        <?php endforeach; ?>
+    </div>
+</div>
+
+<section class="summary-shell">
+    <div class="summary-panel">
+        <div class="summary-stat">
+            <div class="summary-value"><?= $daysCount ?></div>
+            <div class="summary-label">Festival Days</div>
+        </div>
+        <div class="summary-stat">
+            <div class="summary-value"><?= $stagesCount ?></div>
+            <div class="summary-label">Live Stages</div>
+        </div>
+        <div class="summary-stat">
+            <div class="summary-value"><?= $artistsCount ?></div>
+            <div class="summary-label">Featured Artists</div>
+        </div>
+        <div class="summary-stat">
+            <div class="summary-value"><?= $loggedIn ? 'Member' : 'Open' ?></div>
+            <div class="summary-label">Access Status</div>
+        </div>
+    </div>
+</section>
+
+<section class="content-section">
+    <div class="section-heading">
+        <p class="section-eyebrow">Festival Snapshot</p>
+        <h2 class="section-title">Why <span class="grad">EchoFest</span> matters</h2>
+    </div>
+
+    <div class="highlight-grid">
+        <?php foreach ($summaryCards as $card): ?>
+            <article class="glass-card">
+                <p class="card-kicker"><?= htmlspecialchars($card['kicker']) ?></p>
+                <h3 class="card-title"><?= htmlspecialchars($card['title']) ?></h3>
+                <p class="card-copy"><?= htmlspecialchars($card['copy']) ?></p>
+            </article>
+        <?php endforeach; ?>
+    </div>
+</section>
+
+<section class="content-section two-col-section">
+    <div class="section-block">
+        <p class="section-eyebrow">Festival Structure</p>
+        <h2 class="section-title">Built to give visitors the full <span class="grad">picture</span></h2>
+        <p class="section-copy">
+            This homepage works like a summary page. It introduces the scale of the festival,
+            previews the lineup, surfaces the event structure, and points visitors to the most
+            important parts of the website.
+        </p>
+
+        <div class="chip-row">
+            <?php foreach ($stages as $stage): ?>
+                <span class="info-chip"><?= htmlspecialchars($stage) ?></span>
             <?php endforeach; ?>
         </div>
     </div>
 
-    <section class="summary-shell">
-        <div class="summary-panel">
-            <div class="summary-stat">
-                <div class="summary-value"><?= $days_count ?></div>
-                <div class="summary-label">Festival Days</div>
-            </div>
-            <div class="summary-stat">
-                <div class="summary-value"><?= $stages_count ?></div>
-                <div class="summary-label">Live Stages</div>
-            </div>
-            <div class="summary-stat">
-                <div class="summary-value"><?= $artists_count ?>+</div>
-                <div class="summary-label">Featured Artists</div>
-            </div>
-            <div class="summary-stat">
-                <div class="summary-value"><?= $logged_in ? 'Member' : 'Open' ?></div>
-                <div class="summary-label">Access Status</div>
-            </div>
+    <div class="detail-panel">
+        <div class="detail-row">
+            <span class="detail-label">Dates</span>
+            <span class="detail-value"><?= htmlspecialchars($festivalInfo['dates']) ?></span>
         </div>
-    </section>
-
-    <section class="content-section">
-        <div class="section-heading">
-            <p class="section-eyebrow">Festival Snapshot</p>
-            <h2 class="section-title">Why <span class="grad">EchoFest</span> matters</h2>
+        <div class="detail-row">
+            <span class="detail-label">Location</span>
+            <span class="detail-value"><?= htmlspecialchars($festivalInfo['location']) ?></span>
         </div>
-
-        <div class="highlight-grid">
-            <article class="glass-card">
-                <p class="card-kicker">What It Is</p>
-                <h3 class="card-title">A fast overview of EchoFest</h3>
-                <p class="card-copy">EchoFest brings together headline artists, immersive stages, and a crowd experience built around music, visuals, and atmosphere.</p>
-            </article>
-
-            <article class="glass-card">
-                <p class="card-kicker">Where To Start</p>
-                <h3 class="card-title">Everything important in one page</h3>
-                <p class="card-copy">This homepage works like a summary, helping visitors quickly understand the lineup, tickets, story, and account pages.</p>
-            </article>
-
-            <article class="glass-card">
-                <p class="card-kicker">What To Expect</p>
-                <h3 class="card-title">Music, planning, and identity</h3>
-                <p class="card-copy">The page keeps the cinematic festival style, but it also guides users through the main parts of the website.</p>
-            </article>
+        <div class="detail-row">
+            <span class="detail-label">Audience</span>
+            <span class="detail-value"><?= htmlspecialchars($festivalInfo['audience']) ?></span>
         </div>
-    </section>
-
-    <section class="content-section two-col-section">
-        <div class="section-block">
-            <p class="section-eyebrow">Festival Structure</p>
-            <h2 class="section-title">Built to give visitors the full <span class="grad">picture</span></h2>
-            <p class="section-copy">
-                This homepage now works like a summary page. It introduces the scale of the festival,
-                previews the lineup, surfaces the event structure, and points visitors to the most
-                important parts of the website.
-            </p>
-
-            <div class="chip-row">
-                <span class="info-chip">Main Stage</span>
-                <span class="info-chip">EDM Stage</span>
-                <span class="info-chip">Pop Stage</span>
-            </div>
+        <div class="detail-row">
+            <span class="detail-label">Focus</span>
+            <span class="detail-value"><?= htmlspecialchars($festivalInfo['focus']) ?></span>
         </div>
+    </div>
+</section>
 
-        <div class="detail-panel">
-            <div class="detail-row">
-                <span class="detail-label">Dates</span>
-                <span class="detail-value">July 18-21, 2026</span>
-            </div>
-            <div class="detail-row">
-                <span class="detail-label">Location</span>
-                <span class="detail-value">Pristina, Kosovo</span>
-            </div>
-            <div class="detail-row">
-                <span class="detail-label">Audience</span>
-                <span class="detail-value">Fans, newcomers, and returning members</span>
-            </div>
-            <div class="detail-row">
-                <span class="detail-label">Focus</span>
-                <span class="detail-value">Lineup, tickets, story, and profile</span>
-            </div>
+<section class="content-section">
+    <div class="section-heading split-heading">
+        <div>
+            <p class="section-eyebrow">Plan The Weekend</p>
+            <h2 class="section-title">Schedule <span class="grad">pulse</span></h2>
         </div>
-    </section>
+    </div>
 
-    <section class="content-section">
-        <div class="section-heading split-heading">
-            <div>
-                <p class="section-eyebrow">Plan The Weekend</p>
-                <h2 class="section-title">Schedule <span class="grad">pulse</span></h2>
-            </div>
-           
-        </div>
-
-        <div class="schedule-grid">
-            <?php foreach ($days as $day): ?>
-            <?php
-            $day_count = 0;
-            $shown = 0;
-            ?>
+    <div class="schedule-grid">
+        <?php foreach ($eventsByDay as $day => $dayEvents): ?>
             <article class="schedule-card">
                 <div class="schedule-top">
                     <p class="card-kicker"><?= htmlspecialchars($day) ?></p>
-                    <?php foreach ($events as $event): ?>
-                        <?php if ($event['day'] === $day): ?>
-                            <?php $day_count++; ?>
-                        <?php endif; ?>
-                    <?php endforeach; ?>
-                    <span class="schedule-count"><?= $day_count ?> artists</span>
+                    <span class="schedule-count"><?= count($dayEvents) ?> artists</span>
                 </div>
 
                 <div class="schedule-list">
-                    <?php foreach ($events as $event): ?>
-                        <?php if ($event['day'] === $day && $shown < 2): ?>
+                    <?php foreach (array_slice($dayEvents, 0, 2) as $event): ?>
                         <div class="schedule-item">
                             <span class="schedule-artist"><?= htmlspecialchars($event['artist']) ?></span>
                             <span class="schedule-stage"><?= htmlspecialchars($event['stage']) ?></span>
                         </div>
-                        <?php $shown++; ?>
-                        <?php endif; ?>
                     <?php endforeach; ?>
                 </div>
             </article>
-            <?php endforeach; ?>
-        </div>
-    </section>
+        <?php endforeach; ?>
+    </div>
+</section>
 
+<div class="lineup-preview">
+    <p class="section-eyebrow">Who's Playing</p>
+    <h2 class="section-title">The <span class="grad">Lineup</span></h2>
 
-    <div class="lineup-preview">
-        <p class="section-eyebrow">Who's Playing</p>
-        <h2 class="section-title">The <span class="grad">Lineup</span></h2>
-
-        <div class="artists-grid">
-            <?php foreach ($featured as $index => $artist): ?>
+    <div class="artists-grid">
+        <?php foreach ($featuredArtists as $index => $artist): ?>
             <div class="artist-card" style="animation: fadeUp 0.5s <?= $index * 0.07 ?>s ease both;">
-            <img src="<?= htmlspecialchars($artist['image']) ?>"
-                alt="<?= htmlspecialchars($artist['artist']) ?>"
-                onerror="this.style.display='none'">
-            <div class="artist-name"><?= htmlspecialchars($artist['artist']) ?></div>
-            <div class="artist-tag">
-                <?= htmlspecialchars($artist['stage']) ?> &nbsp;&middot;&nbsp; <?= htmlspecialchars($artist['day']) ?>
+                <img
+                    src="<?= htmlspecialchars($artist['image']) ?>"
+                    alt="<?= htmlspecialchars($artist['artist']) ?>"
+                    onerror="this.style.display='none'">
+                <div class="artist-name"><?= htmlspecialchars($artist['artist']) ?></div>
+                <div class="artist-tag">
+                    <?= htmlspecialchars($artist['stage']) ?> &nbsp;&middot;&nbsp; <?= htmlspecialchars($artist['day']) ?>
+                </div>
             </div>
-            </div>
-            <?php endforeach; ?>
-        </div>
-
-        <a href="lineup.php" class="lineup-link">Full Lineup &nbsp;&rarr;</a>
+        <?php endforeach; ?>
     </div>
 
-    <footer class="home-footer">
-        <div class="footer-brand">ECHO<span>FEST</span></div>
-        <span class="footer-copy">
-            July 18–21, 2026 &nbsp;/&nbsp; 4 Stages &nbsp;/&nbsp; <?= count($events) ?>+ Artists
-        </span>
-    </footer>
+    <a href="lineup.php" class="lineup-link">Full Lineup &nbsp;&rarr;</a>
+</div>
 
-    <script src="../assets/js/home.js"></script>
+<footer class="home-footer">
+    <div class="footer-brand">ECHO<span>FEST</span></div>
+    <span class="footer-copy">
+        <?= htmlspecialchars($festivalInfo['dates']) ?> &nbsp;/&nbsp; <?= $stagesCount ?> Stages &nbsp;/&nbsp; <?= $artistsCount ?> Artists
+    </span>
+</footer>
 
-</body>
-</html>
+<script src="../assets/js/home.js"></script>
 
 <?php require_once '../includes/footer.php'; ?>
