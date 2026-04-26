@@ -58,3 +58,18 @@ if ($action === 'add') {
 
     $_SESSION['admin_msg'] = "Ticket '$name' added successfully.";
 }
+
+//enable/disable
+elseif ($action === 'enable' || $action === 'disable') {
+    $id = $_POST['id'] ?? '';
+
+    foreach ($tickets as &$t) {
+        if ($t['id'] === $id) {
+            $t['available'] = ($action === 'enable');
+            break;
+        }
+    }
+    unset($t);
+
+    $_SESSION['admin_msg'] = "Ticket '$id' is " . ($action === 'enable' ? 'enabled' : 'disabled') . ".";
+}
