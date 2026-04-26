@@ -55,4 +55,16 @@
                     </div>
                 </div>
 
+             <div class="f-card">
+                            <h5 class="fw-800 mb-4 text-white">Recent Database Entry</h5>
+                            <table class="f-table">
+                                <thead><tr><th class="text-muted px-3 small">USERNAME</th><th class="text-muted px-3 small">EMAIL</th><th class="text-muted px-3 small">ROLE</th></tr></thead>
+                                <tbody>
+                                    <?php foreach(array_slice($users_list, -5) as $name => $u): ?>
+                                    <tr><td class="fw-bold"><?= $name ?></td><td class="text-dim"><?= $u['email'] ?></td><td><span class="text-accent"><?= $u['role'] ?></span></td></tr>
+                                    <?php endforeach; ?>
+                                </tbody>
+                            </table>
+                        </div>
+
 ?>
