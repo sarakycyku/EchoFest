@@ -25,14 +25,5 @@
         "coming_date": "Coming June 1, 2026",
         "img_src": "..\/assets\/images\/ticket3.jpg",
         "desc": "Live like a rockstar with our exclusive VIP package! Enjoy premium viewing areas with the best sightlines, relax in air-conditioned VIP lounges, and indulge in complimentary gourmet food and premium drinks. Meet your favorite artists, access private restrooms, and receive an exclusive merchandise pack. This is the ultimate festival experience for those who demand the very best."
-    },
-    {
-        "id": "premium",
-        "name": "Premium Pass",
-        "price": 499,
-        "available": false,
-        "coming_date": "August 3, 2026",
-        "img_src": "..\/assets\/images\/ticket1.jpg",
-        "desc": "New ticket"
     }
 ]

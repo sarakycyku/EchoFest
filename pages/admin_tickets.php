@@ -55,4 +55,27 @@ $tickets = json_decode(file_get_contents('../data/tickets.json'), true);
         </form>
     </div>
 
+    <!-- tickets ekzistuese -->
+     <div class="tickets-grid">
+        <?php foreach ($tickets as $t): ?>
+        <div class="ticket-row <?= $t['available'] ? 'enabled' : 'disabled' ?>">
+
+            <div class="ticket-info">
+                <div class="ticket-name"><?= $t['name'] ?></div>
+                <div class="ticket-price">€<?= $t['price'] ?></div>
+                <?php if ($t['coming_date']): ?>
+                    <div class="ticket-coming"><?= $t['coming_date'] ?></div>
+                <?php endif; ?>
+            </div>
+
+            <div class="ticket-status">
+                <span class="status-badge <?= $t['available'] ? 'badge-on' : 'badge-off' ?>">
+                    <?= $t['available'] ? 'Enabled' : 'Disabled' ?>
+                </span>
+            </div>
+
+        </div>
+        <?php endforeach; ?>
+    </div>
+
 <?php include '../includes/footer.php'; ?>
