@@ -125,3 +125,50 @@ body {
   color: #ef4444;
   border: 1px solid rgba(239,68,68,0.3);
 }
+
+.event-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #cbd5e1;
+}
+
+input,
+textarea,
+select {
+  background: #1e1e38;
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 8px;
+  padding: 11px 13px;
+  color: #f0eeff;
+  font-family: 'DM Sans', sans-serif;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: #7c3aed;
+}
+
+textarea {
+  min-height: 80px;
+  resize: vertical;
+}
