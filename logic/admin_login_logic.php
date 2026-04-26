@@ -37,5 +37,5 @@ $_SESSION['admin_username'] = $username;
 $_SESSION['admin_role'] = "admin";
 $_SESSION['admin_name'] = $user['first_name'] . " " . $user['last_name'];
 
-header("Location: ../pages/admin_dashboard.php");
+header("Location: ../pages/admin.php");
 exit;
