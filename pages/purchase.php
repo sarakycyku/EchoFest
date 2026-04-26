@@ -90,24 +90,6 @@ $event = $locations[$loc] ?? $locations['xk'];
             </div>
 
             <div class="panel">
-                <div class="panel-title">Billing Address</div>
-                <div class="form-grid">
-                    <div class="field">
-                        <label>Address <span class="req">*</span></label>
-                        <input type="text" name="address" placeholder="123 Main Street" required>
-                    </div>
-                    <div class="field">
-                        <label>City <span class="req">*</span></label>
-                        <input type="text" name="city" placeholder="Pristina" required>
-                    </div>
-                    <div class="field">
-                        <label>Country <span class="req">*</span></label>
-                        <input type="text" name="country" placeholder="Kosovo" required>
-                    </div>
-                </div>
-            </div>
-
-            <div class="panel">
                 <div class="panel-title">Payment Information</div>
                 <div class="form-grid">
                     <div class="field">
