@@ -1,9 +1,18 @@
 <?php
 session_start();
 
+if (isset($_SESSION['success'])):
+?>
+<script>
+    alert("<?= addslashes($_SESSION['success']) ?>");
+    window.location.href = "login.php";
+</script>
+<?php
+    unset($_SESSION['success']);
+endif;
+
 $passwordErr = $_SESSION['passwordErr'] ?? "";
 $confirmErr  = $_SESSION['confirmErr'] ?? "";
-$success     = $_SESSION['success'] ?? "";
 
 $ageErr   = $_SESSION['ageErr'] ?? "";
 $phoneErr = $_SESSION['phoneErr'] ?? "";
@@ -16,13 +25,12 @@ $emailErr     = $_SESSION['emailErr'] ?? "";
 unset(
     $_SESSION['passwordErr'],
     $_SESSION['confirmErr'],
-    $_SESSION['success'],
     $_SESSION['ageErr'],
     $_SESSION['phoneErr'],
     $_SESSION['firstNameErr'],
     $_SESSION['lastNameErr'],
     $_SESSION['usernameErr'],
-    $_SESSION['emailErr'],
+    $_SESSION['emailErr']
 );
 ?>
 
@@ -165,7 +173,7 @@ body {
 <p class="legal-links">
 By signing up you agree to our 
 <a href="terms.html">Terms & Conditions</a> and 
-<a href="#">Privacy Policy</a>
+<a href="privacy.html">Privacy Policy</a>
 </p>
 
 <!-- BUTTON -->
@@ -173,12 +181,6 @@ By signing up you agree to our
 Create Account
 </button>
 
-<!-- SUCCESS -->
-<?php
-if($success){
-    echo '<div class="success-msg text-success text-center mt-2">'.$success.'</div>';
-}
-?>
 
 <!-- LOGIN -->
 <p class="switch-form">

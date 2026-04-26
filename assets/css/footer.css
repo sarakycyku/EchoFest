@@ -11,7 +11,7 @@ body {
 
 footer {
   margin-top: auto;
-  border-top: 1px solid red;
+  border-top: 1px solid #7c7a9a;
 }
 
 /* :root {
@@ -43,6 +43,7 @@ a {
   height: 70vh; }
 
 .footer-48201 {
+  width: 100%;
   padding: 7rem 0;
   background-color: #000;
   color: #777; }

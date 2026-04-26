@@ -44,7 +44,7 @@ $event = $locations[$loc] ?? $locations['xk'];
 
 <link rel="stylesheet" href="../assets/css/purchase.css">
 
-<h1 class="page-title">Complete Your Purchase</h1>
+<h1 class="page-title"><span class='highlight'>Complete Your Purchase</span></h1>
 
 <form method="POST" action="../logic/purchase_logic.php">
     <div class="purchase-layout">
@@ -166,6 +166,10 @@ $event = $locations[$loc] ?? $locations['xk'];
 
             <input type="hidden" name="ticket_type" value="<?=$ticketParam?>">
             <input type="hidden" name="qty" value="<?= $qty ?>">
+            <input type="hidden" name="ticket_name" value="<?= $ticket['name'] ?>">
+            <input type="hidden" name="event_name" value="<?= $event['country'] ?>">
+            <input type="hidden" name="event_dates" value="<?= $event['dates'] ?>">
+            <input type="hidden" name="total" value="<?= $total ?>">
 
             <button class="complete-btn">
                 Complete Purchase €<?= $total ?>

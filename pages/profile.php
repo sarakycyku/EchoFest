@@ -9,6 +9,9 @@ if (!isset($_SESSION['username'])) {
     exit;
 }
 
+$pageTitle = 'Profile';
+$extraStyles = ['../assets/css/profile.css'];
+
 require_once '../data/users.php';
 require_once '../includes/header.php';
 
@@ -48,21 +51,6 @@ $tickets = [
 
 $artists = ["Four Tet","Burial","Floating Points","Bonobo","Actress","Objekt","Loraine James","Call Super"];
 ?>
-
-
-
-
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Profile</title>
-  <link rel="icon" type="image/x-icon" href="../assets/images/logo2-pabg.png">
-  <link rel="stylesheet" href="../assets/css/profile.css">
-</head>
-
-<body>
 <div class="pf-root">
     <div class="pf-particles" id="pf-particles"></div>
     
@@ -174,8 +162,4 @@ function confirmDelete() {
     }
 }
 </script>
-
-
-</body>
-</html>
 <?php require_once '../includes/footer.php'; ?>

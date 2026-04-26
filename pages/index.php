@@ -9,11 +9,27 @@ require_once '../includes/cookies.php';
 
 $logged_in = isset($_SESSION['username']);
 
-// 3 featured artists for the grid
-$featured = array_slice($events, 0, 3);
+// featured artists for the grid
+$featured = array_slice($events, 0, 4);
 
 // doubled for seamless ticker loop
 $ticker = array_merge($events, $events);
+
+$days = [];
+$stages = [];
+foreach ($events as $event) {
+    if (!in_array($event['day'], $days)) {
+        $days[] = $event['day'];
+    }
+
+    if (!in_array($event['stage'], $stages)) {
+        $stages[] = $event['stage'];
+    }
+}
+
+$days_count = count($days);
+$stages_count = count($stages);
+$artists_count = count($events);
 ?>
 
 
@@ -31,7 +47,7 @@ $ticker = array_merge($events, $events);
 
     <section class="hero">
 
-    <div class="hero-eyebrow">July 18–21, 2026 &nbsp;·&nbsp; Open Air Arena</div>
+    <div class="hero-eyebrow">July 18-21, 2026 &nbsp;&middot;&nbsp; Open Air Arena</div>
 
         <h1 class="hero-title">
             <span class="outline">ECHO</span><br>
@@ -39,8 +55,8 @@ $ticker = array_merge($events, $events);
         </h1>
 
          <p class="hero-sub">
-            Four days. Four stages. <?= count($events) ?>+ artists across electronic,
-            ambient, and club music.
+            <?= $days_count ?> days. <?= $stages_count ?> stages. <?= $artists_count ?>+ artists across electronic,
+            ambient, pop, and club music.
         </p>
 
         <div class="hero-cta">
@@ -54,11 +70,11 @@ $ticker = array_merge($events, $events);
         </div>
 
         <div class="hero-meta">
-            <span>4 Days</span>
+            <span><?= $days_count ?> Days</span>
             <span class="bar"></span>
-            <span>4 Stages</span>
+            <span><?= $stages_count ?> Stages</span>
             <span class="bar"></span>
-            <span><?= count($events) ?>+ Artists</span>
+            <span><?= $artists_count ?>+ Artists</span>
             <span class="bar"></span>
             <span>Pristina, Kosovo</span>
         </div>
@@ -68,14 +84,141 @@ $ticker = array_merge($events, $events);
 
     <div class="ticker">
         <div class="ticker-track">
-            <?php foreach ($ticker as $e): ?>
+            <?php foreach ($ticker as $event): ?>
             <span class="ticker-item">
             <span class="spark"></span>
-            <?= htmlspecialchars($e['artist']) ?>
+            <?= htmlspecialchars($event['artist']) ?>
             </span>
             <?php endforeach; ?>
         </div>
     </div>
+
+    <section class="summary-shell">
+        <div class="summary-panel">
+            <div class="summary-stat">
+                <div class="summary-value"><?= $days_count ?></div>
+                <div class="summary-label">Festival Days</div>
+            </div>
+            <div class="summary-stat">
+                <div class="summary-value"><?= $stages_count ?></div>
+                <div class="summary-label">Live Stages</div>
+            </div>
+            <div class="summary-stat">
+                <div class="summary-value"><?= $artists_count ?>+</div>
+                <div class="summary-label">Featured Artists</div>
+            </div>
+            <div class="summary-stat">
+                <div class="summary-value"><?= $logged_in ? 'Member' : 'Open' ?></div>
+                <div class="summary-label">Access Status</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="content-section">
+        <div class="section-heading">
+            <p class="section-eyebrow">Festival Snapshot</p>
+            <h2 class="section-title">Why <span class="grad">EchoFest</span> matters</h2>
+        </div>
+
+        <div class="highlight-grid">
+            <article class="glass-card">
+                <p class="card-kicker">What It Is</p>
+                <h3 class="card-title">A fast overview of EchoFest</h3>
+                <p class="card-copy">EchoFest brings together headline artists, immersive stages, and a crowd experience built around music, visuals, and atmosphere.</p>
+            </article>
+
+            <article class="glass-card">
+                <p class="card-kicker">Where To Start</p>
+                <h3 class="card-title">Everything important in one page</h3>
+                <p class="card-copy">This homepage works like a summary, helping visitors quickly understand the lineup, tickets, story, and account pages.</p>
+            </article>
+
+            <article class="glass-card">
+                <p class="card-kicker">What To Expect</p>
+                <h3 class="card-title">Music, planning, and identity</h3>
+                <p class="card-copy">The page keeps the cinematic festival style, but it also guides users through the main parts of the website.</p>
+            </article>
+        </div>
+    </section>
+
+    <section class="content-section two-col-section">
+        <div class="section-block">
+            <p class="section-eyebrow">Festival Structure</p>
+            <h2 class="section-title">Built to give visitors the full <span class="grad">picture</span></h2>
+            <p class="section-copy">
+                This homepage now works like a summary page. It introduces the scale of the festival,
+                previews the lineup, surfaces the event structure, and points visitors to the most
+                important parts of the website.
+            </p>
+
+            <div class="chip-row">
+                <span class="info-chip">Main Stage</span>
+                <span class="info-chip">EDM Stage</span>
+                <span class="info-chip">Pop Stage</span>
+            </div>
+        </div>
+
+        <div class="detail-panel">
+            <div class="detail-row">
+                <span class="detail-label">Dates</span>
+                <span class="detail-value">July 18-21, 2026</span>
+            </div>
+            <div class="detail-row">
+                <span class="detail-label">Location</span>
+                <span class="detail-value">Pristina, Kosovo</span>
+            </div>
+            <div class="detail-row">
+                <span class="detail-label">Audience</span>
+                <span class="detail-value">Fans, newcomers, and returning members</span>
+            </div>
+            <div class="detail-row">
+                <span class="detail-label">Focus</span>
+                <span class="detail-value">Lineup, tickets, story, and profile</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="content-section">
+        <div class="section-heading split-heading">
+            <div>
+                <p class="section-eyebrow">Plan The Weekend</p>
+                <h2 class="section-title">Schedule <span class="grad">pulse</span></h2>
+            </div>
+           
+        </div>
+
+        <div class="schedule-grid">
+            <?php foreach ($days as $day): ?>
+            <?php
+            $day_count = 0;
+            $shown = 0;
+            ?>
+            <article class="schedule-card">
+                <div class="schedule-top">
+                    <p class="card-kicker"><?= htmlspecialchars($day) ?></p>
+                    <?php foreach ($events as $event): ?>
+                        <?php if ($event['day'] === $day): ?>
+                            <?php $day_count++; ?>
+                        <?php endif; ?>
+                    <?php endforeach; ?>
+                    <span class="schedule-count"><?= $day_count ?> artists</span>
+                </div>
+
+                <div class="schedule-list">
+                    <?php foreach ($events as $event): ?>
+                        <?php if ($event['day'] === $day && $shown < 2): ?>
+                        <div class="schedule-item">
+                            <span class="schedule-artist"><?= htmlspecialchars($event['artist']) ?></span>
+                            <span class="schedule-stage"><?= htmlspecialchars($event['stage']) ?></span>
+                        </div>
+                        <?php $shown++; ?>
+                        <?php endif; ?>
+                    <?php endforeach; ?>
+                </div>
+            </article>
+            <?php endforeach; ?>
+        </div>
+    </section>
 
 
     <div class="lineup-preview">
@@ -83,20 +226,20 @@ $ticker = array_merge($events, $events);
         <h2 class="section-title">The <span class="grad">Lineup</span></h2>
 
         <div class="artists-grid">
-            <?php foreach ($featured as $i => $a): ?>
-            <div class="artist-card" style="animation: fadeUp 0.5s <?= $i * 0.07 ?>s ease both;">
-            <img src="<?= htmlspecialchars($a['image']) ?>"
-                alt="<?= htmlspecialchars($a['artist']) ?>"
+            <?php foreach ($featured as $index => $artist): ?>
+            <div class="artist-card" style="animation: fadeUp 0.5s <?= $index * 0.07 ?>s ease both;">
+            <img src="<?= htmlspecialchars($artist['image']) ?>"
+                alt="<?= htmlspecialchars($artist['artist']) ?>"
                 onerror="this.style.display='none'">
-            <div class="artist-name"><?= htmlspecialchars($a['artist']) ?></div>
+            <div class="artist-name"><?= htmlspecialchars($artist['artist']) ?></div>
             <div class="artist-tag">
-                <?= htmlspecialchars($a['stage']) ?> &nbsp;·&nbsp; <?= htmlspecialchars($a['day']) ?>
+                <?= htmlspecialchars($artist['stage']) ?> &nbsp;&middot;&nbsp; <?= htmlspecialchars($artist['day']) ?>
             </div>
             </div>
             <?php endforeach; ?>
         </div>
 
-        <a href="lineup.php" class="lineup-link">Full Lineup &nbsp;→</a>
+        <a href="lineup.php" class="lineup-link">Full Lineup &nbsp;&rarr;</a>
     </div>
 
     <footer class="home-footer">

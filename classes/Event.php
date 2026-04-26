@@ -12,7 +12,7 @@ class Event {
     private $image;
     private $category; 
 
-    public function __construct($id, $title, $date, $time, $location, $stage, $description, $artist, $image, $category) {
+    public function __construct($id = null, $title = "", $date = "", $time = "", $location = "", $stage = "", $description = "", $artist = "", $image = "", $category = "") {
         $this->id = $id;
         $this->title = $title;
         $this->date = $date;
@@ -36,4 +36,63 @@ class Event {
     public function getImage() { return $this->image; }
     public function getCategory() { return $this->category; }
 
+    public function setId($id) {
+        if ($id !== null) {
+            $this->id = $id;
+        }
+    }
+
+    public function setTitle($title) {
+        if (!empty($title)) {
+            $this->title = $title;
+        }
+    }
+
+    public function setDate($date) {
+        if (!empty($date)) {
+            $this->date = $date;
+        }
+    }
+
+    public function setTime($time) {
+        if (!empty($time)) {
+            $this->time = $time;
+        }
+    }
+
+    public function setLocation($location) {
+        if (!empty($location)) {
+            $this->location = $location;
+        }
+    }
+
+    public function setStage($stage) {
+        if (!empty($stage)) {
+            $this->stage = $stage;
+        }
+    }
+
+    public function setDescription($description) {
+        if (!empty($description)) {
+            $this->description = $description;
+        }
+    }
+
+    public function setArtist($artist) {
+        if (!empty($artist)) {
+            $this->artist = $artist;
+        }
+    }
+
+    public function setImage($image) {
+        if (!empty($image)) {
+            $this->image = $image;
+        }
+    }
+
+    public function setCategory($category) {
+        if (!empty($category)) {
+            $this->category = $category;
+        }
+    }
 }

@@ -13,6 +13,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $username   = $_POST["username"] ?? "";
     $email      = $_POST["email"] ?? "";
 
+    include "../data/users.php";
+
     $passRegex = "/^[a-zA-Z0-9\W_]{8,}$/";
     $phoneRegex = "/^[0-9]{8,15}$/";
     $regexname = "/^[a-zA-ZëËçÇ]+$/u";
@@ -27,7 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $_SESSION['emailErr'] = "";
 
     if (!preg_match($passRegex, $p)) {
-        $_SESSION['passwordErr'] = "Password must be at least 8 characters long and include uppercase, lowercase, number, and special character!";
+        $_SESSION['passwordErr'] = "Password must be at least 8 characters!";
     }
 
     if ($p !== $c) {
@@ -49,7 +51,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     if (!preg_match($regexname, $last_name)) {
         $_SESSION['lastNameErr'] = "Only letters are allowed!";
     }
-   
 
     $blocked = ["admin"];
     $usernameReg = "/^[a-zA-Z][a-zA-Z0-9]{2,19}$/";
@@ -57,24 +58,21 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     if (in_array(strtolower($username), $blocked)) {
         $_SESSION['usernameErr'] = "This username is not allowed!";
     } elseif (!preg_match($usernameReg, $username)) {
-        $_SESSION['usernameErr'] = "Username must be 3-20 characters, start with a letter, and contain only letters and numbers!";
+        $_SESSION['usernameErr'] = "Username must be 3-20 characters...";
+    } elseif (isset($users[$username])) {
+        $_SESSION['usernameErr'] = "Username already exists!";
     }
 
-    if (strpos($email, "@") === false) {
-        $_SESSION['emailErr'] = "Email must contain @";
-    } else {
-        $parts = explode("@", $email);
-        $beforeAt = $parts[0];
-        $afterAt  = $parts[1] ?? "";
-
-        if (str_starts_with($beforeAt, ".") || str_ends_with($beforeAt, ".")) {
-            $_SESSION['emailErr'] = "Invalid email format before @";
-        } elseif (strpos($afterAt, ".") === false) {
-            $_SESSION['emailErr'] = "Domain must contain dot (.)";
-        } elseif (count(explode(".", $afterAt)) < 2) {
-            $_SESSION['emailErr'] = "Invalid domain format";
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    $_SESSION['emailErr'] = "Email is not valid!";
+} else {
+    foreach ($users as $u) {
+        if ($u['email'] === $email) {
+            $_SESSION['emailErr'] = "Email already exists!";
+            break;
         }
     }
+}
 
     if (
         empty($_SESSION['passwordErr']) &&
@@ -86,7 +84,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         empty($_SESSION['usernameErr']) &&
         empty($_SESSION['emailErr']) 
     ) {
-        include "../data/users.php";
 
         $users[$username] = [
             'password' => password_hash($p, PASSWORD_DEFAULT), 
@@ -97,8 +94,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             'age'        => $age,
             'role'       => 'user'
         ];
+
         saveUsers($users);
-        $_SESSION['success'] = "Account created successfully!";
+        $_SESSION['success'] = "Account created successfully! Now login.";
     }
 
     header("Location: ../pages/signup.php");
