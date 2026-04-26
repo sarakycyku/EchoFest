@@ -1,4 +1,5 @@
 <?php
+
 $news = [
   [
     "title" => "EchoFest 2026 Lineup Announcement",
