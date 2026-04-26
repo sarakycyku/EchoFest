@@ -30,5 +30,7 @@ if (file_exists($ORDERS_FILE)) {
     $orders = file($ORDERS_FILE, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
     $totalTicketsSold = count($orders);
 }
-
+$festivalCapacity = 5000; // Kapaciteti total
+$availableTickets = $festivalCapacity - $totalTicketsSold;
+if ($availableTickets < 0) $availableTickets = 0;
 ?>
