@@ -23,4 +23,12 @@ $lineup = loadJSON($LINEUP_FILE);
 $events = loadJSON($EVENTS_FILE);
 $users_list = loadJSON($USERS_FILE);
 
+// --- LLOGARITJA E STATISTIKAVE NGA ORDERS.TXT ---
+$totalTicketsSold = 0;
+if (file_exists($ORDERS_FILE)) {
+    // Numëron çdo rresht si një biletë të shitur
+    $orders = file($ORDERS_FILE, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+    $totalTicketsSold = count($orders);
+}
+
 ?>
