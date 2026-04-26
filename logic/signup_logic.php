@@ -13,6 +13,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $username   = $_POST["username"] ?? "";
     $email      = $_POST["email"] ?? "";
 
+    include "../data/users.php";
+
     $passRegex = "/^[a-zA-Z0-9\W_]{8,}$/";
     $phoneRegex = "/^[0-9]{8,15}$/";
     $regexname = "/^[a-zA-ZëËçÇ]+$/u";
@@ -49,7 +51,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     if (!preg_match($regexname, $last_name)) {
         $_SESSION['lastNameErr'] = "Only letters are allowed!";
     }
-   
 
     $blocked = ["admin"];
     $usernameReg = "/^[a-zA-Z][a-zA-Z0-9]{2,19}$/";
@@ -57,11 +58,20 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     if (in_array(strtolower($username), $blocked)) {
         $_SESSION['usernameErr'] = "This username is not allowed!";
     } elseif (!preg_match($usernameReg, $username)) {
-        $_SESSION['usernameErr'] = "Username must be 3-20 characters, start with a letter, and contain only letters and numbers!";
+        $_SESSION['usernameErr'] = "Username must be 3-20 characters...";
+    } elseif (isset($users[$username])) {
+        $_SESSION['usernameErr'] = "Username already exists!";
     }
 
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
     $_SESSION['emailErr'] = "Email is not valid!";
+} else {
+    foreach ($users as $u) {
+        if ($u['email'] === $email) {
+            $_SESSION['emailErr'] = "Email already exists!";
+            break;
+        }
+    }
 }
 
     if (
@@ -74,7 +84,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         empty($_SESSION['usernameErr']) &&
         empty($_SESSION['emailErr']) 
     ) {
-        include "../data/users.php";
 
         $users[$username] = [
             'password' => password_hash($p, PASSWORD_DEFAULT), 
@@ -85,6 +94,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             'age'        => $age,
             'role'       => 'user'
         ];
+
         saveUsers($users);
         $_SESSION['success'] = "Account created successfully! Now login.";
     }
