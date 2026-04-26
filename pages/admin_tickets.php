@@ -4,7 +4,7 @@ if (!isset($_SESSION['username']) || $_SESSION['role'] !== 'admin') {
     header("Location: ../pages/login.php");
     exit;
 }
- 
+
 $tickets = json_decode(file_get_contents('../data/tickets.json'), true);
 ?>
 <link rel="stylesheet" href="../assets/css/admin_tickets.css">
@@ -16,9 +16,7 @@ $tickets = json_decode(file_get_contents('../data/tickets.json'), true);
         <p class="admin-sub">Add, enable, disable or delete ticket types</p>
     </div>
 
-</div>
-
-<!--me shtu ticket -->
+    <!--me shtu ticket -->
     <div class="add-card">
         <div class="add-title">Add New Ticket</div>
         <form method="POST" action="../logic/admin_tickets_logic.php" class="add-form">
@@ -56,45 +54,45 @@ $tickets = json_decode(file_get_contents('../data/tickets.json'), true);
     </div>
 
     <!-- tickets ekzistuese -->
-     <div class="tickets-grid">
+    <div class="tickets-grid">
         <?php foreach ($tickets as $t): ?>
-        <div class="ticket-row <?= $t['available'] ? 'enabled' : 'disabled' ?>">
+            <div class="ticket-row <?= $t['available'] ? 'enabled' : 'disabled' ?>">
 
-            <div class="ticket-info">
-                <div class="ticket-name"><?= $t['name'] ?></div>
-                <div class="ticket-price">€<?= $t['price'] ?></div>
-                <?php if ($t['coming_date']): ?>
-                    <div class="ticket-coming"><?= $t['coming_date'] ?></div>
-                <?php endif; ?>
+                <div class="ticket-info">
+                    <div class="ticket-name"><?= $t['name'] ?></div>
+                    <div class="ticket-price">€<?= $t['price'] ?></div>
+                    <?php if ($t['coming_date']): ?>
+                        <div class="ticket-coming"><?= $t['coming_date'] ?></div>
+                    <?php endif; ?>
+                </div>
+
+                <div class="ticket-status">
+                    <span class="status-badge <?= $t['available'] ? 'badge-on' : 'badge-off' ?>">
+                        <?= $t['available'] ? 'Enabled' : 'Disabled' ?>
+                    </span>
+                </div>
+
+                <div class="ticket-actions">
+                    <!-- per toggle enable/disable -->
+                    <form method="POST" action="../logic/admin_tickets_logic.php">
+                        <input type="hidden" name="id" value="<?= $t['id'] ?>">
+                        <input type="hidden" name="action" value="<?= $t['available'] ? 'disable' : 'enable' ?>">
+                        <label class="toggle">
+                            <input type="checkbox" <?= $t['available'] ? 'checked' : '' ?> onchange="this.form.submit()">
+                            <span class="slider"></span>
+                        </label>
+                    </form>
+
+                    <!-- delete -->
+                    <form method="POST" action="../logic/admin_tickets_logic.php">
+                        <input type="hidden" name="id" value="<?= $t['id'] ?>">
+                        <input type="hidden" name="action" value="delete">
+                        <button class="btn-delete" type="submit">Delete</button>
+                    </form>
+                </div>
+
             </div>
-
-            <div class="ticket-status">
-                <span class="status-badge <?= $t['available'] ? 'badge-on' : 'badge-off' ?>">
-                    <?= $t['available'] ? 'Enabled' : 'Disabled' ?>
-                </span>
-            </div>
-
-            <div class="ticket-actions">
-                <!-- per toggle enable/disable -->
-                <form method="POST" action="../logic/admin_tickets_logic.php">
-                    <input type="hidden" name="id" value="<?= $t['id'] ?>">
-                    <input type="hidden" name="action" value="<?= $t['available'] ? 'disable' : 'enable' ?>">
-                    <label class="toggle">
-                        <input type="checkbox" <?= $t['available'] ? 'checked' : '' ?> onchange="this.form.submit()">
-                        <span class="slider"></span>
-                    </label>
-                </form>
-
-                <!-- delete -->
-                <form method="POST" action="../logic/admin_tickets_logic.php">
-                    <input type="hidden" name="id" value="<?= $t['id'] ?>">
-                    <input type="hidden" name="action" value="delete">
-                    <button class="btn-delete" type="submit">Delete</button>
-                </form>
-            </div>
-
-        </div>
         <?php endforeach; ?>
     </div>
-
+</div>
 <?php include '../includes/footer.php'; ?>
