@@ -71,5 +71,17 @@
                                     <h1 class="fw-800 text-white">Festival Lineup</h1>
                                     <button class="btn btn-vivid" data-bs-toggle="modal" data-bs-target="#addArtModal">+ Add Artist</button>
                                 </div>
-
+<table class="f-table">
+                <thead><tr><th class="text-muted px-3 small">ARTIST</th><th class="text-muted px-3 small">STAGE</th><th class="text-muted px-3 small">DAY</th><th class="text-end text-muted px-3 small">ACTIONS</th></tr></thead>
+                <tbody>
+                    <?php foreach($lineup as $i => $a): ?>
+                    <tr>
+                        <td><div class="d-flex align-items-center gap-3"><img src="<?= $a['image'] ?>" class="artist-img"><span class="fw-bold fs-5"><?= $a['artist'] ?></span></div></td>
+                        <td class="text-dim"><?= $a['stage'] ?></td>
+                        <td><span class="badge bg-dark border border-secondary p-2 px-3"><?= $a['day'] ?></span></td>
+                        <td class="text-end"><a href="?delete_artist=<?= $i ?>" class="text-danger fs-5 mx-3"><i class="fa-solid fa-trash-can"></i></a></td>
+                    </tr>
+                    <?php endforeach; ?>
+                </tbody>
+            </table>
 ?>
