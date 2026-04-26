@@ -42,7 +42,7 @@ if (session_status() === PHP_SESSION_NONE) {
             <li class="nav-item"><a class="nav-link" href="../pages/events.php">Events</a></li>
             <li class="nav-item"><a class="nav-link" href="../pages/tickets.php">Tickets</a></li>
             <li class="nav-item"><a class="nav-link" href="../pages/profile.php">Profile</a></li>
-
+            <li class="nav-item"><a class="nav-link" href="../pages/news.php">News</a></li>
             <?php if (isset($_SESSION['role']) && $_SESSION['role'] === 'admin'): ?>
               <li class="nav-item">
                 <a class="nav-link" href="../pages/loginadmin.php">Admin</a>
