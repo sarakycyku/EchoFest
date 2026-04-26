@@ -98,7 +98,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             'role'       => 'user'
         ];
         saveUsers($users);
-        $_SESSION['success'] = "Account created successfully!";
+        $_SESSION['success'] = "Account created successfully! Now login.";
     }
 
     header("Location: ../pages/signup.php");
