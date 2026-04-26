@@ -1,141 +1,185 @@
-<?php
-// admin_dashboard.php - Admin panel for managing lineup
-require '../logic/admin.php';
-?>
+<?php require '../logic/admin.php'; ?>
+<?php require '../includes/header.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Dashboard - Manage Lineup | EchoFest</title>
+    <title>EchoFest | Master Admin</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="../assets/css/admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<link rel="stylesheet" href="/EchoFest/assets/css/admin.css">
 </head>
+<style>
+    :root {
+      --bg: #000;
+      --sidebar: #09090b;
+      --card: #09090b;
+      --border: #27272a;
+      --accent: #a855f7;
+      --text: #fafafa;
+      --dim: #71717a;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      margin: 0;
+    }
+    </style>
 <body>
-    <div class="admin-wrapper">
-        <!-- Header -->
-        <div class="admin-header">
-            <div class="logo">
-                <h1><i class="fas fa-ticket-alt"></i> EchoFest Admin Panel</h1>
-                <p class="text-muted mb-0">Manage Festival Lineup</p>
+    <div class="sidebar d-flex flex-column">
+            <div class="mb-5 px-3">
+                <h3 class="fw-800 m-0" style="letter-spacing:-1.5px;">ECHOFEST<span class="text-primary">.</span></h3>
+                <span class="text-muted small fw-bold">MISSION CONTROL</span>
             </div>
-            <div class="d-flex gap-3 align-items-center">
-                <span class="text-light"><i class="fas fa-user-shield"></i> <?php echo htmlspecialchars($_SESSION['username']); ?> (Admin)</span>
-                <a href="logout.php" class="btn btn-danger btn-sm"><i class="fas fa-sign-out-alt"></i> Logout</a>
-                <a href="lineup.php" target="_blank" class="btn btn-outline-info btn-sm"><i class="fas fa-eye"></i> View Live Lineup</a>
-            </div>
-        </div>
-
-        <!-- Messages -->
-        <?php if ($message): ?>
-            <div class="alert alert-<?php echo $messageType; ?> alert-dismissible fade show" role="alert">
-                <?php echo htmlspecialchars($message); ?>
-                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-            </div>
-        <?php endif; ?>
-
-        <!-- Add Artist Form -->
-        <div class="glass-card">
-            <h3 class="text-light mb-3"><i class="fas fa-plus-circle text-warning"></i> Add New Artist to Lineup</h3>
-            <form method="POST">
-                <div class="row g-3">
-                    <div class="col-md-4">
-                        <label class="form-label">Artist Name *</label>
-                        <input type="text" name="artist" class="form-control" required placeholder="e.g., Taylor Swift">
-                    </div>
-                    <div class="col-md-3">
-                        <label class="form-label">Stage *</label>
-                        <input type="text" name="stage" class="form-control" required placeholder="Main Stage / EDM Stage">
-                    </div>
-                    <div class="col-md-2">
-                        <label class="form-label">Day *</label>
-                        <select name="day" class="form-select" required>
-                            <option value="">Select Day</option>
-                            <?php foreach ($days as $d): ?>
-                                <option value="<?php echo $d; ?>"><?php echo $d; ?></option>
-                            <?php endforeach; ?>
-                        </select>
-                    </div>
-                    <div class="col-md-3">
-                        <label class="form-label">Image URL</label>
-                        <input type="text" name="image" class="form-control" placeholder="../assets/images/artist.png">
-                    </div>
-                    <div class="col-12">
-                        <label class="form-label">Hit Songs (one per line)</label>
-                        <textarea name="hits" class="form-control" rows="3" placeholder="Song 1&#10;Song 2&#10;Song 3"></textarea>
-                    </div>
-                    <div class="col-12">
-                        <button type="submit" name="add_artist" class="btn btn-warning"><i class="fas fa-save"></i> Add Artist to Lineup</button>
-                    </div>
-                </div>
-            </form>
-        </div>
-
-        <!-- Current Lineup Table -->
-        <div class="glass-card">
-            <h3 class="text-light mb-3"><i class="fas fa-music"></i> Current Lineup Management</h3>
-            <div class="table-responsive">
-                <table class="table table-dark table-hover">
-                    <thead>
-                        <tr><th>#</th><th>Artist</th><th>Stage</th><th>Day</th><th>Image Path</th><th>Hits</th><th>Actions</th></tr>
-                    </thead>
-                    <tbody>
-                        <?php foreach ($lineup as $index => $artist): ?>
-                        <tr>
-                            <form method="POST" style="display: inline;">
-                                <input type="hidden" name="artist_index" value="<?php echo $index; ?>">
-                                <td><?php echo $index + 1; ?></td>
-                                <td><input type="text" name="artist" value="<?php echo htmlspecialchars($artist['artist']); ?>" class="form-control form-control-sm" style="width: 150px;"></td>
-                                <td><input type="text" name="stage" value="<?php echo htmlspecialchars($artist['stage']); ?>" class="form-control form-control-sm" style="width: 130px;"></td>
-                                <td>
-                                    <select name="day" class="form-select form-select-sm" style="width: 110px;">
-                                        <?php foreach ($days as $d): ?>
-                                            <option value="<?php echo $d; ?>" <?php echo ($artist['day'] == $d) ? 'selected' : ''; ?>><?php echo $d; ?></option>
-                                        <?php endforeach; ?>
-                                    </select>
-                                 </td>
-                                <td><input type="text" name="image" value="<?php echo htmlspecialchars($artist['image']); ?>" class="form-control form-control-sm" style="width: 160px;"></td>
-                                <td><textarea name="hits" class="form-control form-control-sm" rows="2" style="width: 180px;"><?php echo implode("\n", $artist['hits']); ?></textarea></td>
-                                <td style="white-space: nowrap;">
-                                    <button type="submit" name="edit_artist" class="btn btn-sm btn-warning-custom"><i class="fas fa-edit"></i> Update</button>
-                                    <a href="?delete=<?php echo $index; ?>" class="btn btn-sm btn-danger" onclick="return confirm('Delete <?php echo htmlspecialchars($artist['artist']); ?> from lineup?')"><i class="fas fa-trash"></i> Delete</a>
-                                </td>
-                            </form>
-                        </tr>
-                        <?php endforeach; ?>
-                    </tbody>
-                </table>
+            <nav class="nav flex-column flex-grow-1">
+                <a href="?view=dashboard" class="nav-link <?= (!isset($_GET['view']) || $_GET['view']=='dashboard') ? 'active':'' ?>"><i class="fa-solid fa-grid-2 me-3"></i> Dashboard</a>
+                <a href="?view=lineup" class="nav-link <?= ($_GET['view']??'')=='lineup' ? 'active':'' ?>"><i class="fa-solid fa-microphone-lines me-3"></i> Manage Lineup</a>
+                <a href="?view=events" class="nav-link <?= ($_GET['view']??'')=='events' ? 'active':'' ?>"><i class="fa-solid fa-calendar-day me-3"></i> Manage Events</a>
+                <a href="?download_csv=1" class="nav-link text-info"><i class="fa-solid fa-file-csv me-3"></i> Export CSV</a>
+            </nav>
+            <div class="pt-4 border-top border-secondary">
+                <a href="../logout.php" class="nav-link text-danger"><i class="fa-solid fa-power-off me-3"></i> Logout</a>
             </div>
         </div>
 
-        <!-- Preview Cards -->
-        <div class="glass-card">
-            <h3 class="text-light mb-3"><i class="fas fa-eye"></i> Lineup Preview</h3>
-            <div class="row">
-                <?php
-                $previewArtists = array_slice($lineup, 0, 4);
-                foreach ($previewArtists as $artist):
-                ?>
-                <div class="col-md-3 mb-3">
-                    <div class="artist-card">
-                        <img src="<?php echo htmlspecialchars($artist['image']); ?>" class="artist-image" onerror="this.src='https://placehold.co/400x300?text=Artist'">
-                        <div class="p-3">
-                            <h5 class="text-warning mb-1"><?php echo htmlspecialchars($artist['artist']); ?></h5>
-                            <p class="mb-1"><i class="fas fa-map-marker-alt"></i> <?php echo htmlspecialchars($artist['stage']); ?></p>
-                            <p class="mb-2"><i class="fas fa-calendar"></i> <?php echo htmlspecialchars($artist['day']); ?></p>
-                            <div class="hits-list">
-                                <small><i class="fas fa-headphones"></i> <?php echo implode(', ', array_slice($artist['hits'], 0, 2)); ?></small>
-                            </div>
+        <div class="main-view">
+            <?php $view = $_GET['view'] ?? 'dashboard'; ?>
+
+            <?php if($view == 'dashboard'): ?>
+                <h1 class="fw-800 mb-5 text-white">Overview</h1>
+                <div class="row g-4 mb-5">
+                    <div class="col-lg-4">
+                        <div class="f-card">
+                            <p class="text-muted small fw-bold uppercase">TOTAL USERS</p>
+                            <div style="font-size: 3rem; font-weight: 800;"><?= count($users_list) ?></div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="f-card text-center">
+                            <p class="text-muted small fw-bold text-start uppercase">ORDERS SATURATION</p>
+                            <div class="py-2"><canvas id="orderChart" style="max-height: 120px;"></canvas></div>
+                            <div class="small mt-2 text-muted fw-bold"><?= $totalTicketsSold ?> / <?= $festivalCapacity ?> Tickets Sold</div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="f-card">
+                            <p class="text-muted small fw-bold uppercase">ACTIVE ARTISTS</p>
+                            <div style="font-size: 3rem; font-weight: 800; color: var(--accent);"><?= count($lineup) ?></div>
                         </div>
                     </div>
                 </div>
-                <?php endforeach; ?>
-            </div>
-            <p class="text-center text-muted mt-2">Total artists in lineup: <?php echo count($lineup); ?></p>
-        </div>
-    </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+             <div class="f-card">
+                            <h5 class="fw-800 mb-4 text-white">Recent Database Entry</h5>
+                            <table class="f-table">
+                                <thead><tr><th class="text-muted px-3 small">USERNAME</th><th class="text-muted px-3 small">EMAIL</th><th class="text-muted px-3 small">ROLE</th></tr></thead>
+                                <tbody>
+                                    <?php foreach(array_slice($users_list, -5) as $name => $u): ?>
+                                    <tr><td class="fw-bold"><?= $name ?></td><td class="text-dim"><?= $u['email'] ?></td><td><span class="text-accent"><?= $u['role'] ?></span></td></tr>
+                                    <?php endforeach; ?>
+                                </tbody>
+                            </table>
+                        </div>
+                     <?php elseif($view == 'lineup'): ?>
+                                <div class="d-flex justify-content-between align-items-center mb-5">
+                                    <h1 class="fw-800 text-white">Festival Lineup</h1>
+                                    <button class="btn btn-vivid" data-bs-toggle="modal" data-bs-target="#addArtModal">+ Add Artist</button>
+                                </div>
+<table class="f-table">
+                <thead><tr><th class="text-muted px-3 small">ARTIST</th><th class="text-muted px-3 small">STAGE</th><th class="text-muted px-3 small">DAY</th><th class="text-end text-muted px-3 small">ACTIONS</th></tr></thead>
+                <tbody>
+                    <?php foreach($lineup as $i => $a): ?>
+                    <tr>
+                        <td><div class="d-flex align-items-center gap-3"><img src="<?= $a['image'] ?>" class="artist-img"><span class="fw-bold fs-5"><?= $a['artist'] ?></span></div></td>
+                        <td class="text-dim"><?= $a['stage'] ?></td>
+                        <td><span class="badge bg-dark border border-secondary p-2 px-3"><?= $a['day'] ?></span></td>
+                        <td class="text-end"><a href="?delete_artist=<?= $i ?>" class="text-danger fs-5 mx-3"><i class="fa-solid fa-trash-can"></i></a></td>
+                    </tr>
+                    <?php endforeach; ?>
+                </tbody>
+            </table>
+
+
+        <?php elseif($view == 'events'): ?>
+                    <div class="d-flex justify-content-between align-items-center mb-5">
+                        <h1 class="fw-800 text-white">Manage Events</h1>
+                        <button class="btn btn-vivid" data-bs-toggle="modal" data-bs-target="#addEvModal">+ Create Event</button>
+                    </div>
+
+                <table class="f-table">
+                                <thead><tr><th class="text-muted px-3 small">EVENT TITLE</th><th class="text-muted px-3 small">DATE & TIME</th><th class="text-muted px-3 small">STAGE</th></tr></thead>
+                                <tbody>
+                                    <?php foreach($events as $e): ?>
+                                    <tr>
+                                        <td class="fw-bold fs-5 text-white"><?= $e['title'] ?></td>
+                                        <td><div class="text-white"><?= $e['date'] ?></div><small class="text-accent"><?= $e['time'] ?? '' ?></small></td>
+                                        <td class="text-dim"><?= $e['stage'] ?? 'TBA' ?></td>
+                                    </tr>
+                                    <?php endforeach; ?>
+                                </tbody>
+                            </table>
+                         <?php endif; ?>
+                            </div>
+
+                            <div class="modal fade" id="addArtModal" tabindex="-1">
+                                <div class="modal-dialog modal-dialog-centered">
+                                    <div class="modal-content" style="background:#0c0c0e; border:1px solid #27272a; border-radius:24px;">
+                                        <form method="POST">
+                                            <div class="modal-header border-0 pt-4 px-4"><h4 class="fw-800 m-0">New Artist</h4></div>
+                                            <div class="modal-body p-4">
+                                                <input type="text" name="artist" class="form-control f-input mb-3" placeholder="Artist Name" required>
+                                                <input type="text" name="image" class="form-control f-input mb-3" placeholder="Image Path (../assets/images/name.png)">
+                                                <input type="text" name="stage" class="form-control f-input mb-3" placeholder="Stage" required>
+                                                <select name="day" class="form-select f-input mb-3"><option>Friday</option><option>Saturday</option><option>Sunday</option></select>
+                                                <textarea name="hits" class="form-control f-input" placeholder="Hits (comma separated)"></textarea>
+                                            </div>
+                                            <div class="modal-footer border-0 p-4"><button type="submit" name="add_artist" class="btn btn-vivid w-100 py-3">Confirm Entry</button></div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="modal fade" id="addEvModal" tabindex="-1">
+                                <div class="modal-dialog modal-dialog-centered modal-lg">
+                                    <div class="modal-content" style="background:#0c0c0e; border:1px solid #27272a; border-radius:24px;">
+                                        <form method="POST">
+                                            <div class="modal-header border-0 pt-4 px-4"><h4 class="fw-800 m-0">Create Event</h4></div>
+                                            <div class="modal-body p-4 row g-3">
+                                                <div class="col-12"><input type="text" name="event_title" class="form-control f-input" placeholder="Event Title" required></div>
+                                                <div class="col-md-6"><input type="text" name="event_date" class="form-control f-input" placeholder="July 15, 2026"></div>
+                                                <div class="col-md-6"><input type="text" name="event_time" class="form-control f-input" placeholder="Time (21:00 - 23:00)"></div>
+                                                <div class="col-md-6"><input type="text" name="event_location" class="form-control f-input" placeholder="Location"></div>
+                                                <div class="col-md-6"><input type="text" name="event_stage" class="form-control f-input" placeholder="Stage"></div>
+                                                <div class="col-12"><textarea name="event_desc" class="form-control f-input" placeholder="Description"></textarea></div>
+                                            </div>
+                                            <div class="modal-footer border-0 p-4"><button type="submit" name="add_event" class="btn btn-vivid w-100 py-3">Publish Event</button></div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+                            <script>
+                                const ctx = document.getElementById('orderChart').getContext('2d');
+                                new Chart(ctx, {
+                                    type: 'doughnut',
+                                    data: {
+                                        labels: ['Sold', 'Available'],
+                                        datasets: [{
+                                            data: [<?= $totalTicketsSold ?>, <?= $availableTickets ?>],
+                                            backgroundColor: ['#a855f7', '#18181b'],
+                                            borderWidth: 0
+                                        }]
+                                    },
+                                    options: { cutout: '80%', plugins: { legend: { display: false } } }
+                                });
+                            </script>
+
+
 </body>
 </html>
