@@ -75,8 +75,8 @@ endif;
                     <a href="signup.php">Sign up</a>
                 </p>
                 <div class="legal-links">
-                <a href="#">Terms</a> • 
-                <a href="#">Privacy</a>
+                <a href="terms.html">Terms</a> • 
+                <a href="privacy.html">Privacy</a>
 </div>
 </div>
             </form>
