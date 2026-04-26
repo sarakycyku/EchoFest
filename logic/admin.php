@@ -66,6 +66,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['add_event'])) {
     header("Location: admin.php?view=events");
     exit();
 }
-
+// --- HANDLE DELETE ---
+if (isset($_GET['delete_artist'])) {
+    $idx = (int)$_GET['delete_artist'];
+    if (isset($lineup[$idx])) {
+        array_splice($lineup, $idx, 1);
+        saveJSON($LINEUP_FILE, $lineup);
+    }
+    header("Location: admin.php?view=lineup");
+    exit();
+}
 
 ?>
