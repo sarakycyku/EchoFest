@@ -14,7 +14,7 @@ body.news-page{
 }
 
 .hero h1{
-    font-family:'Black Han Sans';
+
     font-size:clamp(36px,5vw,64px);
     background:linear-gradient(135deg,#a78bfa, #8bddc0);
     -webkit-background-clip:text;
@@ -76,7 +76,7 @@ body.news-page{
 }
 
 .news-card .left h3{
-    font-family:'Black Han Sans';
+
     font-size:15px;
     margin-bottom:6px;
 }
@@ -135,7 +135,7 @@ body.news-page{
 }
 
 #modalTitle{
-    font-family:'Black Han Sans';
+
     font-size:22px;
     margin-bottom:10px;
     background:linear-gradient(135deg,#a78bfa,#34d399);
