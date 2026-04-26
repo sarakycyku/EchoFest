@@ -74,6 +74,19 @@ $tickets = json_decode(file_get_contents('../data/tickets.json'), true);
                 </span>
             </div>
 
+            <div class="ticket-actions">
+                <!-- per toggle enable/disable -->
+                <form method="POST" action="../logic/admin_tickets_logic.php">
+                    <input type="hidden" name="id" value="<?= $t['id'] ?>">
+                    <input type="hidden" name="action" value="<?= $t['available'] ? 'disable' : 'enable' ?>">
+                    <label class="toggle">
+                        <input type="checkbox" <?= $t['available'] ? 'checked' : '' ?> onchange="this.form.submit()">
+                        <span class="slider"></span>
+                    </label>
+                </form>
+
+            </div>
+
         </div>
         <?php endforeach; ?>
     </div>
