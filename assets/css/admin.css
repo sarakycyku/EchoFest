@@ -50,3 +50,35 @@ ody {
     color: var(--text);
     border: 1px solid var(--border);
 }
+
+.f-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 1.5rem;
+    height: 100%;
+}
+
+.f-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 10px;
+}
+
+.f-table tbody tr td {
+    background: #0c0c0e;
+    padding: 1.2rem;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    vertical-align: middle;
+}
+
+.f-table tbody tr td:first-child {
+    border-left: 1px solid var(--border);
+    border-radius: 12px 0 0 12px;
+}
+
+.f-table tbody tr td:last-child {
+    border-right: 1px solid var(--border);
+    border-radius: 0 12px 12px 0;
+}
