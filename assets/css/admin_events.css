@@ -5,3 +5,19 @@ body {
   color: #f0eeff;
   font-family: 'DM Sans', sans-serif;
 }
+
+.admin-events {
+  min-height: 100vh;
+  padding: 40px 20px;
+}
+
+.admin-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.admin-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
