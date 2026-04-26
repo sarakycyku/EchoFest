@@ -17,11 +17,13 @@ $locations = [
     ],
 ];
 
+$locations = $festivalLocations;
+
 //lexon lokacionin nga GET, default xk
 $selected = isset($_GET['loc']) && array_key_exists($_GET['loc'], $locations) ? $_GET['loc'] : 'xk';
 $event = $locations[$selected];
 
-$tickets = json_decode(file_get_contents('../data/tickets.json'), true);
+$tickets = loadTicketData();
 ?>
 
 <link rel="stylesheet" href="../assets/css/tickets.css?v=1.1">
