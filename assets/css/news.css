@@ -16,7 +16,7 @@ body.news-page{
 .hero h1{
     font-family:'Black Han Sans';
     font-size:clamp(36px,5vw,64px);
-    background:linear-gradient(135deg,#a78bfa,#34d399);
+    background:linear-gradient(135deg,#a78bfa, #8bddc0);
     -webkit-background-clip:text;
     -webkit-text-fill-color:transparent;
 }
@@ -54,6 +54,7 @@ body.news-page{
     position:relative;
     overflow:hidden;
 }
+
 .news-card::before{
     content:"";
     position:absolute;
@@ -62,9 +63,7 @@ body.news-page{
     padding:1px;
 
     background:linear-gradient(135deg,#a78bfa,#34d399);
-    -webkit-mask:
-            linear-gradient(#000 0 0) content-box,
-            linear-gradient(#000 0 0);
+
     -webkit-mask-composite:xor;
     mask-composite:exclude;
 
@@ -81,6 +80,7 @@ body.news-page{
     font-size:15px;
     margin-bottom:6px;
 }
+
 .news-card .left p{
     font-size:13px;
     opacity:0.7;
@@ -112,7 +112,8 @@ body.news-page{
     background:rgba(11,11,18,0.95) !important;
     border:1px solid rgba(167,139,250,0.3);
     border-radius:18px;
-    color: rgba(167,139,250,1) !important;
+    color:rgba(167,139,250,1) !important;
+
     padding:28px;
     position:relative;
 
@@ -133,3 +134,38 @@ body.news-page{
     opacity:1;
 }
 
+#modalTitle{
+    font-family:'Black Han Sans';
+    font-size:22px;
+    margin-bottom:10px;
+    background:linear-gradient(135deg,#a78bfa,#34d399);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+#modalDesc{
+    font-size:13px;
+    opacity:0.7;
+    margin-bottom:14px;
+}
+
+#modalFull{
+    font-size:14px;
+    line-height:1.7;
+    opacity:0.9;
+    padding:14px;
+    border-left:2px solid #34d399;
+    background:rgba(255,255,255,0.03);
+    border-radius:10px;
+    max-height:260px;
+    overflow-y:auto;
+}
+
+/* ================= MOBILE ================= */
+@media(max-width:700px){
+    .news-card{
+        flex-direction:column;
+        align-items:flex-start;
+        gap:8px;
+    }
+}
