@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=DM+Sans:wght@300;400;500;600&display=swap');
+
+.admin-wrap {
+    font-family: 'DM Sans', sans-serif;
+    max-width: 800px;
+    margin: 48px auto;
+    padding: 0 24px 80px;
+    animation: fadeUp 0.7s 0.1s ease both;
+}
+
+/* ── HEADER ──────────────────────────────────────────────────────── */
+.admin-header {
+    margin-bottom: 28px;
+}
+
+.admin-title {
+    font-family: "Black Han Sans", sans-serif;
+    font-size: 2rem;
+    background: linear-gradient(90deg, #a78bfa 20%, #67e8f9);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 6px;
+}
+
+.admin-sub {
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(240, 238, 232, 0.3);
+}
