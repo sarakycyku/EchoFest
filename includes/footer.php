@@ -16,7 +16,7 @@
             <li><a href="../pages/admin.php">Dashboard</a></li>
             <li><a href="#">Events</a></li>
             <li><a href="#">Lineup</a></li>
-            <li><a href="../pages/tickets-admin.php">Tickets</a></li>
+            <li><a href="../pages/admin_tickets.php">Tickets</a></li>
             <li><a href="#">Users Management</a></li>
 
           <?php else: ?>
