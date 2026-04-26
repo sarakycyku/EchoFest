@@ -171,6 +171,7 @@ $event = $locations[$loc] ?? $locations['xk'];
             <input type="hidden" name="ticket_name" value="<?= $ticket['name'] ?>">
             <input type="hidden" name="event_name" value="<?= $event['country'] ?>">
             <input type="hidden" name="event_dates" value="<?= $event['dates'] ?>">
+            <input type="hidden" name="event_code" value="<?= $loc ?>">
             <input type="hidden" name="total" value="<?= $total ?>">
 
             <button class="complete-btn">
