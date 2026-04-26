@@ -20,7 +20,7 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
 <link rel="icon" href="../assets/images/logo2-pabg.png">
 <link rel="stylesheet" href="../assets/css/h.css">
-
+<script src="../assets/js/header.js"></script>
 
 </head>
 
@@ -34,6 +34,10 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
        <img src="../assets/images/logo-last.png" alt="Logo">
     </a>
 
+    <!-- TOGGLER -->
+    <button id="menuToggle" class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
+      <span class="icon"></span>
+    </button>
 
     <!-- MENU -->
     <div class="collapse navbar-collapse" id="menu">
