@@ -110,12 +110,25 @@
         ]
     },
     {
-        "artist": "dj SNAKE",
-        "stage": "MaIN",
+        "artist": "Nora Istrefi",
+        "stage": "Pop",
         "day": "Saturday",
-        "image": "..\/assets\/image\/dj_snake.png",
+        "image": "..\/assets\/images\/default.png",
         "hits": [
-            "New Hit Song"
+            "Ske me pa",
+            "Je vone",
+            "Bye Bye"
+        ]
+    },
+    {
+        "artist": "Kida",
+        "stage": "Main",
+        "day": "Friday",
+        "image": "..\/assets\/images\/default.png",
+        "hits": [
+            "Ferrari",
+            "Brabus",
+            "Sillna"
         ]
     }
 ]
