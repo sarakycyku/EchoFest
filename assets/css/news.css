@@ -1,0 +1,243 @@
+@import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=DM+Sans:wght@300;400;500;700&display=swap');
+
+/* ================= BASE ================= */
+body.news-page{
+    font-family:'DM Sans',sans-serif;
+    background:#07070c;
+    color:#fff;
+}
+
+/* ================= HERO ================= */
+.hero{
+    text-align:center;
+    padding:90px 20px 40px;
+}
+
+.hero h1{
+
+    font-size:clamp(36px,5vw,64px);
+    background:linear-gradient(135deg,#a78bfa, #8bddc0);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+.hero p{
+    opacity:0.6;
+    margin-top:10px;
+}
+
+/* ================= CONTAINER ================= */
+.news-container{
+    max-width:1100px;
+    margin:0 auto;
+    padding:40px 20px;
+    display:flex;
+    flex-direction:column;
+    gap:16px;
+}
+
+/* ================= CARD HORIZONTAL ================= */
+.news-card{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:18px 22px;
+    border-radius:16px;
+
+    background:#0b0b12;
+    border:1px solid rgba(167,139,250,0.25);
+
+    cursor:pointer;
+    transition:0.25s ease;
+
+    position:relative;
+    overflow:hidden;
+}
+
+.news-card::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    border-radius:16px;
+    padding:1px;
+
+    background:linear-gradient(135deg,#a78bfa,#34d399);
+
+    -webkit-mask-composite:xor;
+    mask-composite:exclude;
+
+    opacity:0.35;
+}
+
+.news-card:hover{
+    transform:translateX(8px);
+    border-color:#34d399;
+}
+
+.news-card .left h3{
+
+    font-size:15px;
+    margin-bottom:6px;
+}
+
+.news-card .left p{
+    font-size:13px;
+    opacity:0.7;
+}
+
+.news-card .right span{
+    font-size:10px;
+    letter-spacing:0.2em;
+    opacity:0.4;
+}
+
+/* ================= MODAL ================= */
+.modal{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,0.75);
+    backdrop-filter:blur(10px);
+    justify-content:center;
+    align-items:center;
+    z-index:999;
+    padding:20px;
+}
+
+.modal-content{
+    width:100%;
+    max-width:600px;
+
+    background:rgba(11,11,18,0.95) !important;
+    border:1px solid rgba(167,139,250,0.3);
+    border-radius:18px;
+    color:rgba(167,139,250,1) !important;
+
+    padding:28px;
+    position:relative;
+
+    box-shadow:0 0 40px rgba(167,139,250,0.15);
+}
+
+.close{
+    position:absolute;
+    top:14px;
+    right:16px;
+    font-size:22px;
+    cursor:pointer;
+    opacity:0.6;
+}
+
+.close:hover{
+    color:#34d399;
+    opacity:1;
+}
+
+#modalTitle{
+
+    font-size:22px;
+    margin-bottom:10px;
+    background:linear-gradient(135deg,#a78bfa,#34d399);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+#modalDesc{
+    font-size:13px;
+    opacity:0.7;
+    margin-bottom:14px;
+}
+
+#modalFull{
+    font-size:14px;
+    line-height:1.7;
+    opacity:0.9;
+    padding:14px;
+    border-left:2px solid #34d399;
+    background:rgba(255,255,255,0.03);
+    border-radius:10px;
+    max-height:260px;
+    overflow-y:auto;
+}
+
+/* ================= MOBILE ================= */
+@media(max-width:700px){
+    .news-card{
+        flex-direction:column;
+        align-items:flex-start;
+        gap:8px;
+    }
+}
+
+
+
+.about-container {
+    width: min(1180px, 92%);
+    margin: 0 auto;
+}
+
+.about-section {
+    padding: 85px 0;
+}
+
+.about-hero {
+    position: relative;
+    min-height: 78vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+    background:
+            linear-gradient(180deg, rgba(5,5,10,0.25), rgba(5,5,10,0.78)),
+            url('../images/fire.jpg') center/cover no-repeat;
+}
+
+.about-overlay {
+    position: absolute;
+    inset: 0;
+    background:
+            radial-gradient(circle at top, rgba(124,58,237,0.18), transparent 40%),
+            linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(7,7,10,0.95));
+}
+
+.about-hero-content {
+    position: relative;
+    z-index: 2;
+    padding: 20px;
+}
+.about-eyebrow {
+    font-size: 13px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #c4b5fd;
+    margin-bottom: 14px;
+}
+
+.about-hero h1 {
+    font-family: "Black Han Sans", sans-serif;
+    font-size: clamp(48px, 10vw, 108px);
+    margin: 0 0 14px;
+    letter-spacing: 1px;
+}
+
+.about-tagline {
+    font-size: clamp(16px, 2vw, 24px);
+    color: #e9d5ff;
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 42px;
+    align-items: center;
+}
+.about-text h2 {
+    font-family: "Black Han Sans", sans-serif;
+    font-size: clamp(28px, 4vw, 46px);
+    margin-bottom: 18px;
+    letter-spacing: 1px;
+}
+
+
