@@ -7,7 +7,7 @@ if (!isset($_SESSION['username']) || $_SESSION['role'] !== 'admin') {
 
 $tickets = json_decode(file_get_contents('../data/tickets.json'), true);
 ?>
-<link rel="stylesheet" href="../assets/css/admin_tickets.css">
+<link rel="stylesheet" href="../assets/css/admin_tickets.css?v=1.2">
 
 <div class="admin-wrap">
 
