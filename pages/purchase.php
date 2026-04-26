@@ -26,14 +26,16 @@ $ticketParam = $_GET['ticket'] ?? 'early';
 $qty = max(1, (int)($_GET['qty'] ?? 1));
 $loc = $_GET['loc'] ?? 'xk';
 
-$ticketDefs = [ 'early' => ['name'=>'Early Bird','price'=>79],
-                'regular' => ['name'=>'Regular', 'price'=>129],
-                'vip'=> ['name' => 'VIP Experience', 'price' => 299] ];
+$allTickets = json_decode(file_get_contents('../data/tickets.json'), true);
+$ticketDefs = [];
+foreach ($allTickets as $t) {
+    $ticketDefs[$t['id']] = ['name' => $t['name'], 'price' => $t['price']];
+}
 
-$ticket     = $ticketDefs[$ticketParam] ?? $ticketDefs['early'];
-$subtotal   = $ticket['price'] * $qty;
+$ticket = $ticketDefs[$ticketParam] ?? $ticketDefs['early'];
+$subtotal = $ticket['price'] * $qty;
 $serviceFee = 5;
-$total      = $subtotal + $serviceFee;
+$total = $subtotal + $serviceFee;
 
 $locations = [
     'xk' => ['flag' => 'XK', 'country' => 'Kosovo',  'city' => 'Pristina', 'dates' => 'July 15-17, 2026'],
