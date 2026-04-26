@@ -49,4 +49,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['add_artist'])) {
     exit();
 }
 
+// --- HANDLE ADD EVENT ---
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['add_event'])) {
+    $newEvent = [
+        "id" => "ev-" . time(),
+        "title" => trim($_POST['event_title']),
+        "date" => $_POST['event_date'],
+        "time" => trim($_POST['event_time']),
+        "location" => trim($_POST['event_location']),
+        "stage" => trim($_POST['event_stage']),
+        "description" => trim($_POST['event_desc']),
+        "image" => "../assets/images/default.png"
+    ];
+    $events[] = $newEvent;
+    saveJSON($EVENTS_FILE, $events);
+    header("Location: admin.php?view=events");
+    exit();
+}
+
+
 ?>
