@@ -197,3 +197,22 @@ textarea {
   border-radius: 8px;
   cursor: pointer;
 }
+
+.no-events {
+  text-align: center;
+  color: #7c7a9a;
+  padding: 30px;
+}
+
+@media (max-width: 900px) {
+  .admin-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .form-row,
+  .event-card-body {
+    grid-template-columns: 1fr;
+  }
+}
