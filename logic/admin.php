@@ -36,3 +36,58 @@ $offline = 0;
 foreach ($users as $u) {
     (($u['status'] ?? '') === 'online') ? $online++ : $offline++;
 }
+$current_admin = $_SESSION['username'] ?? 'SuperAdmin';
+$totalArtists = count($lineup);
+$totalEvents  = count($events);
+$totalUsers   = count($users);
+
+$stages = [];
+foreach ($lineup as $a) {
+    if (!empty($a['stage'])) $stages[] = $a['stage'];
+}
+$uniqueStages = count(array_unique($stages));
+$revenue = $totalTicketsSold * 50;
+
+if (isset($_GET['download_report']) || isset($_POST['export_report'])) {
+    header('Content-Type: text/csv; charset=utf-8');
+    header('Content-Disposition: attachment; filename="echofest_report_' . date('Y-m-d_H-i-s') . '.csv"');
+    header('Pragma: no-cache');
+    header('Expires: 0');
+
+    $output = fopen('php://output', 'w');
+    fprintf($output, chr(0xEF).chr(0xBB).chr(0xBF));
+
+
+    fputcsv($output, ['ECHOFEST FESTIVAL - REAL DATA REPORT']);
+    fputcsv($output, ['Generated: ' . date('Y-m-d H:i:s')]);
+    fputcsv($output, ['Admin: ' . $current_admin]);
+    fputcsv($output, []);
+
+
+    fputcsv($output, ['=== REAL STATISTICS ===']);
+    fputcsv($output, ['Metric', 'Value']);
+    fputcsv($output, ['Real Tickets Sold', $totalTicketsSold]);
+    fputcsv($output, ['Real Available Seats', $available]);
+    fputcsv($output, ['Real Revenue (€)', '€' . number_format($revenue, 2)]);
+    fputcsv($output, ['Real Online Users', $online]);
+    fputcsv($output, ['Real Offline Users', $offline]);
+    fputcsv($output, ['Real Total Users', $totalUsers]);
+    fputcsv($output, ['Real Artists', $totalArtists]);
+    fputcsv($output, ['Real Events', $totalEvents]);
+    fputcsv($output, ['Real Unique Stages', $uniqueStages]);
+    fputcsv($output, []);
+
+
+    fputcsv($output, ['=== REAL LINEUP DATA ===']);
+    fputcsv($output, ['Artist', 'Stage', 'Day', 'Time', 'Genre']);
+    foreach ($lineup as $artist) {
+        fputcsv($output, [
+            $artist['artist'] ?? 'N/A',
+            $artist['stage'] ?? 'N/A',
+            $artist['day'] ?? 'N/A',
+            $artist['time'] ?? 'TBD',
+            $artist['genre'] ?? 'Various'
+        ]);
+    }
+    fputcsv($output, []);
+
