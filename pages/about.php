@@ -85,7 +85,7 @@ $team[] = $member5;
         <div class="reveal">
             <img 
                 src="../assets/images/story.jpg" 
-                alt="Ech0Fest Crowd"
+                alt="EchoFest Crowd"
                 class="about-image"
             >
         </div>
