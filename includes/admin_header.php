@@ -46,9 +46,8 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
       <ul class="navbar-nav mx-auto">
         <li class="nav-item"><a class="nav-link" href="../pages/admin.php">Dashboard</a></li>
         <li class="nav-item"><a class="nav-link" href="../pages/admin_events.php">Events</a></li>
-        <li class="nav-item"><a class="nav-link" href="#">Lineup</a></li>
         <li class="nav-item"><a class="nav-link" href="../pages/admin_tickets.php">Tickets</a></li>
-        <li class="nav-item"><a class="nav-link" href="#">Users Management</a></li>
+        <li class="nav-item"><a class="nav-link" href="../pages/index.php">Home</a></li>
       </ul>
 
       <!-- RIGHT SIDE -->
