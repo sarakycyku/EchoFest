@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+
+    --bg-deep: #010409;
+    --bg-surface: #0a0f1a;
+    --panel-solid: #0f1422;
+    --card-bg: #0d1220;
+    --border-sharp: rgba(255, 255, 255, 0.06);
+    --border-accent: rgba(139, 92, 246, 0.35);
+    --text-primary: #ffffff;
+    --text-secondary: #cbd5e6;
+    --text-muted: #6c7a91;
+    --accent-violet: #8b5cf6;
+    --accent-hover: #a78bfa;
+    --accent-glow: 0 0 12px rgba(139, 92, 246, 0.3);
+    --shadow-elevated: 0 15px 30px -12px rgba(0, 0, 0, 0.6);
+}
+
+body {
+    background: var(--bg-deep);
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    color: var(--text-primary);
+    line-height: 1.5;
+    letter-spacing: -0.01em;
+}
+
+.dashboard-container {
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 28px 32px;
+}
+
+.dashboard-header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 36px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--border-sharp);
+}
+
+.title-section h1 {
+    font-size: 1.85rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #ffffff 0%, #c7b9ff 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    letter-spacing: -0.02em;
+}
+
+.badge {
+    font-size: 0.7rem;
+    color: var(--text-secondary);
+    background: rgba(139, 92, 246, 0.15);
+    display: inline-block;
+    padding: 4px 12px;
+    margin-top: 8px;
+    border: 0.5px solid rgba(139, 92, 246, 0.3);
+    border-radius: 4px; /* SHARP SQUARE */
+    font-weight: 500;
+}
