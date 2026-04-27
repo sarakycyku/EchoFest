@@ -271,3 +271,23 @@ canvas {
     margin-right: 8px;
 }
 
+/* ========== RESPONSIVE ========== */
+@media (max-width: 1200px) {
+    .dashboard-container { padding: 20px 24px; }
+    .kpi-grid { gap: 16px; }
+}
+
+@media (max-width: 950px) {
+    .charts-grid { grid-template-columns: repeat(2, 1fr); }
+    .kpi-grid { grid-template-columns: repeat(2, 1fr); }
+    .double-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 650px) {
+    .dashboard-container { padding: 16px; }
+    .charts-grid { grid-template-columns: 1fr; }
+    .kpi-grid { grid-template-columns: 1fr; }
+    .dashboard-header { flex-direction: column; align-items: flex-start; gap: 16px; }
+    .kpi-card { padding: 14px; }
+    .kpi-number { font-size: 1.6rem; }
+}
