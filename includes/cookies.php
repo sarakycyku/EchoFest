@@ -50,3 +50,17 @@ $has_consented = isset($_SESSION['cookie_consent']) || isset($_COOKIE['echofest_
                                         Allow analytics
                                     </label>
                                 </div>
+
+                            <div class="cookie-box">
+                                                <h3>Marketing Cookies</h3>
+                                                <p>
+                                                    These cookies are used to deliver personalized advertisements,
+                                                    remarketing campaigns, and track the effectiveness of marketing efforts
+                                                    across different platforms.
+                                                </p>
+
+                                                <label>
+                                                    <input type="checkbox" name="marketing">
+                                                    Allow marketing
+                                                </label>
+                                            </div>
