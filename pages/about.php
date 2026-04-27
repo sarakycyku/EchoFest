@@ -41,6 +41,13 @@ $member4->setRole("Operations Director");
 $member4->setBio("Coordinates logistics, artist planning, and the smooth running of the full event experience.");
 $member4->setImage("../assets/images/team_pranvera.jpg");
 $team[] = $member4;
+
+$member5 = new TeamMember();
+$member5->setName("Rumesa Bejiqi");
+$member5->setRole("Guest Relations Manager");
+$member5->setBio("Ensures every attendee has an exceptional festival experience through dedicated guest services and support.");
+$member5->setImage("../assets/images/team_rumesa.jpg");
+$team[] = $member5;
 ?>
 
 <title>About Us</title>
@@ -123,7 +130,7 @@ $team[] = $member4;
 
         <div class="info-card reveal">
             <div class="icon-circle">★</div>
-            <h3>Qualityc</h3>
+            <h3>Quality</h3>
             <p>We celebrate diversity and create an open environment where everyone feels welcome.</p>
         </div>
 
