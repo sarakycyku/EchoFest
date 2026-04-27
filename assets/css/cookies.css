@@ -18,3 +18,28 @@
     font-size: 18px;
     font-weight: 600;
 }
+
+.cookie-header p {
+    margin-top: 6px;
+    font-size: 12.5px;
+    opacity: 0.75;
+}
+
+
+.cookie-grid {
+    margin-top: 12px;
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+
+.cookie-box {
+    flex: 1;
+    min-width: 230px;
+    background: linear-gradient(145deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
+    padding: 12px 14px;
+    border-radius: 12px;
+    border: 1px solid rgba(255,255,255,0.08);
+    transition: 0.25s ease;
+}
