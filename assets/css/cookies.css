@@ -101,3 +101,18 @@
     opacity: 0.5;
     cursor: not-allowed;
 }
+
+.cookie-box label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 10px;
+    font-size: 12px;
+}
+.cookie-actions {
+    margin-top: 12px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
