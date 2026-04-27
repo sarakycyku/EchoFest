@@ -12,7 +12,8 @@ $TICKETS_FILE = $DATA_DIR . 'tickets.json';
 
 function loadJSON($file) {
     if (!file_exists($file)) return [];
-    return json_decode(file_get_contents($file), true) ?? [];
+    return json_decode($current_admin = $_SESSION['username'] ?? 'SuperAdmin';
+file_get_contents($file), true) ?? [];
 }
 $lineup = loadJSON($LINEUP_FILE);
 $events = loadJSON($EVENTS_FILE);
@@ -32,3 +33,4 @@ foreach ($users as $u) {
     (($u['status'] ?? '') === 'online') ? $online++ : $offline++;
 }
 
+$current_admin = $_SESSION['username'] ?? 'SuperAdmin';
