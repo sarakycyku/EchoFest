@@ -1,12 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=DM+Sans:wght@300;400;500;700&display=swap');
 
-<<<<<<< HEAD
 /* ================= BASE ================= */
 body{
-=======
-
-body.news-page{
->>>>>>> 9de2acba771056ef96b37eac386d2c88cbb617e4
     font-family:'DM Sans',sans-serif;
     background:#07070c;
     color:#fff;
@@ -259,11 +254,7 @@ body.news-page{
     position: relative;
     z-index: 2;
     padding: 20px;
-<<<<<<< HEAD
 }
-=======
-}
-
 
 .awards-section {
     padding: 60px 20px 80px;
@@ -424,4 +415,3 @@ body.news-page{
 .award-card:nth-child(4) { animation-delay: 0.4s; }
 .award-card:nth-child(5) { animation-delay: 0.5s; }
 .award-card:nth-child(6) { animation-delay: 0.6s; }
->>>>>>> 9de2acba771056ef96b37eac386d2c88cbb617e4
