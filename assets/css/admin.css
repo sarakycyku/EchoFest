@@ -171,3 +171,40 @@ body {
     align-items: center;
     gap: 4px;
 }
+.charts-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-bottom: 28px;
+}
+
+.chart-panel {
+    background: var(--panel-solid);
+    border: 1px solid var(--border-sharp);
+    border-radius: 12px; /* SQUARED / minimal roundness */
+    padding: 20px 20px 16px;
+    transition: all 0.2s;
+    box-shadow: 0 8px 20px -8px rgba(0, 0, 0, 0.5);
+}
+
+.chart-panel:hover {
+    border-color: var(--border-accent);
+    box-shadow: 0 12px 24px -10px rgba(139, 92, 246, 0.2);
+}
+
+.chart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 18px;
+    flex-wrap: wrap;
+}
+
+.chart-header h3 {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #e2e8f0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
