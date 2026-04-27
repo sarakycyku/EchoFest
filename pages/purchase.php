@@ -11,7 +11,11 @@ if (!isset($_SESSION['username'])) {
 include "../data/users.php";
 
 $username = $_SESSION['username'];
-$data = $users[$username];
+$data = [];
+
+if (isset($users[$username]) && is_array($users[$username])) {
+    $data = $users[$username];
+}
 
 $firstName = $data['first_name'] ?? '';
 $lastName = $data['last_name'] ?? '';
