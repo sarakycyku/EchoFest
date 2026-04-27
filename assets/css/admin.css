@@ -208,3 +208,39 @@ body {
     align-items: center;
     gap: 8px;
 }
+.chart-badge {
+    background: rgba(139, 92, 246, 0.2);
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 0.7rem;
+    font-weight: 500;
+    color: var(--accent-hover);
+}
+
+canvas {
+    max-height: 200px !important;
+    width: 100% !important;
+    border-radius: 6px; /* subtle rounding but still sharp */
+}
+
+.chart-footer-stats {
+    margin-top: 14px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    border-top: 1px solid rgba(255,255,255,0.04);
+    padding-top: 12px;
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    display: inline-block;
+    border-radius: 2px;
+    margin-right: 6px;
+}
+
+.sold-dot { background: #ff0000; }
+.free-dot { background: #289848; }
