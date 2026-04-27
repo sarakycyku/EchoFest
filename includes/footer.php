@@ -9,18 +9,6 @@
       </div>
       <div class="col-md">
         <ul class="list-unstyled nav-links">
-
-          <?php if (isset($_SESSION['role']) && $_SESSION['role'] === 'admin'): ?>
-
-            <!-- ADMIN NAV -->
-            <li><a href="../pages/admin.php">Dashboard</a></li>
-            <li><a href="#">Events</a></li>
-            <li><a href="#">Lineup</a></li>
-            <li><a href="../pages/admin_tickets.php">Tickets</a></li>
-            <li><a href="#">Users Management</a></li>
-
-          <?php else: ?>
-
             <!-- USER NAV -->
             <li><a href="../pages/index.php">Home</a></li>
             <li><a href="../pages/about.php">About Us</a></li>
@@ -28,10 +16,7 @@
             <li><a href="../pages/events.php">Events</a></li>
             <li><a href="../pages/tickets.php">Tickets</a></li>
             <li><a href="../pages/news.php">News</a></li>
-            <!-- <li><a href="../pages/profile.php">Profile</a></li> -->
-
-          <?php endif; ?>
-
+            <li><a href="../pages/profile.php">Profile</a></li>
         </ul>
       </div>
 
@@ -39,7 +24,6 @@
         <ul class="list-unstyled nav-links">
           <li><a href="../pages/privacy.html">Privacy Policy</a></li>
           <li><a href="../pages/terms.html">Terms &amp; Conditions</a></li>
-          <li><a href="#">Cookies</a></li>
         </ul>
       </div>
     </div>
