@@ -1,5 +1,4 @@
 <?php
-include '../includes/admin_header.php';
 
 include '../logic/admin.php';
 ?>
@@ -17,6 +16,9 @@ include '../logic/admin.php';
 <body>
 <div class="dashboard-container">
     <div class="dashboard-header">
+    <a href="index.php" class="home-btn">
+        <i class="fas fa-arrow-left"></i> Home
+    </a>
         <div class="title-section">
             <h1><i style="color: #8b5cf6; margin-right: 10px;"></i>ECHOFEST · Admin Dashboard</h1>
             <div class="badge">
