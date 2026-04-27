@@ -35,3 +35,17 @@
     <div class="stat-box"><h4>Engagement</h4><div class="num"><?= $engagementScore ?></div></div>
 
 </div>
+<div class="grid">
+
+<div class="card">
+    <h3>Revenue</h3>
+    <div class="big">$<?= $totalTicketsSold * 50 ?></div>
+</div>
+
+<div class="card"><canvas id="ticket"></canvas></div>
+<div class="card"><canvas id="users"></canvas></div>
+<div class="card"><canvas id="engagement"></canvas></div>
+<div class="card"><canvas id="artists"></canvas></div>
+<div class="card"><canvas id="events"></canvas></div>
+
+</div>
