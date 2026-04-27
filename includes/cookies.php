@@ -19,3 +19,20 @@ $has_consented = isset($_SESSION['cookie_consent']) || isset($_COOKIE['echofest_
                 You can choose which categories you allow.
             </p>
         </div>
+    <form method="POST" action="../logic/cookies.php" class="cookie-form">
+
+                <div class="cookie-grid">
+
+                    <div class="cookie-box required">
+                        <h3>Necessary Cookies</h3>
+                        <p>
+                            These cookies are essential for the website to function properly.
+                            They enable core features such as security, authentication, sessions,
+                            and accessibility. They cannot be disabled.
+                        </p>
+
+                        <label>
+                            <input type="checkbox" checked disabled>
+                            Always active (required)
+                        </label>
+                    </div>
