@@ -78,3 +78,15 @@ $has_consented = isset($_SESSION['cookie_consent']) || isset($_COOKIE['echofest_
                                                         </div>
 
                                                     </div>
+                                                 <div class="cookie-actions">
+                                                                <button type="submit" name="save_cookie_preferences" class="btn-primary">
+                                                                    Save preferences
+                                                                </button>
+                                                            </div>
+
+                                                        </form>
+
+                                                    </div>
+
+                                                </div>
+                                                <?php endif; ?>
