@@ -2,28 +2,17 @@
 include '../includes/header.php';
 
 $locations = [
-    'xk' => [
-        'country' => 'Kosovo',
-        'city' => 'Pristina',
-        'dates' => 'July 15-17, 2026',
-        'venue' => 'Pristina National Stadium, Rr. Agim Ramadani, Pristina 10000'
-    ],
-    'al' => [
-        'country' => 'Albania',
-        'city' => 'Durrës',
-        'dates' => 'August 5-7, 2026',
-        'venue' => 'Arena Kombëtare, Durrës, Albania'
-    ],
+    'xk' => ['country' => 'Kosovo', 'city' => 'Pristina', 'dates' => 'July 15-17, 2026', 'venue' => 'Pristina National Stadium, Pristina 10000'],
+    'al' => ['country' => 'Albania', 'city' => 'Durres', 'dates' => 'August 5-7, 2026', 'venue' => 'Arena Kombetare, Durres, Albania']
 ];
 
 //lexon lokacionin nga GET, default xk
 $selected = isset($_GET['loc']) && array_key_exists($_GET['loc'], $locations) ? $_GET['loc'] : 'xk';
 $event = $locations[$selected];
 
-$tickets = json_decode(file_get_contents('../data/tickets.json'), true);
 ?>
 
-<link rel="stylesheet" href="../assets/css/tickets.css?v=1.1">
+<link rel="stylesheet" href="../assets/css/tickets.css?v=1.2">
 
 <!--HERO -->
 <section class="hero">
@@ -65,7 +54,7 @@ $tickets = json_decode(file_get_contents('../data/tickets.json'), true);
 
 <!--TICKETS -->
 <section class="tickets-section">
-    <h2 class="section-title">Choose <span class='highlight'>Your Ticket</span></h2>
+    <h2 class="section-title"><span class='highlight'>Choose Your Ticket</span></h2>
 
     <div class="ticket-list">
         <?php foreach ($tickets as $t): ?>
@@ -102,7 +91,7 @@ $tickets = json_decode(file_get_contents('../data/tickets.json'), true);
                                     <button class="qty-btn" onclick="changeQty('<?= $t['id'] ?>', 1)">+</button>
                                 </div>
                                 <button class="buy-btn" onclick="buyNow('<?= $t['id'] ?>', <?= $t['price'] ?>, '<?= $selected ?>')">
-                                    Buy Now €<?= $t['price'] ?>
+                                    Buy Ticket
                                 </button>
                             <?php else: ?>
                                 <button class="coming-btn" disabled>Coming Soon</button>
