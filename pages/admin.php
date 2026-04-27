@@ -32,11 +32,6 @@ include '../logic/admin.php';
             <a href="?download_report=1" class="btn-export-form">
                 <i class="fas fa-file-csv"></i> EXPORT REAL DATA (CSV)
             </a>
-            <form method="POST" style="display: inline;">
-                <button type="submit" name="export_report" value="1" class="btn-export-form">
-                    <i class="fas fa-download"></i> EXPORT (POST)
-                </button>
-            </form>
         </div>
     </div>
 
