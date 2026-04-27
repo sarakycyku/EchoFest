@@ -312,3 +312,52 @@ canvas {
 }
 
 
+::-webkit-scrollbar {
+    width: 5px;
+    background: #0a0f1a;
+}
+::-webkit-scrollbar-thumb {
+    background: #2d3a5e;
+    border-radius: 4px;
+}
+
+
+.btn-export, .live-indicator, .badge, .kpi-card, .chart-panel {
+    border-radius: 10px; /* deliberately sharp yet slightly polished */
+}
+
+
+canvas {
+    max-height: 190px;
+    min-height: 160px;
+}
+
+.btn-export-form, .btn-export {
+    display: inline-block;
+    background: #1e293b;
+    border: 1px solid #334155;
+    border-radius: 8px;
+    padding: 8px 18px;
+    color: #cbd5e6;
+    font-weight: 500;
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    font-family: inherit;
+}
+.btn-export-form:hover, .btn-export:hover {
+    background: #2d3a5e;
+    border-color: #8b5cf6;
+    color: white;
+}
+.header-actions form {
+    margin: 0;
+}
+.static-badge {
+    background: rgba(139, 92, 246, 0.15);
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 0.65rem;
+    margin-left: 8px;
+}
