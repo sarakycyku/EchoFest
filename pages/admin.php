@@ -112,3 +112,33 @@ include '../logic/admin.php';
             </div>
         </div>
     </div>
+
+ <div class="double-grid">
+        <div class="chart-panel">
+            <div class="chart-header">
+                <h3><i class="fas fa-chart-simple"></i> Artist performance <span class="static-badge">static demo</span></h3>
+                <span class="chart-badge">DJ Snake top</span>
+            </div>
+            <canvas id="artistChart" width="400" height="220"></canvas>
+            <div class="chart-footer-stats">
+                <i class="fas fa-headphones"></i> Based on demo metrics
+            </div>
+        </div>
+        <div class="chart-panel">
+            <div class="chart-header">
+                <h3><i class="fas fa-chart-radar"></i> Event intensity <span class="static-badge">static demo</span></h3>
+                <span class="chart-badge">day 4 peak</span>
+            </div>
+            <canvas id="eventRadarChart" width="400" height="220"></canvas>
+            <div class="chart-footer-stats">
+                <i class="fas fa-calendar-alt"></i> Day 4 → 90% intensity
+            </div>
+        </div>
+    </div>
+
+    <div class="info-strip">
+        <div><i class="fas fa-info-circle"></i> Charts display STATIC demo data for visual design</div>
+        <div><i class="fas fa-database"></i> Export button uses REAL data from your database</div>
+        <div><i class="fas fa-chart-simple"></i> Real revenue: €<?php echo number_format($revenue); ?> | Real tickets: <?php echo $totalTicketsSold; ?></div>
+    </div>
+</div>
