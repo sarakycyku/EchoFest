@@ -49,3 +49,51 @@
 <div class="card"><canvas id="events"></canvas></div>
 
 </div>
+<script>
+const lineup = <?= json_encode($lineup) ?>;
+const events = <?= json_encode($events) ?>;
+
+
+new Chart(document.getElementById('ticket'), {
+type:'doughnut',
+data:{
+labels:['Sold Tickets','Free Tickets'],
+datasets:[{
+label:'Tickets',
+data:[<?= $totalTicketsSold ?>, <?= $available ?>],
+backgroundColor:['#8b5cf6','#222']
+}]
+},
+options:{plugins:{legend:{display:true, labels:{color:'#fff'}}}}
+});
+
+new Chart(document.getElementById('users'), {
+type:'bar',
+data:{
+labels:['Online Users','Offline Users'],
+datasets:[{
+label:'Users',
+data:[<?= $online ?>, <?= $offline ?>],
+backgroundColor:['#8b5cf6','#333']
+}]
+},
+options:{plugins:{legend:{display:true, labels:{color:'#fff'}}}}
+});
+
+
+new Chart(document.getElementById('engagement'), {
+type:'line',
+data:{
+labels:['1','2','3','4','5'],
+datasets:[{
+label:'Engagement Trend',
+data:[20,50,30,80,60],
+borderColor:'#8b5cf6',
+fill:true,
+backgroundColor:'rgba(139,92,246,0.2)'
+}]
+},
+options:{plugins:{legend:{display:true, labels:{color:'#fff'}}}}
+});
+
+
