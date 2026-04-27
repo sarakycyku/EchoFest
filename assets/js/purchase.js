@@ -8,3 +8,13 @@ function formatExpiry(input) {
     if (v.length >= 3) v = v.slice(0, 2) + '/' + v.slice(2);
     input.value = v;
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+    const revealItems = document.querySelectorAll('.page-title, .panel, .summary-panel');
+
+    revealItems.forEach((item, index) => {
+        setTimeout(() => {
+            item.classList.add('visible');
+        }, index * 80);
+    });
+});
