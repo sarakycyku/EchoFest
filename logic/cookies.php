@@ -25,3 +25,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['save_cookie_preferenc
         false,
         true // HttpOnly
     );
+      // Redirect back
+        $redirect = $_SERVER['HTTP_REFERER'] ?? '../public/index.php';
+        header("Location: $redirect");
+        exit();
+    }
