@@ -64,3 +64,17 @@ $has_consented = isset($_SESSION['cookie_consent']) || isset($_COOKIE['echofest_
                                                     Allow marketing
                                                 </label>
                                             </div>
+                                        <div class="cookie-box">
+                                                            <h3>Third-Party Cookies</h3>
+                                                            <p>
+                                                                These cookies are set by external services such as YouTube,
+                                                                Google Maps, social media embeds, and other integrated platforms.
+                                                            </p>
+
+                                                            <label>
+                                                                <input type="checkbox" name="third_party">
+                                                                Allow third-party
+                                                            </label>
+                                                        </div>
+
+                                                    </div>
