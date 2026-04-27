@@ -1,5 +1,4 @@
 <?php
-require_once '../data/festival.php';
 include '../includes/header.php';
 
 if (!isset($_SESSION['username'])) {
@@ -34,7 +33,10 @@ $subtotal = $ticket['price'] * $qty;
 $serviceFee = 5;
 $total = $subtotal + $serviceFee;
 
-$locations = $festivalLocations;
+$locations = [
+    'xk' => ['flag' => 'XK', 'country' => 'Kosovo',  'city' => 'Pristina', 'dates' => 'July 15-17, 2026'],
+    'al' => ['flag' => 'AL', 'country' => 'Albania',  'city' => 'Durres',   'dates' => 'August 5-7, 2026']
+];
 $event = $locations[$loc] ?? $locations['xk'];
 ?>
 
