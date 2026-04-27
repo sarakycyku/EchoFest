@@ -47,12 +47,21 @@ About us(aboutus.php)
 
 ## Log in
 Te dhenat per admin jane statike
+
+
 username:admin1
+
+
+
 password:Admin123#
+
+
 ndersa per perdoruesit nuk jane statike.
 
-## Struktura 
-``EchoFest/
+## Struktura
+
+```bash
+EchoFest/
 ├── .idea/
 │
 ├── assets/
@@ -111,5 +120,4 @@ ndersa per perdoruesit nuk jane statike.
 │   └── tickets.php
 │
 ├── LICENSE
-└── README.md``
-
+└── README.md
