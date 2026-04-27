@@ -36,3 +36,17 @@ $has_consented = isset($_SESSION['cookie_consent']) || isset($_COOKIE['echofest_
                             Always active (required)
                         </label>
                     </div>
+
+                <div class="cookie-box">
+                                    <h3>Analytics Cookies</h3>
+                                    <p>
+                                        These cookies help us understand how visitors interact with the website.
+                                        We use tools like Google Analytics to measure traffic, performance,
+                                        and user behavior in order to improve our services.
+                                    </p>
+
+                                    <label>
+                                        <input type="checkbox" name="analytics">
+                                        Allow analytics
+                                    </label>
+                                </div>
