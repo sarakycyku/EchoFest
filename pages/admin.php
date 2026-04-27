@@ -75,3 +75,40 @@ include '../logic/admin.php';
             </div>
         </div>
     </div>
+
+<div class="charts-grid">
+        <div class="chart-panel">
+            <div class="chart-header">
+                <h3><i class="fas fa-chart-pie"></i> Ticket distribution <span class="static-badge">static demo</span></h3>
+                <span class="chart-badge">sold / comp</span>
+            </div>
+            <canvas id="ticketChart" width="400" height="200"></canvas>
+            <div class="chart-footer-stats">
+                <span><span class="dot sold-dot"></span> Sold: 3,200</span>
+                <span><span class="dot free-dot"></span> Free: 1,800</span>
+            </div>
+        </div>
+
+        <div class="chart-panel">
+            <div class="chart-header">
+                <h3><i class="fas fa-user-clock"></i> User presence <span class="static-badge">static demo</span></h3>
+                <span class="chart-badge">visual only</span>
+            </div>
+            <canvas id="userChart" width="400" height="200"></canvas>
+            <div class="chart-footer-stats">
+                <span><i class="fas fa-circle"></i> Online: 120</span>
+                <span><i class="fas fa-circle-off"></i> Offline: 80</span>
+            </div>
+        </div>
+
+        <div class="chart-panel">
+            <div class="chart-header">
+                <h3><i class="fas fa-chart-line"></i> Engagement trend <span class="static-badge">static demo</span></h3>
+                <span class="chart-badge">peak → Fri</span>
+            </div>
+            <canvas id="engagementChart" width="400" height="200"></canvas>
+            <div class="chart-footer-stats">
+                <i class="fas fa-calendar-week"></i> Mon 20% → Fri 80%
+            </div>
+        </div>
+    </div>
