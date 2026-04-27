@@ -1,5 +1,5 @@
 <?php
-include '../includes/header.php';
+include '../includes/admin_header.php';
 
 $jsonFile = '../data/events.json';
 

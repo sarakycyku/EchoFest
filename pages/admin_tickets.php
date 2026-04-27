@@ -1,4 +1,4 @@
-<?php include '../includes/header.php';
+<?php include '../includes/admin_header.php';
 
 if (!isset($_SESSION['username']) || $_SESSION['role'] !== 'admin') {
     header("Location: ../pages/login.php");
