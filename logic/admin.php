@@ -45,6 +45,8 @@ $stages = [];
 foreach ($lineup as $a) {
     if (!empty($a['stage'])) $stages[] = $a['stage'];
 }
+
+
 $uniqueStages = count(array_unique($stages));
 $revenue = $totalTicketsSold * 50;
 
@@ -90,4 +92,36 @@ if (isset($_GET['download_report']) || isset($_POST['export_report'])) {
         ]);
     }
     fputcsv($output, []);
+
+ fputcsv($output, ['=== REAL EVENTS ===']);
+    fputcsv($output, ['Title', 'Location', 'Date', 'Time']);
+    foreach ($events as $event) {
+        fputcsv($output, [
+            $event['title'] ?? 'N/A',
+            $event['location'] ?? 'N/A',
+            $event['date'] ?? 'N/A',
+            $event['time'] ?? 'TBD'
+        ]);
+    }
+    fputcsv($output, []);
+
+
+    fputcsv($output, ['=== REAL USERS ===']);
+    fputcsv($output, ['Username', 'Status', 'Email', 'Role']);
+    foreach ($users as $user) {
+        fputcsv($output, [
+            $user['username'] ?? 'N/A',
+            $user['status'] ?? 'offline',
+            $user['email'] ?? 'N/A',
+            $user['role'] ?? 'user'
+        ]);
+    }
+    fputcsv($output, []);
+
+
+    fputcsv($output, ['END OF REAL DATA REPORT']);
+    fclose($output);
+    exit;
+}
+
 
