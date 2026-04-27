@@ -9,6 +9,11 @@ body {
   font-family: "DM Sans", sans-serif;
   background: #07070a;
   color: #fff;
+  font-weight: 400;
+}
+
+p {
+  font-weight: 300;
 }
 
 /* CONTAINER */
@@ -261,6 +266,15 @@ body {
 .reveal.active {
   opacity: 1;
   transform: translateY(0);
+}
+
+.about-text h2,
+.about-hero h1,
+.stat-number,
+.heading-center h2,
+.mission-box h2,
+.cta-box h2 {
+  font-family: "Black Han Sans", sans-serif;
 }
 
 /* RESPONSIVE */
