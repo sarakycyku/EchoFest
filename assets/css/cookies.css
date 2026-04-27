@@ -116,3 +116,21 @@
     gap: 10px;
 }
 
+.btn-primary {
+    background: linear-gradient(135deg, #4CAF50, #3ddc84);
+    border: none;
+    padding: 9px 16px;
+    border-radius: 8px;
+    color: #fff;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.25s ease;
+    box-shadow: 0 4px 15px rgba(76,175,80,0.25);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 22px rgba(76,175,80,0.45);
+}
+
