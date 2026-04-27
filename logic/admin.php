@@ -25,3 +25,10 @@ $totalTicketsSold = file_exists($ORDERS_FILE)
 
 $capacity = 5000;
 $available = max(0, $capacity - $totalTicketsSold);
+$online = 0;
+$offline = 0;
+
+foreach ($users as $u) {
+    (($u['status'] ?? '') === 'online') ? $online++ : $offline++;
+}
+
