@@ -22,11 +22,11 @@ $ticketParam = $_GET['ticket'] ?? 'early';
 $qty = max(1, (int)($_GET['qty'] ?? 1));
 $loc = $_GET['loc'] ?? 'xk';
 
-$allTickets = json_decode(file_get_contents('../data/tickets.json'), true);
-$ticketDefs = [];
-foreach ($allTickets as $t) {
-    $ticketDefs[$t['id']] = ['name' => $t['name'], 'price' => $t['price']];
-}
+$ticketDefs = [
+    'early'=>['name' => 'Early Bird', 'price' => 79],
+    'regular'=>['name' => 'Regular', 'price' => 129],
+    'vip'=>['name' => 'VIP Experience', 'price' => 299]
+];
 
 $ticket = $ticketDefs[$ticketParam] ?? $ticketDefs['early'];
 $subtotal = $ticket['price'] * $qty;
