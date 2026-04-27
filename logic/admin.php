@@ -1,90 +1,71 @@
 <?php
 session_start();
 
+
 $DATA_DIR = __DIR__ . '/../data/';
 $LINEUP_FILE = $DATA_DIR . 'lineup_data.json';
 $EVENTS_FILE = $DATA_DIR . 'events_data.json';
 $USERS_FILE  = $DATA_DIR . 'users.json';
 $ORDERS_FILE = $DATA_DIR . 'orders.txt';
+$TICKETS_FILE = $DATA_DIR . 'tickets.json';
 
-// Funksioni për leximin e JSON
+
 function loadJSON($file) {
     if (!file_exists($file)) return [];
-    $content = file_get_contents($file);
-    return json_decode($content, true) ?? [];
+    return json_decode(file_get_contents($file), true) ?? [];
 }
-// Funksioni për ruajtjen në JSON
-function saveJSON($file, $data) {
-    file_put_contents($file, json_encode(array_values($data), JSON_PRETTY_PRINT));
-}
-
-// Ngarkimi i të dhënave
 $lineup = loadJSON($LINEUP_FILE);
 $events = loadJSON($EVENTS_FILE);
-$users_list = loadJSON($USERS_FILE);
+$users  = loadJSON($USERS_FILE);
 
-// --- LLOGARITJA E STATISTIKAVE NGA ORDERS.TXT ---
-$totalTicketsSold = 0;
-if (file_exists($ORDERS_FILE)) {
-    // Numëron çdo rresht si një biletë të shitur
-    $orders = file($ORDERS_FILE, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
-    $totalTicketsSold = count($orders);
-}
-$festivalCapacity = 5000; // Kapaciteti total
-$availableTickets = $festivalCapacity - $totalTicketsSold;
-if ($availableTickets < 0) $availableTickets = 0;
 
-// --- HANDLE ADD ARTIST ---
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['add_artist'])) {
-    $newArtist = [
-        "artist" => trim($_POST['artist']),
-        "stage"  => trim($_POST['stage']),
-        "day"    => $_POST['day'],
-        "image"  => !empty($_POST['image']) ? trim($_POST['image']) : "../assets/images/default.png",
-        "hits"   => array_filter(array_map('trim', explode(',', $_POST['hits'])))
-    ];
-    $lineup[] = $newArtist;
-    saveJSON($LINEUP_FILE, $lineup);
-    header("Location: admin.php?view=lineup");
-    exit();
+$totalTicketsSold = file_exists($ORDERS_FILE)
+    ? count(file($ORDERS_FILE, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES))
+    : 0;
+
+$capacity = 5000;
+$available = max(0, $capacity - $totalTicketsSold);
+$online = 0;
+$offline = 0;
+
+foreach ($users as $u) {
+    (($u['status'] ?? '') === 'online') ? $online++ : $offline++;
 }
 
-// --- HANDLE ADD EVENT ---
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['add_event'])) {
-    $newEvent = [
-        "id" => "ev-" . time(),
-        "title" => trim($_POST['event_title']),
-        "date" => $_POST['event_date'],
-        "time" => trim($_POST['event_time']),
-        "location" => trim($_POST['event_location']),
-        "stage" => trim($_POST['event_stage']),
-        "description" => trim($_POST['event_desc']),
-        "image" => "../assets/images/default.png"
-    ];
-    $events[] = $newEvent;
-    saveJSON($EVENTS_FILE, $events);
-    header("Location: admin.php?view=events");
-    exit();
+$current_admin = $_SESSION['username'] ?? 'SuperAdmin';
+$totalArtists = count($lineup);
+$totalEvents  = count($events);
+$totalUsers   = count($users);
+
+$stages = [];
+foreach ($lineup as $a) {
+    if (!empty($a['stage'])) $stages[] = $a['stage'];
 }
-// --- HANDLE DELETE ---
-if (isset($_GET['delete_artist'])) {
-    $idx = (int)$_GET['delete_artist'];
-    if (isset($lineup[$idx])) {
-        array_splice($lineup, $idx, 1);
-        saveJSON($LINEUP_FILE, $lineup);
-    }
-    header("Location: admin.php?view=lineup");
-    exit();
-}
-// --- EXPORT CSV ---
-if (isset($_GET['download_csv'])) {
+$uniqueStages = count(array_unique($stages));
+
+$engagementScore = ($totalTicketsSold * 2) + ($online * 5);
+if (isset($_GET['download_report'])) {
+
     header('Content-Type: text/csv');
-    header('Content-Disposition: attachment; filename="EchoFest_Report.csv"');
-    $out = fopen('php://output', 'w');
-    fputcsv($out, ['TYPE', 'NAME', 'DETAIL', 'INFO']);
-    foreach($lineup as $a) fputcsv($out, ['Artist', $a['artist'], $a['stage'], $a['day']]);
-    foreach($events as $e) fputcsv($out, ['Event', $e['title'], $e['stage'], $e['date']]);
+    header('Content-Disposition: attachment; filename="echofest_report.csv"');
+
+    $out = fopen("php://output", "w");
+
+    fputcsv($out, ['TYPE','NAME','DETAIL','INFO']);
+
+    foreach ($lineup as $a) {
+        fputcsv($out, ['Artist',$a['artist'] ?? '',$a['stage'] ?? '',$a['day'] ?? '']);
+    }
+
+    foreach ($events as $e) {
+        fputcsv($out, ['Event',$e['title'] ?? '',$e['location'] ?? '',$e['date'] ?? '']);
+    }
+
+    fputcsv($out, ['STAT','Tickets Sold',$totalTicketsSold,'']);
+    fputcsv($out, ['STAT','Revenue',$totalTicketsSold * 50,'']);
+    fputcsv($out, ['STAT','Users',$totalUsers,'']);
+
     fclose($out);
-    exit();
+    exit;
 }
 ?>

@@ -3,7 +3,6 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
-
 require_once '../data/events.php';
 require_once '../includes/header.php';
 require_once '../data/festival.php';
@@ -43,18 +42,7 @@ foreach ($lineup as $event) {
     $eventsByDay[$event['day']][] = $event;
 }
 
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>EchoFest 2026</title>
-  <link rel="stylesheet" href="../assets/css/style.css" />
-  <link rel="stylesheet" href="../assets/css/home.css" />
-</head>
-<body>
-    <div id="particles"></div>
+/* ===================== FIXED PART ===================== */
 $daysCount = count($days);
 $stagesCount = count($stages);
 $artistsCount = count($artists);
@@ -77,6 +65,17 @@ $summaryCards = [
     ],
 ];
 ?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EchoFest 2026</title>
+  <link rel="stylesheet" href="../assets/css/style.css" />
+  <link rel="stylesheet" href="../assets/css/home.css" />
+</head>
+<body>
 
 <div id="particles"></div>
 
@@ -238,10 +237,7 @@ $summaryCards = [
     <div class="artists-grid">
         <?php foreach ($featuredArtists as $index => $artist): ?>
             <div class="artist-card" style="animation: fadeUp 0.5s <?= $index * 0.07 ?>s ease both;">
-                <img
-                    src="<?= htmlspecialchars($artist['image']) ?>"
-                    alt="<?= htmlspecialchars($artist['artist']) ?>"
-                    onerror="this.style.display='none'">
+                <img src="<?= htmlspecialchars($artist['image']) ?>" alt="<?= htmlspecialchars($artist['artist']) ?>">
                 <div class="artist-name"><?= htmlspecialchars($artist['artist']) ?></div>
                 <div class="artist-tag">
                     <?= htmlspecialchars($artist['stage']) ?> &nbsp;&middot;&nbsp; <?= htmlspecialchars($artist['day']) ?>
@@ -250,16 +246,19 @@ $summaryCards = [
         <?php endforeach; ?>
     </div>
 
-    <a href="lineup.php" class="lineup-link">Full Lineup &nbsp;&rarr;</a>
+    <a href="lineup.php" class="lineup-link">Full Lineup &rarr;</a>
 </div>
 
 <footer class="home-footer">
     <div class="footer-brand">ECHO<span>FEST</span></div>
     <span class="footer-copy">
-        <?= htmlspecialchars($festivalInfo['dates']) ?> &nbsp;/&nbsp; <?= $stagesCount ?> Stages &nbsp;/&nbsp; <?= $artistsCount ?> Artists
+        <?= htmlspecialchars($festivalInfo['dates']) ?> / <?= $stagesCount ?> Stages / <?= $artistsCount ?> Artists
     </span>
 </footer>
 
 <script src="../assets/js/home.js"></script>
 
 <?php require_once '../includes/footer.php'; ?>
+
+</body>
+</html>
