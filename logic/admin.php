@@ -123,5 +123,11 @@ if (isset($_GET['download_report']) || isset($_POST['export_report'])) {
     fclose($output);
     exit;
 }
-
-
+$staticTicketData = [2000, 3000];  // Sold / Free (static visual)
+$staticUserData = [120, 80];       // Online / Offline (static visual)
+$staticEngagementData = [20, 50, 30, 80, 60];  // Mon-Fri
+$staticArtistData = [94, 88, 92, 96, 85, 89, 93, 91];
+$staticArtistLabels = ['Dua Lipa', 'Rita Ora', 'Martin Garrix', 'The Weeknd', 'Billie Eilish', 'Ed Sheeran', 'Rihanna', 'Taylor Swift'];
+$staticEventData = [65, 80, 90];  // Day 1-4
+$staticEventLabels = ['Friday', 'Saturday', 'Sunday'];
+?>
