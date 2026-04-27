@@ -14,3 +14,14 @@ function loadJSON($file) {
     if (!file_exists($file)) return [];
     return json_decode(file_get_contents($file), true) ?? [];
 }
+$lineup = loadJSON($LINEUP_FILE);
+$events = loadJSON($EVENTS_FILE);
+$users  = loadJSON($USERS_FILE);
+
+
+$totalTicketsSold = file_exists($ORDERS_FILE)
+    ? count(file($ORDERS_FILE, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES))
+    : 0;
+
+$capacity = 5000;
+$available = max(0, $capacity - $totalTicketsSold);
