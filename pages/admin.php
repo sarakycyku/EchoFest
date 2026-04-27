@@ -96,4 +96,38 @@ backgroundColor:'rgba(139,92,246,0.2)'
 options:{plugins:{legend:{display:true, labels:{color:'#fff'}}}}
 });
 
+new Chart(document.getElementById('artists'), {
+type:'bar',
+data:{
+labels: lineup.map(a => a.artist),
+datasets:[{
+label:'Artist Popularity',
+data: lineup.map(()=>Math.floor(Math.random()*100)+20),
+backgroundColor:'#8b5cf6'
+}]
+},
+options:{
+indexAxis:'y',
+plugins:{legend:{display:true, labels:{color:'#fff'}}}
+}
+});
+
+
+new Chart(document.getElementById('events'), {
+type:'radar',
+data:{
+labels: events.map(e => e.name),
+datasets:[{
+label:'Event Hype',
+data: events.map(()=>Math.floor(Math.random()*100)+30),
+borderColor:'#8b5cf6',
+backgroundColor:'rgba(139,92,246,0.2)'
+}]
+},
+options:{plugins:{legend:{display:true, labels:{color:'#fff'}}}}
+});
+</script>
+
+</body>
+</html>
 
