@@ -27,17 +27,17 @@ $festivalLocations = [
     ],
 ];
 
-function loadLineupData(string $file = __DIR__ . '/../pages/lineup_data.json'): array
-{
+function loadLineupData() {
+    $file = __DIR__ . '../data/lineup_data.json';
+
     if (!file_exists($file)) {
         return [];
     }
 
-    $data = json_decode(file_get_contents($file), true);
-    return is_array($data) ? $data : [];
+    return json_decode(file_get_contents($file), true) ?? [];
 }
 
-function loadTicketData(string $file = __DIR__ . '/tickets.json'): array
+function loadTicketData(string $file = __DIR__ . '../data/tickets.json'): array
 {
     if (!file_exists($file)) {
         return [];
