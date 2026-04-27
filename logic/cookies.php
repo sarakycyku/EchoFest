@@ -12,3 +12,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['save_cookie_preferenc
         'third_party' => isset($_POST['third_party']) ? true : false,
         'timestamp'   => time()
     ];
+ // Session
+    $_SESSION['cookie_consent'] = $preferences;
+
+    // Cookie (30 days)
+    setcookie(
+        'echofest_consent',
+        json_encode($preferences),
+        time() + (86400 * 30),
+        "/",
+        "",
+        false,
+        true // HttpOnly
+    );
