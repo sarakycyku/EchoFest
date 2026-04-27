@@ -291,3 +291,24 @@ canvas {
     .kpi-card { padding: 14px; }
     .kpi-number { font-size: 1.6rem; }
 }
+::-webkit-scrollbar {
+    width: 5px;
+    background: #0a0f1a;
+}
+::-webkit-scrollbar-thumb {
+    background: #2d3a5e;
+    border-radius: 4px;
+}
+
+
+.btn-export, .live-indicator, .badge, .kpi-card, .chart-panel {
+    border-radius: 10px;
+}
+
+
+canvas {
+    max-height: 190px;
+    min-height: 160px;
+}
+
+
