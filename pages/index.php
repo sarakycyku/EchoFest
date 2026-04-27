@@ -3,6 +3,7 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
+
 require_once '../data/events.php';
 require_once '../includes/header.php';
 require_once '../includes/cookies.php';
@@ -31,6 +32,7 @@ $days_count = count($days);
 $stages_count = count($stages);
 $artists_count = count($events);
 ?>
+
 
 
 <!DOCTYPE html>

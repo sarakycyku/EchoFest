@@ -1,5 +1,5 @@
 <?php require '../logic/admin.php'; ?>
-<?php require '../includes/header.php'; ?>
+<?php require '../includes/admin_header.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
