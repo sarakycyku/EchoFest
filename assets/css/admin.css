@@ -244,3 +244,30 @@ canvas {
 
 .sold-dot { background: #ff0000; }
 .free-dot { background: #289848; }
+
+.double-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-bottom: 28px;
+}
+
+
+.info-strip {
+    background: rgba(139, 92, 246, 0.05);
+    border: 1px solid var(--border-sharp);
+    border-radius: 10px;
+    padding: 16px 24px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    margin-top: 12px;
+}
+
+.info-strip i {
+    color: var(--accent-violet);
+    margin-right: 8px;
+}
+
