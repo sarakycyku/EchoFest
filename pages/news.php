@@ -103,9 +103,8 @@ $news = [
 
 
 
-</section>
-
-
+<section>
+         <h1 class='awards'>Awards</h1>
 
   <div class="awards-grid">
 

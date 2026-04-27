@@ -256,6 +256,10 @@ body{
     padding: 20px;
 }
 
+.awards{
+    text-align: center;
+}
+
 .awards-section {
     padding: 60px 20px 80px;
     background: linear-gradient(180deg, #07070c 0%, #0a0a12 100%);
