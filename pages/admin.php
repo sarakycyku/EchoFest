@@ -40,3 +40,38 @@ include '../logic/admin.php';
         </div>
     </div>
 
+  <!-- KPI Cards (mixed: static values for visual, but tooltip shows real) -->
+    <div class="kpi-grid">
+        <div class="kpi-card">
+            <div class="kpi-icon"><i class="fas fa-ticket-alt"></i></div>
+            <div class="kpi-content">
+                <div class="kpi-title">TICKETS SOLD <span class="static-badge">demo</span></div>
+                <div class="kpi-number">3000 / 5,000</div>
+                <div class="kpi-trend"><i class="fas fa-chart-line"></i> Real: <?php echo number_format($totalTicketsSold); ?> sold</div>
+            </div>
+        </div>
+        <div class="kpi-card">
+            <div class="kpi-icon"><i class="fas fa-users"></i></div>
+            <div class="kpi-content">
+                <div class="kpi-title">USER ACTIVITY <span class="static-badge">demo</span></div>
+                <div class="kpi-number">120 / 200</div>
+                <div class="kpi-trend"><i class="fas fa-wifi"></i> Real: <?php echo $online; ?> online / <?php echo $offline; ?> offline</div>
+            </div>
+        </div>
+        <div class="kpi-card">
+            <div class="kpi-icon"><i class="fas fa-microphone-alt"></i></div>
+            <div class="kpi-content">
+                <div class="kpi-title">ARTISTS <span class="static-badge">demo</span></div>
+                <div class="kpi-number">4 featured</div>
+                <div class="kpi-trend"><i class="fas fa-map-marker-alt"></i> Real: <?php echo $totalArtists; ?> artists</div>
+            </div>
+        </div>
+        <div class="kpi-card">
+            <div class="kpi-icon"><i class="fas fa-chart-line"></i></div>
+            <div class="kpi-content">
+                <div class="kpi-title">ENGAGEMENT <span class="static-badge">demo</span></div>
+                <div class="kpi-number">80% peak</div>
+                <div class="kpi-trend"><i class="fas fa-calendar"></i> Real revenue: €<?php echo number_format($revenue); ?></div>
+            </div>
+        </div>
+    </div>
