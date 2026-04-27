@@ -45,3 +45,28 @@ foreach ($lineup as $a) {
 $uniqueStages = count(array_unique($stages));
 
 $engagementScore = ($totalTicketsSold * 2) + ($online * 5);
+if (isset($_GET['download_report'])) {
+
+    header('Content-Type: text/csv');
+    header('Content-Disposition: attachment; filename="echofest_report.csv"');
+
+    $out = fopen("php://output", "w");
+
+    fputcsv($out, ['TYPE','NAME','DETAIL','INFO']);
+
+    foreach ($lineup as $a) {
+        fputcsv($out, ['Artist',$a['artist'] ?? '',$a['stage'] ?? '',$a['day'] ?? '']);
+    }
+
+    foreach ($events as $e) {
+        fputcsv($out, ['Event',$e['title'] ?? '',$e['location'] ?? '',$e['date'] ?? '']);
+    }
+
+    fputcsv($out, ['STAT','Tickets Sold',$totalTicketsSold,'']);
+    fputcsv($out, ['STAT','Revenue',$totalTicketsSold * 50,'']);
+    fputcsv($out, ['STAT','Users',$totalUsers,'']);
+
+    fclose($out);
+    exit;
+}
+?>
