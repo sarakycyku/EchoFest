@@ -161,6 +161,19 @@ body{
     overflow-y:auto;
 }
 
+.award-card img {
+    width: 100%;
+    height: 180px;   
+    object-fit: cover; 
+    border-radius: 12px;
+}
+
+.awards-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 në rresht */
+    gap: 20px;
+}
+
 /* ================= MOBILE ================= */
 @media(max-width:700px){
     .news-card{
