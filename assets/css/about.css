@@ -1,157 +1,147 @@
-body {
-  font-family: 'DM Sans', sans-serif;
-  background: #111;
-  color: white;
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
+body {
+  font-family: "DM Sans", sans-serif;
+  background: #07070a;
+  color: #fff;
+}
+
+/* CONTAINER */
 .about-container {
   width: min(1180px, 92%);
   margin: 0 auto;
 }
 
 .about-section {
-  padding: 85px 0;
+  padding: 90px 0;
 }
 
+/* HERO */
 .about-hero {
-    position: relative;
-    min-height: 78vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    overflow: hidden;
-    background: 
-    linear-gradient(180deg, rgba(5,5,10,0.25), rgba(5,5,10,0.78)),
-    url('../images/festival-bg.jpg') center/cover no-repeat;
+  position: relative;
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background:
+    linear-gradient(180deg, rgba(5,5,10,0.3), rgba(5,5,10,0.85)),
+    url("../images/festival-bg.jpg") center/cover no-repeat;
 }
 
 .about-overlay {
-    position: absolute;
-    inset: 0;
-    background: 
-    radial-gradient(circle at top, rgba(124,58,237,0.18), transparent 40%),
-    linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(7,7,10,0.95));
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at top, rgba(124,58,237,0.2), transparent 45%);
 }
 
 .about-hero-content {
-    position: relative;
-    z-index: 2;
-    padding: 20px;
+  position: relative;
+  z-index: 2;
 }
 
 .about-eyebrow {
-    font-size: 13px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: #c4b5fd;
-    margin-bottom: 14px;
+  font-size: 13px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #c4b5fd;
+  margin-bottom: 12px;
 }
 
 .about-hero h1 {
-    font-family: "Black Han Sans", sans-serif;
-    font-size: clamp(48px, 10vw, 108px);
-    margin: 0 0 14px;
-    letter-spacing: 1px;
+  font-family: "Black Han Sans", sans-serif;
+  font-size: clamp(50px, 10vw, 110px);
+  margin-bottom: 10px;
 }
 
 .about-tagline {
-    font-size: clamp(16px, 2vw, 24px);
-    color: #e9d5ff;
+  font-size: 20px;
+  color: #e9d5ff;
 }
 
+/* GRID */
 .about-grid {
-    display: grid;
-    grid-template-columns: 1.05fr 0.95fr;
-    gap: 42px;
-    align-items: center;
-}
-
-.section-label {
-    color: #22d3ee;
-    font-size: 13px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    margin-bottom: 10px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
 }
 
 .about-text h2 {
-    font-family: "Black Han Sans", sans-serif;
-    font-size: clamp(28px, 4vw, 46px);
-    margin-bottom: 18px;
-    letter-spacing: 1px;
+  font-size: 40px;
+  margin-bottom: 16px;
 }
 
 .about-text p {
-    color: #cbd5e1;
-    line-height: 1.8;
-    font-size: 17px;
+  color: #cbd5e1;
+  line-height: 1.7;
+  margin-bottom: 12px;
 }
 
+.section-label {
+  color: #22d3ee;
+  font-size: 13px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+/* IMAGE */
 .about-image {
-    width: 100%;
-    height: 500px;
-    object-fit: cover;
-    border-radius: 20px;
-    border: 1px solid rgba(255,255,255,0.08);
-    box-shadow: 0 20px 50px rgba(0,0,0,0.35);
+  width: 100%;
+  height: 450px;
+  object-fit: cover;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
 }
 
+/* STATS */
 .about-stats {
-    border-top: 1px solid rgba(255,255,255,0.08);
-    border-bottom: 1px solid rgba(255,255,255,0.08);
-    background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border-top: 1px solid rgba(255,255,255,0.08);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  background: rgba(255,255,255,0.02);
 }
 
 .stats-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 22px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
 }
 
 .stat-card {
-    background: rgba(255,255,255,0.04);
-    border: 1px solid rgba(255,255,255,0.08);
-    border-radius: 20px;
-    padding: 26px 18px;
-    text-align: center;
+  background: rgba(255,255,255,0.04);
+  padding: 30px;
+  border-radius: 16px;
+  text-align: center;
+  transition: 0.3s;
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+  border: 1px solid rgba(124,58,237,0.4);
 }
 
 .stat-number {
   font-family: "Black Han Sans", sans-serif;
-  font-size: 44px;
+  font-size: 45px;
   background: linear-gradient(90deg, #7c3aed, #22d3ee);
-  background-clip: text;        
-  color: transparent;           
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .stat-label {
-    margin-top: 10px;
-    color: #cbd5e1;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    font-size: 12px;
-}
-
-.heading-center {
-  text-align: center;
-  max-width: 760px;
-  margin: 0 auto 48px;
-}
-
-.heading-center h2 {
-  font-family: "Black Han Sans", sans-serif;
-  font-size: clamp(28px, 4vw, 46px);
-  margin-bottom: 18px;
-  letter-spacing: 1px;
-}
-
-.heading-center p {
+  margin-top: 10px;
+  font-size: 13px;
   color: #cbd5e1;
-  line-height: 1.8;
-  font-size: 17px;
+  text-transform: uppercase;
 }
 
+/* CARDS */
 .cards-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -159,80 +149,63 @@ body {
 }
 
 .info-card {
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.08);
-  border-radius: 20px;
   padding: 28px;
-  transition: 0.3s ease;
+  border-radius: 16px;
+  background: rgba(255,255,255,0.04);
+  transition: 0.3s;
+}
+
+.info-card:hover {
+  transform: translateY(-5px);
 }
 
 .icon-circle {
-  width: 58px;
-  height: 58px;
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
   display: grid;
   place-items: center;
   font-size: 28px;
-  margin-bottom: 16px;
-  background: linear-gradient(135deg, rgba(124,58,237,0.20), rgba(34,211,238,0.16));
-  color: #f5d0fe;
+  margin-bottom: 14px;
+  background: linear-gradient(135deg, rgba(124,58,237,0.25), rgba(34,211,238,0.2));
 }
 
-.info-card h3 {
-  margin: 0 0 10px;
-  font-size: 24px;
-}
-
-.info-card p {
-  color: #cbd5e1;
-  line-height: 1.8;
-  font-size: 17px;
-}
-
+/* TEAM */
 .team-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 22px;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
 }
 
 .team-card {
-    background: rgba(255,255,255,0.04);
-    border: 1px solid rgba(255,255,255,0.08);
-    border-radius: 20px;
-    overflow: hidden;
-    transition: 0.3s ease;
+  background: rgba(255,255,255,0.04);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: 0.3s;
+}
+
+.team-card:hover {
+  transform: translateY(-6px);
 }
 
 .team-card img {
-    width: 100%;
-    height: 320px; 
-    object-fit: cover;
-    display: block;
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
 }
 
 .team-info {
-    padding: 22px;
-}
-
-.team-info h3 {
-    margin: 0 0 10px;
-    font-size: 24px;
-}
-
-.team-info p {
-    color: #cbd5e1;
-    line-height: 1.8;
-    font-size: 17px;
+  padding: 20px;
 }
 
 .team-role {
-    color: #22d3ee;
-    font-size: 13px;
-    letter-spacing: 0.7px;
-    margin-bottom: 10px;
-    text-transform: uppercase;
+  color: #22d3ee;
+  font-size: 12px;
+  margin-bottom: 8px;
+  text-transform: uppercase;
 }
 
+/* MISSION */
 .mission-box {
   text-align: center;
   padding: 60px 28px;
@@ -270,6 +243,7 @@ body {
   font-style: italic;
 }
 
+/* CTA */
 .cta-box {
   text-align: center;
   padding: 42px 28px;
@@ -348,6 +322,31 @@ body {
   box-shadow: 0 20px 40px rgba(0,0,0,0.22);
 }
 
+.about-text h2,
+.about-hero h1,
+.stat-number,
+.heading-center h2,
+.mission-box h2,
+.cta-box h2 {
+  font-family: "Black Han Sans", sans-serif;
+}
+
+.heading-center {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 40px;
+}
+
+.heading-center h2 {
+  margin-bottom: 12px;
+}
+
+.heading-center p {
+  color: #cbd5e1;
+  line-height: 1.8;
+}
+
+/* RESPONSIVE */
 @media (max-width: 1100px) {
   .team-grid,
   .stats-grid {
@@ -362,26 +361,13 @@ body {
   }
 
   .about-image {
-    height: 380px;
+    height: 300px;
   }
 }
 
-@media (max-width: 640px) {
-  .about-section {
-    padding: 65px 0;
-  }
-
+@media (max-width: 600px) {
   .team-grid,
   .stats-grid {
     grid-template-columns: 1fr;
   }
-
-  .mission-quote {
-    font-size: 22px;
-  }
-
-  .about-image {
-    height: 280px;
-  }
 }
-
