@@ -86,7 +86,7 @@ body.news-page{
     opacity:0.7;
 }
 
-.news-card .right span{
+.news-card span{
     font-size:10px;
     letter-spacing:0.2em;
     opacity:0.4;
@@ -270,4 +270,3 @@ body.news-page{
     z-index: 2;
     padding: 20px;
 }
-S
