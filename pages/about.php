@@ -112,7 +112,7 @@ $team[] = $member5;
             <h2>Core Values</h2>
             <p>
                  The ideas that shape every EchoFest edition and every visitor experience.
-        </p>
+            </p>
     </div>
 
     <div class="cards-grid">

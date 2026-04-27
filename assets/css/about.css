@@ -9,11 +9,6 @@ body {
   font-family: "DM Sans", sans-serif;
   background: #07070a;
   color: #fff;
-  font-weight: 400;
-}
-
-p {
-  font-weight: 300;
 }
 
 /* CONTAINER */
@@ -213,16 +208,37 @@ p {
 /* MISSION */
 .mission-box {
   text-align: center;
-  padding: 60px;
-  border-radius: 20px;
+  padding: 60px 28px;
   background:
-    radial-gradient(circle at top, rgba(124,58,237,0.2), transparent 45%),
-    linear-gradient(135deg, #1f0a30, #07070a);
+    radial-gradient(circle at top, rgba(124,58,237,0.18), transparent 45%),
+    linear-gradient(135deg, rgba(31,10,48,0.95), rgba(7,7,10,1));
+  border: 1px solid rgba(124,58,237,0.25);
+  border-radius: 20px;
+}
+
+.mission-box h2 {
+  font-family: "Black Han Sans", sans-serif;
+  font-size: clamp(28px, 4vw, 46px);
+  margin-bottom: 18px;
+  letter-spacing: 1px;
+}
+
+.mission-icon {
+  font-size: 38px;
+  margin-bottom: 14px;
+}
+
+.mission-box p {
+  max-width: 860px;
+  margin: 0 auto;
+  color: #cbd5e1;
+  line-height: 1.8;
+  font-size: 17px;
 }
 
 .mission-quote {
-  margin-top: 20px;
-  font-size: 26px;
+  margin-top: 28px;
+  font-size: 28px;
   color: #e9d5ff;
   font-style: italic;
 }
@@ -230,42 +246,80 @@ p {
 /* CTA */
 .cta-box {
   text-align: center;
-  padding: 40px;
+  padding: 42px 28px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 20px;
+}
+
+.cta-box h2 {
+  font-family: "Black Han Sans", sans-serif;
+  font-size: clamp(28px, 4vw, 46px);
+  margin-bottom: 18px;
+  letter-spacing: 1px;
+}
+
+.cta-box p {
+  color: #cbd5e1;
+  line-height: 1.8;
+  font-size: 17px;
 }
 
 .cta-actions {
-  margin-top: 20px;
   display: flex;
   justify-content: center;
-  gap: 12px;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-top: 24px;
+}
+
+.btn-primary,
+.btn-secondary {
+  text-decoration: none;
+  padding: 12px 22px;
+  border-radius: 12px;
+  font-weight: 600;
+  transition: 0.3s ease;
 }
 
 .btn-primary {
-  padding: 12px 22px;
   background: linear-gradient(90deg, #312e81, #6b21a8);
-  border-radius: 10px;
-  text-decoration: none;
-  color: white;
+  color: #fff;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  opacity: 0.95;
 }
 
 .btn-secondary {
-  padding: 12px 22px;
-  border: 1px solid rgba(255,255,255,0.2);
-  border-radius: 10px;
-  text-decoration: none;
-  color: white;
+  border: 1px solid rgba(255,255,255,0.14);
+  color: #fff;
+  background: rgba(255,255,255,0.04);
 }
 
-/* ANIMATION */
+.btn-secondary:hover {
+  background: rgba(255,255,255,0.09);
+  transform: translateY(-2px);
+}
+
 .reveal {
   opacity: 0;
-  transform: translateY(40px);
-  transition: 0.8s ease;
+  transform: translateY(35px);
+  transition: all 0.8s ease;
 }
 
 .reveal.active {
   opacity: 1;
   transform: translateY(0);
+}
+
+.info-card:hover,
+.team-card:hover,
+.stat-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(124,58,237,0.35);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.22);
 }
 
 .about-text h2,
@@ -275,6 +329,21 @@ p {
 .mission-box h2,
 .cta-box h2 {
   font-family: "Black Han Sans", sans-serif;
+}
+
+.heading-center {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 40px;
+}
+
+.heading-center h2 {
+  margin-bottom: 12px;
+}
+
+.heading-center p {
+  color: #cbd5e1;
+  line-height: 1.8;
 }
 
 /* RESPONSIVE */
@@ -302,4 +371,3 @@ p {
     grid-template-columns: 1fr;
   }
 }
-
