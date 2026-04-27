@@ -10,6 +10,7 @@ $locations = [
 $selected = isset($_GET['loc']) && array_key_exists($_GET['loc'], $locations) ? $_GET['loc'] : 'xk';
 $event = $locations[$selected];
 
+$tickets = json_decode(file_get_contents('../data/tickets.json'), true);
 ?>
 
 <link rel="stylesheet" href="../assets/css/tickets.css?v=1.2">
