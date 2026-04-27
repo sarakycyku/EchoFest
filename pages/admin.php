@@ -142,3 +142,61 @@ include '../logic/admin.php';
         <div><i class="fas fa-chart-simple"></i> Real revenue: €<?php echo number_format($revenue); ?> | Real tickets: <?php echo $totalTicketsSold; ?></div>
     </div>
 </div>
+<script>
+// ALL CHARTS USE STATIC DATA
+(function() {
+
+    const staticTicketSold = 3000;
+    const staticTicketFree = 2000;
+    const staticOnline = 120;
+    const staticOffline = 80;
+    const staticEngagement = [20, 50, 30, 80, 60];
+    const staticArtistScores = [94, 88, 92, 96, 85, 89, 93, 91];
+    const staticArtistLabels = ['Dua Lipa', 'Rita Ora', 'Martin Garrix', 'The Weeknd', 'Billie Eilish', 'Ed Sheeran', 'Rihanna', 'Taylor Swift'];
+    const staticEventScores = [65, 80, 90];
+
+
+    new Chart(document.getElementById('ticketChart'), {
+        type: 'doughnut',
+        data: {
+            labels: ['Sold Tickets', 'Free Tickets'],
+            datasets: [{
+                data: [staticTicketSold, staticTicketFree],
+                backgroundColor: ['#8b5cf6', '#1e293b'],
+                borderWidth: 0,
+                borderRadius: 4
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: true,
+            cutout: '70%',
+            plugins: { legend: { display: false } }
+        }
+    });
+
+
+    new Chart(document.getElementById('userChart'), {
+        type: 'bar',
+        data: {
+            labels: ['Online Users', 'Offline Users'],
+            datasets: [{
+                data: [staticOnline, staticOffline],
+                backgroundColor: ['#8b5cf6', '#334155'],
+                borderRadius: 6
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: { legend: { display: false } },
+            scales: {
+                x: { grid: { display: false } },
+                y: { grid: { color: 'rgba(255,255,255,0.05)' } }
+            }
+        }
+    });
+
+
+</script>
+</body>
+</html>
