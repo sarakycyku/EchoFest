@@ -101,11 +101,10 @@ $news = [
         <p><?= $n['desc'] ?></p>
       </div>
 
-      <div class="right">
-       <?php $now = date("d M Y H:i"); ?>
-       <span><?= $now ?></span>
-      </div>
-
+      <?php
+      $fakeTime = date("d M Y H:i", strtotime("-".rand(1,48)." hours"));
+      ?>
+      <span><?= $fakeTime ?></span>
     </div>
   <?php endforeach; ?>
 
@@ -153,5 +152,6 @@ $news = [
 
 
 <script src="../assets/js/news.js"></script>
+
 </body>
 </html>

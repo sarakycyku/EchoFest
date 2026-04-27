@@ -1,141 +1,272 @@
 <?php
-// admin_dashboard.php - Admin panel for managing lineup
-require '../logic/admin.php';
+include '../includes/admin_header.php';
+
+include '../logic/admin.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Dashboard - Manage Lineup | EchoFest</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>ECHOFEST ADMIN | Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="../assets/css/admin.css">
+
 </head>
 <body>
-    <div class="admin-wrapper">
-        <!-- Header -->
-        <div class="admin-header">
-            <div class="logo">
-                <h1><i class="fas fa-ticket-alt"></i> EchoFest Admin Panel</h1>
-                <p class="text-muted mb-0">Manage Festival Lineup</p>
-            </div>
-            <div class="d-flex gap-3 align-items-center">
-                <span class="text-light"><i class="fas fa-user-shield"></i> <?php echo htmlspecialchars($_SESSION['username']); ?> (Admin)</span>
-                <a href="logout.php" class="btn btn-danger btn-sm"><i class="fas fa-sign-out-alt"></i> Logout</a>
-                <a href="lineup.php" target="_blank" class="btn btn-outline-info btn-sm"><i class="fas fa-eye"></i> View Live Lineup</a>
+<div class="dashboard-container">
+    <div class="dashboard-header">
+        <div class="title-section">
+            <h1><i style="color: #8b5cf6; margin-right: 10px;"></i>ECHOFEST · Admin Dashboard</h1>
+            <div class="badge">
+                <i class="fas fa-chart-line"></i> CHARTS: STATIC DEMO DATA
+                <i class="fas fa-file-export" style="margin-left: 8px;"></i> EXPORT: REAL DATA
             </div>
         </div>
-
-        <!-- Messages -->
-        <?php if ($message): ?>
-            <div class="alert alert-<?php echo $messageType; ?> alert-dismissible fade show" role="alert">
-                <?php echo htmlspecialchars($message); ?>
-                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        <div class="header-actions">
+            <div class="live-indicator">
+                <i class="fas fa-circle" style="color:#10b981;"></i>
+                <?php echo htmlspecialchars($current_admin); ?>
             </div>
-        <?php endif; ?>
-
-        <!-- Add Artist Form -->
-        <div class="glass-card">
-            <h3 class="text-light mb-3"><i class="fas fa-plus-circle text-warning"></i> Add New Artist to Lineup</h3>
-            <form method="POST">
-                <div class="row g-3">
-                    <div class="col-md-4">
-                        <label class="form-label">Artist Name *</label>
-                        <input type="text" name="artist" class="form-control" required placeholder="e.g., Taylor Swift">
-                    </div>
-                    <div class="col-md-3">
-                        <label class="form-label">Stage *</label>
-                        <input type="text" name="stage" class="form-control" required placeholder="Main Stage / EDM Stage">
-                    </div>
-                    <div class="col-md-2">
-                        <label class="form-label">Day *</label>
-                        <select name="day" class="form-select" required>
-                            <option value="">Select Day</option>
-                            <?php foreach ($days as $d): ?>
-                                <option value="<?php echo $d; ?>"><?php echo $d; ?></option>
-                            <?php endforeach; ?>
-                        </select>
-                    </div>
-                    <div class="col-md-3">
-                        <label class="form-label">Image URL</label>
-                        <input type="text" name="image" class="form-control" placeholder="../assets/images/artist.png">
-                    </div>
-                    <div class="col-12">
-                        <label class="form-label">Hit Songs (one per line)</label>
-                        <textarea name="hits" class="form-control" rows="3" placeholder="Song 1&#10;Song 2&#10;Song 3"></textarea>
-                    </div>
-                    <div class="col-12">
-                        <button type="submit" name="add_artist" class="btn btn-warning"><i class="fas fa-save"></i> Add Artist to Lineup</button>
-                    </div>
-                </div>
+            <a href="?download_report=1" class="btn-export-form">
+                <i class="fas fa-file-csv"></i> EXPORT REAL DATA (CSV)
+            </a>
+            <form method="POST" style="display: inline;">
+                <button type="submit" name="export_report" value="1" class="btn-export-form">
+                    <i class="fas fa-download"></i> EXPORT (POST)
+                </button>
             </form>
-        </div>
-
-        <!-- Current Lineup Table -->
-        <div class="glass-card">
-            <h3 class="text-light mb-3"><i class="fas fa-music"></i> Current Lineup Management</h3>
-            <div class="table-responsive">
-                <table class="table table-dark table-hover">
-                    <thead>
-                        <tr><th>#</th><th>Artist</th><th>Stage</th><th>Day</th><th>Image Path</th><th>Hits</th><th>Actions</th></tr>
-                    </thead>
-                    <tbody>
-                        <?php foreach ($lineup as $index => $artist): ?>
-                        <tr>
-                            <form method="POST" style="display: inline;">
-                                <input type="hidden" name="artist_index" value="<?php echo $index; ?>">
-                                <td><?php echo $index + 1; ?></td>
-                                <td><input type="text" name="artist" value="<?php echo htmlspecialchars($artist['artist']); ?>" class="form-control form-control-sm" style="width: 150px;"></td>
-                                <td><input type="text" name="stage" value="<?php echo htmlspecialchars($artist['stage']); ?>" class="form-control form-control-sm" style="width: 130px;"></td>
-                                <td>
-                                    <select name="day" class="form-select form-select-sm" style="width: 110px;">
-                                        <?php foreach ($days as $d): ?>
-                                            <option value="<?php echo $d; ?>" <?php echo ($artist['day'] == $d) ? 'selected' : ''; ?>><?php echo $d; ?></option>
-                                        <?php endforeach; ?>
-                                    </select>
-                                 </td>
-                                <td><input type="text" name="image" value="<?php echo htmlspecialchars($artist['image']); ?>" class="form-control form-control-sm" style="width: 160px;"></td>
-                                <td><textarea name="hits" class="form-control form-control-sm" rows="2" style="width: 180px;"><?php echo implode("\n", $artist['hits']); ?></textarea></td>
-                                <td style="white-space: nowrap;">
-                                    <button type="submit" name="edit_artist" class="btn btn-sm btn-warning-custom"><i class="fas fa-edit"></i> Update</button>
-                                    <a href="?delete=<?php echo $index; ?>" class="btn btn-sm btn-danger" onclick="return confirm('Delete <?php echo htmlspecialchars($artist['artist']); ?> from lineup?')"><i class="fas fa-trash"></i> Delete</a>
-                                </td>
-                            </form>
-                        </tr>
-                        <?php endforeach; ?>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-
-        <!-- Preview Cards -->
-        <div class="glass-card">
-            <h3 class="text-light mb-3"><i class="fas fa-eye"></i> Lineup Preview</h3>
-            <div class="row">
-                <?php
-                $previewArtists = array_slice($lineup, 0, 4);
-                foreach ($previewArtists as $artist):
-                ?>
-                <div class="col-md-3 mb-3">
-                    <div class="artist-card">
-                        <img src="<?php echo htmlspecialchars($artist['image']); ?>" class="artist-image" onerror="this.src='https://placehold.co/400x300?text=Artist'">
-                        <div class="p-3">
-                            <h5 class="text-warning mb-1"><?php echo htmlspecialchars($artist['artist']); ?></h5>
-                            <p class="mb-1"><i class="fas fa-map-marker-alt"></i> <?php echo htmlspecialchars($artist['stage']); ?></p>
-                            <p class="mb-2"><i class="fas fa-calendar"></i> <?php echo htmlspecialchars($artist['day']); ?></p>
-                            <div class="hits-list">
-                                <small><i class="fas fa-headphones"></i> <?php echo implode(', ', array_slice($artist['hits'], 0, 2)); ?></small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <?php endforeach; ?>
-            </div>
-            <p class="text-center text-muted mt-2">Total artists in lineup: <?php echo count($lineup); ?></p>
         </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- KPI Cards (mixed: static values for visual, but tooltip shows real) -->
+    <div class="kpi-grid">
+        <div class="kpi-card">
+            <div class="kpi-icon"><i class="fas fa-ticket-alt"></i></div>
+            <div class="kpi-content">
+                <div class="kpi-title">TICKETS SOLD <span class="static-badge">demo</span></div>
+                <div class="kpi-number">3000 / 5,000</div>
+                <div class="kpi-trend"><i class="fas fa-chart-line"></i> Real: <?php echo number_format($totalTicketsSold); ?> sold</div>
+            </div>
+        </div>
+        <div class="kpi-card">
+            <div class="kpi-icon"><i class="fas fa-users"></i></div>
+            <div class="kpi-content">
+                <div class="kpi-title">USER ACTIVITY <span class="static-badge">demo</span></div>
+                <div class="kpi-number">120 / 200</div>
+                <div class="kpi-trend"><i class="fas fa-wifi"></i> Real: <?php echo $online; ?> online / <?php echo $offline; ?> offline</div>
+            </div>
+        </div>
+        <div class="kpi-card">
+            <div class="kpi-icon"><i class="fas fa-microphone-alt"></i></div>
+            <div class="kpi-content">
+                <div class="kpi-title">ARTISTS <span class="static-badge">demo</span></div>
+                <div class="kpi-number">4 featured</div>
+                <div class="kpi-trend"><i class="fas fa-map-marker-alt"></i> Real: <?php echo $totalArtists; ?> artists</div>
+            </div>
+        </div>
+        <div class="kpi-card">
+            <div class="kpi-icon"><i class="fas fa-chart-line"></i></div>
+            <div class="kpi-content">
+                <div class="kpi-title">ENGAGEMENT <span class="static-badge">demo</span></div>
+                <div class="kpi-number">80% peak</div>
+                <div class="kpi-trend"><i class="fas fa-calendar"></i> Real revenue: €<?php echo number_format($revenue); ?></div>
+            </div>
+        </div>
+    </div>
+
+<div class="charts-grid">
+        <div class="chart-panel">
+            <div class="chart-header">
+                <h3><i class="fas fa-chart-pie"></i> Ticket distribution <span class="static-badge">static demo</span></h3>
+                <span class="chart-badge">sold / comp</span>
+            </div>
+            <canvas id="ticketChart" width="400" height="200"></canvas>
+            <div class="chart-footer-stats">
+                <span><span class="dot sold-dot"></span> Sold: 3,200</span>
+                <span><span class="dot free-dot"></span> Free: 1,800</span>
+            </div>
+        </div>
+
+        <div class="chart-panel">
+            <div class="chart-header">
+                <h3><i class="fas fa-user-clock"></i> User presence <span class="static-badge">static demo</span></h3>
+                <span class="chart-badge">visual only</span>
+            </div>
+            <canvas id="userChart" width="400" height="200"></canvas>
+            <div class="chart-footer-stats">
+                <span><i class="fas fa-circle"></i> Online: 120</span>
+                <span><i class="fas fa-circle-off"></i> Offline: 80</span>
+            </div>
+        </div>
+
+        <div class="chart-panel">
+            <div class="chart-header">
+                <h3><i class="fas fa-chart-line"></i> Engagement trend <span class="static-badge">static demo</span></h3>
+                <span class="chart-badge">peak → Fri</span>
+            </div>
+            <canvas id="engagementChart" width="400" height="200"></canvas>
+            <div class="chart-footer-stats">
+                <i class="fas fa-calendar-week"></i> Mon 20% → Fri 80%
+            </div>
+        </div>
+    </div>
+
+ <div class="double-grid">
+        <div class="chart-panel">
+            <div class="chart-header">
+                <h3><i class="fas fa-chart-simple"></i> Artist performance <span class="static-badge">static demo</span></h3>
+                <span class="chart-badge">DJ Snake top</span>
+            </div>
+            <canvas id="artistChart" width="400" height="220"></canvas>
+            <div class="chart-footer-stats">
+                <i class="fas fa-headphones"></i> Based on demo metrics
+            </div>
+        </div>
+        <div class="chart-panel">
+            <div class="chart-header">
+                <h3><i class="fas fa-chart-radar"></i> Event intensity <span class="static-badge">static demo</span></h3>
+                <span class="chart-badge">day 4 peak</span>
+            </div>
+            <canvas id="eventRadarChart" width="400" height="220"></canvas>
+            <div class="chart-footer-stats">
+                <i class="fas fa-calendar-alt"></i> Day 4 → 90% intensity
+            </div>
+        </div>
+    </div>
+
+    <div class="info-strip">
+        <div><i class="fas fa-info-circle"></i> Charts display STATIC demo data for visual design</div>
+        <div><i class="fas fa-database"></i> Export button uses REAL data from your database</div>
+        <div><i class="fas fa-chart-simple"></i> Real revenue: €<?php echo number_format($revenue); ?> | Real tickets: <?php echo $totalTicketsSold; ?></div>
+    </div>
+</div>
+<script>
+// ALL CHARTS USE STATIC DATA
+(function() {
+
+    const staticTicketSold = 3000;
+    const staticTicketFree = 2000;
+    const staticOnline = 120;
+    const staticOffline = 80;
+    const staticEngagement = [20, 50, 30, 80, 60];
+    const staticArtistScores = [94, 88, 92, 96, 85, 89, 93, 91];
+    const staticArtistLabels = ['Dua Lipa', 'Rita Ora', 'Martin Garrix', 'The Weeknd', 'Billie Eilish', 'Ed Sheeran', 'Rihanna', 'Taylor Swift'];
+    const staticEventScores = [65, 80, 90];
+
+
+    new Chart(document.getElementById('ticketChart'), {
+        type: 'doughnut',
+        data: {
+            labels: ['Sold Tickets', 'Free Tickets'],
+            datasets: [{
+                data: [staticTicketSold, staticTicketFree],
+                backgroundColor: ['#8b5cf6', '#1e293b'],
+                borderWidth: 0,
+                borderRadius: 4
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: true,
+            cutout: '70%',
+            plugins: { legend: { display: false } }
+        }
+    });
+
+
+    new Chart(document.getElementById('userChart'), {
+        type: 'bar',
+        data: {
+            labels: ['Online Users', 'Offline Users'],
+            datasets: [{
+                data: [staticOnline, staticOffline],
+                backgroundColor: ['#8b5cf6', '#334155'],
+                borderRadius: 6
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: { legend: { display: false } },
+            scales: {
+                x: { grid: { display: false } },
+                y: { grid: { color: 'rgba(255,255,255,0.05)' } }
+            }
+        }
+    });
+
+
+    new Chart(document.getElementById('engagementChart'), {
+        type: 'line',
+        data: {
+            labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'],
+            datasets: [{
+                data: staticEngagement,
+                borderColor: '#a78bfa',
+                backgroundColor: 'rgba(139,92,246,0.1)',
+                borderWidth: 2.5,
+                fill: true,
+                tension: 0.3,
+                pointBackgroundColor: '#8b5cf6',
+                pointBorderColor: '#0f172a',
+                pointRadius: 4
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: { legend: { display: false } }
+        }
+    });
+
+
+    new Chart(document.getElementById('artistChart'), {
+        type: 'bar',
+        data: {
+            labels: staticArtistLabels,
+            datasets: [{
+                data: staticArtistScores,
+                backgroundColor: '#8b5cf6',
+                borderRadius: 6
+            }]
+        },
+        options: {
+            indexAxis: 'y',
+            responsive: true,
+            plugins: { legend: { display: false } },
+            scales: {
+                x: { max: 100, ticks: { callback: (v) => v + '%' } }
+            }
+        }
+    });
+
+
+    new Chart(document.getElementById('eventRadarChart'), {
+        type: 'radar',
+        data: {
+            labels: ['Day 1', 'Day 2', 'Day 3'],
+            datasets: [{
+                data: staticEventScores,
+                borderColor: '#c084fc',
+                backgroundColor: 'rgba(139,92,246,0.2)',
+                borderWidth: 2,
+                pointBackgroundColor: '#8b5cf6',
+                pointBorderColor: '#ffffff',
+                pointRadius: 4
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: { legend: { display: false } },
+            scales: {
+                r: {
+                    ticks: { stepSize: 20 },
+                    grid: { color: 'rgba(139,92,246,0.2)' }
+                }
+            }
+        }
+    });
+})();
+</script>
 </body>
 </html>

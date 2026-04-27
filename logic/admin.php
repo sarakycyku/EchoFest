@@ -1,109 +1,133 @@
 <?php
-session_start();
-// Check if user is logged in and has admin role
-// if (!isset($_SESSION['admin_logged_in']) || $_SESSION['admin_logged_in'] !== true || $_SESSION['role'] !== 'admin') {
-//     header('Location: login.php');
-//     exit();
-//}
-
-// Lineup data file
-$LINEUP_FILE = 'lineup_data.json';
-
-// Initialize lineup data file if not exists
-if (!file_exists($LINEUP_FILE)) {
-    $defaultLineup = [
-        ["artist"=>"Dua Lipa","stage"=>"Main Stage","day"=>"Saturday","image"=>"../assets/images/dua_lipa.png","hits"=>["Levitating","New Rules","Don't Start Now"]],
-        ["artist"=>"DJ Snake","stage"=>"Main Stage","day"=>"Friday","image"=>"../assets/images/dj_snake.png","hits"=>["Taki Taki","Lean On","Let Me Love You"]],
-        ["artist"=>"Martin Garrix","stage"=>"EDM Stage","day"=>"Sunday","image"=>"../assets/images/martin_garrix.png","hits"=>["Animals","Scared to Be Lonely","In the Name of Love"]],
-        ["artist"=>"Rita Ora","stage"=>"Pop Stage","day"=>"Friday","image"=>"../assets/images/rita_ora.png","hits"=>["Anywhere","Let You Love Me","Your Song"]],
-        ["artist"=>"The Weeknd","stage"=>"Main Stage","day"=>"Saturday","image"=>"../assets/images/the_weeknd.png","hits"=>["Blinding Lights","Starboy","Save Your Tears"]],
-        ["artist"=>"Calvin Harris","stage"=>"EDM Stage","day"=>"Sunday","image"=>"../assets/images/calvin_harris.png","hits"=>["Summer","One Kiss","Feel So Close"]],
-        ["artist"=>"Billie Eilish","stage"=>"Main Stage","day"=>"Friday","image"=>"../assets/images/billie_eilish.png","hits"=>["Bad Guy","Ocean Eyes","Happier Than Ever"]],
-        ["artist"=>"Ed Sheeran","stage"=>"Acoustic Stage","day"=>"Saturday","image"=>"../assets/images/ed_sheeran.png","hits"=>["Shape of You","Perfect","Photograph"]],
-        ["artist"=>"David Guetta","stage"=>"EDM Stage","day"=>"Friday","image"=>"../assets/images/david_guetta.png","hits"=>["Titanium","Play Hard","Without You"]],
-        ["artist"=>"Sia","stage"=>"Pop Stage","day"=>"Sunday","image"=>"../assets/images/sia.png","hits"=>["Chandelier","Cheap Thrills","Elastic Heart"]]
-    ];
-    file_put_contents($LINEUP_FILE, json_encode($defaultLineup, JSON_PRETTY_PRINT));
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
 }
 
-// Load lineup data
-function loadLineup() {
-    global $LINEUP_FILE;
-    $data = file_get_contents($LINEUP_FILE);
-    return json_decode($data, true);
+$DATA_DIR = __DIR__ . '/../data/';
+$LINEUP_FILE = $DATA_DIR . 'lineup_data.json';
+$EVENTS_FILE = $DATA_DIR . 'events_data.json';
+$USERS_FILE  = $DATA_DIR . 'users.json';
+$ORDERS_FILE = $DATA_DIR . 'orders.txt';
+
+
+function loadJSON($file) {
+    if (!file_exists($file)) return [];
+    return json_decode(file_get_contents($file), true) ?? [];
 }
 
-// Save lineup data
-function saveLineup($lineup) {
-    global $LINEUP_FILE;
-    file_put_contents($LINEUP_FILE, json_encode($lineup, JSON_PRETTY_PRINT));
+
+$lineup = loadJSON($LINEUP_FILE);
+$events = loadJSON($EVENTS_FILE);
+$users  = loadJSON($USERS_FILE);
+
+
+$totalTicketsSold = 0;
+if (file_exists($ORDERS_FILE)) {
+    $orders = file($ORDERS_FILE, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+    $totalTicketsSold = count($orders);
 }
 
-$message = '';
-$messageType = '';
+$capacity = 5000;
+$available = max(0, $capacity - $totalTicketsSold);
 
-// Handle Add Artist
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['add_artist'])) {
-    $artist = trim($_POST['artist']);
-    $stage = trim($_POST['stage']);
-    $day = trim($_POST['day']);
-    $image = trim($_POST['image']);
-    $hits = array_filter(array_map('trim', explode("\n", $_POST['hits'])));
 
-    if (empty($artist) || empty($stage) || empty($day)) {
-        $message = 'Artist name, stage, and day are required!';
-        $messageType = 'danger';
-    } else {
-        $lineup = loadLineup();
-        $newArtist = [
-            "artist" => $artist,
-            "stage" => $stage,
-            "day" => $day,
-            "image" => !empty($image) ? $image : "../assets/images/default_artist.png",
-            "hits" => !empty($hits) ? $hits : ["New Hit Song"]
-        ];
-        array_push($lineup, $newArtist);
-        saveLineup($lineup);
-        $message = "Artist '{$artist}' added successfully!";
-        $messageType = 'success';
+$online = 0;
+$offline = 0;
+foreach ($users as $u) {
+    (($u['status'] ?? '') === 'online') ? $online++ : $offline++;
+}
+$current_admin = $_SESSION['username'] ?? 'SuperAdmin';
+$totalArtists = count($lineup);
+$totalEvents  = count($events);
+$totalUsers   = count($users);
+
+$stages = [];
+foreach ($lineup as $a) {
+    if (!empty($a['stage'])) $stages[] = $a['stage'];
+}
+
+
+$uniqueStages = count(array_unique($stages));
+$revenue = $totalTicketsSold * 50;
+
+if (isset($_GET['download_report']) || isset($_POST['export_report'])) {
+    header('Content-Type: text/csv; charset=utf-8');
+    header('Content-Disposition: attachment; filename="echofest_report_' . date('Y-m-d_H-i-s') . '.csv"');
+    header('Pragma: no-cache');
+    header('Expires: 0');
+
+    $output = fopen('php://output', 'w');
+    fprintf($output, chr(0xEF).chr(0xBB).chr(0xBF));
+
+
+    fputcsv($output, ['ECHOFEST FESTIVAL - REAL DATA REPORT']);
+    fputcsv($output, ['Generated: ' . date('Y-m-d H:i:s')]);
+    fputcsv($output, ['Admin: ' . $current_admin]);
+    fputcsv($output, []);
+
+
+    fputcsv($output, ['=== REAL STATISTICS ===']);
+    fputcsv($output, ['Metric', 'Value']);
+    fputcsv($output, ['Real Tickets Sold', $totalTicketsSold]);
+    fputcsv($output, ['Real Available Seats', $available]);
+    fputcsv($output, ['Real Revenue (€)', '€' . number_format($revenue, 2)]);
+    fputcsv($output, ['Real Online Users', $online]);
+    fputcsv($output, ['Real Offline Users', $offline]);
+    fputcsv($output, ['Real Total Users', $totalUsers]);
+    fputcsv($output, ['Real Artists', $totalArtists]);
+    fputcsv($output, ['Real Events', $totalEvents]);
+    fputcsv($output, ['Real Unique Stages', $uniqueStages]);
+    fputcsv($output, []);
+
+
+    fputcsv($output, ['=== REAL LINEUP DATA ===']);
+    fputcsv($output, ['Artist', 'Stage', 'Day', 'Time', 'Genre']);
+    foreach ($lineup as $artist) {
+        fputcsv($output, [
+            $artist['artist'] ?? 'N/A',
+            $artist['stage'] ?? 'N/A',
+            $artist['day'] ?? 'N/A',
+            $artist['time'] ?? 'TBD',
+            $artist['genre'] ?? 'Various'
+        ]);
     }
-}
+    fputcsv($output, []);
 
-// Handle Edit Artist
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['edit_artist'])) {
-    $index = intval($_POST['artist_index']);
-    $artist = trim($_POST['artist']);
-    $stage = trim($_POST['stage']);
-    $day = trim($_POST['day']);
-    $image = trim($_POST['image']);
-    $hits = array_filter(array_map('trim', explode("\n", $_POST['hits'])));
-
-    $lineup = loadLineup();
-    if (isset($lineup[$index])) {
-        $lineup[$index]['artist'] = $artist;
-        $lineup[$index]['stage'] = $stage;
-        $lineup[$index]['day'] = $day;
-        $lineup[$index]['image'] = !empty($image) ? $image : $lineup[$index]['image'];
-        $lineup[$index]['hits'] = !empty($hits) ? $hits : $lineup[$index]['hits'];
-        saveLineup($lineup);
-        $message = "Artist updated successfully!";
-        $messageType = 'success';
+ fputcsv($output, ['=== REAL EVENTS ===']);
+    fputcsv($output, ['Title', 'Location', 'Date', 'Time']);
+    foreach ($events as $event) {
+        fputcsv($output, [
+            $event['title'] ?? 'N/A',
+            $event['location'] ?? 'N/A',
+            $event['date'] ?? 'N/A',
+            $event['time'] ?? 'TBD'
+        ]);
     }
-}
+    fputcsv($output, []);
 
-// Handle Delete Artist
-if (isset($_GET['delete']) && is_numeric($_GET['delete'])) {
-    $index = intval($_GET['delete']);
-    $lineup = loadLineup();
-    if (isset($lineup[$index])) {
-        $artistName = $lineup[$index]['artist'];
-        array_splice($lineup, $index, 1);
-        saveLineup($lineup);
-        $message = "Artist '{$artistName}' deleted successfully!";
-        $messageType = 'success';
+
+    fputcsv($output, ['=== REAL USERS ===']);
+    fputcsv($output, ['Username', 'Status', 'Email', 'Role']);
+    foreach ($users as $user) {
+        fputcsv($output, [
+            $user['username'] ?? 'N/A',
+            $user['status'] ?? 'offline',
+            $user['email'] ?? 'N/A',
+            $user['role'] ?? 'user'
+        ]);
     }
-}
+    fputcsv($output, []);
 
-$lineup = loadLineup();
-$days = ['Friday', 'Saturday', 'Sunday'];
+
+    fputcsv($output, ['END OF REAL DATA REPORT']);
+    fclose($output);
+    exit;
+}
+$staticTicketData = [2000, 3000];  // Sold / Free (static visual)
+$staticUserData = [120, 80];       // Online / Offline (static visual)
+$staticEngagementData = [20, 50, 30, 80, 60];  // Mon-Fri
+$staticArtistData = [94, 88, 92, 96, 85, 89, 93, 91];
+$staticArtistLabels = ['Dua Lipa', 'Rita Ora', 'Martin Garrix', 'The Weeknd', 'Billie Eilish', 'Ed Sheeran', 'Rihanna', 'Taylor Swift'];
+$staticEventData = [65, 80, 90];  // Day 1-4
+$staticEventLabels = ['Friday', 'Saturday', 'Sunday'];
 ?>

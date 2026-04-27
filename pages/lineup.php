@@ -77,7 +77,7 @@ if ($sort == "stage") {
 
 <div class="container py-4">
 
-    <h1 class="text-center mb-4">EchoFest Lineup</h1>
+    <br>
 
     <!-- =========================
          SLIDER (TOP FEATURED)
@@ -107,6 +107,7 @@ if ($sort == "stage") {
 
         </div>
 
+
         <!-- controls -->
         <button class="carousel-control-prev" type="button" data-bs-target="#artistSlider" data-bs-slide="prev">
             <span class="carousel-control-prev-icon"></span>
@@ -117,6 +118,7 @@ if ($sort == "stage") {
         </button>
 
     </div>
+<br>
 
     <!-- =========================
          SEARCH + SORT

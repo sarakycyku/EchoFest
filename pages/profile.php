@@ -9,13 +9,12 @@ if (!isset($_SESSION['username'])) {
     exit;
 }
 
-<<<<<<< HEAD
-=======
+
 $pageTitle = 'Profile';
 $extraStyles = ['../assets/css/profile.css'];
 
 require_once '../data/festival.php';
->>>>>>> 2ab19ddf80d038e4670c35af57895294d28b19c1
+
 require_once '../data/users.php';
 require_once '../includes/header.php';
 

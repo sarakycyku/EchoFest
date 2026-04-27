@@ -108,5 +108,14 @@
             "Cheap Thrills",
             "Elastic Heart"
         ]
+    },
+    {
+        "artist": "dj SNAKE",
+        "stage": "MaIN",
+        "day": "Saturday",
+        "image": "..\/assets\/image\/dj_snake.png",
+        "hits": [
+            "New Hit Song"
+        ]
     }
 ]
