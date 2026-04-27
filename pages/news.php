@@ -65,9 +65,7 @@ $news = [
 ?>
 <link rel="icon" href="../assets/images/logo2-pabg.png">
 
-<link rel="stylesheet" href="../assets/css/news.css?v=1.1">
-
-<div class="news-page">
+<link rel="stylesheet" href="../assets/css/news.css?v=1.2">
 
 <?php include '../includes/header.php'; ?>
 
