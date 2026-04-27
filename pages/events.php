@@ -120,7 +120,7 @@
 
 <div class="event-modal" id="eventModal">
     <div class="event-modal-content">
-        <button id="modalClose" class="modal-close">×</button>
+        <button id="modalClose" class="modal-close">x</button>
         <img id="modalImage" src="" alt="">
         <div class="modal-body">
             <h2 id="modalTitle"></h2>
