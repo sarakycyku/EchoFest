@@ -63,18 +63,9 @@ $news = [
   ]
 ];
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>EchoFest</title>
 <link rel="icon" href="../assets/images/logo2-pabg.png">
 
-<link rel="stylesheet" href="../assets/css/news.css">
-</head>
-
-<body class="news-page">
+<link rel="stylesheet" href="../assets/css/news.css?v=1.3">
 
 <?php include '../includes/header.php'; ?>
 
@@ -101,26 +92,19 @@ $news = [
         <p><?= $n['desc'] ?></p>
       </div>
 
-      <div class="right">
-       <?php $now = date("d M Y H:i"); ?>
-       <span><?= $now ?></span>
-      </div>
-
+      <?php
+      $fakeTime = date("d M Y H:i", strtotime("-".rand(1,48)." hours"));
+      ?>
+      <span><?= $fakeTime ?></span>
     </div>
   <?php endforeach; ?>
 
 </section>
-<section class="awards-section">
- <section class="about-hero">
-     <div class="about-overlay"></div>
-     <div class="about-hero-content reveal">
-         <p class="about-eyebrow"> Celebrating excellence at EchoFest</p>
-         <h1>AWARDS </h1>
-         <p class="about-tagline">where music, creativity, and experience become award-winning moments.</p>
-     </div>
- </section>
 
 
+
+<section>
+         <h1 class='awards'>Awards</h1>
 
   <div class="awards-grid">
 
@@ -153,5 +137,6 @@ $news = [
 
 
 <script src="../assets/js/news.js"></script>
+
 </body>
 </html>

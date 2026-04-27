@@ -9,15 +9,12 @@ function formatExpiry(input) {
     input.value = v;
 }
 
-//per animacione
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-            observer.unobserve(entry.target);
-        }
-    });
-}, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
+document.addEventListener('DOMContentLoaded', () => {
+    const revealItems = document.querySelectorAll('.page-title, .panel, .summary-panel');
 
-document.querySelectorAll('.panel, .summary-panel, .page-title')
-        .forEach(el => observer.observe(el));
+    revealItems.forEach((item, index) => {
+        setTimeout(() => {
+            item.classList.add('visible');
+        }, index * 80);
+    });
+});
