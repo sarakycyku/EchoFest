@@ -34,3 +34,14 @@ foreach ($users as $u) {
 }
 
 $current_admin = $_SESSION['username'] ?? 'SuperAdmin';
+$totalArtists = count($lineup);
+$totalEvents  = count($events);
+$totalUsers   = count($users);
+
+$stages = [];
+foreach ($lineup as $a) {
+    if (!empty($a['stage'])) $stages[] = $a['stage'];
+}
+$uniqueStages = count(array_unique($stages));
+
+$engagementScore = ($totalTicketsSold * 2) + ($online * 5);
