@@ -52,7 +52,7 @@ password:Admin123#
 ndersa per perdoruesit nuk jane statike.
 
 ## Struktura 
-EchoFest/
+``EchoFest/
 ├── .idea/
 │
 ├── assets/
@@ -111,5 +111,5 @@ EchoFest/
 │   └── tickets.php
 │
 ├── LICENSE
-└── README.md
+└── README.md``
 
