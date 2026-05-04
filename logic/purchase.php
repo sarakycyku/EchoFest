@@ -3,7 +3,7 @@ include '../includes/header.php';
 
 if (!isset($_SESSION['username'])) {
     $_SESSION['redirect_after_login'] = 'purchase.php?' . http_build_query($_GET);
-    header("Location: ../pages/login.php");
+    header("Location: ../pages/client/login.php");
     exit;
 }
 

@@ -17,7 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION['username'] = $username;
             $_SESSION['role'] = $users[$username]['role'];
 
-            header("Location: ../pages/index.php");
+            header("Location: ../pages/client/index.php");
             exit;
 
         } else {
@@ -28,7 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $_SESSION['error'] = "User doesn't exist!";
     }
 
-    header("Location: ../pages/login.php");
+    header("Location: ../pages/client/login.php");
     exit;
 }
 ?>

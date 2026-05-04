@@ -99,7 +99,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $_SESSION['success'] = "Account created successfully! Now login.";
     }
 
-    header("Location: ../pages/signup.php");
+    header("Location: ../pages/client/signup.php");
     exit();
 }
 ?>

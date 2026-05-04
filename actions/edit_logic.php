@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (!isset($_SESSION['username'])) {
-    header("Location: ../pages/login.php");
+    header("Location: ../pages/client/login.php");
     exit;
 }
 include "../data/users.php";
@@ -14,5 +14,5 @@ $users[$username]['phone']      = $_POST['phone'];
 $users[$username]['age']        = $_POST['age'];
 
 saveUsers($users);
-header("Location: ../pages/profile.php");
+header("Location: ../pages/client/profile.php");
 exit;

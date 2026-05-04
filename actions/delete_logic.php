@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (!isset($_SESSION['username'])) {
-    header("Location: ../pages/login.php");
+    header("Location: ../pages/client/login.php");
     exit;
 }
 include "../data/users.php";
@@ -11,6 +11,6 @@ unset($users[$username]);
 saveUsers($users);
 
 session_destroy();
-header("Location: ../pages/login.php");
+header("Location: ../pages/client/login.php");
 exit;
 ?>
