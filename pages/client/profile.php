@@ -1,11 +1,11 @@
-<?php include("../../logic/profile.php")?>
+<?php include(__DIR__ . "/../../logic/profile.php")?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <title>Profile</title>
-  <link rel="icon" type="image/x-icon" href="../../assets/images/logo2-pabg.png">
-  <link rel="stylesheet" href="../../assets/css/profile.css">
+  <link rel="icon" type="image/x-icon" href="/EchoFest/assets/images/logo2-pabg.png">
+  <link rel="stylesheet" href="/EchoFest/assets/css/profile.css">
 </head>
 
 <body>
@@ -98,14 +98,14 @@
 
     <div class="pf-actions">
         <button class="pf-btn pf-btn-edit" onclick="window.location='edit_profile.php'">Edit Profile</button>
-        <button class="pf-btn pf-btn-out" onclick="window.location='../../actions/logout.php'">Log Out</button>
+        <button class="pf-btn pf-btn-out" onclick="window.location='/EchoFest/actions/logout.php'">Log Out</button>
         <button class="pf-btn" onclick="confirmDelete()" style="background:rgba(220,50,50,0.1);color:#fca5a5;border:0.5px solid rgba(220,50,50,0.3);">Delete Account</button>
     </div>
 
     <div class="pf-footer"><?= htmlspecialchars($festivalInfo['dates']) ?> / <?= count($festivalStages) ?> Stages / <?= $stats['artists'] ?> Artists</div>
 </div>
 
-<script src="../../assets/js/profile.js"></script>
+<script src="/EchoFest/assets/js/profile.js"></script>
 <script>
 window.stats = {
   days: <?= $stats['days'] ?>,
@@ -116,7 +116,7 @@ window.stats = {
 <script>
 function confirmDelete() {
     if (confirm("Are you sure you want to delete your account? This cannot be undone.")) {
-        window.location = '../../actions/delete_logic.php';
+        window.location = '/EchoFest/actions/delete_logic.php';
     }
 }
 </script>
@@ -124,4 +124,4 @@ function confirmDelete() {
 
 </body>
 </html>
-<?php require_once '../../includes/footer.php'; ?>
+<?php require_once __DIR__ . '/../../includes/footer.php'; ?>

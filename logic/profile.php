@@ -5,18 +5,18 @@ if (session_status() === PHP_SESSION_NONE) {
 }
 
 if (!isset($_SESSION['username'])) {
-    header("Location: ../pages/client/login.php");
+    header("Location: /EchoFest/pages/client/login.php");
     exit;
 }
 
 
 $pageTitle = 'Profile';
-$extraStyles = ['../assets/css/profile.css'];
+$extraStyles = ['/EchoFest/assets/css/profile.css'];
 
-require_once '../data/festival.php';
+require_once __DIR__ . '/../data/festival.php';
 
-require_once '../data/users.php';
-require_once '../includes/header.php';
+require_once __DIR__ . '/../data/users.php';
+require_once __DIR__ . '/../includes/header.php';
 
 $username = $_SESSION['username'];
 $data = $users[$username];
@@ -41,7 +41,7 @@ foreach ($lineup as $event) {
 }
 
 $tickets = [];
-$ordersFile = '../data/orders.txt';
+$ordersFile = __DIR__ . '/../data/orders.txt';
 
 if (file_exists($ordersFile)) {
     $lines = file($ordersFile, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);

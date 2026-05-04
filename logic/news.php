@@ -2,27 +2,27 @@
 $awards = [
   [
     "title" => "Best Festival 2025",
-    "img" => "../assets/images/award1.png"
+    "img" => "/EchoFest/assets/images/award1.png"
   ],
   [
     "title" => "Top Music Event",
-    "img" => "../assets/images/award2.png"
+    "img" => "/EchoFest/assets/images/award2.png"
   ],
   [
     "title" => "Best Stage Design",
-    "img" => "../assets/images/award3.jpg"
+    "img" => "/EchoFest/assets/images/award3.jpg"
   ],
   [
     "title" => "Eco Friendly Award",
-    "img" => "../assets/images/award4.png"
+    "img" => "/EchoFest/assets/images/award4.png"
   ],
   [
     "title" => "Audience Choice",
-    "img" => "../assets/images/award5.jpg"
+    "img" => "/EchoFest/assets/images/award5.jpg"
   ],
   [
     "title" => "Best Lineup",
-    "img" => "../assets/images/award6.jpg"
+    "img" => "/EchoFest/assets/images/award6.jpg"
   ]
 ];
 $news = [

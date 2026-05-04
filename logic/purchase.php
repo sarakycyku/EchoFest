@@ -1,14 +1,14 @@
 <?php
-include '../includes/header.php';
+include __DIR__ . '/../includes/header.php';
 
 if (!isset($_SESSION['username'])) {
     $_SESSION['redirect_after_login'] = 'purchase.php?' . http_build_query($_GET);
-    header("Location: ../pages/client/login.php");
+    header("Location: /EchoFest/pages/client/login.php");
     exit;
 }
 
 //merr te dhenat e userit nga user.php
-include "../data/users.php";
+include __DIR__ . "/../data/users.php";
 
 $username = $_SESSION['username'];
 $data = [];

@@ -3,18 +3,18 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
-require_once '../data/events.php';
-require_once '../includes/header.php';
-require_once '../data/festival.php';
-require_once '../includes/cookies.php';
+require_once __DIR__ . '/../data/events.php';
+require_once __DIR__ . '/../includes/header.php';
+require_once __DIR__ . '/../data/festival.php';
+require_once __DIR__ . '/../includes/cookies.php';
 
 $pageTitle = 'EchoFest 2026';
 $extraStyles = [
-    '../assets/css/style.css',
-    '../assets/css/home.css',
+    '/EchoFest/assets/css/h.css',
+    '/EchoFest/assets/css/home.css',
 ];
 
-require_once '../includes/header.php';
+require_once __DIR__ . '/../includes/header.php';
 
 $loggedIn = isset($_SESSION['username']);
 $lineup = loadLineupData();

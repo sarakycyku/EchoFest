@@ -1,6 +1,6 @@
-<?php include("../../logic/tickets.php") ?>
+<?php include(__DIR__ . "/../../logic/tickets.php") ?>
 
-<link rel="stylesheet" href="../../assets/css/tickets.css?v=1.2">
+<link rel="stylesheet" href="/EchoFest/assets/css/tickets.css?v=1.2">
 
 <!--HERO -->
 <section class="hero">
@@ -93,6 +93,6 @@
     </div>
 </section>
 
-<script src="../../assets/js/tickets.js"></script>
+<script src="/EchoFest/assets/js/tickets.js"></script>
 
-<?php include '../../includes/footer.php'; ?>
+<?php include __DIR__ . '/../../includes/footer.php'; ?>

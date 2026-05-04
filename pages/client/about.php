@@ -1,4 +1,4 @@
-<?php include '../../logic/about.php'; ?>
+<?php include __DIR__ . '/../../logic/about.php'; ?>
 
 <title>About Us</title>
 
@@ -34,7 +34,7 @@
 
         <div class="reveal">
             <img 
-                src="../../assets/images/story.jpg" 
+                src="/EchoFest/assets/images/story.jpg" 
                 alt="EchoFest Crowd"
                 class="about-image"
             >
@@ -142,4 +142,4 @@
 
 <script src="/EchoFest/assets/js/about.js"></script>
 
-<?php include '../../includes/footer.php'; ?>
+<?php include __DIR__ . '/../../includes/footer.php'; ?>

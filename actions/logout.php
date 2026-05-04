@@ -2,6 +2,6 @@
 session_start();
 session_unset();
 session_destroy();
-header("Location: ../pages/client/login.php");
+header("Location: /EchoFest/pages/client/login.php");
 exit;
 ?>

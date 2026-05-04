@@ -28,7 +28,7 @@ $festivalLocations = [
 ];
 
 function loadLineupData() {
-    $file = __DIR__ . '../data/lineup_data.json';
+    $file = __DIR__ . '/lineup_data.json';
 
     // Fallback for the current folder-based structure if the older path no longer resolves.
     if (!file_exists($file)) {
@@ -42,7 +42,7 @@ function loadLineupData() {
     return json_decode(file_get_contents($file), true) ?? [];
 }
 
-function loadTicketData(string $file = __DIR__ . '../data/tickets.json'): array
+function loadTicketData(string $file = __DIR__ . '/tickets.json'): array
 {
     // Fallback for the current folder-based structure if the older path no longer resolves.
     if (!file_exists($file)) {

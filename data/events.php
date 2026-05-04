@@ -1,9 +1,9 @@
 <?php
 $events = [
-    ["artist"=>"Dua Lipa","stage"=>"Main Stage","day"=>"Saturday","image"=>"../assets/images/dua_lipa.png","hits"=>["Levitating","New Rules","Don't Start Now"]],
-    ["artist"=>"DJ Snake","stage"=>"Main Stage","day"=>"Friday","image"=>"../assets/images/dj_snake.png","hits"=>["Taki Taki","Lean On","Let Me Love You"]],
-    ["artist"=>"Martin Garrix","stage"=>"EDM Stage","day"=>"Sunday","image"=>"../assets/images/martin_garrix.png","hits"=>["Animals","Scared to Be Lonely","In the Name of Love"]],
-    ["artist"=>"Rita Ora","stage"=>"Pop Stage","day"=>"Friday","image"=>"../assets/images/rita_ora.png","hits"=>["Anywhere","Let You Love Me","Your Song"]],
-    ["artist"=>"The Weeknd","stage"=>"Main Stage","day"=>"Saturday","image"=>"../assets/images/the_weeknd.png","hits"=>["Blinding Lights","Starboy","Save Your Tears"]],
-    ["artist"=>"Calvin Harris","stage"=>"EDM Stage","day"=>"Sunday","image"=>"../assets/images/calvin_harris.png","hits"=>["Summer","One Kiss","Feel So Close"]],
+    ["artist"=>"Dua Lipa","stage"=>"Main Stage","day"=>"Saturday","image"=>"/EchoFest/assets/images/dua_lipa.png","hits"=>["Levitating","New Rules","Don't Start Now"]],
+    ["artist"=>"DJ Snake","stage"=>"Main Stage","day"=>"Friday","image"=>"/EchoFest/assets/images/dj_snake.png","hits"=>["Taki Taki","Lean On","Let Me Love You"]],
+    ["artist"=>"Martin Garrix","stage"=>"EDM Stage","day"=>"Sunday","image"=>"/EchoFest/assets/images/martin_garrix.png","hits"=>["Animals","Scared to Be Lonely","In the Name of Love"]],
+    ["artist"=>"Rita Ora","stage"=>"Pop Stage","day"=>"Friday","image"=>"/EchoFest/assets/images/rita_ora.png","hits"=>["Anywhere","Let You Love Me","Your Song"]],
+    ["artist"=>"The Weeknd","stage"=>"Main Stage","day"=>"Saturday","image"=>"/EchoFest/assets/images/weeknd.png","hits"=>["Blinding Lights","Starboy","Save Your Tears"]],
+    ["artist"=>"Calvin Harris","stage"=>"EDM Stage","day"=>"Sunday","image"=>"/EchoFest/assets/images/calvin_harris.png","hits"=>["Summer","One Kiss","Feel So Close"]],
 ];
