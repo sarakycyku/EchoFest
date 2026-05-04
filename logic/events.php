@@ -44,7 +44,7 @@ $events = [
     new Event("davidguetta-al", "Midnight Beach Party", "August 5, 2026", "00:30 - 02:30", "Durrës", "Beach Stage", "David Guetta turns the beach into a midnight EDM party.", "David Guetta", "../assets/images/david_guetta.png", "electronic"),
 
     new Event("dualipa-al", "Neon Waves Show", "August 6, 2026", "22:00 - 23:30", "Durrës", "Arena Stage", "Dua Lipa performs a neon-inspired show near the waves.", "Dua Lipa", "../assets/images/dua_lipa.png", "pop"),
-    new Event("theweeknd-al", "Night Lights Experience", "August 6, 2026", "23:45 - 01:15", "Durrës", "Arena Stage", "The Weeknd creates a night show with lights, emotion and atmosphere.", "The Weeknd", "../assets/images/the_weeknd.png", "pop"),
+    new Event("theweeknd-al", "Night Lights Experience", "August 6, 2026", "23:45 - 01:15", "Durrës", "Arena Stage", "The Weeknd creates a night show with lights, emotion and atmosphere.", "The Weeknd", "../assets/images/weeknd.png", "pop"),
     new Event("edsheeran-al", "Sunset Acoustic Vibes", "August 6, 2026", "19:00 - 20:30", "Durrës", "Sunset Terrace", "Ed Sheeran performs acoustic songs during sunset by the sea.", "Ed Sheeran", "../assets/images/ed_sheeran.png", "acoustic"),
 
     new Event("martingarrix-al", "Final Drop Experience", "August 7, 2026", "21:00 - 23:00", "Durrës", "Beach Stage", "Martin Garrix delivers one of the final EDM drops of EchoFest Albania.", "Martin Garrix", "../assets/images/martin_garrix.png", "electronic"),
