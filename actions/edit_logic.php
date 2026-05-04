@@ -1,10 +1,10 @@
 <?php
 session_start();
 if (!isset($_SESSION['username'])) {
-    header("Location: ../pages/login.php");
+    header("Location: /EchoFest/pages/client/login.php");
     exit;
 }
-include "../data/users.php";
+include __DIR__ . "/../data/users.php";
 $username = $_SESSION['username'];
 
 $users[$username]['first_name'] = $_POST['first_name'];
@@ -14,5 +14,5 @@ $users[$username]['phone']      = $_POST['phone'];
 $users[$username]['age']        = $_POST['age'];
 
 saveUsers($users);
-header("Location: ../pages/profile.php");
+header("Location: /EchoFest/pages/client/profile.php");
 exit;

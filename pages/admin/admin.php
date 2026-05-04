@@ -1,6 +1,6 @@
 <?php
 
-include '../logic/admin.php';
+include __DIR__ . '/../../logic/admin.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -10,13 +10,13 @@ include '../logic/admin.php';
     <title>ECHOFEST ADMIN | Dashboard</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="icon" href="../assets/images/logo2-pabg.png">
-    <link rel="stylesheet" href="../assets/css/admin.css">
+    <link rel="icon" href="/EchoFest/assets/images/logo2-pabg.png">
+    <link rel="stylesheet" href="/EchoFest/assets/css/admin.css">
 </head>
 <body>
 <div class="dashboard-container">
     <div class="dashboard-header">
-    <a href="index.php" class="home-btn">
+    <a href="/EchoFest/pages/client/index.php" class="home-btn">
         <i class="fas fa-arrow-left"></i> Home
     </a>
         <div class="title-section">
@@ -138,6 +138,6 @@ include '../logic/admin.php';
         <div><i class="fas fa-chart-simple"></i> Real revenue: €<?php echo number_format($revenue); ?> | Real tickets: <?php echo $totalTicketsSold; ?></div>
     </div>
 </div>
-<script src="../assets/js/admin.js"></script>
+<script src="/EchoFest/assets/js/admin.js"></script>
 </body>
 </html>

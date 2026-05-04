@@ -13,7 +13,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $username   = $_POST["username"] ?? "";
     $email      = $_POST["email"] ?? "";
 
-    include "../data/users.php";
+    include __DIR__ . "/../data/users.php";
 
     $passRegex = "/^[a-zA-Z0-9\W_]{8,}$/";
     $phoneRegex = "/^[0-9]{8,15}$/";
@@ -99,7 +99,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $_SESSION['success'] = "Account created successfully! Now login.";
     }
 
-    header("Location: ../pages/signup.php");
+    header("Location: /EchoFest/pages/client/signup.php");
     exit();
 }
 ?>

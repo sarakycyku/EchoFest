@@ -1,10 +1,10 @@
 <?php
 session_start();
 if (!isset($_SESSION['username'])) {
-    header("Location: ../pages/login.php");
+    header("Location: login.php");
     exit;
 }
-include "../data/users.php";
+include __DIR__ . "/../../data/users.php";
 $username = $_SESSION['username'];
 $data = $users[$username];
 ?>
@@ -16,7 +16,7 @@ $data = $users[$username];
 <head>
   <meta charset="UTF-8">
   <title>Edit Profile</title>
-  <link rel="stylesheet" href="../assets/css/profile.css">
+  <link rel="stylesheet" href="/EchoFest/assets/css/profile.css">
 </head>
 <body>
 <div class="pf-root">
@@ -28,7 +28,7 @@ $data = $users[$username];
     </div>
   </div>
 
-   <form method="POST" action="../logic/edit_logic.php">
+   <form method="POST" action="/EchoFest/actions/edit_logic.php">
   <div class="pf-card a2">
     <div class="pf-section-label">Account Details</div>
    
@@ -65,7 +65,7 @@ $data = $users[$username];
 
   <div class="pf-actions a3">
     <button type="submit" class="pf-btn pf-btn-edit">Save Changes</button>
-    <button type="button" class="pf-btn pf-btn-out" onclick="window.location='../pages/profile.php'">Cancel</button>
+    <button type="button" class="pf-btn pf-btn-out" onclick="window.location='profile.php'">Cancel</button>
   </div>
 
     </form>

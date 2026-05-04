@@ -3,7 +3,7 @@
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
-include "../data/users.php";
+include __DIR__ . "/../data/users.php";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
@@ -17,7 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION['username'] = $username;
             $_SESSION['role'] = $users[$username]['role'];
 
-            header("Location: ../pages/index.php");
+            header("Location: /EchoFest/pages/client/index.php");
             exit;
 
         } else {
@@ -28,7 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $_SESSION['error'] = "User doesn't exist!";
     }
 
-    header("Location: ../pages/login.php");
+    header("Location: /EchoFest/pages/client/login.php");
     exit;
 }
 ?>

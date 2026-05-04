@@ -1,4 +1,4 @@
-<?php include("../logic/events.php");?>
+<?php include(__DIR__ . "/../../logic/events.php");?>
 
 <title>Events</title>
 <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
@@ -134,5 +134,5 @@
 
 <script src="/EchoFest/assets/js/events.js"></script>
 
-<?php include '../includes/footer.php'; ?>
+<?php include __DIR__ . '/../../includes/footer.php'; ?>
 

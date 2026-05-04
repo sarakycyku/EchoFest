@@ -1,54 +1,10 @@
-<?php
-include '../includes/header.php';
+<?php include __DIR__ . '/../../logic/purchase.php'; ?>
 
-if (!isset($_SESSION['username'])) {
-    $_SESSION['redirect_after_login'] = 'purchase.php?' . http_build_query($_GET);
-    header("Location: ../pages/login.php");
-    exit;
-}
-
-//merr te dhenat e userit nga user.php
-include "../data/users.php";
-
-$username = $_SESSION['username'];
-$data = [];
-
-if (isset($users[$username]) && is_array($users[$username])) {
-    $data = $users[$username];
-}
-
-$firstName = $data['first_name'] ?? '';
-$lastName = $data['last_name'] ?? '';
-$email = $data['email'] ?? '';
-$phone = $data['phone'] ?? '';
-
-$ticketParam = $_GET['ticket'] ?? 'early';
-$qty = max(1, (int)($_GET['qty'] ?? 1));
-$loc = $_GET['loc'] ?? 'xk';
-
-$ticketDefs = [
-    'early'=>['name' => 'Early Bird', 'price' => 79],
-    'regular'=>['name' => 'Regular', 'price' => 129],
-    'vip'=>['name' => 'VIP Experience', 'price' => 299]
-];
-
-$ticket = $ticketDefs[$ticketParam] ?? $ticketDefs['early'];
-$subtotal = $ticket['price'] * $qty;
-$serviceFee = 5;
-$total = $subtotal + $serviceFee;
-
-$locations = [
-    'xk' => ['flag' => 'XK', 'country' => 'Kosovo',  'city' => 'Pristina', 'dates' => 'July 15-17, 2026'],
-    'al' => ['flag' => 'AL', 'country' => 'Albania',  'city' => 'Durres',   'dates' => 'August 5-7, 2026']
-];
-$event = $locations[$loc] ?? $locations['xk'];
-?>
-
-<link rel="stylesheet" href="../assets/css/purchase.css">
+<link rel="stylesheet" href="/EchoFest/assets/css/purchase.css">
 
 <h1 class="page-title"><span class='highlight'>Complete Your Purchase</span></h1>
 
-<form method="POST" action="../logic/purchase_logic.php">
+<form method="POST" action="/EchoFest/actions/purchase_logic.php">
     <div class="purchase-layout">
 
         <div class="forms-col">
@@ -149,7 +105,7 @@ $event = $locations[$loc] ?? $locations['xk'];
     </div>
 </form>
 
-<script src="../assets/js/purchase.js"></script>
+<script src="/EchoFest/assets/js/purchase.js"></script>
 
 <?php
 // mesazhet
@@ -164,4 +120,4 @@ if (!empty($_SESSION['order_done'])) {
     unset($_SESSION['order_content']);
 }
 
-include '../includes/footer.php'; ?>
+include __DIR__ . '/../../includes/footer.php'; ?>
