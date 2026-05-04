@@ -1,9 +1,9 @@
-<?php include("../logic/news.php")?>
-<link rel="icon" href="../assets/images/logo2-pabg.png">
+<?php include("../../logic/news.php")?>
+<link rel="icon" href="../../assets/images/logo2-pabg.png">
 
-<link rel="stylesheet" href="../assets/css/news.css?v=1.3">
+<link rel="stylesheet" href="../../assets/css/news.css?v=1.3">
 
-<?php include '../includes/header.php'; ?>
+<?php include '../../includes/header.php'; ?>
 
  <section class="about-hero">
      <div class="about-overlay"></div>
@@ -69,10 +69,10 @@
 </div>
 
 
-<?php include '../includes/footer.php'; ?>
+<?php include '../../includes/footer.php'; ?>
 
 
-<script src="../assets/js/news.js"></script>
+<script src="../../assets/js/news.js"></script>
 
 </body>
 </html>

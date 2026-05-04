@@ -1,5 +1,5 @@
 <?php
-include '../logic/index.php';?>
+include '../../logic/index.php';?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -7,8 +7,8 @@ include '../logic/index.php';?>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>EchoFest 2026</title>
-  <link rel="stylesheet" href="../assets/css/style.css" />
-  <link rel="stylesheet" href="../assets/css/home.css" />
+  <link rel="stylesheet" href="../../assets/css/style.css" />
+  <link rel="stylesheet" href="../../assets/css/home.css" />
 </head>
 <body>
 
@@ -191,9 +191,9 @@ include '../logic/index.php';?>
     </span>
 </footer>
 
-<script src="../assets/js/home.js"></script>
+<script src="../../assets/js/home.js"></script>
 
-<?php require_once '../includes/footer.php'; ?>
+<?php require_once '../../includes/footer.php'; ?>
 
 </body>
 </html>

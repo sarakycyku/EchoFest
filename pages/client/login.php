@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Log in</title>
-    <link rel="icon" type="image/x-icon" href="../assets/images/logo2-pabg.png">
-    <link rel="stylesheet" href="../assets/css/loginp.css">
+    <link rel="icon" type="image/x-icon" href="../../assets/images/logo2-pabg.png">
+    <link rel="stylesheet" href="../../assets/css/loginp.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
          body {
-    background-image: url('../assets/images/bg.png');
+    background-image: url('../../assets/images/bg.png');
     background-size: cover;          
     background-position: center;    
     background-repeat: no-repeat;
@@ -34,7 +34,7 @@ endif;
             <div class="chrome-header">
     <div class="retro-logo mt-1">
         <div class="logo-chrome">
-            <img src="../assets/images/logo2-pabg.png" alt="Logo" width="150" height="150">
+            <img src="../../assets/images/logo2-pabg.png" alt="Logo" width="150" height="150">
             <div class="chrome-glow"></div>
         </div>
     </div>
@@ -46,7 +46,7 @@ endif;
 <p class="login-subtitle">Login</p>
 </div>
             
-            <form class="future-form" id="loginForm" method="POST" action="../logic/login_logic.php">
+            <form class="future-form" id="loginForm" method="POST" action="../../actions/login_logic.php">
                 <div class="retro-field">
                     <div class="field-chrome">
                         <div class="chrome-border"></div>

@@ -1,10 +1,10 @@
-<?php include '../logic/purchase.php'; ?>
+<?php include '../../logic/purchase.php'; ?>
 
-<link rel="stylesheet" href="../assets/css/purchase.css">
+<link rel="stylesheet" href="../../assets/css/purchase.css">
 
 <h1 class="page-title"><span class='highlight'>Complete Your Purchase</span></h1>
 
-<form method="POST" action="../logic/purchase_logic.php">
+<form method="POST" action="../../actions/purchase_logic.php">
     <div class="purchase-layout">
 
         <div class="forms-col">
@@ -105,7 +105,7 @@
     </div>
 </form>
 
-<script src="../assets/js/purchase.js"></script>
+<script src="../../assets/js/purchase.js"></script>
 
 <?php
 // mesazhet
@@ -120,4 +120,4 @@ if (!empty($_SESSION['order_done'])) {
     unset($_SESSION['order_content']);
 }
 
-include '../includes/footer.php'; ?>
+include '../../includes/footer.php'; ?>

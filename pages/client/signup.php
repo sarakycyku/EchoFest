@@ -41,13 +41,13 @@ unset(
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sign Up</title>
 
-<link rel="icon" type="image/x-icon" href="../assets/images/logo2-pabg.png">
+<link rel="icon" type="image/x-icon" href="../../assets/images/logo2-pabg.png">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-<link rel="stylesheet" href="../assets/css/signupp.css">
+<link rel="stylesheet" href="../../assets/css/signupp.css">
 
 <style>
 body {
-    background: #111 url('../assets/images/bg.png') center/cover no-repeat;
+    background: #111 url('../../assets/images/bg.png') center/cover no-repeat;
     overflow-y: scroll;
 }
 </style>
@@ -63,7 +63,7 @@ body {
 
     <div class="retro-logo mt-1">
         <div class="logo-chrome">
-            <img src="../assets/images/logo2-pabg.png" width="150" height="200" alt="Logo">
+            <img src="../../assets/images/logo2-pabg.png" width="150" height="200" alt="Logo">
         </div>
     </div>
 
@@ -77,7 +77,7 @@ body {
 </div>
 
 <!-- FORM -->
-<form class="future-form" method="POST" action="../logic/signup_logic.php">
+<form class="future-form" method="POST" action="../../actions/signup_logic.php">
 
 <div class="form-row">
 
@@ -192,6 +192,6 @@ Already have an account? <a href="login.php" class="future-link">Login</a>
 </div>
 </div>
 
-<script src="../assets/js/signup.js"></script>
+<script src="../../assets/js/signup.js"></script>
 </body>
 </html>
