@@ -3,7 +3,7 @@
 $festivalInfo = [
     'name' => 'EchoFest',
     'year' => '2026',
-    'dates' => 'July 18-21, 2026',
+    'dates' => 'July 15-17, 2026',
     'venue' => 'Open Air Arena',
     'location' => 'Pristina, Kosovo',
     'audience' => 'Fans, newcomers, and returning members',
