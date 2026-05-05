@@ -1,10 +1,6 @@
-CREATE DATABASE echofest;
+create database echofest;
 
-USE echofest;
-
-CREATE DATABASE echofest;
-
-USE echofest;
+use echofest;
 
 CREATE TABLE users (
   id int AUTO_INCREMENT PRIMARY KEY,
@@ -44,8 +40,8 @@ CREATE TABLE events (
 
 CREATE TABLE event_artists (
   id int AUTO_INCREMENT PRIMARY KEY,
-  event_id int not null unique,
-  artist_id int not null unique,
+  event_id int not null,
+  artist_id int not null,
   created_at TIMESTAMP not null DEFAULT CURRENT_TIMESTAMP,
     foreign key (event_id) references events(id)
     ON DELETE CASCADE ON UPDATE CASCADE,
