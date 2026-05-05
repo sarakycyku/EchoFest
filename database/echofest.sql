@@ -11,7 +11,7 @@ CREATE TABLE users (
   name VARCHAR(255) NOT NULL,
   email VARCHAR(150) NOT NULL UNIQUE,
   password VARCHAR(255) NOT NULL,
-  role ENUM('admin', 'user') NOT NULL DEFAULT 'user',
+  role VARCHAR(20) NOT NULL DEFAULT 'user',
   phone VARCHAR(30) DEFAULT NULL,
   created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
 );
@@ -24,6 +24,15 @@ CREATE TABLE artists (
   image VARCHAR(255) DEFAULT NULL,
 );
 
-
+CREATE TABLE events (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  title VARCHAR(150) NOT NULL,
+  event_date DATETIME NOT NULL,
+  location VARCHAR(120) NOT NULL,
+  description TEXT DEFAULT NULL,
+  price DECIMAL(10,2) NOT NULL DEFAULT 0.00,
+  image VARCHAR(255) DEFAULT NULL,
+  CHECK (price >= 0)
+);
 
 
