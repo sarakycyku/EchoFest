@@ -44,6 +44,11 @@ body {
     color: #22d3ee !important;
 }
 
+.nav-link.active {
+    color: #22d3ee !important;
+    font-weight: 700;
+}
+
 .nav-link::after {
     content: '';
     position: absolute;
@@ -56,6 +61,10 @@ body {
 }
 
 .nav-link:hover::after {
+    width: 100%;
+}
+
+.nav-link.active::after {
     width: 100%;
 }
 

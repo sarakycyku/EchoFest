@@ -43,9 +43,6 @@ body {
 }
 
 .purchase-layout {
-  display: grid;
-  grid-template-columns: 1fr 340px;
-  gap: 28px;
   max-width: 1000px;
   margin: 0 auto;
   position: relative;
@@ -71,12 +68,6 @@ body {
   display: flex;
   align-items: center;
   gap: 10px;
-}
-
-.form-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 16px;
 }
 
 .field {

@@ -177,7 +177,7 @@ By signing up you agree to our
 </p>
 
 <!-- BUTTON -->
-<button class="login-btn">
+<button class="login-btn" type="submit">
 Create Account
 </button>
 

@@ -3,32 +3,34 @@
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
+
 include __DIR__ . "/../data/users.php";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $username = trim($_POST['username']);
-    $password = trim($_POST['password']);
+    $password = $_POST['password'];
 
-    if (isset($users[$username])) {
-
-        if (password_verify($password, $users[$username]['password'])) {
-
-            $_SESSION['username'] = $username;
-            $_SESSION['role'] = $users[$username]['role'];
-
-            header("Location: /EchoFest/pages/client/index.php");
-            exit;
-
-        } else {
-            $_SESSION['error'] = "Username or password is incorrect!";
-        }
-
-    } else {
-        $_SESSION['error'] = "User doesn't exist!";
+    if (empty($username) || empty($password)) {
+        $_SESSION['error'] = "Please fill in all fields!";
+        header("Location: /EchoFest/pages/client/login.php");
+        exit;
     }
 
-    header("Location: /EchoFest/pages/client/login.php");
-    exit;
+    if (isset($users[$username]) && password_verify($password, $users[$username]['password'])) {
+
+        session_regenerate_id(true);
+
+        $_SESSION['username'] = $username;
+        $_SESSION['role'] = $users[$username]['role'];
+
+        header("Location: /EchoFest/pages/client/index.php");
+        exit;
+
+    } else {
+        $_SESSION['error'] = "Username or password is incorrect!";
+        header("Location: /EchoFest/pages/client/login.php");
+        exit;
+    }
 }
 ?>
