@@ -2,7 +2,7 @@
 
 <title>Events</title>
 <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/EchoFest/assets/css/events.css">
+<link rel="stylesheet" href="/EchoFest/assets/css/events.css?v=1.1">
 
 <section class="events-hero">
     <div class="events-hero-content">
@@ -59,7 +59,7 @@
             </select>
 
             <button type="submit">Filter</button>
-            <a href="events.php">Reset</a>
+            <a href="events.php" class="text-center">Reset</a>
         </form>
 
         <?php if ($error): ?>
@@ -120,7 +120,7 @@
 
 <div class="event-modal" id="eventModal">
     <div class="event-modal-content">
-        <button id="modalClose" class="modal-close">x</button>
+        <button id="modalClose" class="modal-close">&times;</button>
         <img id="modalImage" src="" alt="">
         <div class="modal-body">
             <h2 id="modalTitle"></h2>
