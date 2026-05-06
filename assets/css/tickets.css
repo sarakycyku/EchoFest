@@ -66,8 +66,6 @@ body {
   margin: 0 auto;
 }
 
-.hero-info { display: flex; gap: 40px; }
-
 .info-block { display: flex; flex-direction: column; gap: 4px; }
 
 .info-label {
@@ -108,12 +106,6 @@ body {
   letter-spacing: 0.22em;
   color: var(--muted);
   margin-bottom: 14px;
-}
-
-.location-cards {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
 }
 
 .loc-card {
@@ -174,29 +166,21 @@ body {
   background-clip: text;
 }
 
-.ticket-list {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
 /* ── TICKET CARD ─────────────────────────────────────────────────── */
 .ticket-card {
   background: var(--surface);
   border: 0.5px solid var(--border);
   border-radius: 16px;
   overflow: hidden;
-  display: grid;
-  grid-template-columns: 200px 1fr;
   position: relative;
   transition: border-color 0.25s, transform 0.4s cubic-bezier(0.16,1,0.3,1);
   animation: ticketSlide 0.5s ease both;
 }
 
-.ticket-card:nth-child(1) { animation-delay: 0.1s; }
-.ticket-card:nth-child(2) { animation-delay: 0.2s; }
-.ticket-card:nth-child(3) { animation-delay: 0.3s; }
-.ticket-card:nth-child(4) { animation-delay: 0.4s; }
+.ticket-list > .col-12:nth-child(1) .ticket-card { animation-delay: 0.1s; }
+.ticket-list > .col-12:nth-child(2) .ticket-card { animation-delay: 0.2s; }
+.ticket-list > .col-12:nth-child(3) .ticket-card { animation-delay: 0.3s; }
+.ticket-list > .col-12:nth-child(4) .ticket-card { animation-delay: 0.4s; }
 
 .ticket-card::before {
   content: '';
