@@ -15,7 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     include __DIR__ . "/../data/users.php";
 
-    $passRegex = "/^[a-zA-Z0-9\W_]{8,}$/";
+    $passRegex = "/^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[\W_]).{8,}$/";;
     $phoneRegex = "/^[0-9]{8,15}$/";
     $regexname = "/^[a-zA-ZëËçÇ]+$/u";
 
