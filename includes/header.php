@@ -14,6 +14,7 @@ if (session_status() === PHP_SESSION_NONE) {
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
 <link rel="icon" href="/EchoFest/assets/images/logo2-pabg.png">
 <link rel="stylesheet" href="/EchoFest/assets/css/h.css">
+<script src="/EchoFest/assets/js/header.js?v=1.1" defer></script>
 </head>
 <body>
 
