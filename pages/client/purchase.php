@@ -4,30 +4,30 @@
 
 <h1 class="page-title"><span class='highlight'>Complete Your Purchase</span></h1>
 
-<form method="POST" action="/EchoFest/actions/purchase_logic.php">
-    <div class="purchase-layout">
+<form method="POST" action="/EchoFest/actions/purchase_logic.php" class="container">
+    <div class="purchase-layout row g-4 align-items-start">
 
-        <div class="forms-col">
+        <div class="forms-col col-12 col-lg-8">
 
             <div class="panel">
                 <div class="panel-title">Personal Information</div>
-                <div class="form-grid">
-                    <div class="field">
+                <div class="form-grid row g-3">
+                    <div class="field col-12 col-md-6">
                         <label>First Name <span class="req">*</span></label>
                         <input type="text" name="first_name" value="<?= $firstName ?>" class="<?= $firstName ? 'prefilled' : '' ?>"
                             placeholder="First Name" <?= $firstName ? 'readonly' : 'required' ?>>
                     </div>
-                    <div class="field">
+                    <div class="field col-12 col-md-6">
                         <label>Last Name <span class="req">*</span></label>
                         <input type="text" name="last_name" value="<?= $lastName ?>" class="<?= $lastName ? 'prefilled' : '' ?>"
                             placeholder="Last Name" <?= $lastName ? 'readonly' : 'required' ?>>
                     </div>
-                    <div class="field">
+                    <div class="field col-12 col-md-6">
                         <label>Email <span class="req">*</span></label>
                         <input type="email" name="email" value="<?= $email ?>" class="<?= $email ? 'prefilled' : '' ?>"
                             placeholder="john@example.com" <?= $email ? 'readonly' : 'required' ?>>
                     </div>
-                    <div class="field">
+                    <div class="field col-12 col-md-6">
                         <label>Phone Number <span class="req">*</span></label>
                         <input type="tel" name="phone" value="<?= $phone ?>" class="<?= $phone ? 'prefilled' : '' ?>"
                             placeholder="+383 44 000 000" <?= $phone ? 'readonly' : 'required' ?>>
@@ -37,16 +37,16 @@
 
             <div class="panel">
                 <div class="panel-title">Payment Information</div>
-                <div class="form-grid">
-                    <div class="field">
+                <div class="form-grid row g-3">
+                    <div class="field col-12 col-md-6">
                         <label>Card Number <span class="req">*</span></label>
                         <input type="text" name="card_number" placeholder="1234 5678 9012 3456" maxlength="19" oninput="formatCard(this)" required>
                     </div>
-                    <div class="field">
+                    <div class="field col-12 col-sm-6 col-md-3">
                         <label>Expiry Date <span class="req">*</span></label>
                         <input type="text" name="expiry" placeholder="MM/YY" maxlength="5" oninput="formatExpiry(this)" required>
                     </div>
-                    <div class="field">
+                    <div class="field col-12 col-sm-6 col-md-3">
                         <label>CVV <span class="req">*</span></label>
                         <input type="password" name="cvv" placeholder="123" maxlength="4" required>
                     </div>
@@ -55,7 +55,7 @@
 
         </div>
 
-        <div class="summary-panel">
+        <div class="summary-panel col-12 col-lg-4">
             <div class="summary-title">Order Summary</div>
             <div class="summary-event">
                 <div class="summary-flag"><?=$event['flag']?></div>
