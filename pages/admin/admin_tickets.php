@@ -80,6 +80,13 @@ $tickets = json_decode(file_get_contents('../data/tickets.json'), true);
                             <span class="slider"></span>
                         </label>
                     </form>
+                    
+                     <!-- delete -->
+                    <form method="POST" action="../logic/admin_tickets_logic.php">
+                        <input type="hidden" name="id" value="<?= $t['id'] ?>">
+                        <input type="hidden" name="action" value="delete">
+                        <button class="btn-delete" type="submit">Delete</button>
+                    </form>
 
                 </div>
 
