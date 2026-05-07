@@ -16,7 +16,7 @@ $ticketsFile = '../data/tickets.json';
 
 $tickets = json_decode(file_get_contents($ticketsFile), true);
 
-/me shtu ticket
+//me shtu ticket
 if ($action === 'add') {
     $id = trim($_POST['id'] ?? '');
     $name = trim($_POST['name'] ?? '');
@@ -57,5 +57,19 @@ if ($action === 'add') {
     ];
 
     $_SESSION['admin_msg'] = "Ticket '$name' added successfully.";
+}
+//enable/disable
+elseif ($action === 'enable' || $action === 'disable') {
+    $id = $_POST['id'] ?? '';
+
+    foreach ($tickets as &$t) {
+        if ($t['id'] === $id) {
+            $t['available'] = ($action === 'enable');
+            break;
+        }
+    }
+    unset($t);
+
+    $_SESSION['admin_msg'] = "Ticket '$id' is " . ($action === 'enable' ? 'enabled' : 'disabled') . ".";
 }
 ?>
