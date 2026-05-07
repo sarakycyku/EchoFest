@@ -41,7 +41,13 @@ if (session_status() === PHP_SESSION_NONE) {
         <li class="nav-item"><a class="nav-link" href="/EchoFest/pages/admin/admin_tickets.php">Tickets</a></li>
       </ul>
 
-    
+      <!-- BUTTONS -->
+      <div class="nav-buttons">
+          <span style="color:white; margin-right:10px; margin-top:15px; font-size:14px;">
+            Welcome, <?= htmlspecialchars($_SESSION['username']) ?>
+          </span>
+          <a href="/EchoFest/actions/logout.php" class="btn-login">Logout</a>
+      </div>
 
     </div>
   </div>
