@@ -82,4 +82,9 @@ elseif ($action === 'delete') {
     $_SESSION['admin_msg'] = "Ticket '$id' is deleted.";
 }
 
+//me shkru jsonin e ri
+file_put_contents($ticketsFile, json_encode($tickets, JSON_PRETTY_PRINT));
+
+header("Location: ../pages/admin_tickets.php");
+exit;
 ?>
