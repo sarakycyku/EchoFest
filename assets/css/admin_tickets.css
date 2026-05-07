@@ -1,0 +1,279 @@
+@import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=DM+Sans:wght@300;400;500;600&display=swap');
+
+.admin-wrap {
+    font-family: 'DM Sans', sans-serif;
+    max-width: 800px;
+    margin: 48px auto;
+    padding: 0 24px 80px;
+    animation: fadeUp 0.7s 0.1s ease both;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+}
+
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(22px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes ticketSlide {
+    from { opacity: 0; transform: translateX(-20px); }
+    to   { opacity: 1; transform: translateX(0); }
+}
+
+.admin-header {
+    margin-bottom: 28px;
+}
+
+.admin-title {
+    font-family: "Black Han Sans", sans-serif;
+    font-size: 2rem;
+    background: linear-gradient(90deg, #a78bfa 20%, #67e8f9);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 6px;
+}
+
+.admin-msg {
+    background: rgba(16, 185, 129, 0.1);
+    border: 0.5px solid rgba(16, 185, 129, 0.3);
+    border-radius: 10px;
+    padding: 12px 18px;
+    color: #10b981;
+    font-size: 0.88rem;
+    margin-bottom: 24px;
+}
+
+.admin-sub {
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(240, 238, 232, 0.3);
+}
+
+.add-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 0.5px solid rgba(167, 139, 250, 0.2);
+    border-radius: 16px;
+    padding: 24px;
+    margin-bottom: 28px;
+    grid-column: 1;
+}
+
+.add-title {
+    font-family: "Black Han Sans", sans-serif;
+    font-size: 1rem;
+    color: #a78bfa;
+    margin-bottom: 18px;
+    letter-spacing: 0.02em;
+}
+
+.add-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-bottom: 16px;
+}
+
+.add-field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.add-field.full {
+    grid-column: 1 / -1;
+}
+
+.add-field label {
+    font-size: 0.72rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.09em;
+    color: rgba(240, 238, 232, 0.4);
+}
+
+.add-field .req { color: #a78bfa; margin-left: 2px; }
+
+.add-field input,
+.add-field textarea {
+    background: rgba(255, 255, 255, 0.04);
+    border: 0.5px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 10px 14px;
+    color: #f0eee8;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.88rem;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.add-field textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+.add-field input:focus,
+.add-field textarea:focus {
+    border-color: rgba(167, 139, 250, 0.5);
+    box-shadow: 0 0 0 3px rgba(167, 139, 250, 0.1);
+}
+
+.add-field input::placeholder,
+.add-field textarea::placeholder {
+    color: rgba(240, 238, 232, 0.2);
+}
+
+.btn-add {
+    background: linear-gradient(90deg, #6b21a8, #a78bfa);
+    border: none;
+    border-radius: 10px;
+    padding: 10px 24px;
+    color: #fff;
+    font-family: "Black Han Sans", sans-serif;
+    font-size: 0.88rem;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    transition: opacity 0.2s, transform 0.15s;
+}
+
+.btn-add:hover {
+    opacity: 0.88;
+    transform: translateY(-2px);
+}
+
+.tickets-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    grid-column: 2;
+}
+
+.ticket-row {
+    background: rgba(255, 255, 255, 0.03);
+    border: 0.5px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    padding: 20px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    transition: border-color 0.25s, opacity 0.25s;
+    animation: ticketSlide 0.5s ease both;
+}
+
+.ticket-row:nth-child(1) { animation-delay: 0.1s; }
+.ticket-row:nth-child(2) { animation-delay: 0.2s; }
+.ticket-row:nth-child(3) { animation-delay: 0.3s; }
+.ticket-row:nth-child(4) { animation-delay: 0.4s; }
+
+.ticket-row:hover { border-color: rgba(167, 139, 250, 0.2); }
+.ticket-row.enabled { border-color: rgba(16, 185, 129, 0.25); }
+.ticket-row.disabled { opacity: 0.5; }
+
+.ticket-info { display: flex; flex-direction: column; gap: 4px; }
+
+.ticket-name {
+    font-family: "Black Han Sans", sans-serif;
+    font-size: 1rem;
+    color: #f0eee8;
+}
+
+.ticket-price {
+    font-size: 0.85rem;
+    color: #67e8f9;
+    font-weight: 500;
+}
+
+.ticket-coming {
+    font-size: 11px;
+    color: rgba(240, 238, 232, 0.35);
+}
+
+.status-badge {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    padding: 4px 14px;
+    border-radius: 20px;
+}
+
+.badge-on {
+    background: rgba(16, 185, 129, 0.12);
+    color: #10b981;
+    border: 0.5px solid rgba(16, 185, 129, 0.3);
+}
+
+.badge-off {
+    background: rgba(255, 255, 255, 0.04);
+    color: rgba(240, 238, 232, 0.3);
+    border: 0.5px solid rgba(255, 255, 255, 0.08);
+}
+
+.ticket-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.btn-delete {
+    background: rgba(248, 113, 113, 0.1);
+    border: 0.5px solid rgba(248, 113, 113, 0.25);
+    border-radius: 8px;
+    padding: 6px 14px;
+    color: #f87171;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.15s;
+}
+
+.btn-delete:hover {
+    background: rgba(248, 113, 113, 0.2);
+    transform: translateY(-1px);
+}
+
+.toggle {
+    position: relative;
+    display: inline-block;
+    width: 52px;
+    height: 28px;
+    cursor: pointer;
+}
+
+.toggle input { opacity: 0; width: 0; height: 0; }
+
+.slider {
+    position: absolute;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.06);
+    border: 0.5px solid rgba(255, 255, 255, 0.1);
+    border-radius: 28px;
+    transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+.slider::before {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    left: 3px;
+    top: 3px;
+    background: rgba(240, 238, 232, 0.3);
+    border-radius: 50%;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), background 0.3s ease;
+}
+
+.toggle input:checked + .slider {
+    background: rgba(16, 185, 129, 0.2);
+    border-color: rgba(16, 185, 129, 0.5);
+}
+
+.toggle input:checked + .slider::before {
+    transform: translateX(24px);
+    background: #10b981;
+}
