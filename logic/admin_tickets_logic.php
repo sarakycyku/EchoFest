@@ -16,4 +16,46 @@ $ticketsFile = '../data/tickets.json';
 
 $tickets = json_decode(file_get_contents($ticketsFile), true);
 
+/me shtu ticket
+if ($action === 'add') {
+    $id = trim($_POST['id'] ?? '');
+    $name = trim($_POST['name'] ?? '');
+    $price = (int)($_POST['price'] ?? 0);
+    $coming = trim($_POST['coming_date'] ?? '');
+    $img = trim($_POST['img_src'] ?? '');
+    $desc = trim($_POST['desc'] ?? '');
+
+    //validimi per coming date
+    if ($coming !== '') {
+        preg_match('/\d{4}/', $coming, $yearMatch);
+        $year = isset($yearMatch[0]) ? (int)$yearMatch[0] : 0;
+
+        if ($year < (int)date('Y')) {
+            $_SESSION['admin_msg'] = "Coming date nuk mund te jete ne te kaluaren.";
+            header("Location: ../pages/admin_tickets.php");
+            exit;
+        }
+    }
+
+    //kontrollon a ekzison id
+    foreach ($tickets as $t) {
+        if ($t['id'] === $id) {
+            $_SESSION['admin_msg'] = "Ticket with ID '$id' already exists.";
+            header("Location: ../pages/admin_tickets.php");
+            exit;
+        }
+    }
+
+    $tickets[] = [
+        'id' => $id,
+        'name' => $name,
+        'price' => $price,
+        'available' => false,
+        'coming_date' => $coming === '' ? null : $coming,
+        'img_src' => $img === '' ? '../assets/images/ticket1.jpg' : $img,
+        'desc' => $desc,
+    ];
+
+    $_SESSION['admin_msg'] = "Ticket '$name' added successfully.";
+}
 ?>
