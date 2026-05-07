@@ -41,7 +41,7 @@ $tickets = json_decode(file_get_contents('../../data/tickets.json'), true);
                 </div>
                 <div class="add-field">
                     <label>Image path</label>
-                    <input type="text" name="img_src" placeholder="../assets/images/ticket4.jpg">
+                    <input type="text" name="img_src" placeholder="../../assets/images/ticket4.jpg">
                 </div>
                 <div class="add-field full">
                     <label>Description <span class="req">*</span></label>
