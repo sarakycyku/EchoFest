@@ -187,3 +187,35 @@
     font-weight: 500;
 }
 
+.ticket-coming {
+    font-size: 11px;
+    color: rgba(240, 238, 232, 0.35);
+}
+
+.status-badge {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    padding: 4px 14px;
+    border-radius: 20px;
+}
+
+.badge-on {
+    background: rgba(16, 185, 129, 0.12);
+    color: #10b981;
+    border: 0.5px solid rgba(16, 185, 129, 0.3);
+}
+
+.badge-off {
+    background: rgba(255, 255, 255, 0.04);
+    color: rgba(240, 238, 232, 0.3);
+    border: 0.5px solid rgba(255, 255, 255, 0.08);
+}
+
+.ticket-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
