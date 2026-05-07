@@ -94,3 +94,4 @@ $tickets = json_decode(file_get_contents('../data/tickets.json'), true);
         <?php endforeach; ?>
     </div>
 </div>
+<?php include '../includes/footer.php'; ?>
