@@ -130,6 +130,7 @@ body {
   font-family: "Black Han Sans", sans-serif;
   font-size: 45px;
   background: linear-gradient(90deg, #7c3aed, #22d3ee);
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
