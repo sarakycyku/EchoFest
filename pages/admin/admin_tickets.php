@@ -9,6 +9,11 @@ $tickets = json_decode(file_get_contents('../data/tickets.json'), true);
 ?>
 <link rel="stylesheet" href="../assets/css/admin_tickets.css">
 
+<?php if (!empty($_SESSION['admin_msg'])): ?>
+        <div class="admin-msg"><?= $_SESSION['admin_msg'] ?></div>
+        <?php unset($_SESSION['admin_msg']); ?>
+<?php endif; ?>
+
 <div class="admin-wrap">
     <div class="admin-header">
         <h1 class="admin-title">Manage Tickets</h1>
