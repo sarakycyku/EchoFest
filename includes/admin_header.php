@@ -19,4 +19,30 @@ if (session_status() === PHP_SESSION_NONE) {
 </head>
 <body>
 
+<nav class="navbar navbar-expand-md fixed-top">
+  <div class="container">
 
+    <!-- LOGO -->
+    <a class="navbar-brand" href="/EchoFest/pages/admin/admin.php">
+       <img src="/EchoFest/assets/images/logo-last.png" class="img-fluid" alt="EchoFest Logo">
+    </a>
+
+    <!-- TOGGLER -->
+    <button id="menuToggle" class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
+      <span class="icon"></span>
+    </button>
+
+    <!-- MENU -->
+    <div class="collapse navbar-collapse" id="menu">
+
+      <!-- LINKS -->
+      <ul class="navbar-nav mx-auto">
+        <li class="nav-item"><a class="nav-link" href="/EchoFest/pages/admin/admin.php">Dashboard</a></li>
+        <li class="nav-item"><a class="nav-link" href="/EchoFest/pages/admin/admin_tickets.php">Tickets</a></li>
+      </ul>
+
+    
+
+    </div>
+  </div>
+</nav>
