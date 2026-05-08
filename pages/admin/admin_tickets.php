@@ -1,13 +1,9 @@
-<?php include '../includes/header.php';
+<?php include '../../includes/admin_header.php';
 
-if (!isset($_SESSION['username']) || $_SESSION['role'] !== 'admin') {
-    header("Location: ../pages/login.php");
-    exit;
-}
 
-$tickets = json_decode(file_get_contents('../data/tickets.json'), true);
+$tickets = json_decode(file_get_contents('../../data/tickets.json'), true);
 ?>
-<link rel="stylesheet" href="../assets/css/admin_tickets.css">
+<link rel="stylesheet" href="../../assets/css/admin_tickets.css">
 
 <?php if (!empty($_SESSION['admin_msg'])): ?>
         <div class="admin-msg"><?= $_SESSION['admin_msg'] ?></div>
@@ -45,7 +41,7 @@ $tickets = json_decode(file_get_contents('../data/tickets.json'), true);
                 </div>
                 <div class="add-field">
                     <label>Image path</label>
-                    <input type="text" name="img_src" placeholder="../assets/images/ticket4.jpg">
+                    <input type="text" name="img_src" placeholder="../../assets/images/ticket4.jpg">
                 </div>
                 <div class="add-field full">
                     <label>Description <span class="req">*</span></label>
@@ -99,4 +95,4 @@ $tickets = json_decode(file_get_contents('../data/tickets.json'), true);
         <?php endforeach; ?>
     </div>
 </div>
-<?php include '../includes/footer.php'; ?>
+<?php include '../../includes/footer.php'; ?>

@@ -2,20 +2,17 @@ create database echofest;
 
 use echofest;
 
-CREATE TABLE users (
-  id int AUTO_INCREMENT PRIMARY KEY,
+create table users (
+  id int auto_increment primary key,
   first_name varchar(100) not null,
   last_name varchar(100) not null,
   username varchar(50) not null unique,
   email varchar(150) not null unique,
   phone varchar(30) not null,
-  age int not null,
+  age int not null check (age >= 18 and age <= 120),
   password varchar(255) not null,
-  role varchar(20) not null DEFAULT 'user',
-  created_at TIMESTAMP not null DEFAULT CURRENT_TIMESTAMP,
-
-  CHECK (age BETWEEN 18 AND 120),
-  CHECK (role IN ('admin', 'user'))
+  role varchar(20) not null default 'user' check (role in ('admin','user')),
+  created_at timestamp not null default current_timestamp
 );
 
 CREATE TABLE artists (
@@ -32,20 +29,20 @@ CREATE TABLE events (
   event_date DATETIME not null,
   location varchar(120) not null,
   description text DEFAULT null,
-  price DECIMAL(10,2) not null DEFAULT 0.00,
-  image varchar(255) DEFAULT null,
-  CHECK (price >= 0)
+  price DECIMAL(10,2) not null DEFAULT 0.00 CHECK (price >= 0),
+  image varchar(255) DEFAULT null
 );
-
 
 CREATE TABLE event_artists (
   id int AUTO_INCREMENT PRIMARY KEY,
   event_id int not null,
   artist_id int not null,
   created_at TIMESTAMP not null DEFAULT CURRENT_TIMESTAMP,
-    foreign key (event_id) references events(id)
+
+  foreign key (event_id) references events(id)
     ON DELETE CASCADE ON UPDATE CASCADE,
-    foreign key (artist_id) references artists(id)
+
+  foreign key (artist_id) references artists(id)
     ON DELETE CASCADE ON UPDATE CASCADE
 );
 
@@ -53,15 +50,12 @@ CREATE TABLE bookings (
   id int AUTO_INCREMENT PRIMARY KEY,
   user_id int not null,
   event_id int not null,
-  quantity int not null,
-  total_price DECIMAL(10,2) not null,
-    foreign key (user_id) references users(id)
+  quantity int not null CHECK (quantity > 0),
+  total_price DECIMAL(10,2) not null CHECK (total_price >= 0),
+
+  foreign key (user_id) references users(id)
     ON DELETE CASCADE ON UPDATE CASCADE,
-    foreign key (event_id) references events(id)
-    ON DELETE CASCADE ON UPDATE CASCADE,
-  CHECK (quantity > 0),
-  CHECK (total_price >= 0)
+
+  foreign key (event_id) references events(id)
+    ON DELETE CASCADE ON UPDATE CASCADE
 );
-
-
-

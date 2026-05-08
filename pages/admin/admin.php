@@ -1,5 +1,5 @@
 <?php
-
+include("../../includes/admin_header.php");
 include __DIR__ . '/../../logic/admin.php';
 ?>
 <!DOCTYPE html>
