@@ -22,7 +22,6 @@ session_start();
     endif;
     ?>
 
-    <div id="particles"></div>
 
     <main class="login-stage">
         <nav class="login-nav">
