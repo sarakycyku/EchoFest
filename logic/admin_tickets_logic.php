@@ -12,7 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 }
 
 $action = $_POST['action'] ?? '';
-$ticketsFile = '../data/tickets.json';
+$ticketsFile = __DIR__ . '/../data/tickets.json';
 
 $tickets = json_decode(file_get_contents($ticketsFile), true);
 
@@ -25,25 +25,50 @@ if ($action === 'add') {
     $img = trim($_POST['img_src'] ?? '');
     $desc = trim($_POST['desc'] ?? '');
 
-    //validimi per coming date
-    if ($coming !== '') {
-        preg_match('/\d{4}/', $coming, $yearMatch);
-        $year = isset($yearMatch[0]) ? (int)$yearMatch[0] : 0;
-
-        if ($year < (int)date('Y')) {
-            $_SESSION['admin_msg'] = "Coming date nuk mund te jete ne te kaluaren.";
-            header("Location: ../pages/admin_tickets.php");
-            exit;
-        }
-    }
-
     //kontrollon a ekzison id
     foreach ($tickets as $t) {
         if ($t['id'] === $id) {
             $_SESSION['admin_msg'] = "Ticket with ID '$id' already exists.";
-            header("Location: ../pages/admin_tickets.php");
+            header("Location: /EchoFest/pages/admin/admin_tickets.php");
             exit;
         }
+    }
+
+    //validimi per id
+    if (!preg_match('/^[a-z0-9-]{3,}$/', $id)) {
+        $_SESSION['admin_msg'] = "ID duhet te kete minimum 3 karaktere (vetem a-z, 0-9, -)";
+        header("Location: /EchoFest/pages/admin/admin_tickets.php");
+        exit;
+    }
+
+    //validimi per name
+    if (strlen($name) < 3) {
+        $_SESSION['admin_msg'] = "Name duhet te kete minimum 3 karaktere.";
+        header("Location: /EchoFest/pages/admin/admin_tickets.php");
+        exit;
+    }
+
+    //validimi per price
+    if ($price < 79) {
+        $_SESSION['admin_msg'] = "Price nuk mund te jete me e lire se Early Bird (€79).";
+        header("Location: /EchoFest/pages/admin/admin_tickets.php");
+        exit;
+    }
+
+    //validimi per coming date
+    if ($coming !== '') {
+        if (!preg_match('/^(\d{2})\/(\d{2})\/(\d{4})$/', $coming, $m) || (int)$m[1] < 1 || (int)$m[1] > 31 || (int)$m[2] < 1 || (int)$m[2] > 12) {
+            $_SESSION['admin_msg'] = "Coming date format: DD/MM/YYYY (p.sh. 15/06/2027).";
+            header("Location: /EchoFest/pages/admin/admin_tickets.php");
+            exit;
+        }
+        if ((int)$m[3] < (int)date('Y')) {
+            $_SESSION['admin_msg'] = "Coming date nuk mund te jete ne te kaluaren.";
+            header("Location: /EchoFest/pages/admin/admin_tickets.php");
+            exit;
+        }
+        $months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+        $coming = 'Coming ' . $months[(int)$m[2] - 1] . ' ' . (int)$m[1] . ', ' . $m[3];
     }
 
     $tickets[] = [
@@ -85,6 +110,6 @@ elseif ($action === 'delete') {
 //me shkru jsonin e ri
 file_put_contents($ticketsFile, json_encode($tickets, JSON_PRETTY_PRINT));
 
-header("Location: ../pages/admin_tickets.php");
+header("Location: /EchoFest/pages/admin/admin_tickets.php");
 exit;
 ?>
