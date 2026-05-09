@@ -6,7 +6,12 @@ function changeQty(id, change) {
   document.getElementById('num-' + id).textContent = qtys[id];
 }
 
+// function buyNow(id, basePrice, loc) {
+//   const qty = qtys[id] || 1;
+//   window.location.href = `purchase.php?ticket=${id}&qty=${qty}&loc=${loc}`;
+// }
+
 function buyNow(id, basePrice, loc) {
-  const qty = qtys[id] || 1;
-  window.location.href = `purchase.php?ticket=${id}&qty=${qty}&loc=${loc}`;
+    const qty = qtys[id] || 1;
+    window.location.href = '/EchoFest/pages/client/purchase.php?ticket=' + id + '&qty=' + qty + '&loc=' + loc;
 }

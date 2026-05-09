@@ -12,7 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 }
 
 $action = $_POST['action'] ?? '';
-$ticketsFile = '../data/tickets.json';
+$ticketsFile = __DIR__ . '/../data/tickets.json';
 
 $tickets = json_decode(file_get_contents($ticketsFile), true);
 
@@ -85,6 +85,6 @@ elseif ($action === 'delete') {
 //me shkru jsonin e ri
 file_put_contents($ticketsFile, json_encode($tickets, JSON_PRETTY_PRINT));
 
-header("Location: ../pages/admin_tickets.php");
+header("Location: /EchoFest/pages/admin/admin_tickets.php");
 exit;
 ?>

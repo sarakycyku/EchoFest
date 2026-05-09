@@ -3,7 +3,7 @@
 
 $tickets = json_decode(file_get_contents('../../data/tickets.json'), true);
 ?>
-<link rel="stylesheet" href="../../assets/css/admin_tickets.css">
+<link rel="stylesheet" href="../../assets/css/admin_tickets.css?v=1.1">
 
 <?php if (!empty($_SESSION['admin_msg'])): ?>
         <div class="admin-msg"><?= $_SESSION['admin_msg'] ?></div>
@@ -19,7 +19,7 @@ $tickets = json_decode(file_get_contents('../../data/tickets.json'), true);
     <!--me shtu ticket -->
     <div class="add-card">
         <div class="add-title">Add New Ticket</div>
-        <form method="POST" action="../logic/admin_tickets_logic.php" class="add-form">
+        <form method="POST" action="/EchoFest/logic/admin_tickets_logic.php" class="add-form">
             <input type="hidden" name="action" value="add">
 
             <div class="add-grid">
@@ -73,7 +73,7 @@ $tickets = json_decode(file_get_contents('../../data/tickets.json'), true);
                 
                  <div class="ticket-actions">
                     <!-- per toggle enable/disable -->
-                    <form method="POST" action="../logic/admin_tickets_logic.php">
+                    <form method="POST" action="/EchoFest/logic/admin_tickets_logic.php">
                         <input type="hidden" name="id" value="<?= $t['id'] ?>">
                         <input type="hidden" name="action" value="<?= $t['available'] ? 'disable' : 'enable' ?>">
                         <label class="toggle">
@@ -83,7 +83,7 @@ $tickets = json_decode(file_get_contents('../../data/tickets.json'), true);
                     </form>
                     
                      <!-- delete -->
-                    <form method="POST" action="../logic/admin_tickets_logic.php">
+                    <form method="POST" action="/EchoFest/logic/admin_tickets_logic.php">
                         <input type="hidden" name="id" value="<?= $t['id'] ?>">
                         <input type="hidden" name="action" value="delete">
                         <button class="btn-delete" type="submit">Delete</button>
