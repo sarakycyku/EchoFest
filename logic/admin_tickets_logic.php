@@ -37,6 +37,13 @@ if ($action === 'add') {
         }
     }
 
+    //validimi per id
+    if (!preg_match('/^[a-z0-9-]{3,}$/', $id)) {
+        $_SESSION['admin_msg'] = "ID duhet te kete minimum 3 karaktere (vetem a-z, 0-9, -)";
+        header("Location: /EchoFest/pages/admin/admin_tickets.php");
+        exit;
+    }
+
     //kontrollon a ekzison id
     foreach ($tickets as $t) {
         if ($t['id'] === $id) {
