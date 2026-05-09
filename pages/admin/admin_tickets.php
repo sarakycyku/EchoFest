@@ -37,7 +37,7 @@ $tickets = json_decode(file_get_contents('../../data/tickets.json'), true);
                 </div>
                 <div class="add-field">
                     <label>Coming Date</label>
-                    <input type="text" name="coming_date" placeholder="Coming July 1, 2026">
+                    <input type="text" name="coming_date" placeholder="MM/YYYY">
                 </div>
                 <div class="add-field">
                     <label>Image path</label>
@@ -95,4 +95,5 @@ $tickets = json_decode(file_get_contents('../../data/tickets.json'), true);
         <?php endforeach; ?>
     </div>
 </div>
+<script src="../../assets/js/admin_tickets.js"></script>
 <?php include '../../includes/footer.php'; ?>

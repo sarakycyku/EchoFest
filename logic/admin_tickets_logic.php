@@ -67,6 +67,22 @@ if ($action === 'add') {
         exit;
     }
 
+    //validimi per coming date
+    if ($coming !== '') {
+        if (!preg_match('/^(\d{2})\/(\d{4})$/', $coming, $m) || (int)$m[1] < 1 || (int)$m[1] > 12) {
+            $_SESSION['admin_msg'] = "Coming date format: MM/YYYY (p.sh. 06/2027), muaji 01-12.";
+            header("Location: /EchoFest/pages/admin/admin_tickets.php");
+            exit;
+        }
+        if ((int)$m[2] < (int)date('Y')) {
+            $_SESSION['admin_msg'] = "Coming date nuk mund te jete ne te kaluaren.";
+            header("Location: /EchoFest/pages/admin/admin_tickets.php");
+            exit;
+        }
+        $months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+        $coming = 'Coming ' . $months[(int)$m[1] - 1] . ' 1, ' . $m[2];
+    }
+
     $tickets[] = [
         'id' => $id,
         'name' => $name,
