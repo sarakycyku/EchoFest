@@ -10,7 +10,7 @@
       <div class="col-md">
         <ul class="list-unstyled nav-links">
             <!-- USER NAV -->
-            <?php if ($_SESSION['role'] != 'admin'): ?>
+            <?php if (!isset($_SESSION['role']) ||$_SESSION['role'] != 'admin'): ?>
               <li><a href="/EchoFest/pages/client/index.php">Home</a></li>
               <li><a href="/EchoFest/pages/client/about.php">About Us</a></li>
               <li><a href="/EchoFest/pages/client/lineup.php">Line Up</a></li>
@@ -20,6 +20,7 @@
               <li><a href="/EchoFest/pages/client/profile.php">Profile</a></li>
             <!-- ADMIN NAV -->
             <?php else: ?>
+              <li><a href="/EchoFest/pages/client/index.php">Home</a></li>
               <li><a href="/EchoFest/pages/admin/admin.php">Dashboard</a></li>
               <li><a href="/EchoFest/pages/admin/admin_tickets.php">Tickets</a></li>
             <?php endif; ?>
