@@ -4,11 +4,12 @@ if (!isset($_SESSION['username'])) {
     header("Location: /EchoFest/pages/client/login.php");
     exit;
 }
-include __DIR__ . "/../data/users.php";
+require_once __DIR__ . "/../db/conn.php";
 
 $username = $_SESSION['username'];
-unset($users[$username]);
-saveUsers($users);
+
+$stmt = $pdo->prepare("DELETE FROM users WHERE username = :username");
+$stmt->execute([':username' => $username]);
 
 session_destroy();
 header("Location: /EchoFest/pages/client/login.php");
