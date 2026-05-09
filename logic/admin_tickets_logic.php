@@ -25,14 +25,11 @@ if ($action === 'add') {
     $img = trim($_POST['img_src'] ?? '');
     $desc = trim($_POST['desc'] ?? '');
 
-    //validimi per coming date
-    if ($coming !== '') {
-        preg_match('/\d{4}/', $coming, $yearMatch);
-        $year = isset($yearMatch[0]) ? (int)$yearMatch[0] : 0;
-
-        if ($year < (int)date('Y')) {
-            $_SESSION['admin_msg'] = "Coming date nuk mund te jete ne te kaluaren.";
-            header("Location: ../pages/admin_tickets.php");
+    //kontrollon a ekzison id
+    foreach ($tickets as $t) {
+        if ($t['id'] === $id) {
+            $_SESSION['admin_msg'] = "Ticket with ID '$id' already exists.";
+            header("Location: /EchoFest/pages/admin/admin_tickets.php");
             exit;
         }
     }
@@ -42,15 +39,6 @@ if ($action === 'add') {
         $_SESSION['admin_msg'] = "ID duhet te kete minimum 3 karaktere (vetem a-z, 0-9, -)";
         header("Location: /EchoFest/pages/admin/admin_tickets.php");
         exit;
-    }
-
-    //kontrollon a ekzison id
-    foreach ($tickets as $t) {
-        if ($t['id'] === $id) {
-            $_SESSION['admin_msg'] = "Ticket with ID '$id' already exists.";
-            header("Location: ../pages/admin_tickets.php");
-            exit;
-        }
     }
 
     //validimi per name
