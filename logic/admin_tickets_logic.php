@@ -60,6 +60,13 @@ if ($action === 'add') {
         exit;
     }
 
+    //validimi per price
+    if ($price < 79) {
+        $_SESSION['admin_msg'] = "Price nuk mund te jete me e lire se Early Bird (€79).";
+        header("Location: /EchoFest/pages/admin/admin_tickets.php");
+        exit;
+    }
+
     $tickets[] = [
         'id' => $id,
         'name' => $name,
