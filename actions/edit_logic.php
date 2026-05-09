@@ -4,15 +4,27 @@ if (!isset($_SESSION['username'])) {
     header("Location: /EchoFest/pages/client/login.php");
     exit;
 }
-include __DIR__ . "/../data/users.php";
+require_once __DIR__ . "/../db/conn.php";
 $username = $_SESSION['username'];
 
-$users[$username]['first_name'] = $_POST['first_name'];
-$users[$username]['last_name']  = $_POST['last_name'];
-$users[$username]['email']      = $_POST['email'];
-$users[$username]['phone']      = $_POST['phone'];
-$users[$username]['age']        = $_POST['age'];
+$stmt = $pdo->prepare("
+    UPDATE users
+    SET first_name = :first_name,
+        last_name = :last_name,
+        email = :email,
+        phone = :phone,
+        age = :age
+    WHERE username = :username
+");
 
-saveUsers($users);
+$stmt->execute([
+    ':first_name' => $_POST['first_name'],
+    ':last_name' => $_POST['last_name'],
+    ':email' => $_POST['email'],
+    ':phone' => $_POST['phone'],
+    ':age' => $_POST['age'],
+    ':username' => $username,
+]);
+
 header("Location: /EchoFest/pages/client/profile.php");
 exit;

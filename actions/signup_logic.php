@@ -13,7 +13,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $username   = trim($_POST["username"] ?? "");
     $email      = strtolower(trim($_POST["email"] ?? ""));
 
-    include __DIR__ . "/../data/users.php";
+    require_once __DIR__ . "/../data/users.php";
 
     $passRegex = "/^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[\W_]).{8,}$/";;
     $phoneRegex = "/^[0-9]{8,15}$/";
@@ -85,18 +85,21 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         empty($_SESSION['emailErr']) 
     ) {
 
-        $users[$username] = [
-            'password' => password_hash($p, PASSWORD_DEFAULT), 
-            'email'      => $email,
-            'first_name' => $first_name,
-            'last_name'  => $last_name,
-            'phone'      => $phone,
-            'age'        => $age,
-            'role'       => 'user',
-            'created_at' => date("Y-m-d H:i:s")
-        ];
+        $stmt = $pdo->prepare("
+            INSERT INTO users (username, password, email, first_name, last_name, phone, age, role, created_at)
+            VALUES (:username, :password, :email, :first_name, :last_name, :phone, :age, 'user', NOW())
+        ");
 
-        saveUsers($users);
+        $stmt->execute([
+            ':username' => $username,
+            ':password' => password_hash($p, PASSWORD_DEFAULT),
+            ':email' => $email,
+            ':first_name' => $first_name,
+            ':last_name' => $last_name,
+            ':phone' => $phone,
+            ':age' => $age,
+        ]);
+
         $_SESSION['success'] = "Account created successfully! Now login.";
     }
 
