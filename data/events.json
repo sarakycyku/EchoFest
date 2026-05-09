@@ -9,7 +9,7 @@
     "stage": "Main Stage",
     "category": "Pop",
     "description": "Pop superstar Dua Lipa lights up the Main Stage.",
-    "image": "../assets/images/dua_lipa.png"
+    "image": "/EchoFest/assets/images/dua_lipa.png"
   },
   {
     "id": "2",
@@ -21,7 +21,7 @@
     "stage": "Main Stage",
     "category": "Electronic",
     "description": "DJ Snake brings his signature sound to EchoFest.",
-    "image": "../assets/images/dj_snake.png"
+    "image": "/EchoFest/assets/images/dj_snake.png"
   },
   {
     "id": "3",
@@ -33,7 +33,7 @@
     "stage": "Acoustic Stage",
     "category": "Acoustic",
     "description": "Ed Sheeran performs an intimate acoustic session.",
-    "image": "../assets/images/ed_sheeran.png"
+    "image": "/EchoFest/assets/images/ed_sheeran.png"
   },
   {
     "id": "4",
@@ -45,7 +45,7 @@
     "stage": "Main Stage",
     "category": "Pop",
     "description": "The Weeknd brings a night performance full of vibes.",
-    "image": "../assets/images/the_weeknd.png"
+    "image": "/EchoFest/assets/images/weeknd.png"
   },
   {
     "id": "5",
@@ -57,6 +57,6 @@
     "stage": "EDM Stage",
     "category": "Electronic",
     "description": "Martin Garrix delivers a high-energy festival set.",
-    "image": "../assets/images/martin_garrix.png"
+    "image": "/EchoFest/assets/images/martin_garrix.png"
   }
 ]

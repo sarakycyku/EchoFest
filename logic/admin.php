@@ -3,6 +3,17 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
+if (!isset($_SESSION['username'])) {
+    header("Location: /EchoFest/pages/client/login.php");
+    exit;
+}
+
+if (($_SESSION['role'] ?? '') !== 'admin') {
+    $_SESSION['error'] = "You do not have permission to access the admin dashboard.";
+    header("Location: /EchoFest/pages/client/index.php");
+    exit;
+}
+
 $DATA_DIR = __DIR__ . '/../data/';
 $LINEUP_FILE = $DATA_DIR . 'lineup_data.json';
 $EVENTS_FILE = $DATA_DIR . 'events_data.json';

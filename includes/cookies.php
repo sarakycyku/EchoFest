@@ -19,7 +19,7 @@ $has_consented = isset($_SESSION['cookie_consent']) || isset($_COOKIE['echofest_
                 You can choose which categories you allow.
             </p>
         </div>
-    <form method="POST" action="../logic/cookies.php" class="cookie-form">
+    <form method="POST" action="/EchoFest/logic/cookies.php" class="cookie-form">
 
                 <div class="cookie-grid">
 

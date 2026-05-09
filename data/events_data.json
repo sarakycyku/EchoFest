@@ -8,7 +8,7 @@
     "stage": "Main Stage",
     "description": "DJ Snake brings heavy bass, lights and festival energy to the Main Stage.",
     "artist": "DJ Snake",
-    "image": "../assets/images/dj_snake.png",
+    "image": "/EchoFest/assets/images/dj_snake.png",
     "category": "electronic"
   },
   {
@@ -20,7 +20,7 @@
     "stage": "Pop Stage",
     "description": "Rita Ora performs a colorful pop show filled with neon visuals and hit songs.",
     "artist": "Rita Ora",
-    "image": "../assets/images/rita_ora.png",
+    "image": "/EchoFest/assets/images/rita_ora.png",
     "category": "pop"
   },
   {
@@ -32,7 +32,7 @@
     "stage": "Main Stage",
     "description": "Billie Eilish creates a dark, emotional and cinematic live atmosphere.",
     "artist": "Billie Eilish",
-    "image": "../assets/images/billie_eilish.png",
+    "image": "/EchoFest/assets/images/billie_eilish.png",
     "category": "pop"
   },
   {
@@ -44,7 +44,7 @@
     "stage": "EDM Stage",
     "description": "David Guetta turns the EDM Stage into a powerful electric party.",
     "artist": "David Guetta",
-    "image": "../assets/images/david_guetta.png",
+    "image": "/EchoFest/assets/images/david_guetta.png",
     "category": "electronic"
   },
   {
@@ -56,7 +56,7 @@
     "stage": "Main Stage",
     "description": "Dua Lipa performs a futuristic pop show full of rhythm and movement.",
     "artist": "Dua Lipa",
-    "image": "../assets/images/dua_lipa.png",
+    "image": "/EchoFest/assets/images/dua_lipa.png",
     "category": "pop"
   },
   {
@@ -68,7 +68,7 @@
     "stage": "Main Stage",
     "description": "The Weeknd brings late-night atmosphere, lights and emotional vocals.",
     "artist": "The Weeknd",
-    "image": "../assets/images/the_weeknd.png",
+    "image": "/EchoFest/assets/images/weeknd.png",
     "category": "pop"
   },
   {
@@ -80,7 +80,7 @@
     "stage": "Acoustic Stage",
     "description": "Ed Sheeran performs an intimate acoustic session with guitar and storytelling.",
     "artist": "Ed Sheeran",
-    "image": "../assets/images/ed_sheeran.png",
+    "image": "/EchoFest/assets/images/ed_sheeran.png",
     "category": "acoustic"
   },
   {
@@ -92,7 +92,7 @@
     "stage": "EDM Stage",
     "description": "Martin Garrix brings the highest energy moment of the festival weekend.",
     "artist": "Martin Garrix",
-    "image": "../assets/images/martin_garrix.png",
+    "image": "/EchoFest/assets/images/martin_garrix.png",
     "category": "electronic"
   },
   {
@@ -104,7 +104,7 @@
     "stage": "EDM Stage",
     "description": "Calvin Harris closes the night with summer hits and festival fireworks.",
     "artist": "Calvin Harris",
-    "image": "../assets/images/calvinharris.png",
+    "image": "/EchoFest/assets/images/calvin_harris.png",
     "category": "electronic"
   },
   {
@@ -116,7 +116,7 @@
     "stage": "Pop Stage",
     "description": "Sia delivers a powerful emotional vocal performance.",
     "artist": "Sia",
-    "image": "../assets/images/sia.png",
+    "image": "/EchoFest/assets/images/sia.png",
     "category": "pop"
   },
   {
@@ -128,7 +128,7 @@
     "stage": "Beach Stage",
     "description": "DJ Snake opens the beach edition with explosive bass and seaside energy.",
     "artist": "DJ Snake",
-    "image": "../assets/images/dj_snake.png",
+    "image": "/EchoFest/assets/images/dj_snake.png",
     "category": "electronic"
   },
   {
@@ -140,7 +140,7 @@
     "stage": "Arena Stage",
     "description": "Rita Ora performs a special pop night with Albanian pride and energy.",
     "artist": "Rita Ora",
-    "image": "../assets/images/rita_ora.png",
+    "image": "/EchoFest/assets/images/rita_ora.png",
     "category": "pop"
   },
   {
@@ -152,7 +152,7 @@
     "stage": "Arena Stage",
     "description": "Billie Eilish brings a deep, moody seaside performance.",
     "artist": "Billie Eilish",
-    "image": "../assets/images/billie_eilish.png",
+    "image": "/EchoFest/assets/images/billie_eilish.png",
     "category": "pop"
   },
   {
@@ -164,7 +164,7 @@
     "stage": "Beach Stage",
     "description": "David Guetta turns the beach into a midnight EDM party.",
     "artist": "David Guetta",
-    "image": "../assets/images/david_guetta.png",
+    "image": "/EchoFest/assets/images/david_guetta.png",
     "category": "electronic"
   },
   {
@@ -176,7 +176,7 @@
     "stage": "Arena Stage",
     "description": "Dua Lipa performs a neon-inspired show near the waves.",
     "artist": "Dua Lipa",
-    "image": "../assets/images/dua_lipa.png",
+    "image": "/EchoFest/assets/images/dua_lipa.png",
     "category": "pop"
   },
   {
@@ -188,7 +188,7 @@
     "stage": "Arena Stage",
     "description": "The Weeknd creates a night show with lights, emotion and atmosphere.",
     "artist": "The Weeknd",
-    "image": "../assets/images/the_weeknd.png",
+    "image": "/EchoFest/assets/images/weeknd.png",
     "category": "pop"
   },
   {
@@ -200,7 +200,7 @@
     "stage": "Sunset Terrace",
     "description": "Ed Sheeran performs acoustic songs during sunset by the sea.",
     "artist": "Ed Sheeran",
-    "image": "../assets/images/ed_sheeran.png",
+    "image": "/EchoFest/assets/images/ed_sheeran.png",
     "category": "acoustic"
   },
   {
@@ -212,7 +212,7 @@
     "stage": "Beach Stage",
     "description": "Martin Garrix delivers one of the final EDM drops of EchoFest Albania.",
     "artist": "Martin Garrix",
-    "image": "../assets/images/martin_garrix.png",
+    "image": "/EchoFest/assets/images/martin_garrix.png",
     "category": "electronic"
   },
   {
@@ -224,7 +224,7 @@
     "stage": "Beach Stage",
     "description": "Calvin Harris closes the beach festival with a massive final show.",
     "artist": "Calvin Harris",
-    "image": "../assets/images/calvin_harris.png",
+    "image": "/EchoFest/assets/images/calvin_harris.png",
     "category": "electronic"
   },
   {
@@ -236,7 +236,7 @@
     "stage": "Arena Stage",
     "description": "Sia gives an emotional farewell performance to close the festival mood.",
     "artist": "Sia",
-    "image": "../assets/images/sia.png",
+    "image": "/EchoFest/assets/images/sia.png",
     "category": "pop"
   }
 ]

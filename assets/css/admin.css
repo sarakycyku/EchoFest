@@ -361,7 +361,7 @@ canvas {
     font-size: 0.65rem;
     margin-left: 8px;
 }
-   .home-btn {
+.home-btn {
     display: inline-flex;
     align-items: center;
     gap: 6px;
