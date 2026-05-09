@@ -1,5 +1,6 @@
 <?php
 session_start();
+require_once __DIR__ . "/../db/conn.php";
 
 if (!isset($_SESSION['username'])) {
     header("Location: /EchoFest/pages/client/login.php");
@@ -11,6 +12,8 @@ $ticketName = $_POST['ticket_name'] ?? '';
 $qty = $_POST['qty'] ?? 1;
 $eventName = $_POST['event_name'] ?? '';
 $eventDates = $_POST['event_dates'] ?? '';
+$ticketType = $_POST['ticket_type'] ?? '';
+$locationCode = $_POST['event_code'] ?? '';
 $total = $_POST['total'] ?? 0;
 $expiry = trim($_POST['expiry'] ?? '');
 $cvv = trim($_POST['cvv'] ?? '');
@@ -35,22 +38,24 @@ if ((int)('20' . $m[2]) < (int)date('Y')) {
     exit;
 }
 
-//veprimet me files
-$filename = __DIR__ . "/../data/orders.txt";
+$stmt = $pdo->prepare("
+    INSERT INTO orders (username, ticket_type, ticket_name, qty, event_name, event_dates, location_code, total, order_date)
+    VALUES (:username, :ticket_type, :ticket_name, :qty, :event_name, :event_dates, :location_code, :total, NOW())
+");
 
-//shton order pa i fshi tvjetrat
-$file = fopen($filename, "a") or die("Unable to open file!");
-fwrite($file, "ORDER: $ticketName x$qty | $eventName | $eventDates | Total: EUR $total | User: {$_SESSION['username']} | Date: " . date('Y-m-d H:i:s') . "\n");
-fclose($file);
-
-//per lexim
-$file = fopen($filename, "r") or die("Unable to open file!");
-$content = fread($file, filesize($filename));
-fclose($file);
+$stmt->execute([
+    ':username' => $_SESSION['username'],
+    ':ticket_type' => $ticketType,
+    ':ticket_name' => $ticketName,
+    ':qty' => $qty,
+    ':event_name' => $eventName,
+    ':event_dates' => $eventDates,
+    ':location_code' => $locationCode,
+    ':total' => $total,
+]);
 
 //me rujt porosine ne session
 $_SESSION['order_done'] = true;
-$_SESSION['order_content'] = $content;
 
 header("Location: /EchoFest/pages/client/purchase.php");
 exit;
