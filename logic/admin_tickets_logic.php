@@ -53,6 +53,13 @@ if ($action === 'add') {
         }
     }
 
+    //validimi per name
+    if (strlen($name) < 3) {
+        $_SESSION['admin_msg'] = "Name duhet te kete minimum 3 karaktere.";
+        header("Location: /EchoFest/pages/admin/admin_tickets.php");
+        exit;
+    }
+
     $tickets[] = [
         'id' => $id,
         'name' => $name,
