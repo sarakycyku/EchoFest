@@ -1,61 +1,63 @@
-create database echofest;
+CREATE DATABASE IF NOT EXISTS echofest CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+USE echofest;
 
-use echofest;
-
-create table users (
-  id int auto_increment primary key,
-  first_name varchar(100) not null,
-  last_name varchar(100) not null,
-  username varchar(50) not null unique,
-  email varchar(150) not null unique,
-  phone varchar(30) not null,
-  age int not null check (age >= 18 and age <= 120),
-  password varchar(255) not null,
-  role varchar(20) not null default 'user' check (role in ('admin','user')),
-  created_at timestamp not null default current_timestamp
+CREATE TABLE IF NOT EXISTS users (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  username VARCHAR(50) NOT NULL UNIQUE,
+  password VARCHAR(255) NOT NULL,
+  email VARCHAR(150) NOT NULL UNIQUE,
+  first_name VARCHAR(100) NOT NULL,
+  last_name VARCHAR(100) NOT NULL,
+  phone VARCHAR(30) NOT NULL,
+  age INT NOT NULL,
+  role VARCHAR(20) NOT NULL DEFAULT 'user',
+  created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
-CREATE TABLE artists (
-  id int AUTO_INCREMENT PRIMARY KEY,
-  name varchar(120) not null,
-  genre varchar(80) not null,
-  bio text DEFAULT null,
-  image varchar(255) DEFAULT null
+CREATE TABLE IF NOT EXISTS lineup (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  artist VARCHAR(120) NOT NULL,
+  stage VARCHAR(80) NOT NULL,
+  day VARCHAR(30) NOT NULL,
+  image VARCHAR(255) NOT NULL,
+  hits TEXT NOT NULL
 );
 
-CREATE TABLE events (
-  id int AUTO_INCREMENT PRIMARY KEY,
-  title varchar(150) not null,
-  event_date DATETIME not null,
-  location varchar(120) not null,
-  description text DEFAULT null,
-  price DECIMAL(10,2) not null DEFAULT 0.00 CHECK (price >= 0),
-  image varchar(255) DEFAULT null
+CREATE TABLE IF NOT EXISTS tickets (
+  id VARCHAR(50) PRIMARY KEY,
+  img_class VARCHAR(80) DEFAULT NULL,
+  img_src VARCHAR(255) NOT NULL,
+  name VARCHAR(120) NOT NULL,
+  description TEXT NOT NULL,
+  price INT NOT NULL,
+  available TINYINT(1) NOT NULL DEFAULT 0,
+  coming_date VARCHAR(100) DEFAULT NULL,
+  sort_order INT NOT NULL DEFAULT 0
 );
 
-CREATE TABLE event_artists (
-  id int AUTO_INCREMENT PRIMARY KEY,
-  event_id int not null,
-  artist_id int not null,
-  created_at TIMESTAMP not null DEFAULT CURRENT_TIMESTAMP,
-
-  foreign key (event_id) references events(id)
-    ON DELETE CASCADE ON UPDATE CASCADE,
-
-  foreign key (artist_id) references artists(id)
-    ON DELETE CASCADE ON UPDATE CASCADE
+CREATE TABLE IF NOT EXISTS orders (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  username VARCHAR(50) NOT NULL,
+  ticket_type VARCHAR(50) DEFAULT NULL,
+  ticket_name VARCHAR(120) NOT NULL,
+  qty INT NOT NULL,
+  event_name VARCHAR(120) NOT NULL,
+  event_dates VARCHAR(120) NOT NULL,
+  location_code VARCHAR(20) DEFAULT NULL,
+  total DECIMAL(10,2) NOT NULL,
+  order_date DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (username) REFERENCES users(username) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
-CREATE TABLE bookings (
-  id int AUTO_INCREMENT PRIMARY KEY,
-  user_id int not null,
-  event_id int not null,
-  quantity int not null CHECK (quantity > 0),
-  total_price DECIMAL(10,2) not null CHECK (total_price >= 0),
-
-  foreign key (user_id) references users(id)
-    ON DELETE CASCADE ON UPDATE CASCADE,
-
-  foreign key (event_id) references events(id)
-    ON DELETE CASCADE ON UPDATE CASCADE
+CREATE TABLE IF NOT EXISTS events (
+  id VARCHAR(80) PRIMARY KEY,
+  title VARCHAR(150) NOT NULL,
+  event_date VARCHAR(80) NOT NULL,
+  event_time VARCHAR(80) NOT NULL,
+  location VARCHAR(120) NOT NULL,
+  stage VARCHAR(80) NOT NULL,
+  description TEXT NOT NULL,
+  artist VARCHAR(120) NOT NULL,
+  image VARCHAR(255) NOT NULL,
+  category VARCHAR(80) NOT NULL
 );
