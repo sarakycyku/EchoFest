@@ -1,4 +1,5 @@
 <?php
+require_once __DIR__ . '/../db/conn.php';
 
 $festivalInfo = [
     'name' => 'EchoFest',
@@ -28,31 +29,34 @@ $festivalLocations = [
 ];
 
 function loadLineupData() {
-    $file = __DIR__ . '/lineup_data.json';
+    global $pdo;
 
-    // Fallback for the current folder-based structure if the older path no longer resolves.
-    if (!file_exists($file)) {
-        $file = __DIR__ . '/lineup_data.json';
+    $stmt = $pdo->query("SELECT artist, stage, day, image, hits FROM lineup ORDER BY id");
+    $lineup = $stmt->fetchAll();
+
+    foreach ($lineup as &$event) {
+        $event['hits'] = json_decode($event['hits'] ?? '[]', true) ?: [];
     }
+    unset($event);
 
-    if (!file_exists($file)) {
-        return [];
-    }
-
-    return json_decode(file_get_contents($file), true) ?? [];
+    return $lineup;
 }
 
 function loadTicketData(string $file = __DIR__ . '/tickets.json'): array
 {
-    // Fallback for the current folder-based structure if the older path no longer resolves.
-    if (!file_exists($file)) {
-        $file = __DIR__ . '/tickets.json';
-    }
+    global $pdo;
 
-    if (!file_exists($file)) {
-        return [];
-    }
+    $stmt = $pdo->query("SELECT id, img_class, img_src, name, description AS `desc`, price, available, coming_date FROM tickets ORDER BY sort_order, id");
+    $tickets = $stmt->fetchAll();
 
-    $data = json_decode(file_get_contents($file), true);
-    return is_array($data) ? $data : [];
+    foreach ($tickets as &$ticket) {
+        $ticket['price'] = (int) $ticket['price'];
+        $ticket['available'] = (bool) $ticket['available'];
+        if (empty($ticket['img_class'])) {
+            $ticket['img_class'] = 'img-' . $ticket['id'];
+        }
+    }
+    unset($ticket);
+
+    return $tickets;
 }
