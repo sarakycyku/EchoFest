@@ -37,7 +37,7 @@ $tickets = json_decode(file_get_contents('../../data/tickets.json'), true);
                 </div>
                 <div class="add-field">
                     <label>Coming Date</label>
-                    <input type="text" name="coming_date" placeholder="MM/YYYY">
+                    <input type="text" name="coming_date" placeholder="DD/MM/YYYY">
                 </div>
                 <div class="add-field">
                     <label>Image path</label>

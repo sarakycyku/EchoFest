@@ -57,18 +57,18 @@ if ($action === 'add') {
 
     //validimi per coming date
     if ($coming !== '') {
-        if (!preg_match('/^(\d{2})\/(\d{4})$/', $coming, $m) || (int)$m[1] < 1 || (int)$m[1] > 12) {
-            $_SESSION['admin_msg'] = "Coming date format: MM/YYYY (p.sh. 06/2027), muaji 01-12.";
+        if (!preg_match('/^(\d{2})\/(\d{2})\/(\d{4})$/', $coming, $m) || (int)$m[1] < 1 || (int)$m[1] > 31 || (int)$m[2] < 1 || (int)$m[2] > 12) {
+            $_SESSION['admin_msg'] = "Coming date format: DD/MM/YYYY (p.sh. 15/06/2027).";
             header("Location: /EchoFest/pages/admin/admin_tickets.php");
             exit;
         }
-        if ((int)$m[2] < (int)date('Y')) {
+        if ((int)$m[3] < (int)date('Y')) {
             $_SESSION['admin_msg'] = "Coming date nuk mund te jete ne te kaluaren.";
             header("Location: /EchoFest/pages/admin/admin_tickets.php");
             exit;
         }
         $months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
-        $coming = 'Coming ' . $months[(int)$m[1] - 1] . ' 1, ' . $m[2];
+        $coming = 'Coming ' . $months[(int)$m[2] - 1] . ' ' . (int)$m[1] . ', ' . $m[3];
     }
 
     $tickets[] = [
