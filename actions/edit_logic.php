@@ -5,6 +5,12 @@ if (!isset($_SESSION['username'])) {
     exit;
 }
 require_once __DIR__ . "/../db/conn.php";
+
+if ($_SERVER["REQUEST_METHOD"] !== "POST") {
+    header("Location: /EchoFest/pages/client/edit_profile.php");
+    exit;
+}
+
 $username = $_SESSION['username'];
 
 $first_name = trim($_POST['first_name'] ?? '');
@@ -33,11 +39,14 @@ if (!preg_match($regexname, $last_name)) {
 if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
     $_SESSION['editEmailErr'] = "Email is not valid!";
 } else {
-    foreach ($users as $userKey => $u) {
-        if ($userKey !== $username && isset($u['email']) && $u['email'] === $email) {
-            $_SESSION['editEmailErr'] = "Email already exists!";
-            break;
-        }
+    $stmt = $pdo->prepare("SELECT id FROM users WHERE email = :email AND username != :username LIMIT 1");
+    $stmt->execute([
+        ':email' => $email,
+        ':username' => $username
+    ]);
+
+    if ($stmt->fetch()) {
+        $_SESSION['editEmailErr'] = "Email already exists!";
     }
 }
 
@@ -60,11 +69,24 @@ if (
     exit;
 }
 
-$users[$username]['first_name'] = $first_name;
-$users[$username]['last_name']  = $last_name;
-$users[$username]['email']      = $email;
-$users[$username]['phone']      = $phone;
-$users[$username]['age']        = $age;
+$stmt = $pdo->prepare("
+    UPDATE users
+    SET first_name = :first_name,
+        last_name = :last_name,
+        email = :email,
+        phone = :phone,
+        age = :age
+    WHERE username = :username
+");
+
+$stmt->execute([
+    ':first_name' => $first_name,
+    ':last_name' => $last_name,
+    ':email' => $email,
+    ':phone' => $phone,
+    ':age' => (int)$age,
+    ':username' => $username
+]);
 
 header("Location: /EchoFest/pages/client/profile.php");
 exit;
