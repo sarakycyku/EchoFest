@@ -1,13 +1,19 @@
-<?
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "echofest";
-$port = 3307;
+<?php
+$host = 'localhost';
+$db   = 'echofest';
+$user = 'root';
+$pass = '';
+$port = 3306;
 
-$conn=mysqli_connect($servername, $username, $password, $dbname, $port);
-
-if(!$conn){
-echo "Connection failed: " . mysqli_connect_error();
+try {
+    $pdo = new PDO(
+        "mysql:host=$host;port=$port;dbname=$db;charset=utf8mb4",
+        $user,
+        $pass
+    );
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+} catch (PDOException $e) {
+    die('Database connection failed: ' . $e->getMessage());
 }
 ?>
